@@ -1,11 +1,12 @@
 /*
  * Author: Cristian Merli
  * Code title: Esercizio 1
- * Code version 1.0
+ * Code version 3.0
  * Creation date: 23/03/2021
  * Last mod. date: 23/03/2021
  */
 
+/* Libraries import */
 #include <stdio.h> // Standard I/O library inclusion 
 
 /* Funzione 1 */
@@ -38,7 +39,6 @@ int main(){ // Main cycle
  * tutti i numeri in sequenza:
  * numero 5
  * 1,2,3,4,5
- *  
  * Successivamente chiamare la funzione con 10 e 25
  */
 

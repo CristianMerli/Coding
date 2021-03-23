@@ -6,6 +6,7 @@
  * Last mod. date: 16/03/2021
  */
 
+/* Libraries import */
 #include <stdio.h> // Standard I/O library inclusion 
 
 /* Funzione somma */

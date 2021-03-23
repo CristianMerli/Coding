@@ -1,11 +1,12 @@
 /*
  * Author: Cristian Merli
  * Code title: Gestione flusso
- * Code version 1.0
+ * Code version 3.0
  * Creation date: 23/03/2021
  * Last mod. date: 23/03/2021
  */
 
+/* Libraries import */
 #include <stdio.h> // Standard I/O library inclusion 
 
 int main(){ // Main cycle

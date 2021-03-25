@@ -143,12 +143,12 @@ void solve(double a[n][n], unsigned char p[n], double b[n], double x[n], unsigne
       }
     }
   }
-  x[n-1] /= a[n-1][n-1];                                                                                    // -
-  for (short i = n-2; i >= 0; i--){                                                                         // -
-    for (unsigned char j = i+1; j < n; j++){                                                                // -
-      x[i] -= (a[i][j] * x[j]);                                                                             // -
+  x[n-1] /= a[n-1][n-1];                                                                                    // Solve ST system (u*x=z) --> Solve Superior-Triangular system lines FOR cycle, set xn coefficient to 1
+  for (short i = n-2; i >= 0; i--){                                                                         // Solve ST system (u*x=z) --> Solve Superior-Triangular system lines FOR cycle
+    for (unsigned char j = i+1; j < n; j++){                                                                // Solve ST system (u*x=z) --> Solve Superior-Triangular system columns FOR cycle
+      x[i] -= (a[i][j] * x[j]);                                                                             // Solve ST system (u*x=z) --> Solve Superior-Triangular system, isolate xi
     }
-    x[i] /= a[i][i];                                                                                        // -
+    x[i] /= a[i][i];                                                                                        // Solve ST system (u*x=z) --> Solve Superior-Triangular system lines FOR cycle, set xi coefficient to 1
   }
 }
 

@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
- * Code title: Esercizio 1
+ * Code title: Esercizio 1 (For)
  * Code version 3.0
  * Creation date: 23/03/2021
- * Last mod. date: 23/03/2021
+ * Last mod. date: 30/03/2021
  */
 
 /* Libraries import */
@@ -12,8 +12,8 @@
 /* Funzione 1 */
 void stampa(int val){                                                         // Definizione tipo di funzione (VOID), parametri (int val)
   /* Corpo funzione */
-  for(int i = 0; i <= val; i++){                                              // Ciclo FOR per print calore
-    printf("%d\n", i);                                                        // Print valore
+  for (int i = 0; i <= val; i++){                                             // Ciclo FOR per print calore
+    printf("%d ", i);                                                         // Print valore
   }
 } // Fine funzione
 
@@ -28,6 +28,7 @@ int main(){ // Main cycle
   stampa(b);                                                                  // Stampa con b=10
   printf("\n");                                                               // New line
   stampa(c);                                                                  // Stampa con c=25
+  printf("\n");                                                               // New line
   return 0;  // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 } // End main cycle
 
@@ -41,4 +42,3 @@ int main(){ // Main cycle
  * 1,2,3,4,5
  * Successivamente chiamare la funzione con 10 e 25
  */
-

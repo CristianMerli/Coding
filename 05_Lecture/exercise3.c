@@ -1,7 +1,7 @@
 /*
  * Author: Cristian Merli
- * Code title: Esercizio 3 (While)
- * Code version 1.0
+ * Code title: Exercise 3 (While)
+ * Code version: 3.0
  * Creation date: 30/03/2021
  * Last mod. date: 30/03/2021
  */

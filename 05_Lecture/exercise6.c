@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
- * Code title: Esercizio 6 (Logical-Operations)
- * Code version 1.0
+ * Code title: Exercise 6 (Logical-Operations)
+ * Code version: 3.0
  * Creation date: 30/03/2021
- * Last mod. date: 30/03/2021
+ * Last mod. date: 06/04/2021
  */
 
 
@@ -72,21 +72,30 @@ void logo(unsigned char vthck, unsigned char lthck_vthik_r, unsigned char start_
   printf("\033[0m\n");                                                                                      // New line and erase logo bkg color
 }
 
-void function(int val){                                                                                     // -
+int logic_check(int val1, int val2, int val3, int val4){                                                    // Logical check function (0=NOT-OK, 1=OK)
   /* Function body */
-  //                                                                                                        // -
-}
+  if ((val1 <= val3) && (val1 <= val4) && (val2 <= val3) && (val2 <= val4)){                                // Logical conditions test (case ok)
+      return 1;                                                                                             // Return condition ok
+    } else {                                                                                                // Logical conditions test (case not-ok)
+      return 0;                                                                                             // Return condition not-ok
+    }
+  }
 
 
 /* Main cycle */
 int main(){
   /* Vars declaration and definition */
-  logo(5, 3, 6, 22, "??????????????", Y, 'X', G);                                                           // Print logo function call (vert_thick, lat_thick_vert_thick_ratio, start_spaces, lat_spaces, text, txt_color, background_char, bkgchr_color)
-  //                                                                                                        // -
+  int a = 1, b = 2, c = 3, d = 4, e = 5, f = 5, g = 5, h = 5, i = 5, l = 10, m = 12, n = 12;                // Int vars declaration and definition
 
   /* Code */
-  //                                                                                                        // -
-  
+  logo(5, 3, 6, 22, "LOGICAL CHECK", Y, 'X', G);                                                            // Print logo function call (vert_thick, lat_thick_vert_thick_ratio, start_spaces, lat_spaces, text, txt_color, background_char, bkgchr_color)
+  printf("\n\n%s>>>%s Call 1:%s\n\n", G, P, E);                                                             // Call 1 fbk
+  printf("%s-->%s Logic check: %s%d %d %d %d --> %d %s\n", O, C, B, a, b, c, d, logic_check(a, b, c, d), E);// Logical check function call (0=NOT-OK, 1=OK)
+  printf("\n\n%s>>>%s Call 2:%s\n\n", G, P, E);                                                             // Call 2 fbk
+  printf("%s-->%s Logic check: %s%d %d %d %d --> %d %s\n", O, C, B, e, f, g, h, logic_check(e, f, g, h), E);// Logical check function call (0=NOT-OK, 1=OK)
+  printf("\n\n%s>>>%s Call 3:%s\n\n", G, P, E);                                                             // Call 3 fbk
+  printf("%s-->%s Logic check: %s%d %d %d %d --> %d %s\n", O, C, B, i, l, m, n, logic_check(i, l, m, n), E);// Logical check function call (0=NOT-OK, 1=OK)
+
   return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }
 
@@ -95,7 +104,7 @@ int main(){
 /* Task */
 /*
  * Scrivi una funzione che prende 4 interi e ritorna 1 se i primi sono minori 
- * uguali dei secondi due (valore 0), il secondo è maggiori stretto del primo sono 
- * e i terzo e quarto sono diversi
+ * uguali dei secondi due (valore 0), i secondo è maggiori stretto del primo sono 
+ * e il terzo e quarto sono diversi
  * Successivamente chiamare la funzione con 1 2 3 4 e con 5 5 5 5 e con 5 10 12 12
  */

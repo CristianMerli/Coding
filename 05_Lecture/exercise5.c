@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
- * Code title: Esercizio 5 (Binary-Operations)
- * Code version 1.0
+ * Code title: Exercise 5 (Binary-Operations)
+ * Code version: 3.0
  * Creation date: 30/03/2021
- * Last mod. date: 30/03/2021
+ * Last mod. date: 02/04/2021
  */
 
 
@@ -72,20 +72,32 @@ void logo(unsigned char vthck, unsigned char lthck_vthik_r, unsigned char start_
   printf("\033[0m\n");                                                                                      // New line and erase logo bkg color
 }
 
-void function(int val){                                                                                     // -
+int bin_check(int val){                                                                                     // Binary check function (0=NOT-OK, 1=OK)
   /* Function body */
-  //                                                                                                        // -
+  const int cond1 = 0b100;                                                                                  // Binary check condition 1 (*****1** - in LSBs)
+  const int cond2 = 0b10000;                                                                                // Binary check condition 2 (***0**** - in LSBs usin' NOT on val)
+
+  if ((cond1 & val) && (cond2 & ~val)){                                                                     // Binary conditions test (case ok)
+    return 1;                                                                                               // Return condition ok
+  } else {                                                                                                  // Binary conditions test (case not-ok)
+    return 0;                                                                                               // Return condition not-ok
+  }
 }
 
 
 /* Main cycle */
 int main(){
   /* Vars declaration and definition */
-  //                                                                                                        // -
+  int a = 7, b = 23, c = 36;                                                                                // Int vars declaration and definition                                                                                                        // -
 
   /* Code */
-  logo(5, 3, 6, 22, "??????????????", Y, 'X', G);                                                           // Print logo function call (vert_thick, lat_thick_vert_thick_ratio, start_spaces, lat_spaces, text, txt_color, background_char, bkgchr_color)
-  //                                                                                                        // -
+  logo(5, 3, 6, 22, "BINARY CHECK", Y, 'X', G);                                                             // Print logo function call (vert_thick, lat_thick_vert_thick_ratio, start_spaces, lat_spaces, text, txt_color, background_char, bkgchr_color)
+  printf("\n\n%s>>>%s Call 1:%s\n\n", G, P, E);                                                             // Call 1 fbk
+  printf("%s-->%s Binary check: %s%d --> %d %s\n", O, C, B, a, bin_check(a), E);                            // Binary check function call (0=NOT-OK, 1=OK)
+  printf("\n\n%s>>>%s Call 2:%s\n\n", G, P, E);                                                             // Call 2 fbk
+  printf("%s-->%s Binary check: %s%d --> %d %s\n", O, C, B, b, bin_check(b), E);                            // Binary check function call (0=NOT-OK, 1=OK)
+  printf("\n\n%s>>>%s Call 3:%s\n\n", G, P, E);                                                             // Call 3 fbk
+  printf("%s-->%s Binary check: %s%d --> %d %s\n", O, C, B, c, bin_check(c), E);                            // Binary check function call (0=NOT-OK, 1=OK)
   
   return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }

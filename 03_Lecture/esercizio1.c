@@ -1,7 +1,7 @@
 /*
  * Author: Cristian Merli
  * Code title: Esercizio 1
- * Code version 3.0
+ * Code version: 3.0
  * Creation date: 16/03/2021
  * Last mod. date: 16/03/2021
  */

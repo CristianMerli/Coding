@@ -1,7 +1,7 @@
 /*
  * Author: Cristian Merli
  * Code title: Printf, sizeof e variabili
- * Code version 3.0
+ * Code version: 3.0
  * Creation date: 09/03/2021
  * Last mod. date: 11/03/2021
  */

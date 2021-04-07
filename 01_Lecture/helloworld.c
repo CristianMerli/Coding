@@ -1,7 +1,7 @@
 /*
  * Author: Cristian Merli
  * Code title: Hello world e compilazione
- * Code version 3.0
+ * Code version: 3.0
  * Creation date: 02/03/2021
  * Last mod. date: 11/03/2021
  */

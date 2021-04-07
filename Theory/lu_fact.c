@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
- * Code title: LU factorization
- * Code version 1.0
+ * Code title: LU factorization and system solver with Gauss algorithm (simple pivoting)
+ * Code version: 3.0
  * Creation date: 23/03/2021
- * Last mod. date: 23/03/2021
+ * Last mod. date: 31/03/2021
  */
 
 
@@ -14,7 +14,6 @@
 
 
 /* Constants declaration and definition */
-const unsigned char n = 5;                                                                                  // Number of matrix's rows and columns constant val declaration and definition
 const char R[] = "\033[0;31m";                                                                              // Red color
 const char B[] = "\033[0;34m";                                                                              // Blue color
 const char LB[] = "\033[1;34m";                                                                             // Light blue color
@@ -26,6 +25,7 @@ const char G[] = "\033[0;32m";                                                  
 const char LGN[] = "\033[1;32m";                                                                            // Light green color
 const char LGY[] = "\033[0;37m";                                                                            // Light gray color
 const char E[] = "\033[0m";                                                                                 // End color
+const unsigned char n = 5;                                                                                  // Number of matrix's rows and columns constant val declaration and definition
 
 
 /* Functions declaration and definition */
@@ -185,5 +185,5 @@ int main(){
 
 /* Task */
 /*
- * LU factorization C codice algorithm, and system solver (ax=b)
+ * LU factorization C code, and system solver (ax=b) --> Gauss algorithm with simple pivoting
  */

@@ -1,7 +1,7 @@
 /*
  * Author: Cristian Merli
- * Code title: Esercizio 7 (Vettori 1)
- * Code version 1.0
+ * Code title: Exercise 7 (Vectors 1)
+ * Code version: 1.0
  * Creation date: 30/03/2021
  * Last mod. date: 30/03/2021
  */

@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
- * Code title: Esercizio 4 (While-Continue)
- * Code version 1.0
+ * Code title: Exercise 4 (While-Continue)
+ * Code version: 3.0
  * Creation date: 30/03/2021
- * Last mod. date: 30/03/2021
+ * Last mod. date: 06/04/2021
  */
 
 
@@ -72,21 +72,40 @@ void logo(unsigned char vthck, unsigned char lthck_vthik_r, unsigned char start_
   printf("\033[0m\n");                                                                                      // New line and erase logo bkg color
 }
 
-void function(int val){                                                                                     // -
+int consec_1s(int val){                                                                                     // Consecutive 1s function
   /* Function body */
-  //                                                                                                        // -
+  unsigned char i = 0;                                                                                      // Iterations idx
+  unsigned char cnt = 0;                                                                                    // Consecutive 1s counter
+  unsigned char max = 0;                                                                                    // Consecutive 1s max value
+
+  while (i < 8*sizeof(val)){                                                                                // Scan every bit of the value
+    if (val & 0b1){                                                                                         // In case of 1 in bin val LSB
+      cnt++;                                                                                                // Increment consecutive 1s counter
+    } else {                                                                                                // While in case of 0 in bin val LSB
+      if (cnt > max){                                                                                       // If consecutive 1s counter is greater than consecutive 1s max value 
+        max = cnt;                                                                                          // Update consecutive 1s max value
+      }
+      cnt = 0;                                                                                              // Reset consecutive 1s counter
+    }
+    val >>= 1;                                                                                              // Right shift bin val (1 bit)
+    i++;                                                                                                    // Increment iterations idx
+  }
+  return max;                                                                                               // Return consecutive 1s max value
 }
 
 
 /* Main cycle */
 int main(){
   /* Vars declaration and definition */
-  //                                                                                                        // -
+  int a = 123, b = 432;                                                                                     // Int vars declaration and definition
 
   /* Code */
-  logo(5, 3, 6, 22, "??????????????", Y, 'X', G);                                                           // Print logo function call (vert_thick, lat_thick_vert_thick_ratio, start_spaces, lat_spaces, text, txt_color, background_char, bkgchr_color)
-  //                                                                                                        // -
-  
+  logo(5, 3, 6, 22, "CONSECUTIVE 1s", Y, 'X', G);                                                           // Print logo function call (vert_thick, lat_thick_vert_thick_ratio, start_spaces, lat_spaces, text, txt_color, background_char, bkgchr_color)
+  printf("\n\n%s>>>%s Call 1:%s\n\n", G, P, E);                                                             // Call 1 fbk
+  printf("%s-->%s Consecutive 1s: %s%d --> %d %s\n", O, C, B, a, consec_1s(a), E);                          // Consecutive 1s function call
+  printf("\n\n%s>>>%s Call 2:%s\n\n", G, P, E);                                                             // Call 2 fbk
+  printf("%s-->%s Consecutive 1s: %s%d --> %d %s\n", O, C, B, b, consec_1s(b), E);                          // Consecutive 1s function call
+
   return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }
 
@@ -94,7 +113,7 @@ int main(){
 
 /* Task */
 /*
- * Scrivere una funziona che prende un intero ne considera il valore binario 
+ * Scrivere una funziona che prende un intero ne considera il valore binario
  * e ritorna il numero massimo di ricorrenze consegutive di 1.
  * es 13 -> 1101 -> 2
  * Successivamente chiamare la funzione con 123 e 432

@@ -124,9 +124,9 @@ int main(){
   vect_init(a, b, n, m);                                                                                    // Vectors initialization (definition) function call
   printf("\n\n%s>>>%s Defined vectors:%s", G, P, E);                                                        // Defined vectors fbk
   print_vect(a, b, n, m);                                                                                   // Vectors print function call
-
   printf("\n\n%s>>>%s Vector add:%s", G, P, E);                                                             // Defined vectors fbk
-  int ret_code = vect_add(a, b, n, m);                                                                      // Vectors a and b rows number difference
+
+  int ret_code = vect_add(a, b, n, m);                                                                      // Vectors a and b rows number difference with vector add function call
   if (ret_code == 0){                                                                                       // In case of equal vectors a and b rows number - 0 code (OK)
     printf("\n\n%s--> %s%dx1%s a+b vector: %s\n", O, B, n, C, E);                                           // Print vect a info
     for (unsigned char i = 0; i < n; i++){                                                                  // Vect a lines print FOR cycle
@@ -135,7 +135,7 @@ int main(){
   } else {                                                                                                  // While in case of vectors a and b rows number difference - X code (NOT-OK)
     printf("\n\n%s--> %s%d row(s) difference%s in a+b vector add, ERROR!%s\n", O, B, ret_code, C, E);       // Print vect add error code, rows number mismatch
   }
-
+  
   return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }
 

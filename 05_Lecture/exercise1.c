@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Exercise 1 (For-Break)
- * Code version: 1.0
+ * Code version: 3.0
  * Creation date: 30/03/2021
- * Last mod. date: 30/03/2021
+ * Last mod. date: 08/04/2021
  */
 
 
@@ -72,21 +72,50 @@ void logo(unsigned char vthck, unsigned char lthck_vthik_r, unsigned char start_
   printf("\033[0m\n");                                                                                      // New line and erase logo bkg color
 }
 
-void function(int val){                                                                                     // -
+double bisection(double a, double b, double k, int n, double si, double fi){                                // Bisection function
   /* Function body */
-  //                                                                                                        // -
+  if ((a*si+b)*(a*fi+b) < 0){                                                                               // Check interval choice consistency (case OK) --> zero in interval
+    printf("\n\n%s--> %sINTERVAL OK! %sStartin' bisection algorithm to aprox. solution%s", O, LGN, B, E);   // Interval OK fbk
+    int idx = 0;                                                                                            // Algorithm iterations index
+    double mean = (si + fi) / 2;                                                                            // Interval central point calc
+    while (((fi - mean) > k) && (idx < n)){                                                                 // Error dimension while loop (cycle 'till err is lower than k spec val or 'till iterations specified n limit val reached)
+      if ((a*mean+b) > 0){                                                                                  // Zero in left-half interval case
+        fi = mean;
+      } else if ((a*mean+b) < 0){                                                                           // Zero in right-half interval case
+        si = mean;
+      } else {                                                                                              // Zero exactly in the middle of the interval (mean val)
+        printf("\n\n%s--> %sOK! %sExact solution (double precision) found after %s%d%s iterations!%s",
+              O, LGN, B, O, idx, B, E);                                                                     // Exact solution found fbk
+        return mean;                                                                                        // Return exact solution val
+      }
+      mean = (si + fi) / 2;                                                                                 // Interval central point upd
+      idx++;                                                                                                // Algorithm iterations index upd
+    }
+    printf("\n\n%s--> %sOK! %sApproximate solution found after %s%d%s iterations!%s",
+          O, LGN, B, O, idx, B, E);                                                                         // Approximate solution found fbk
+    return mean;                                                                                            // Return approximate solution val
+  } else {                                                                                                  // Check interval choice (case NOT-OK) --> zero out of interval
+    printf("\n\n%s--> %sINTERVAL NOT OK! %sQuittin' bisection algorithm, change interval!%s", O, R, B, E);  // Interval NOT-OK fbk
+    return 18446744073709551616.0;                                                                          // Return solution val (max val to highlight error in case of interval NOT-OK)
+  }
 }
 
 
 /* Main cycle */
 int main(){
   /* Vars declaration and definition */
-  //                                                                                                        // -
+  double a = 1.5, b = 2.5, k = 0.00001, si = -50.0, fi = +50.0;                                             // Double vars declaration and definition
+  int n = 100;                                                                                              // Int vars declaration and definition
 
   /* Code */
-  logo(5, 3, 6, 22, "??????????????", Y, 'X', G);                                                           // Print logo function call (vert_thick, lat_thick_vert_thick_ratio, start_spaces, lat_spaces, text, txt_color, background_char, bkgchr_color)
-  //                                                                                                        // -
-  
+  logo(5, 3, 7, 22, "BISECTION", Y, 'X', G);                                                                // Print logo function call (vert_thick, lat_thick_vert_thick_ratio, start_spaces, lat_spaces, text, txt_color, background_char, bkgchr_color)
+  printf("\n\n%s>>>%s Approximate solution of %s(%lf*x+%lf) = 0 %s--> (a*x+b) = 0%s", G, P, O, a, b, B, E); // Approximate solution fbk
+  printf("\n%s>>>%s Bisection interval %s[%lf, %lf]        %s--> [si, fi]%s", G, P, O, si, fi, B, E);       // Bisection interval solution fbk
+  printf("\n%s>>>%s Max error %s%lf                                %s--> k%s", G, P, O, k, B, E);           // Max error fbk
+  printf("\n%s>>>%s Max steps (iterations) %s%d                        %s--> n%s\n", G, P, O, n, B, E);     // Max steps (iterations) fbk
+  printf("\n\n%s--> %sCOMPLETED! %sBisection approximate solution: %s%lf%s\n",
+        O, C, B, Y, bisection(a, b, k, n, si, fi), E);                                                      // Bisection function call and approximate solution fbk
+
   return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }
 
@@ -98,6 +127,6 @@ int main(){
  * Interpreta i primi due come coefficente angolare (a) e intercetta dell'ordinata (b) 
  * di una retta y = a*x+b ed eseguendo il metodo di bisezione ritorna il valore y = 0.  
  * fermandosi se l'errore commesso è inferiore a k (trezo parametro) e non eseguendo più
- * di N passi di bisezione (quarto parametro).
+ * di n passi di bisezione (quarto parametro).
  * L'intervallo di bisezione è indicato dagli ultimi due parametri.
  */

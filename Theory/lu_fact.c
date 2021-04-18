@@ -3,7 +3,7 @@
  * Code title: LU factorization and system solver with Gauss algorithm (simple pivoting)
  * Code version: 3.0
  * Creation date: 23/03/2021
- * Last mod. date: 31/03/2021
+ * Last mod. date: 15/04/2021
  */
 
 
@@ -87,7 +87,7 @@ void mat_vect_init(double a[n][n], unsigned char p[n], double b[n], double x[n],
   }
 }
 
-void print_mat_vect(double a[n][n], unsigned char p[n], double b[n], double x[n], unsigned char n){         // Matrix and vectors print function
+void mat_vect_print(double a[n][n], unsigned char p[n], double b[n], double x[n], unsigned char n){         // Matrix and vectors print function
   /* Function body */
   printf("\n\n%s--> %s%dx%d%s matrix and %s%dx1%s vectors: %s\n", O, B, n, n, C, B, n, C, E);               // Print mat and vect info
   for (unsigned char i = 0; i < n; i++){                                                                    // Mat and vect lines print FOR cycle
@@ -159,8 +159,8 @@ void solve(double a[n][n], unsigned char p[n], double b[n], double x[n], unsigne
 /* Main cycle */
 int main(){
   /* Vars declaration and definition */
-  //double a[5][5] = {{0, 1, 0, 1, 2}, {6, 0, -1, 2, 3}, {1, 1, 0, 0, 1}, {0, -1, 1, 1, 0}, {-1, 0, 0, 2, 3}, };// Test matrix declaration and definition (b4 set n=5 and comment from line 80 to 85 included)
-  //double b[5] = {4, 6, 4, 1, 2};                                                                              // Known terms test vector declaration and definition (b4 set n=5 and comment from line 80 to 85 included)
+  //double a[5][5] = {{0, 1, 0, 1, 2}, {6, 0, -1, 2, 3}, {1, 1, 0, 0, 1}, {0, -1, 1, 1, 0}, {-1, 0, 0, 2, 3}, };// TEST matrix declaration and definition (b4 set n=5 and comment from line 80 to 85 included)
+  //double b[5] = {4, 6, 4, 1, 2};                                                                              // Known terms TEST vector declaration and definition (b4 set n=5 and comment from line 80 to 85 included)
   double a[n][n];                                                                                           // Matrix declaration
   double b[n];                                                                                              // Known terms vector declaration
   double x[n];                                                                                              // Unknown terms vector declaration
@@ -170,13 +170,13 @@ int main(){
   logo(5, 3, 6, 15, "LU FACTORIZATION ALGORITHM", Y, 'X', G);                                               // Print logo function call (vert_thick, lat_thick_vert_thick_ratio, start_spaces, lat_spaces, text, txt_color, background_char, bkgchr_color)
   mat_vect_init(a, p, b, x, n);                                                                             // Matrix and vectors initialization (definition) function call
   printf("\n\n%s>>>%s Defined matrix:%s", G, P, E);                                                         // Defined matrix fbk
-  print_mat_vect(a, p, b, x, n);                                                                            // Matrix and vectors print function call
+  mat_vect_print(a, p, b, x, n);                                                                            // Matrix and vectors print function call
   lu_fact(a, p, n);                                                                                         // LU factorization function call
   printf("\n\n%s>>>%s Factorized matrix:%s", G, P, E);                                                      // Factorized matrix fbk
-  print_mat_vect(a, p, b, x, n);                                                                            // Matrix and vectors print function call
+  mat_vect_print(a, p, b, x, n);                                                                            // Matrix and vectors print function call
   solve(a, p, b, x, n);                                                                                     // Solve function call
   printf("\n\n%s>>>%s Solved matrix:%s", G, P, E);                                                          // Solved matrix fbk
-  print_mat_vect(a, p, b, x, n);                                                                            // Matrix and vectors print function call
+  mat_vect_print(a, p, b, x, n);                                                                            // Matrix and vectors print function call
 
   return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }

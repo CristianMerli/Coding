@@ -1,9 +1,23 @@
-/*
- * Author: Cristian Merli
- * Code title: Polynomial interpolation with Newton algorithm and divided-differences
- * Code version: 3.0
- * Creation date: 12/04/2021
- * Last mod. date: 19/04/2021
+/*!
+ * \mainpage Project description
+ * 
+ * Polynomial interpolation C code mainly based on pointers.
+ * @author Cristian Merli
+ * @date 12/04/2021
+ * @version 3.0 - Completed 19/04/2021
+ * @note Important notes:
+ *       - The algorithm supports interpolation 'till 170 points.
+ *       - This software is composed by a single .c file and contains all the necessary functions (no pre-compiled libraries needed).
+ * @bug No known bugs.
+ * 
+ * \section section1 Code title:
+ * Polynomial interpolation with Newton algorithm and divided-differences.
+ * 
+ * \subsection subsection1 Code details:
+ * Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points, polynomial evaluation in given points and derivate calculation.
+ * 
+ * @file poly_interpol.c Polynomial interpolation C code.
+ * @brief Polynomial interpolation C code mainly based on pointers.
  */
 
 
@@ -52,6 +66,14 @@ char in_buff[25];                                                               
 
 
 /* Functions declaration and definition */
+/*!
+ * Semplice Routine
+ * \param start_sp Number of start spaces
+ * \param txt Title text
+ * \param txt_col Title text color
+ * \param bkg_chr Background char
+ * \param bkg_col Background char color
+ */
 static void logo(const byte start_sp, const char txt[], const char txt_col[], const char bkg_chr,           // Static function (readable only in this .c file) and const param (not modified in function --> SW optimization at compile-time)
                  const char bkg_col[]){                                                                     // Print responsive-logo function
   /* Function body */
@@ -280,10 +302,3 @@ int main(){
 
   return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }
-
-
-
-/* Task */
-/*
- * Polynomial interpolation C code --> Newton algorithm with divided-differences
- */

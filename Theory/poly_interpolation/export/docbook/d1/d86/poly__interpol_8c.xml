@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_poly__interpol_8c" xml:lang="en-US">
+<title>poly_interpol.c File Reference</title>
+<indexterm><primary>poly_interpol.c</primary></indexterm>
+<para>
+
+<para>Polynomial interpolation C code mainly based on pointers. </para>
+ 
+</para>
+<programlisting>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;math.h&gt;
+#include &lt;sys/ioctl.h&gt;
+#include &lt;unistd.h&gt;
+</programlisting><simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1a0c8186d9b9b7880309c27230bbb5e69d"/>typedef unsigned char <emphasis role="strong">byte</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1a305fafcc952ef654a3851ed05dc36125"/>typedef unsigned short <emphasis role="strong">u_shrt</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1ad05bd1c5a7e0e9844154168f509f1861"/>typedef short <emphasis role="strong">shrt</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1a11d147c64891830c9e79b3315b1b2e21"/>typedef double <emphasis role="strong">real</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1adf44f03c6ae7b279f60019d07e59891c"/>enum <emphasis role="strong">coords</emphasis> { <emphasis role="strong">v</emphasis> = 0
+, <emphasis role="strong">v2</emphasis> = 1
+, <emphasis role="strong">x</emphasis> = 0
+, <emphasis role="strong">y</emphasis> = 1
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1a2ca6ae1f52a39bf538d087811c581b55"/>u_shrt <emphasis role="strong">iaddr</emphasis> (u_shrt i, u_shrt j, u_shrt lda)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4"/>int <emphasis role="strong">main</emphasis> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1a8d2b2ce1d66d5e3f001fbabb4681c932"/>const char * <emphasis role="strong">R</emphasis> = &quot;\033[0;31m&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1ad3dac89bed7bd763f4c1ee5c2cc73072"/>const char * <emphasis role="strong">B</emphasis> = &quot;\033[0;34m&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1acda345e845e7ffa51bcca94885ece46f"/>const char * <emphasis role="strong">LB</emphasis> = &quot;\033[1;34m&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1aff4392d42c1dac14fefa5ac62a7d14bd"/>const char * <emphasis role="strong">P</emphasis> = &quot;\033[0;35m&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1ad701d537684424edf5dd9ecf28ef5ac1"/>const char * <emphasis role="strong">C</emphasis> = &quot;\033[0;36m&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1a1d830ff856cb39989b865774c934629d"/>const char * <emphasis role="strong">Y</emphasis> = &quot;\033[1;33m&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1a0557bf3c6e4b285f193d5138374037d0"/>const char * <emphasis role="strong">O</emphasis> = &quot;\033[0;33m&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1aeb97cac202ae731136aaf07a479c3c18"/>const char * <emphasis role="strong">G</emphasis> = &quot;\033[0;32m&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1a55306bc5015b8c8999f1e25ba170352e"/>const char * <emphasis role="strong">LGN</emphasis> = &quot;\033[1;32m&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1ad593ca5d4a9bc56bc51b88194772a199"/>const char * <emphasis role="strong">LGY</emphasis> = &quot;\033[0;37m&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1a7b9ae4d9e9eb6cc5905904eeb1c990e8"/>const char * <emphasis role="strong">E</emphasis> = &quot;\033[0m&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_poly__interpol_8c_1a1b8453c0317d17d5198c383805c41b0f"/>char <emphasis role="strong">in_buff</emphasis> [25]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Polynomial interpolation C code mainly based on pointers. </para>
+
+<para>Polynomial interpolation C code. </para>
+</section>
+</section>

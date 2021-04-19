@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_bug" xml:lang="en-US">
+
+<para><variablelist>
+<varlistentry><term>page <link linkend="_index">Project description</link>  </term>
+<listitem>
+<para><anchor xml:id="_bug_1_bug000001"/>No known bugs.</para>
+</listitem></varlistentry>
+</variablelist>
+</para>
+</section>

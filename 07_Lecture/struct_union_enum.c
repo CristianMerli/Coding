@@ -1,7 +1,7 @@
 /*
  * Author: Cristian Merli
  * Code title: Struct, union and enum data types
- * Code version: 1.0
+ * Code version: 2.0
  * Creation date: 20/04/2021
  * Last mod. date: 20/04/2021
  */
@@ -10,7 +10,6 @@
 /* Libraries import */
 #include <stdio.h>                                                                                          // Standard I/O library inclusion
 #include <string.h>                                                                                         // String library inclusion (for strlen ecc.)
-#include <stdlib.h>                                                                                         // Standard library inclusion (for atof ecc.)
 #include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
 
@@ -41,6 +40,13 @@ typedef double          real;                                                   
 
 
 /* Enums declaration */
+enum var_type{                                                                                              // Enum values defined with MAIUSC (convention)
+  FAST,
+  SLOW
+};
+
+
+/* Struct declaration and definition */
 struct person                                                                                               // Struct declaration
 {
   int age;
@@ -66,17 +72,6 @@ struct {                                                                        
   double b;
 } unic;
 
-struct person Giorgio;                                                                                      // Struct definition
-struct person class[10];                                                                                    // -
-
-struct person Luca = {45, 'L', "Luca", "Rossi", 175, 75};                                                   // Fast struct init
-
-union generic                                                                                               // nion declaration and definition (allocates the size of the biggest data type, in this example double), then it can be used either as an int or as a double --> NOTE THAT IF I WRITE THE VARIABLE AS DOUBLE, I HAVE TO EVEN READ IT AS A DOUBLE AND NOT AS INT
-{
-  double  val_real;
-  int     val_int;
-} elem;
-
 struct info                                                                                                 // Always allocate n*4 bytes (= n*32 bits) to increas , but size can be override
 {
   unsigned f:4;                                                                                             // 4 bits unsigned int, DO NOT USE DOUBLE AND FLOAT
@@ -85,17 +80,17 @@ struct info                                                                     
   unsigned u_bool:1;                                                                                        // 1 bit bool value (-1, 0)
 };
 
-enum var_type{                                                                                              // Enum values defined with MAIUSC (convention)
-  FAST,
-  SLOW
-};
+struct person Giorgio;                                                                                      // Struct definition
+struct person class[10];                                                                                    // -
+struct person Luca = {45, 'L', "Luca", "Rossi", 175, 75};                                                   // Fast struct init
 
 
-
-
-
-/* Global vars declaration and definition */
-//
+/* Struct declaration and definition */
+union generic                                                                                               // nion declaration and definition (allocates the size of the biggest data type, in this example double), then it can be used either as an int or as a double --> NOTE THAT IF I WRITE THE VARIABLE AS DOUBLE, I HAVE TO EVEN READ IT AS A DOUBLE AND NOT AS INT
+{
+  double  val_real;
+  int     val_int;
+} elem;
 
 
 /* Functions declaration and definition */

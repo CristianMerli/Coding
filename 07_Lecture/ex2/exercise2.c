@@ -5,7 +5,7 @@
  * Creation date: 20/04/2021
  * Last mod. date: 20/04/2021
  *  
- * Notes: Run software using the following command: "LD_LIBRARY_PATH=. ./exercise7"
+ * Notes: Run software using the following command: "LD_LIBRARY_PATH=. ./exercise2"
  * the first part has the purpose of definin' env var for shared library path
  * --> To create shared libraries see: https://www.youtube.com/watch?v=Slfwk28vhws
  * 
@@ -17,10 +17,6 @@
 
 /* Libraries import */
 #include <stdio.h>                                                                                          // Standard I/O library inclusion
-#include <string.h>                                                                                         // String library inclusion (for strlen ecc.)
-#include <stdlib.h>                                                                                         // Standard library inclusion (for atof ecc.)
-#include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
-#include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
 #include "libexercise2.h"                                                                                   // Library for exercise 2 import header file
 
 
@@ -51,7 +47,7 @@ int main(){
             gn, pu, ye, ptr-in_buff+1, pu, er);                                                             // Print the first detected char number inside the string fbk
   } else {                                                                                                  // Find char address function return val check (case NOT-OK = 1)
     printf("\n\n\n%s>>>%s Error! %sThe defined char has not been fond inside the given string.\n%s",
-            gn, rd, pu, er);    // Print char not found fbk
+            gn, rd, pu, er);                                                                                // Print char not found fbk
   }
 
   return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)

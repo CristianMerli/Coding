@@ -40,14 +40,14 @@ typedef double          real;                                                   
 void logo(const byte start_sp, const char *txt, const char *txt_col,
           const char bkg_chr, const char *bkg_col);                                                         // Print responsive-logo function
 
-u_shrt iaddr(u_shrt i, u_shrt j, u_shrt lda);                                                               // Arrays/vectors memo addressing
+u_shrt iaddr(const u_shrt i, const u_shrt j, const u_shrt lda);                                             // Arrays/vectors memo addressing
 
-real vect_comp_sum(real *vect_sum, int size);                                                               // Vector components sum function
+real vect_comp_sum(const real *vect_sum, const int size);                                                   // Vector components sum function
 
-void count_vowels(char *str_in, u_shrt size);                                                               // Count vowels in string function
+void count_vowels(char *str_in, const u_shrt size);                                                         // Count vowels in string function
 
-void vect_init(char *in_buff, u_shrt buff_size, real *vect, const byte n);                                  // Vector initialization (definition) function
+void vect_init(char *in_buff, const u_shrt buff_size, real *vect, const byte n);                            // Vector initialization (definition) function
 
-void vect_print(real *vect, const byte n);                                                                  // Vector print function
+void vect_print(const real *vect, const byte n);                                                            // Vector print function
 
-void str_init(char *str, u_shrt size);                                                                      // String initialization (definition) function
+void str_init(char *str, const u_shrt size);                                                                // String initialization (definition) function

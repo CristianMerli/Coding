@@ -1,6 +1,6 @@
 /*
  * Author: Cristian Merli
- * Code title: Exercise 2 (Pointers 2) library
+ * Code title: Exercise 1 (Pointers 1) library
  * Code version: 3.0
  * Creation date: 20/04/2021
  * Last mod. date: 20/04/2021
@@ -12,7 +12,7 @@
 #include <string.h>                                                                                         // String library inclusion (for strlen ecc.)
 #include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
-#include "libexercise2.h"                                                                                   // Library for exercise 2 import header file
+#include "libexercise1.h"                                                                                   // Library for exercise 1 import header file
 
 
 /* Functions declaration and definition */
@@ -68,29 +68,7 @@ void logo(const byte start_sp, const char *txt, const char *txt_col, const char 
 }
 
 
-u_shrt iaddr(const u_shrt i, const u_shrt j, const u_shrt lda){                                             // Arrays/vectors memo addressing
-  /* Function body */
-  return (i*lda)+j;                                                                                         // Return index number
-}
-
-
-int findchr_addr(char *str, const char chr, char **ptr){                                                    // Find char address function (*str passes the str array address, while chr creates a copy of the var --> if I modify the chr var in the funct, it 'll not be modified out of the function)
-  /* Function body */                                                                                       // If I modify the *str with dereferentiation, it 'll be modified even out of the funct, **ptr is a pinter which will point to the address of another pointer --> Allows to modify the val inside the pointed val by (*ptr)
-  int idx = 0;                                                                                              // While-loop idx
-  int fnd = 0;                                                                                              // Found int val declaration and definition
-  (*ptr) = 0;                                                                                               // Null address init into ptr var
-
-  printf("\n\n\n%s>>>%s Scanning string trying to find %s'%c'%s char: %s", gn, pu, ye, chr, pu, ye);        // Scanning string fbk
-  while (*(str+iaddr(V, idx, sizeof(str))) != '\0'){                                                        // Scan string 'till '\0' char
-    printf("%d", idx);                                                                                      // Print string scanning idx fbk
-    if (*(str+iaddr(V, idx, sizeof(str))) == chr){                                                          // In case of str char = to given chr
-      (*ptr) = &*(str+iaddr(V, idx, sizeof(str)));                                                          // Seve detected char address memo cell addr into *ptr var
-      fnd = 1;                                                                                              // Return OK code, negation at return (= 0), exit at first defined char detection
-      printf("%s --> SET!%s", gn, er);                                                                      // Print found char fbk
-      break;                                                                                                // Exit scanning while-loop
-    }
-    printf(",");                                                                                            // Print scanning idx separator fbk
-    ++idx;                                                                                                  // While-loop idx upd
-  }
-  return !fnd;                                                                                              // Return code (0 = OK, 1 = NOT OK)
+void add(double *val1, const double val2){                                                                  // Add function (*val1 passes the double value address/reference, while val2 creates a copy of the var --> if I modify the var2 var in the funct, it 'll not be modified out of the function)
+  /* Function body */                                                                                       // If I modify the *val2 with dereferentiation, it 'll be modified even out of the funct.
+  *(val1) += val2;                                                                                          // Add val1 to val2 and save it into val1
 }

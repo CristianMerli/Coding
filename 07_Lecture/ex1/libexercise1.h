@@ -1,6 +1,6 @@
 /*
  * Author: Cristian Merli
- * Code title: Exercise 2 (Pointers 2) library header file
+ * Code title: Exercise 1 (Pointers 1) library header file
  * Code version: 3.0
  * Creation date: 20/04/2021
  * Last mod. date: 20/04/2021 
@@ -39,6 +39,4 @@ typedef double          real;                                                   
 void logo(const byte start_sp, const char *txt, const char *txt_col,
           const char bkg_chr, const char *bkg_col);                                                         // Print responsive-logo function
 
-u_shrt iaddr(const u_shrt i, const u_shrt j, const u_shrt lda);                                             // Arrays/vectors memo addressing
-
-int findchr_addr(char *str, const char chr, char **ptr);                                                    // Find char address function
+void add(double *val1, const double val2);                                                                  // Add function

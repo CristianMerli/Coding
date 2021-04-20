@@ -69,13 +69,13 @@ void logo(const byte start_sp, const char *txt, const char *txt_col, const char 
 }
 
 
-u_shrt iaddr(u_shrt i, u_shrt j, u_shrt lda){                                                               // Arrays/vectors memo addressing
+u_shrt iaddr(const u_shrt i, const u_shrt j, const u_shrt lda){                                             // Arrays/vectors memo addressing
   /* Function body */
   return (i*lda)+j;                                                                                         // Return index number
 }
 
 
-real vect_comp_sum(real *vect_sum, int size){                                                               // Vector components sum function
+real vect_comp_sum(const real *vect_sum, int size){                                                         // Vector components sum function
   /* Function body */
   real sum = *vect_sum;                                                                                     // Sum var declaration and defintion as first vect component val
   for (byte i = 1; i < size; ++i){                                                                          // Linear vectors components sum FOR cycle 
@@ -89,7 +89,7 @@ real vect_comp_sum(real *vect_sum, int size){                                   
 }
 
 
-void count_vowels(char *str_in, u_shrt size){                                                               // Count vowels in string function
+void count_vowels(char *str_in, const u_shrt size){                                                         // Count vowels in string function
   /* Function body */
   enum vowels { A, E, I, O, U };                                                                            // Vowels enum declaration and definition
   byte vow_cnt[iaddr(V, 5, 5)];                                                                             // Array of vowels counters declaration
@@ -172,7 +172,7 @@ void count_vowels(char *str_in, u_shrt size){                                   
 }
 
 
-void vect_init(char *in_buff, u_shrt buff_size, real *vect, const byte n){                                  // Vector initialization (definition) function
+void vect_init(char *in_buff, const u_shrt buff_size, real *vect, const byte n){                            // Vector initialization (definition) function
   /* Function body */
   printf("\n");                                                                                             // New line fbk
   for (shrt i = 0; i < n; ++i){                                                                             // Linear vectors columns definition FOR cycle 
@@ -184,7 +184,7 @@ void vect_init(char *in_buff, u_shrt buff_size, real *vect, const byte n){      
 }
 
 
-void vect_print(real *vect, const byte n){                                                                  // Vector print function
+void vect_print(const real *vect, const byte n){                                                            // Vector print function
   /* Function body */
   for (byte i = 0; i < n; ++i){                                                                             // Linear vectors elements print FOR cycle 
     printf(" %lf ", *(vect+iaddr(V, i, n)));                                                                // Vector elements print
@@ -193,7 +193,7 @@ void vect_print(real *vect, const byte n){                                      
 }
 
 
-void str_init(char *str, u_shrt size){                                                                      // String initialization (definition) function
+void str_init(char *str, const u_shrt size){                                                                // String initialization (definition) function
   /* Function body */
   for (u_shrt j = 0; j < size; ++j)                                                                         // Input buffer char array value init
     *(str+iaddr(V, j, size)) = 0;                                                                           // Reset string memo

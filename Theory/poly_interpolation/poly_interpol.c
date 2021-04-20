@@ -61,7 +61,7 @@ typedef short           shrt;                                                   
 typedef double          real;                                                                               // Double alias (real)
 
 
-/* Public vars declaration and definition */
+/* Global vars declaration and definition */
 char in_buff[25];                                                                                           // Input buffer char array for fgets func
 
 
@@ -125,7 +125,7 @@ static void logo(const byte start_sp, const char txt[], const char txt_col[], co
   printf("\033[0m\n");                                                                                      // New line fbk and erase logo bkg color
 }
 
-u_shrt iaddr(u_shrt i, u_shrt j, u_shrt lda){                                                               // Arrays/vectors memo addressing
+static u_shrt iaddr(u_shrt i, u_shrt j, u_shrt lda){                                                        // Arrays/vectors memo addressing
   /* Function body */
   return (i*lda)+j;                                                                                         // Return index number
 }
@@ -139,8 +139,8 @@ static void mat_vect_init(real *pts, real *ohm, real *dd, real *p, real *eval, r
       flg = 1;                                                                                              // While-loop rst flag definition
       printf("%s-->%s Define the %sx-coord%s of the %s%d°%s val in interpol pts matrix: %s",
              O, C, B, C, B, i+1, C, E);                                                                     // Matrix elements definition (interpolation points x-coods)
-      fgets(in_buff, 25, stdin);                                                                            // Save matrix elements (interpolation points x-coods) value into buffer char array --> fgets to avoid char-loop problem associated with scanf --> return 0 in case of char input
-      *(pts+iaddr(x, i, n)) = atof(in_buff);                                                                // Convert to double and copy buffer char array val into matrix elements (interpolation points x-coods)
+      fgets(in_buff, sizeof(in_buff), stdin);                                                               // Save matrix elements (interpolation points x-coods) value into buffer char array --> fgets to avoid char-loop problem associated with scanf
+      *(pts+iaddr(x, i, n)) = atof(in_buff);                                                                // Convert to double and copy buffer char array val into matrix elements (interpolation points x-coods) --> return 0 in case of char input
       
       for (byte k = 0; k < i; ++k){                                                                         // Interpolation points x-coods douplicates detection FOR cycle
         if (*(pts+iaddr(x, i, n)) == *(pts+iaddr(x, k, n))){                                                // In case of inserted x-coord alreay present in pts array for another interpolation point
@@ -156,8 +156,8 @@ static void mat_vect_init(real *pts, real *ohm, real *dd, real *p, real *eval, r
     } while (flg);                                                                                          // X-coord input while loop exit cond (flag rst)
     printf("%s-->%s Define the %sy-coord%s of the %s%d°%s val in interpol pts matrix: %s",
            O, C, B, C, B, i+1, C, E);                                                                       // Matrix elements definition (interpolation points y-coods)
-    fgets(in_buff, 25, stdin);                                                                              // Save matrix elements (interpolation points x-coods) value into buffer char array --> fgets to avoid char-loop problem associated with scanf --> return 0 in case of char input
-    *(pts+iaddr(y, i, n)) = atof(in_buff);                                                                  // Convert to double and copy buffer char array val into matrix elements (interpolation points y-coods)
+    fgets(in_buff, sizeof(in_buff), stdin);                                                                 // Save matrix elements (interpolation points x-coods) value into buffer char array --> fgets to avoid char-loop problem associated with scanf
+    *(pts+iaddr(y, i, n)) = atof(in_buff);                                                                  // Convert to double and copy buffer char array val into matrix elements (interpolation points y-coods) --> return 0 in case of char input
     printf("\n");                                                                                           // New line fbk
     *(dd+iaddr(v, i, n)) = *(pts+iaddr(y, i, n));                                                           // Divided-differences vector elements value init
     *(eval+iaddr(v, i, n)) = 0;                                                                             // Poly eval vector elements value init
@@ -270,7 +270,7 @@ int main(){
   do {                                                                                                      // Expect input val in range while-loop
     printf("\n\n%s>>>%s Specify the number of interpolation points (val between %hu and %hu): %s",
            G, P, n_minval, n_maxval, E);                                                                    // Number of interpolation points (= poly degree + 1) definition request fbk
-    fgets(in_buff, 25, stdin);                                                                              // Save input val from terminal into buffer char array --> fgets to avoid char-loop problem associated with scanf
+    fgets(in_buff, sizeof(in_buff), stdin);                                                                 // Save input val from terminal into buffer char array --> fgets to avoid char-loop problem associated with scanf when detects char expecting numeric val
     tmp_chk = atof(in_buff);                                                                                // Convert to double and copy buffer char array val into tmp var
     if (tmp_chk >= n_minval && tmp_chk <= n_maxval){                                                        // Tmp var check (case in range)
       n = tmp_chk;                                                                                          // Number of interpolation points (= poly degree + 1) val definition

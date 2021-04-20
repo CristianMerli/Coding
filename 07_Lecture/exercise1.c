@@ -49,8 +49,8 @@ char in_buff[512];                                                              
 
 
 /* Functions declaration and definition */
-static void logo(const byte start_sp, const char txt[], const char txt_col[], const char bkg_chr,           // Static function (readable only in this .c file) and const param (not modified in function --> SW optimization at compile-time)
-                 const char bkg_col[]){                                                                     // Print responsive-logo function
+static void logo(const byte start_sp, const char *txt, const char *txt_col, const char bkg_chr,             // Static function (readable only in this .c file) and const param (not modified in function --> SW optimization at compile-time)
+                 const char *bkg_col){                                                                      // Print responsive-logo function
   /* Function body */
   struct winsize w;                                                                                         // Window-size struct declaration
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);                                                                     // Save the number of terminal's rows/cloumns in window-size struct

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['or_51',['or',['../poly__interpol_8c.html#adf90f514d9b8cc7c826e77c7a57dd6dd',1,'poly_interpol.c']]]
+  ['og_51',['og',['../poly__interpol_8c.html#a1777aadda5aecd4e94e1901b79914a4e',1,'poly_interpol.c']]]
 ];

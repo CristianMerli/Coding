@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
- * Code title: Exercise 7 (Vectors 1) library header file
+ * Code title: Exercise 2 (Pointers 2) library header file
  * Code version: 3.0
  * Creation date: 20/04/2021
- * Last mod. date: 20/04/2021
+ * Last mod. date: 20/04/2021 
  */
 
 
@@ -25,7 +25,6 @@ const char *er = "\033[0m";                                                     
 enum coords                                                                                                 // Matrix/vectors enum
 {
     V = 0,                                                                                                  // Vectors
-    VOW = 4                                                                                                 // Vowels
 };
 
 
@@ -36,18 +35,10 @@ typedef short           shrt;                                                   
 typedef double          real;                                                                               // Double alias (real)
 
 
-/* Functions declaration */
+/* Libraries function declaration */
 void logo(const byte start_sp, const char *txt, const char *txt_col,
           const char bkg_chr, const char *bkg_col);                                                         // Print responsive-logo function
 
 u_shrt iaddr(u_shrt i, u_shrt j, u_shrt lda);                                                               // Arrays/vectors memo addressing
 
-real vect_comp_sum(real *vect_sum, int size);                                                               // Vector components sum function
-
-void count_vowels(char *str_in, u_shrt size);                                                               // Count vowels in string function
-
-void vect_init(char *in_buff, u_shrt buff_size, real *vect, const byte n);                                  // Vector initialization (definition) function
-
-void vect_print(real *vect, const byte n);                                                                  // Vector print function
-
-void str_init(char *str, u_shrt size);                                                                      // String initialization (definition) function
+int findchr_addr(char *str, char chr, char **ptr);                                                          // Find char address function

@@ -46,7 +46,7 @@
 /// Cyan termianl color code.
 /// \var const char *ye
 /// Yellow termianl color code.
-/// \var const char *or
+/// \var const char *og
 /// Orange termianl color code.
 /// \var const char *gn
 /// Green termianl color code.
@@ -62,7 +62,7 @@ const char *lb = "\033[1;34m";                                                  
 const char *pu = "\033[0;35m";                                                                              // Purple color
 const char *cy = "\033[0;36m";                                                                              // Cyan color
 const char *ye = "\033[1;33m";                                                                              // Yellow color
-const char *or = "\033[0;33m";                                                                              // Orange color
+const char *og = "\033[0;33m";                                                                              // Orange color
 const char *gn = "\033[0;32m";                                                                              // Green color
 const char *lgn = "\033[1;32m";                                                                             // Light green color
 const char *lgy = "\033[0;37m";                                                                             // Light gray color
@@ -203,7 +203,7 @@ static void mat_vect_init(real *pts, real *ohm, real *dd, real *p, real *eval, r
     do {                                                                                                    // X-coord input while loop (to avoid x-coord duplicates --> Errors in interpol poly coeff calc)
       flg = 1;                                                                                              // While-loop rst flag definition
       printf("%s-->%s Define the %sx-coord%s of the %s%d°%s val in interpol pts matrix: %s",
-             or, cy, bl, cy, bl, i+1, cy, er);                                                              // Matrix elements definition (interpolation points x-coods)
+             og, cy, bl, cy, bl, i+1, cy, er);                                                              // Matrix elements definition (interpolation points x-coods)
       fgets(in_buff, sizeof(in_buff), stdin);                                                               // Save matrix elements (interpolation points x-coods) value into buffer char array --> fgets to avoid char-loop problem associated with scanf
       *(pts+iaddr(X, i, n)) = atof(in_buff);                                                                // Convert to double and copy buffer char array val into matrix elements (interpolation points x-coods) --> return 0 in case of char input
       
@@ -220,7 +220,7 @@ static void mat_vect_init(real *pts, real *ohm, real *dd, real *p, real *eval, r
       }
     } while (flg);                                                                                          // X-coord input while loop exit cond (flag rst)
     printf("%s-->%s Define the %sy-coord%s of the %s%d°%s val in interpol pts matrix: %s",
-           or, cy, bl, cy, bl, i+1, cy, er);                                                                // Matrix elements definition (interpolation points y-coods)
+           og, cy, bl, cy, bl, i+1, cy, er);                                                                // Matrix elements definition (interpolation points y-coods)
     fgets(in_buff, sizeof(in_buff), stdin);                                                                 // Save matrix elements (interpolation points x-coods) value into buffer char array --> fgets to avoid char-loop problem associated with scanf
     *(pts+iaddr(Y, i, n)) = atof(in_buff);                                                                  // Convert to double and copy buffer char array val into matrix elements (interpolation points y-coods) --> return 0 in case of char input
     printf("\n");                                                                                           // New line fbk
@@ -247,7 +247,7 @@ static void mat_vect_init(real *pts, real *ohm, real *dd, real *p, real *eval, r
  */
 static void mat_print(const real *pts, const byte n){                                                       // Matrix print function
   /* Function body */
-  printf("\n\n%s--> %s2x%d%s interpolation points coord matrix: %s\n", or, bl, n, cy, er);                  // Print mat info
+  printf("\n\n%s--> %s2x%d%s interpolation points coord matrix: %s\n", og, bl, n, cy, er);                  // Print mat info
   printf("%s +-------+--------------+--------------+%s\n", ye, er);                                         // Top-line of the table
   printf("%s | %4s  | %7s      | %7s      |%s\n", ye, "Pts", "X", "Y", er);                                 // First line of the table (column identification)
   printf("%s +-------+--------------+--------------+%s\n", ye, er);                                         // Top-line of data in the table
@@ -342,9 +342,9 @@ static void poly_eval(const real *pts, const real *poly, real *eval, const byte 
     printf("\n p(%sx%d%s) = p(%s%lf%s) = %s%lf%s",
            bl, k, er, lb, *(pts+iaddr(X, k, n)), er, lb, *(eval+iaddr(V, k, n)), er);                       // Print poly eval val
     if (fabs((*(eval+iaddr(V, k, n)) - *(pts+iaddr(Y, k, n)))) < 0.0001){                                   // Check poly interpol (case OK) --> [with aprox to zero]
-      printf("%s  -->%s  (=%sy0%s) OK!%s", or, gn, bl, gn, er);                                             // Print interpolation OK fbk
+      printf("%s  -->%s  (=%sy0%s) OK!%s", og, gn, bl, gn, er);                                             // Print interpolation OK fbk
     } else {                                                                                                // Check poly interpol (case NOT-OK)
-      printf("%s  -->%s  (!=%sy0%s) NOT OK!%s", or, rd, bl, rd, er);                                        // Print interpolation NOT-OK fbk
+      printf("%s  -->%s  (!=%sy0%s) NOT OK!%s", og, rd, bl, rd, er);                                        // Print interpolation NOT-OK fbk
     }
   }
   printf("\n");                                                                                             // New line fbk

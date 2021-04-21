@@ -3,21 +3,17 @@
  * Code title: Exercise 7 (Vectors 1)
  * Code version: 3.0
  * Creation date: 19/04/2021
- * Last mod. date: 19/04/2021
+ * Last mod. date: 21/04/2021
  * 
- * Notes: Run software using the following command: "LD_LIBRARY_PATH=. ./exercise7"
- * the first part has the purpose of definin' env var for shared library path
- * --> To create shared libraries see: https://www.youtube.com/watch?v=Slfwk28vhws
+ * Notes: To create shared libraries see: https://www.youtube.com/watch?v=Slfwk28vhws
  * 
- * gcc -Wall -c exercise7.c -o exercise7.o                      -->   Create software object file
- * gcc -Wall -fpic -shared libexercise7.c -o libexercise7.so    -->   Create library object file
- * gcc -Wall exercise7.o -o exercise7 -l exercise7 -L.          -->   Link software and library object files to executable
+ * gcc -Wall -c exercise7.c -o exercise7.o                        -->   Create software object file
+ * gcc -Wall -fpic -shared libexercise7.c -o libexercise7.so      -->   Create library object file
+ * gcc -Wall exercise7.o -o exercise7 "$(pwd)/libexercise7.so"    -->   Link software and library object files to executable
  */
 
 
 /* Libraries import */
-#include <stdio.h>                                                                                          // Standard I/O library inclusion
-#include <stdlib.h>                                                                                         // Standard library inclusion (for atof ecc.)
 #include "libexercise7.h"                                                                                   // Library for exercise 7 import header file
 
 

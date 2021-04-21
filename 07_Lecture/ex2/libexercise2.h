@@ -3,8 +3,15 @@
  * Code title: Exercise 2 (Pointers 2) library header file
  * Code version: 3.0
  * Creation date: 20/04/2021
- * Last mod. date: 20/04/2021 
+ * Last mod. date: 21/04/2021 
  */
+
+
+/* Libraries import */
+#include <stdio.h>                                                                                          // Standard I/O library inclusion
+#include <string.h>                                                                                         // String library inclusion (for strlen ecc.)
+#include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
+#include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
 
 
 /* Constants declaration and definition */

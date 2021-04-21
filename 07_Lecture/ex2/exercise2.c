@@ -3,20 +3,17 @@
  * Code title: Exercise 2 (Pointers 2)
  * Code version: 3.0
  * Creation date: 20/04/2021
- * Last mod. date: 20/04/2021
+ * Last mod. date: 21/04/2021
  *  
- * Notes: Run software using the following command: "LD_LIBRARY_PATH=. ./exercise2"
- * the first part has the purpose of definin' env var for shared library path
- * --> To create shared libraries see: https://www.youtube.com/watch?v=Slfwk28vhws
+ * Notes: To create shared libraries see: https://www.youtube.com/watch?v=Slfwk28vhws
  * 
- * gcc -Wall -c exercise2.c -o exercise2.o                      -->   Create software object file
- * gcc -Wall -fpic -shared libexercise2.c -o libexercise2.so    -->   Create library object file
- * gcc -Wall exercise2.o -o exercise2 -l exercise2 -L.          -->   Link software and library object files to executable
+ * gcc -Wall -c exercise2.c -o exercise2.o                        -->   Create software object file
+ * gcc -Wall -fpic -shared libexercise2.c -o libexercise2.so      -->   Create library object file
+ * gcc -Wall exercise2.o -o exercise2 "$(pwd)/libexercise2.so"    -->   Link software and library object files to executable
  */
 
 
 /* Libraries import */
-#include <stdio.h>                                                                                          // Standard I/O library inclusion
 #include "libexercise2.h"                                                                                   // Library for exercise 2 import header file
 
 

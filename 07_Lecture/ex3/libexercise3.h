@@ -1,16 +1,15 @@
 /*
  * Author: Cristian Merli
- * Code title: Exercise 7 (Vectors 1) library header file
+ * Code title: Exercise 3 (es_sol_strutture) library header file
  * Code version: 3.0
- * Creation date: 20/04/2021
- * Last mod. date: 21/04/2021
+ * Creation date: 21/04/2021
+ * Last mod. date: 21/04/2021 
  */
 
 
 /* Libraries import */
 #include <stdio.h>                                                                                          // Standard I/O library inclusion
-#include <stdlib.h>                                                                                         // Standard library inclusion (for atof ecc.)
-#include <string.h>                                                                                         // String library inclusion (for strcpy ecc.)
+#include <string.h>                                                                                         // String library inclusion (for strlen ecc.)
 #include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
 
@@ -29,14 +28,6 @@ const char *lgy = "\033[0;37m";                                                 
 const char *er = "\033[0m";                                                                                 // End color
 
 
-/* Enums declaration and definition */
-enum coords                                                                                                 // Matrix/vectors enum
-{
-    V = 0,                                                                                                  // Vectors
-    VOW = 4                                                                                                 // Vowels
-};
-
-
 /* Data-types declaration and definition */
 typedef unsigned char   byte;                                                                               // Unsigned char alias (byte)
 typedef unsigned short  u_shrt;                                                                             // Unsigned short alias (u_shrt)
@@ -44,18 +35,27 @@ typedef short           shrt;                                                   
 typedef double          real;                                                                               // Double alias (real)
 
 
-/* Functions declaration */
+/* Enums declaration and definition */
+enum traction{ ELECTIC, DIESEL };                                                                           // Train traction enum declaration and definition
+const char *traction_str[] = { "ELECTIC", "DIESEL" };                                                       // Train traction strings vector associated to the train traction enum declaration and definition
+
+
+/* Structs declaration */
+struct train                                                                                                // Train struct declaration
+{
+  int wag_num;                                                                                              // Train wagons number val
+  enum traction tr_tract;                                                                                   // Train traction type enum
+};
+
+
+/* Libraries function declaration */
 void logo(const byte start_sp, const char *txt, const char *txt_col,
           const char bkg_chr, const char *bkg_col);                                                         // Print responsive-logo function
 
-u_shrt iaddr(const u_shrt i, const u_shrt j, const u_shrt lda);                                             // Arrays/vectors memo addressing
+void wag_add(struct train *tr);                                                                             // Wagon add funtion (in train struct)
 
-real vect_comp_sum(const real *vect_sum, const int size);                                                   // Vector components sum function
+void wag_rmv(struct train *tr);                                                                             // Wagon remove funtion (in train struct)
 
-void count_vowels(char *str_in, const u_shrt size);                                                         // Count vowels in string function
+void train_trac_typ(struct train *tr, const enum traction trc_typ);                                         // Train traction type definition funtion (in train struct)
 
-void vect_init(char *in_buff, const u_shrt buff_size, real *vect, const byte n);                            // Vector initialization (definition) function
-
-void vect_print(const real *vect, const byte n);                                                            // Vector print function
-
-void str_init(char *str, const u_shrt size);                                                                // String initialization (definition) function
+void trains_join(struct train *tr1, const struct train tr2);                                                // Trains join function (add the second train's wagons to the first train struct)

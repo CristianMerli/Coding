@@ -1,14 +1,14 @@
 /*
  * Author: Cristian Merli
- * Code title: Exercise 2 (Pointers 2) library
+ * Code title: Exercise 3 (es_sol_strutture) library
  * Code version: 3.0
- * Creation date: 20/04/2021
+ * Creation date: 21/04/2021
  * Last mod. date: 21/04/2021
  */
 
 
 /* Libraries import */
-#include "libexercise2.h"                                                                                   // Library for exercise 2 import header file
+#include "libexercise3.h"                                                                                   // Library for exercise 3 import header file
 
 
 /* Functions declaration and definition */
@@ -64,29 +64,25 @@ void logo(const byte start_sp, const char *txt, const char *txt_col, const char 
 }
 
 
-u_shrt iaddr(const u_shrt i, const u_shrt j, const u_shrt lda){                                             // Arrays/vectors memo addressing
+void wag_add(struct train *tr){                                                                             // Wagon add funtion (in train struct)
   /* Function body */
-  return (i*lda)+j;                                                                                         // Return index number
+  tr->wag_num++;                                                                                            // Increment the number of wagons in train struct
 }
 
 
-int findchr_addr(char *str, const char chr, char **ptr){                                                    // Find char address function (*str passes the str array address, while chr creates a copy of the var --> if I modify the chr var in the funct, it 'll not be modified out of the function)
-  /* Function body */                                                                                       // If I modify the *str with dereferentiation, it 'll be modified even out of the funct, **ptr is a pinter which will point to the address of another pointer --> Allows to modify the val inside the pointed val by (*ptr)
-  int idx = 0;                                                                                              // While-loop idx
-  int fnd = 0;                                                                                              // Found int val declaration and definition
-  (*ptr) = 0;                                                                                               // Null address init into ptr var
+void wag_rmv(struct train *tr){                                                                             // Wagon remove funtion (in train struct)
+  /* Function body */
+  tr->wag_num--;                                                                                            // Decrement the number of wagons in train struct
+}
 
-  printf("\n\n\n%s>>>%s Scanning string trying to find %s'%c'%s char: %s", gn, pu, ye, chr, pu, ye);        // Scanning string fbk
-  while (*(str+iaddr(V, idx, sizeof(str))) != '\0'){                                                        // Scan string 'till '\0' char
-    printf("%d", idx);                                                                                      // Print string scanning idx fbk
-    if (*(str+iaddr(V, idx, sizeof(str))) == chr){                                                          // In case of str char = to given chr
-      (*ptr) = &*(str+iaddr(V, idx, sizeof(str)));                                                          // Seve detected char address memo cell addr into *ptr var
-      fnd = 1;                                                                                              // Return OK code, negation at return (= 0), exit at first defined char detection
-      printf("%s --> SET!%s", gn, er);                                                                      // Print found char fbk
-      break;                                                                                                // Exit scanning while-loop
-    }
-    printf(",");                                                                                            // Print scanning idx separator fbk
-    ++idx;                                                                                                  // While-loop idx upd
-  }
-  return !fnd;                                                                                              // Return code (0 = OK, 1 = NOT OK)
+
+void train_trac_typ(struct train *tr, const enum traction trc_typ){                                         // Train traction type definition funtion (in train struct)
+  /* Function body */
+  tr->tr_tract = trc_typ;                                                                                   // Define the traction type in train struct
+}
+
+
+void trains_join(struct train *tr1, const struct train tr2){                                                // Trains join function (add the second train's wagons to the first train struct)
+  /* Function body */
+  tr1->wag_num += tr2.wag_num;                                                                              // Add the second train's wagons to the first train struct
 }

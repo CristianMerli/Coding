@@ -1,6 +1,6 @@
 /*
  * Author: Cristian Merli
- * Code title: Struct, union and enum data types
+ * Code title: Struct, union, enum and bitfields data types
  * Code version: 2.0
  * Creation date: 20/04/2021
  * Last mod. date: 21/04/2021
@@ -28,15 +28,15 @@ const char *lgy = "\033[0;37m";                                                 
 const char *er = "\033[0m";                                                                                 // End color
 
 
-/* Enums declaration and definition */
-enum tag{ A, B, C = 12, D };                                                                                // Tag enum declaration and definition (A=0, B=1, C=12, D=13, elements with CAPITAL LETTERS, convention)
-
-
 /* Data-types declaration and definition */
 typedef unsigned char   byte;                                                                               // Unsigned char alias (byte)
 
 
-/* Struct declaration and definition */
+/* Enums declaration and definition */
+enum tag{ A, B, C = 12, D };                                                                                // Tag enum declaration and definition (A=0, B=1, C=12, D=13, elements with CAPITAL LETTERS, convention)
+
+
+/* Structs declaration and definition */
 struct person                                                                                               // Person struct (declaration only)
 {
   int age;                                                                                                  // Age element of the struct person
@@ -61,14 +61,6 @@ struct {                                                                        
   int num;                                                                                                  // Num element of the struct unic
 } unic;                                                                                                     // Unic no-name strut definition
 
-struct info                                                                                                 // Info struct declaration only, always allocates n*4 bytes (= n*32 bits) to perform optimized memo access, but allocation size can be overrided to define specific-sized variables, even single bits
-{
-  unsigned f:4;                                                                                             // 4 bits unsigned int, DO NOT USE DOUBLE AND FLOAT, INT ONLY
-  signed g:2;                                                                                               // 2 bits signed int
-  unsigned bool:1;                                                                                          // 1 bit unsigned bool value (0,1)
-  signed s_bool:1;                                                                                          // 1 bit signed bool value (-1, 0)
-};
-
 struct person giorgio;                                                                                      // Giorgio person struct definition
 struct person class[10];                                                                                    // Person struct vector definition, 10 person elements in class vector
 struct person luca = {45, 'L', "Luca", "Rossi", 175, 75};                                                   // Fast and compact luca person struct initialization (definition)
@@ -83,13 +75,22 @@ struct var_type2{                                                               
 };
 
 
-/* Struct declaration and definition */
+/* Unions declaration and definition */
 union generic                                                                                               // Generic union declaration and definition (allocates the size of the biggest data type, in this example double), then it can be defined either as an int or as a double data type --> NOTE THAT IF I WRITE THE VARIABLE AS DOUBLE, THEN I HAVE TO READ IT AS A DOUBLE! NOT AS INT
 {
   double  val_real;                                                                                         // val_real double variable of the elem generic union
   int     val_int;                                                                                          // val_int int variable of the elem generic union
-} elem;                                                                                                     // Elem generic union definition 
+} elem;                                                                                                     // Elem generic union definition
 
+
+/* Bitfields declaration and definition */
+struct info                                                                                                 // Info (bitfield) struct declaration only, always allocates n*4 bytes (= n*32 bits) to perform optimized memo access, but allocation size can be overrided to define specific-sized variables, even single bits
+{
+  unsigned f:4;                                                                                             // 4 bits unsigned int, DO NOT USE DOUBLE AND FLOAT, INT ONLY
+  signed g:2;                                                                                               // 2 bits signed int
+  unsigned bool:1;                                                                                          // 1 bit unsigned bool value (0,1)
+  signed s_bool:1;                                                                                          // 1 bit signed bool value (-1, 0) --> one first bit is reserved for the sign of the number
+};                                                                                                          // Total number of bits = 8 --> allocates 32 bits (= 4 bytes)
 
 /* Functions declaration and definition */
 static void logo(const byte start_sp, const char *txt, const char *txt_col, const char bkg_chr,             // Static function (readable only in this .c file) and const param (not modified in function --> SW optimization at compile-time)
@@ -150,7 +151,7 @@ int main(){
   //
 
   /* Code */
-  logo(4, "STRUCT, UNION AND ENUM", ye, '#', gn);                                                           // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
+  logo(4, "STRUCT, UNION, ENUM AND BITFIELD", ye, '#', gn);                                                 // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
   
   giorgio.age = 25;                                                                                         // Giorgio person struct, age element definition
   // Giorgio.name = "Giorgione";                                                                            // Wrong way to assign string value to struct! Use the strcpy() function as below!
@@ -169,10 +170,10 @@ int main(){
           gn, pu, er);                                                                                      // Union sizes print fbk
   var.val_real = 23.5;                                                                                      // Assign to the "val_real" double variable of the "var" union a double number
   printf("\n\n%s>>>%s Union double: %svar = %f, %s'var.val_real' double size %ld, 'var' union size: %ld%s\n",
-          gn, pu, bl, var.val_real, ye, sizeof(var.val_real),sizeof(var), er);                              // Print the "val_real" double variable size and the "var" union size
+          gn, pu, bl, var.val_real, ye, sizeof(var.val_real), sizeof(var), er);                             // Print the "val_real" double variable size and the "var" union size
   var.val_int = 5;                                                                                          // Assign to the "val_int" integer variable of the "var" union an int number
   printf("\n\n%s>>>%s Union int: %svar = %d, %s'var.val_int' integer size %ld, 'var' union size: %ld%s\n",
-          gn, pu, bl, var.val_int, ye, sizeof(var.val_int),sizeof(var), er);                                // Print the "val_int" integer variable size and the "var" union size
+          gn, pu, bl, var.val_int, ye, sizeof(var.val_int), sizeof(var), er);                               // Print the "val_int" integer variable size and the "var" union size
 
   enum car_type{                                                                                            // Enum "car_type" declaration only
     FAST,                                                                                                   // "FAST" element (with CAPITAL LETTERS, convention) of the "car_type" enum 
@@ -183,7 +184,23 @@ int main(){
     enum car_type type;                                                                                     // Enum "car_type" definition inside "car" struct
   };
   struct car my = {SLOW};                                                                                   // "My" variable of type "car" struct definition with "SLOW" value from "car_type" enum
-  printf("\n\n%s>>>%s Mine car type: %s%s\n", gn, pu, type_str[my.type], er);                               // Print "my" variable of type "car" struct, --------
+  printf("\n\n%s>>>%s My car type: %s%s\n", gn, pu, type_str[my.type], er);                                 // Print "my" struct "car" variable, accessing the "type" element of the "car_type" enum inside the "car" struct. Use this value as index to print the string inside the "type_str" vector.
+
+  struct info2{                                                                                             // Info2 (bitfield) struct declaration only, always allocates n*4 bytes (= n*32 bits) to perform optimized memo access, but allocation size can be overrided to define specific-sized variables, even single bits
+    unsigned f:4;                                                                                           // 4 bits unsigned int
+    signed g:2;                                                                                             // 2 bits signed int
+    signed t:1;                                                                                             // 1 bit signed bool value (-1, 0) --> one first bit is reserved for the sign of the number
+    unsigned k:30;                                                                                          // 30 bits unsigned int
+  };                                                                                                        // Total number of bits = 37 --> allocates 64 bits (= 8 bytes)
+
+  struct info elem;                                                                                         // Elem info (bitfield) struct variable definition
+  struct info2 elem2;                                                                                       // Elem2 info2 (bitfield) struct variable definition
+  printf("\n\n%s>>>%s The (bitfield) struct allocation size is the next multiple of 4 bytes (32 bits).%s\n",
+          gn, pu, er);                                                                                      // (Bitfields) struct sizes print fbk
+  printf("\n\n%s>>>%s Elem info bitfiels %s(8 bits - 1 byte)%s, number allocated of bytes: %s%lu%s, total number of bits: %s%lu%s\n",
+          gn, pu, bl, pu, ye, sizeof(elem), pu, ye, sizeof(elem)*8, er);                                    // Elem info (bitfield) struct allocated memory size
+  printf("\n\n%s>>>%s Elem2 info bitfiels %s(37 bits - 5 byte)%s, number allocated of bytes: %s%lu%s, total number of bits: %s%lu%s\n",
+          gn, pu, bl, pu, ye, sizeof(elem2), pu, ye, sizeof(elem2)*8, er);                                  // Elem2 info2 (bitfield) struct allocated memory size
 
   return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }
@@ -192,5 +209,5 @@ int main(){
 
 /* Task */
 /*
- * Struct, union and enum data types lesson
+ * Struct, union, enum and bitfields data types lesson
  */

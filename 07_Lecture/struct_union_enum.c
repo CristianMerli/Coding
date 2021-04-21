@@ -3,7 +3,7 @@
  * Code title: Struct, union and enum data types
  * Code version: 2.0
  * Creation date: 20/04/2021
- * Last mod. date: 20/04/2021
+ * Last mod. date: 21/04/2021
  */
 
 
@@ -15,87 +15,85 @@
 
 
 /* Constants declaration and definition */
-const char *R = "\033[0;31m";                                                                               // Red color
-const char *B = "\033[0;34m";                                                                               // Blue color
-const char *LB = "\033[1;34m";                                                                              // Light blue color
-const char *P = "\033[0;35m";                                                                               // Purple color
-const char *C = "\033[0;36m";                                                                               // Cyan color
-const char *Y = "\033[1;33m";                                                                               // Yellow color
-const char *O = "\033[0;33m";                                                                               // Orange color
-const char *G = "\033[0;32m";                                                                               // Green color
-const char *LGN = "\033[1;32m";                                                                             // Light green color
-const char *LGY = "\033[0;37m";                                                                             // Light gray color
-const char *E = "\033[0m";                                                                                  // End color
+const char *rd = "\033[0;31m";                                                                              // Red color
+const char *bl = "\033[0;34m";                                                                              // Blue color
+const char *lb = "\033[1;34m";                                                                              // Light blue color
+const char *pu = "\033[0;35m";                                                                              // Purple color
+const char *cy = "\033[0;36m";                                                                              // Cyan color
+const char *ye = "\033[1;33m";                                                                              // Yellow color
+const char *og = "\033[0;33m";                                                                              // Orange color
+const char *gn = "\033[0;32m";                                                                              // Green color
+const char *lgn = "\033[1;32m";                                                                             // Light green color
+const char *lgy = "\033[0;37m";                                                                             // Light gray color
+const char *er = "\033[0m";                                                                                 // End color
 
 
 /* Enums declaration and definition */
-//
+enum tag{ A, B, C = 12, D };                                                                                // Tag enum declaration and definition (A=0, B=1, C=12, D=13, elements with CAPITAL LETTERS, convention)
 
 
 /* Data-types declaration and definition */
 typedef unsigned char   byte;                                                                               // Unsigned char alias (byte)
-typedef unsigned short  u_shrt;                                                                             // Unsigned short alias (u_shrt)
-typedef short           shrt;                                                                               // Short alias (shrt)
-typedef double          real;                                                                               // Double alias (real)
-
-
-/* Enums declaration */
-enum var_type{                                                                                              // Enum values defined with MAIUSC (convention)
-  FAST,
-  SLOW
-};
 
 
 /* Struct declaration and definition */
-struct person                                                                                               // Struct declaration
+struct person                                                                                               // Person struct (declaration only)
 {
-  int age;
-  char initial;
-  char name[20];
-  char surname[20];
-  double height;
-  double weight;
+  int age;                                                                                                  // Age element of the struct person
+  char initial;                                                                                             // Initial element of the struct person
+  char name[20];                                                                                            // Name element of the struct person
+  char surname[20];                                                                                         // Surname element of the struct person
+  double height;                                                                                            // Height element of the struct person
+  double weight;                                                                                            // Weight element of the struct person
 };
 
-struct people                                                                                               // Struct declaration and definition
+struct client                                                                                               // Client struct (declaration and definition, for antonio and marco)
 {
-  int age;
-  char initial;
-  char name[20];
-  char surname[20];
-  double height;
-  double weight;
-} Antonio, Marco;
+  int age;                                                                                                  // Age element of the struct client
+  char initial;                                                                                             // Initial element of the struct client
+  char name[20];                                                                                            // Name element of the struct client
+  char surname[20];                                                                                         // Surname element of the struct client
+  double height;                                                                                            // Height element of the struct client
+  double weight;                                                                                            // Weight element of the struct client
+} antonio, marco;                                                                                           // Struct definition for antonio and marco as client
 
-struct {                                                                                                    // Struct definition - without name, can be used only 1 time
-  double a;
-  double b;
-} unic;
+struct {                                                                                                    // Struct declaration and definition for unic without name, 1 only no-name struct can be defined
+  int num;                                                                                                  // Num element of the struct unic
+} unic;                                                                                                     // Unic no-name strut definition
 
-struct info                                                                                                 // Always allocate n*4 bytes (= n*32 bits) to increas , but size can be override
+struct info                                                                                                 // Info struct declaration only, always allocates n*4 bytes (= n*32 bits) to perform optimized memo access, but allocation size can be overrided to define specific-sized variables, even single bits
 {
-  unsigned f:4;                                                                                             // 4 bits unsigned int, DO NOT USE DOUBLE AND FLOAT
+  unsigned f:4;                                                                                             // 4 bits unsigned int, DO NOT USE DOUBLE AND FLOAT, INT ONLY
   signed g:2;                                                                                               // 2 bits signed int
-  signed bool:1;                                                                                            // 1 bit bool value (0,1)
-  unsigned u_bool:1;                                                                                        // 1 bit bool value (-1, 0)
+  unsigned bool:1;                                                                                          // 1 bit unsigned bool value (0,1)
+  signed s_bool:1;                                                                                          // 1 bit signed bool value (-1, 0)
 };
 
-struct person Giorgio;                                                                                      // Struct definition
-struct person class[10];                                                                                    // -
-struct person Luca = {45, 'L', "Luca", "Rossi", 175, 75};                                                   // Fast struct init
+struct person giorgio;                                                                                      // Giorgio person struct definition
+struct person class[10];                                                                                    // Person struct vector definition, 10 person elements in class vector
+struct person luca = {45, 'L', "Luca", "Rossi", 175, 75};                                                   // Fast and compact luca person struct initialization (definition)
+
+struct var_type2{                                                                                           // Var_type2 struct declaration only
+  int tipo_union;                                                                                           // Int variable inside var_type2 struct
+  union {                                                                                                   // Union variable inside var_type2 struct declaration and definition for "elem"
+    float   reale;                                                                                          // Float variable inside the "elem" union in a "var_type2" struct
+    char    carattere;                                                                                      // Char variable inside the "elem" union in a "var_type2" struct
+    int     intero;                                                                                         // Integer variable inside the "elem" union in a "var_type2" struct
+  } elem;                                                                                                   // Elem union definition --> the size will be the same as float/int, max size data-types in the union (4 bytes = 32 bits)
+};
 
 
 /* Struct declaration and definition */
-union generic                                                                                               // nion declaration and definition (allocates the size of the biggest data type, in this example double), then it can be used either as an int or as a double --> NOTE THAT IF I WRITE THE VARIABLE AS DOUBLE, I HAVE TO EVEN READ IT AS A DOUBLE AND NOT AS INT
+union generic                                                                                               // Generic union declaration and definition (allocates the size of the biggest data type, in this example double), then it can be defined either as an int or as a double data type --> NOTE THAT IF I WRITE THE VARIABLE AS DOUBLE, THEN I HAVE TO READ IT AS A DOUBLE! NOT AS INT
 {
-  double  val_real;
-  int     val_int;
-} elem;
+  double  val_real;                                                                                         // val_real double variable of the elem generic union
+  int     val_int;                                                                                          // val_int int variable of the elem generic union
+} elem;                                                                                                     // Elem generic union definition 
 
 
 /* Functions declaration and definition */
-static void logo(const byte start_sp, const char txt[], const char txt_col[], const char bkg_chr,           // Static function (readable only in this .c file) and const param (not modified in function --> SW optimization at compile-time)
-                 const char bkg_col[]){                                                                     // Print responsive-logo function
+static void logo(const byte start_sp, const char *txt, const char *txt_col, const char bkg_chr,             // Static function (readable only in this .c file) and const param (not modified in function --> SW optimization at compile-time)
+                 const char *bkg_col){                                                                      // Print responsive-logo function
   /* Function body */
   struct winsize w;                                                                                         // Window-size struct declaration
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);                                                                     // Save the number of terminal's rows/cloumns in window-size struct
@@ -152,18 +150,40 @@ int main(){
   //
 
   /* Code */
-  logo(4, "STRUCT, UNION AND ENUM", Y, '#', G);                                                             // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
-  Giorgio.age = 25;                                                                                         // -
-  // Giorgio.name = "Giorgione";                                                                            // Wrong! Use funct below
-  strcpy(Giorgio.name, "Giorgione");                                                                        // -
-  struct person *el = &class[2];                                                                            // Extract second person memo addr in class array
-  strcpy(el->name, "William");                                                                              // Write name "William" into pointed memo cell, using operator '->' to dereference the pointer *el
-  strcpy((*el).name, "William");                                                                            // Equivalent as above
-  el->age = 22;                                                                                             // -
-  el->weight = 65;                                                                                          // -
-  el->height = 172;                                                                                         // -
-  strcpy(el->surname, "Bianchi");                                                                           // -
-  el->age++;                                                                                                // Increment age
+  logo(4, "STRUCT, UNION AND ENUM", ye, '#', gn);                                                           // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
+  
+  giorgio.age = 25;                                                                                         // Giorgio person struct, age element definition
+  // Giorgio.name = "Giorgione";                                                                            // Wrong way to assign string value to struct! Use the strcpy() function as below!
+  strcpy(giorgio.name, "Giorgione");                                                                        // Usin' strcpy() function, copy "Giorgione" string inside the "name" string element of "Giorgio" person struct
+  struct person *el = &class[2];                                                                            // Extract the third person (in class vector) memory cell address and save it into the "el" pointer variable
+  strcpy(el->name, "William");                                                                              // Write name "William" into the memory cell pointed by the "el" pointer (into the third person inside the class vector, see the previous line of code), using operator '->' to dereference the pointer "el", accessing pointed memory cell data
+  strcpy((*el).name, "William");                                                                            // Equivalent, the same as the previous line of code (both "el->" and "*(el)" are two equivalent pointer dereferencing syntax to write values into the memory cell pointed by the "el" pointer)
+  el->age = 22;                                                                                             // Use "el->" dereferencing syntax to initialize the "age" element of the pointes Person struct  ( in this case, the third inside the class vector of person(s) )
+  el->weight = 65;                                                                                          // Use "el->" dereferencing syntax to initialize the "weight" element of the pointed Person struct  ( in this case, the third inside the class vector of person(s) )
+  el->height = 172;                                                                                         // Use "el->" dereferencing syntax to initialize the "height" element of the pointed Person struct  ( in this case, the third inside the class vector of person(s) )
+  strcpy(el->surname, "Bianchi");                                                                           // Use "el->" dereferencing syntax to initialize the "surname" element of the pointed Person struct  ( in this case, the third inside the class vector of person(s) )
+  el->age++;                                                                                                // Use "el->" dereferencing syntax to increment the "age" element of the pointed Person struct  ( in this case, the third inside the class vector of person(s) )
+ 
+  union generic var;                                                                                        // Define a "generic" union var
+  printf("\n\n%s>>>%s The union size is equivalent to the max size of the data types in the union.%s\n",
+          gn, pu, er);                                                                                      // Union sizes print fbk
+  var.val_real = 23.5;                                                                                      // Assign to the "val_real" double variable of the "var" union a double number
+  printf("\n\n%s>>>%s Union double: %svar = %f, %s'var.val_real' double size %ld, 'var' union size: %ld%s\n",
+          gn, pu, bl, var.val_real, ye, sizeof(var.val_real),sizeof(var), er);                              // Print the "val_real" double variable size and the "var" union size
+  var.val_int = 5;                                                                                          // Assign to the "val_int" integer variable of the "var" union an int number
+  printf("\n\n%s>>>%s Union int: %svar = %d, %s'var.val_int' integer size %ld, 'var' union size: %ld%s\n",
+          gn, pu, bl, var.val_int, ye, sizeof(var.val_int),sizeof(var), er);                                // Print the "val_int" integer variable size and the "var" union size
+
+  enum car_type{                                                                                            // Enum "car_type" declaration only
+    FAST,                                                                                                   // "FAST" element (with CAPITAL LETTERS, convention) of the "car_type" enum 
+    SLOW                                                                                                    // "SLOW" element (with CAPITAL LETTERS, convention) of the "car_type" enum
+  };
+  char *type_str[] = {"Veloce","Lento"};                                                                    // If a string vector is defined with the same order of the enum created above, the enum elements can be used to access the string value (see below lines) 
+  struct car{                                                                                               // Define "car" struct with "car_type" enum element
+    enum car_type type;                                                                                     // Enum "car_type" definition inside "car" struct
+  };
+  struct car my = {SLOW};                                                                                   // "My" variable of type "car" struct definition with "SLOW" value from "car_type" enum
+  printf("\n\n%s>>>%s Mine car type: %s%s\n", gn, pu, type_str[my.type], er);                               // Print "my" variable of type "car" struct, --------
 
   return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }

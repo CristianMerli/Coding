@@ -163,7 +163,7 @@ int main(){
   el->height = 172;                                                                                         // Use "el->" dereferencing syntax to initialize the "height" element of the pointed Person struct  ( in this case, the third inside the class vector of person(s) )
   strcpy(el->surname, "Bianchi");                                                                           // Use "el->" dereferencing syntax to initialize the "surname" element of the pointed Person struct  ( in this case, the third inside the class vector of person(s) )
   el->age++;                                                                                                // Use "el->" dereferencing syntax to increment the "age" element of the pointed Person struct  ( in this case, the third inside the class vector of person(s) )
- 
+
   union generic var;                                                                                        // Define a "generic" union var
   printf("\n\n%s>>>%s The union size is equivalent to the max size of the data types in the union.%s\n",
           gn, pu, er);                                                                                      // Union sizes print fbk

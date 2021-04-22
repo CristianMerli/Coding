@@ -18,7 +18,7 @@
 
 
 /* Global vars declaration and definition */
-char in_buff[20];                                                                                           // Input buffer char array for fgets func
+//
 
 
 /* Main cycle */

@@ -63,7 +63,7 @@ struct {                                                                        
 
 struct person giorgio;                                                                                      // Giorgio person struct definition
 struct person class[10];                                                                                    // Person struct vector definition, 10 person elements in class vector
-struct person luca = {45, 'L', "Luca", "Rossi", 175, 75};                                                   // Fast and compact luca person struct initialization (definition)
+struct person luca = { 45, 'L', "Luca", "Rossi", 175, 75 };                                                 // Fast and compact luca person struct initialization (definition)
 
 struct var_type2{                                                                                           // Var_type2 struct declaration only
   int tipo_union;                                                                                           // Int variable inside var_type2 struct

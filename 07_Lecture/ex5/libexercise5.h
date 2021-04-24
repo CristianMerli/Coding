@@ -46,15 +46,17 @@ enum coords                                                                     
 typedef struct street                                                                                       // Street (name and connection) typedef
 {
   char name[25];                                                                                            // Street name
-  union connection *con;                                                                                    // Connection to street (street or cross)
+  struct connection *con;                                                                                   // Connection to street (street or cross)
 } street;
 
-
-/* Unions declaration and definition */
-typedef union connection                                                                                    // Street connection type (other street or cross) typedef
+typedef struct connection                                                                                   // Street connection type (other street or cross) typedef
 {
-  street strt;                                                                                              // Street connection to other street
-  street *cross;                                                                                            // Street connection to cross
+  unsigned type:1;                                                                                          // -
+  union conn_type                                                                                           // -
+  {
+    street strt;                                                                                            // Street connection to other street
+    street *cross;                                                                                          // Street connection to cross
+  };
 } connection;
 
 

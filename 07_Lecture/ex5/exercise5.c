@@ -42,7 +42,7 @@ int main(){
   /* Code */
   logo(4, "CROSSES AND STREETS", ye, '#', gn);                                                              // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
 
-  printf("\n\n%s>>>%s Assigning streets 1-2-3-4 to cross1 in 1st-2nd-3rd-4th position:%s\n", gn, pu, er);   // Assigning street1, street2, street3 and street4 to cross1 fbk
+  printf("\n\n%s>>>%s Assigning streets 1-2-3-4 to cross1 in 1st-2nd-3rd-4th position...%s\n", gn, pu, er); // Assigning street1, street2, street3 and street4 to cross1 fbk
   assign_strt_to_crss(street1, cross1, 0);                                                                  // Assign street1 to cross1 in 1st position functio call
   assign_strt_to_crss(street2, cross1, 1);                                                                  // Assign street2 to cross1 in 2nd position functio call
   assign_strt_to_crss(street3, cross1, 2);                                                                  // Assign street3 to cross1 in 3rd position functio call
@@ -50,7 +50,7 @@ int main(){
   printf("\n\n%s>>>%s Street names of cross1's streets:%s\n   ", gn, pu, er);                               // Street names in cross1 fbk
   print_crs_strt_nanes(cross1, strts_in_cross);                                                             // Print street names in cross function call
 
-  printf("\n\n%s>>>%s Assigning streets 5-6-7-8 to cross2 in 1st-2nd-3rd-4th position:%s\n", gn, pu, er);   // Assigning street5, street6, street7 and street8 to cross2 fbk
+  printf("\n\n%s>>>%s Assigning streets 5-6-7-8 to cross2 in 1st-2nd-3rd-4th position...%s\n", gn, pu, er); // Assigning street5, street6, street7 and street8 to cross2 fbk
   assign_strt_to_crss(street5, cross2, 0);                                                                  // Assign street5 to cross2 in 1st position functio call
   assign_strt_to_crss(street6, cross2, 1);                                                                  // Assign street6 to cross2 in 2nd position functio call
   assign_strt_to_crss(street7, cross2, 2);                                                                  // Assign street7 to cross2 in 3rd position functio call
@@ -63,7 +63,7 @@ int main(){
           gn, pu, ye, street1.con->strt.name, er);                                                          // Assigning street1 connection fbk
 
   tmp_connection.cross = cross2;  assign_conn_to_strt(&street2, &tmp_connection);                           // Assign street2 connection function call (connect street2 to cross2)
-  printf("\n\n%s>>>%s Assigned street2 connection (cross) streets names in cross:\n    %s|%s |  | %s |  | %s |  | %s |%s\n",
+  printf("\n\n%s>>>%s Assigned street2 connection (cross), streets names in cross:\n    %s|%s |  | %s |  | %s |  | %s |%s\n",
           gn, pu, ye, street2.con->cross[0].name, street2.con->cross[1].name,
           street2.con->cross[2].name, street2.con->cross[3].name, er);                                      // Assigning street2 connection fbk
   

@@ -1,17 +1,19 @@
 /*
  * Author: Cristian Merli
  * Code title: Exercise 5 (es_generico) library header file
- * Code version: 1.0
+ * Code version: 2.0
  * Creation date: 22/04/2021
- * Last mod. date: 22/04/2021 
+ * Last mod. date: 25/04/2021 
  */
 
 
 /* Libraries import */
 #include <stdio.h>                                                                                          // Standard I/O library inclusion
+#include <stdlib.h>                                                                                         // Standard library inclusion (for atoi ecc.)
 #include <string.h>                                                                                         // String library inclusion (for strlen ecc.)
 #include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
+#include <time.h>                                                                                           // Time library inclusion (for delay function creation ecc.)
 
 
 /* Constants declaration and definition */
@@ -40,36 +42,38 @@ enum coords                                                                     
 {
   V = 0,                                                                                                    // Vectors
 };
+typedef enum conn_typ{ NONE, STREET, CROSS } conn_typ;                                                      // Street-connection type enum typedef
+typedef enum street_in_cross{ FIRST, SECOND, THIRD, FOURTH } street_in_cross;                               // Streets in cross type enum typedef
 
 
 /* Structs declaration */
 typedef struct street                                                                                       // Street (name and connection) typedef
 {
   char name[25];                                                                                            // Street name
-  struct connection *con;                                                                                   // Connection to street (street or cross)
-} street;
-
-typedef struct connection                                                                                   // Street connection type (other street or cross) typedef
-{
-  unsigned type:1;                                                                                          // -
-  union conn_type                                                                                           // -
+  struct connection                                                                                         // Street connection (other street or cross + connection type)
   {
-    street strt;                                                                                            // Street connection to other street
-    street *cross;                                                                                          // Street connection to cross
-  };
-} connection;
+    unsigned type:2;                                                                                        // Connection type bitfield (2 bits)
+    union conn                                                                                              // Connection union (street or cross)
+    {
+      struct street *strt;                                                                                  // Street connection to other street
+      struct street *cross;                                                                                 // Street connection to cross
+    } conn;
+  } connection;
+} street;
 
 
 /* Libraries function declaration */
 void logo(const byte start_sp, const char *txt, const char *txt_col,
           const char bkg_chr, const char *bkg_col);                                                         // Print responsive-logo function
 
+void delay(const unsigned long time_ms);                                                                    // Delay [ms] function
+
 shrt iaddr(const u_shrt i, const u_shrt j, const u_shrt lda);                                               // Arrays/vectors memo addressing
 
-void assign_strt_to_crss(street strt, street *cross, const byte pos);                                       // Assign street to cross function
+void assign_strt_to_crss(street strt, street *cross, const street_in_cross strts_in_cross, const byte pos); // Assign street to cross function
 
 void print_crs_strt_nanes(const street *strt, const byte strts_in_cross);                                   // Print street names in cross function
 
-void assign_conn_to_strt(street *strt, connection *con);                                                    // Assign connection to street function
+void assign_conn_to_strt(street *strt, union conn *conn, const conn_typ type);                              // Assign connection to street function
 
-void navigate(street *start_strt);                                                                          // Navigate through streets and crosses function
+void navigate(const street start_strt, const byte strts_in_cross);                                          // Navigate through streets and crosses function

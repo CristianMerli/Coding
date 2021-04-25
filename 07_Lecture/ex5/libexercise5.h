@@ -1,7 +1,7 @@
 /*
  * Author: Cristian Merli
  * Code title: Exercise 5 (es_generico) library header file
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 22/04/2021
  * Last mod. date: 25/04/2021 
  */
@@ -38,12 +38,12 @@ typedef double          real;                                                   
 
 
 /* Enums declaration and definition */
-enum coords                                                                                                 // Matrix/vectors enum
-{
-  V = 0,                                                                                                    // Vectors
-};
+// enum coords                                                                                                 // Matrix/vectors enum
+// {
+//   V = 0,                                                                                                    // Vectors
+// };
 typedef enum conn_typ{ NONE, STREET, CROSS } conn_typ;                                                      // Street-connection type enum typedef
-typedef enum street_in_cross{ FIRST, SECOND, THIRD, FOURTH } street_in_cross;                               // Streets in cross type enum typedef
+typedef enum strts_in_crss{ FIRST, SECOND, THIRD, FOURTH } strts_in_crss;                                   // Streets in cross type enum typedef
 
 
 /* Structs declaration */
@@ -56,10 +56,17 @@ typedef struct street                                                           
     union conn                                                                                              // Connection union (street or cross)
     {
       struct street *strt;                                                                                  // Street connection to other street
-      struct street *cross;                                                                                 // Street connection to cross
+      struct cross *cross;                                                                                  // Street connection to cross
     } conn;
   } connection;
 } street;
+
+const byte strts_in_cross = 4;                                                                              // Number of streets inside each cross obj (4)
+
+typedef struct cross                                                                                        // Cross (4 streets vector) typedef
+{
+  street cross_strts[4];                                                                                    // Streets vector in cross (4 streets per cross)
+} cross;
 
 
 /* Libraries function declaration */
@@ -68,12 +75,12 @@ void logo(const byte start_sp, const char *txt, const char *txt_col,
 
 void delay(const unsigned long time_ms);                                                                    // Delay [ms] function
 
-shrt iaddr(const u_shrt i, const u_shrt j, const u_shrt lda);                                               // Arrays/vectors memo addressing
+// shrt iaddr(const u_shrt i, const u_shrt j, const u_shrt lda);                                               // Arrays/vectors memo addressing
 
-void assign_strt_to_crss(street strt, street *cross, const street_in_cross strts_in_cross, const byte pos); // Assign street to cross function
+void assign_strt_to_crss(const street *strt, cross *cross, const byte pos, const strts_in_crss strs_num);   // Assign street to cross function
 
-void print_crs_strt_nanes(const street *strt, const byte strts_in_cross);                                   // Print street names in cross function
+void print_crs_strt_nanes(const cross *cross, const byte strts_in_cross);                                   // Print street names in cross function
 
-void assign_conn_to_strt(street *strt, union conn *conn, const conn_typ type);                              // Assign connection to street function
+void assign_conn_to_strt(street *strt, const union conn *conn, const conn_typ type);                        // Assign connection to street function
 
-void navigate(const street start_strt, const byte strts_in_cross);                                          // Navigate through streets and crosses function
+void navigate(const street *start_strt, const byte strts_in_cross);                                         // Navigate through streets and crosses function

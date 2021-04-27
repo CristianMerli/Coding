@@ -103,7 +103,7 @@ int main(){
 
   /* Code */
   logo(4, "DEFINES AND FILES", ye, '#', gn);                                                                // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
-  
+
   // Pre-processing directives command '#'
   // Compile only 'till pre-processing operation --> gcc -E defines_files.c -o defines_files.i
   // Compile also includes preprocessing step --> gcc -Wall defines_files.c -o defines_files

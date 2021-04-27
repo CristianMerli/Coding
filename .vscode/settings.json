@@ -2,7 +2,15 @@
   "files.autoSave": "onWindowChange",
   "files.associations": {
     "stdlib.h": "c",
-    "typeinfo": "c"
+    "typeinfo": "c",
+    "cmath": "c",
+    "cstdarg": "c",
+    "cstdio": "c",
+    "cstdlib": "c",
+    "type_traits": "c",
+    "limits": "c",
+    "*.tcc": "c",
+    "cstdint": "c"
   },
   "editor.tabSize": 2,
   "editor.detectIndentation": false

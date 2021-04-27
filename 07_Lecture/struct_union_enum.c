@@ -1,7 +1,7 @@
 /*
  * Author: Cristian Merli
  * Code title: Struct, union, enum and bitfields data types
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 20/04/2021
  * Last mod. date: 21/04/2021
  */

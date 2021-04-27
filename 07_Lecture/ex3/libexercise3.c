@@ -82,7 +82,8 @@ void train_trac_typ(struct train *tr, const enum traction trc_typ){             
 }
 
 
-void trains_join(struct train *tr1, const struct train tr2){                                                // Trains join function (add the second train's wagons to the first train struct)
+void trains_join(struct train *tr1, struct train *tr2){                                                     // Trains join function (add the second train's wagons to the first train struct and reset second train wagons number)
   /* Function body */
-  tr1->wag_num += tr2.wag_num;                                                                              // Add the second train's wagons to the first train struct
+  tr1->wag_num += tr2->wag_num;                                                                             // Add the second train's wagons to the first train struct
+  tr2->wag_num = 0;                                                                                         // Reset second train wagons number
 }

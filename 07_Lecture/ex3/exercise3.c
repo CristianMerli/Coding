@@ -48,7 +48,7 @@ int main(){
           gn, pu, bl, trenitalia1.wag_num, pu, bl, *(traction_str+trenitalia1.tr_tract), pu, er);           // Print second train fbk
 
   printf("\n\n%s>>>%s Adding the second train's wagons to the first train.%s\n", gn, pu, er);               // Adding the second train's wagons to the first train fbk
-  trains_join(&italo1, trenitalia1);                                                                        // Trains join (add the second train's wagons to the first train struct) function call, passin' first train struct pointer and second train struct value
+  trains_join(&italo1, &trenitalia1);                                                                       // Trains join (add the second train's wagons to the first train struct) function call, passin' first and second trains struct pointers and reset second train wagons number
 
   printf("\n\n%s>>>%s The first train has %s%d%s wagons and it is powered by %s%s%s motor.%s\n",
           gn, pu, bl, italo1.wag_num, pu, bl, *(traction_str+italo1.tr_tract), pu, er);                     // Print first train fbk

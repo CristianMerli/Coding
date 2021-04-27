@@ -58,4 +58,4 @@ void wag_rmv(struct train *tr);                                                 
 
 void train_trac_typ(struct train *tr, const enum traction trc_typ);                                         // Train traction type definition funtion (in train struct)
 
-void trains_join(struct train *tr1, const struct train tr2);                                                // Trains join function (add the second train's wagons to the first train struct)
+void trains_join(struct train *tr1, struct train *tr2);                                                     // Trains join function (add the second train's wagons to the first train struct and reset second train wagons number)

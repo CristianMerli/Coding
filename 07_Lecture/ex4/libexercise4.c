@@ -3,7 +3,7 @@
  * Code title: Exercise 4 (es_strutture_2) library
  * Code version: 3.0
  * Creation date: 21/04/2021
- * Last mod. date: 22/04/2021
+ * Last mod. date: 29/04/2021
  */
 
 
@@ -84,11 +84,10 @@ int vehic_garage_chk(const struct vehicle vehic, const struct garage gar,
 }
 
 
-static void bubble_sort(struct vehicle *elems, const shrt elems_num, const enum order ord){                 // Bubble sort algorithm (for structs) function
+//static void bubble_sort(struct vehicle *elems, const shrt elems_num, const enum order ord){                 // Bubble sort algorithm (for structs) function
   /* Function body */
-  shrt i, j;                                                                                                // FOR cycles idx
-  real *elem_propr;                                                                                         // Element propriety to sort pointer
-  real *nxt_elem_propr;                                                                                     // Next-element propriety to sort pointer
+/*  shrt i, j;                                                                                                // FOR cycles idx
+  real *elem_propr, *nxt_elem_propr;                                                                        // Element propriety to sort pointer and next-element propriety to sort pointer
   struct vehicle tmp;                                                                                       // TMP var to swap elements in vector
 
   for (i = elems_num-1; i >= 0; --i){                                                                       // Remaning elements to sort FOR cycle
@@ -104,16 +103,16 @@ static void bubble_sort(struct vehicle *elems, const shrt elems_num, const enum 
       }
     }
   }
-}
+}*/
 
 
 static void insertion_sort(struct vehicle *elems, const shrt elems_num, const enum order ord){              // Insertion sort algorithm (for structs) function
   /* Function body */
-  shrt i, j;                                                                                                // FOR cycles idx
+  shrt i, j, k;                                                                                             // FOR cycles idx
   struct vehicle tmp;                                                                                       // TMP var to swap elements in vector
   real volumes[elems_num];                                                                                  // Volumes vector for vehicles sorting declaration
 
-  for(shrt k = 0; k < elems_num; ++k)                                                                       // Volumes vector population FOR cycle
+  for(k = 0; k < elems_num; ++k)                                                                            // Volumes vector population FOR cycle
     volumes[k] = elems[k].dimens.x*elems[k].dimens.y*elems[k].dimens.z*0.000000001;                         // Calculate vehicles volumes and save 'em in vector (conversion from mm^3 to m^3)
 
   for (i = 1; i < elems_num; ++i){                                                                          // Sorting elements FOR cycle
@@ -127,9 +126,35 @@ static void insertion_sort(struct vehicle *elems, const shrt elems_num, const en
 }
 
 
+static void selection_sort(struct vehicle *elems, const shrt elems_num, const enum order ord){              // Selection sort algorithm (for structs) function
+  /* Function body */
+  shrt i, j, min_idx;                                                                                       // FOR cycles and min value propriety in unsorted part of the array idx
+  real *elem_propr, *swp_elem_propr;                                                                        // Element propriety to sort pointer and swap-element propriety to sort pointer
+  struct vehicle tmp;                                                                                       // TMP var to swap elements in vector
+
+  for (i = 0; i < elems_num-1; ++i){                                                                        // Sorting elements FOR cycle
+    min_idx = i;                                                                                            // Min value propriety index
+    for (j = i+1; j < elems_num; ++j){                                                                      // Unsorted part of the vector FOR cycle
+      elem_propr = &elems[j].weight;                                                                        // Point to the jth element propriety to sort elements inside the vector
+      swp_elem_propr = &elems[min_idx].weight;                                                              // Point to the propriety min val element to sort elements inside the vector
+      
+      if (((*elem_propr > *swp_elem_propr) && ord == DECREASING) ||
+         ((*elem_propr < *swp_elem_propr) && ord == CREASING)){                                             // Decreasing (or creasing) order conditions: swap element's positions if the min val element propriety is greater (or less) than the propriety of the pointed element
+        min_idx = j;                                                                                        // Update min val propriety index
+      }
+    }
+  
+    tmp = elems[i];                                                                                         // Save pointed element in TMP var to swap elements (use pointers and get vector position idx through the iaddr() function)
+    *(elems+iaddr(V, i, elems_num)) = *(elems+iaddr(V, min_idx, elems_num));                                // Move the min val propriety element in pointing position (use pointers and get vector position idx through the iaddr() function)
+    *(elems+iaddr(V, min_idx, elems_num)) = tmp;                                                            // Then copy the old pointed element previously saved in TMP swap variable, into the min val propriety element position (use pointers and get vector position idx through the iaddr() function)
+  }
+}
+
+
 struct vehicle heaviest_vehic(struct vehicle *vehics, const shrt vehics_num){                               // Find heaviest vehicle in vehicles vector
   /* Function body */
-  bubble_sort(vehics, vehics_num, DECREASING);                                                              // Sort vehicles in vector by weight usin' bubble sortin' algorithm
+  selection_sort(vehics, vehics_num, DECREASING);                                                           // Sort vehicles in vector by weight usin' insertion sortin' algorithm
+  //bubble_sort(vehics, vehics_num, DECREASING);                                                              // Sort vehicles in vector by weight usin' bubble sortin' algorithm
 
   return *vehics;                                                                                           // Return the first vehicle in the sorted vector (the heaviest one)
 }

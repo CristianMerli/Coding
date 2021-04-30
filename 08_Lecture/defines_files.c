@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Defines and files
- * Code version: 1.0
+ * Code version: 3.0
  * Creation date: 27/04/2021
- * Last mod. date: 27/04/2021
+ * Last mod. date: 29/04/2021
  */
 
 
@@ -15,15 +15,14 @@
 
 
 /* Preprocessing directives */
-#define NUM 10                                                                                              // Single-line deinfe
-#define FUN(X) X*X                                                                                          // Function define to apply multiplication
-#define FOR(X, Y) for(int i=0; i<X; ++i){Y}                                                                 // -
-#define EXECUTE(F, A, B) A F B                                                                              // -
-/*
-#define TEXT \                                                                                              // Milti-line define (using '\')
+#define NUM 10                                                                                              // Number single-line define
+#define FUN(X) X*X                                                                                          // Function define to apply multiplication single-line define
+#define FOR(X, Y) for(int i=0; i<X; ++i){Y;}                                                                // For cycle single-line define
+#define EXECUTE(F, A, B) A F B                                                                              // Order swap function single-line define
+#define TEXT \
 printf("rerfeerr");\
-printf("rerfeerdscdscsdsdr");
-*/
+printf("rerfeerdscdscsdsdr");                                                                               // Milti-line define (using '\')
+
 
 /* Constants declaration and definition */
 const char *rd = "\033[0;31m";                                                                              // Red color
@@ -40,7 +39,8 @@ const char *er = "\033[0m";                                                     
 
 
 /* Data-types declaration and definition */
-typedef unsigned char byte;                                                                                 // Unsigned char alias (byte)
+typedef unsigned char   byte;                                                                               // Unsigned char alias (byte)
+typedef unsigned short  u_shrt;                                                                             // Unsigned short alias (u_shrt)
 
 
 /* Functions declaration and definition */
@@ -99,39 +99,52 @@ static void logo(const byte start_sp, const char *txt, const char *txt_col, cons
 /* Main cycle */
 int main(){
   /* Vars declaration and definition */
-  char in_buff[20];                                                                                         // Input buffer char array for fgets func
+  u_shrt in_buff_size = 1024;                                                                               // Input buffer char array size
+  char in_buff[in_buff_size];                                                                               // Input buffer char array for fgets func
 
   /* Code */
   logo(4, "DEFINES AND FILES", ye, '#', gn);                                                                // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
 
   // Pre-processing directives command '#'
   // Compile only 'till pre-processing operation --> gcc -E defines_files.c -o defines_files.i
-  // Compile also includes preprocessing step --> gcc -Wall defines_files.c -o defines_files
-  // #define used to define constants, in code each constant will be
-  // replaced by the constant vale (define resolution)
-  // #define can also be used for functions
+  // While normal compile also includes preprocessing step --> gcc -Wall defines_files.c -o defines_files
+  // #define used to define constants or const functions, in code each constant will be
+  // replaced by the vale or const function (called define resolution, visible at the end of the .i file)
+  // NOTE: #define can also be used for functions
   int vett[NUM];                                                                                            // --> int vectt[10];
+  printf("\n\n%s>>>%s Defined vett[NUM] vector size:%s %lu", gn, pu, er, sizeof(vett)/4);                   // Defined vett[NUM] vector size print fbk
   int r = FUN(4);                                                                                           // --> int r = 4*4;
-//  FOR(10, printf("%d\n", i););                                                                              // --> -
-  EXECUTE(+, 4, 5);                                                                                         // --> -
+  printf("\n\n%s>>>%s Defined print FOR cycle function: %s", gn, pu, er);                                   // Defined print FOR cycle function fbk
+  FOR(10, r+=i;printf("%d", i));                                                                            // --> for(int i=0; i<10; ++i){r+=i;printf("%d", i);};
+  int c = EXECUTE(+, 4, 5);                                                                                 // --> int c = 4+5
+  printf("\n\n%s>>>%s Defined EXECUTE(+, 4, 5) function result print:%s %d", gn, pu, er, c);                // Defined EXECUTE(+, 4, 5) function result print fbk
+  printf("\n\n%s>>>%s Defined TEXT print function: %s", gn, pu, er); TEXT;                                  // --> TEXT = printf("rerfeerr"); printf("rerfeerdscdscsdsdr");
 
 
   // FILES
   FILE *file;                                                                                               // Pointer to file object
-  file = fopen("data", "w");                                                                                // File-open (filename, open_type)
+  file = fopen("data", "w");                                                                                // File-open *FILE=(filename, open_type)
                                                                                                             // open_type:
                                                                                                             // - w = write (clear file)
                                                                                                             // - r = read only
-                                                                                                            // - a = append (do not clear file, add text, create if file doesn't exist)
+                                                                                                            // - a = append (do not clear file, add text in write only, create if file doesn't exist)
                                                                                                             // - r+ = read/write (only if file exists)
                                                                                                             // - w+ = read&write (create file if not exists)
                                                                                                             // - a+ = read&write&append (create file if not exists)
   fprintf(file, "%d", 10);                                                                                  // Insert text in file
   fclose(file);                                                                                             // Close file
 
-  file = fopen("data", "r");                                                                                // Open file in read-mode
-  if (file == NULL) perror(); else {
-    //
+  printf("\n\n%s>>>%s Opening and reading \"%s\" file line by line...%s\n", gn, pu, "data", er);            // Opening and reafing file fbk 
+
+  file = fopen("data", "r");                                                                                // Open file in read-only mode
+  if (file == NULL) perror("Error in file open at line 135 of defines_files.c "); else {                    // Check file not null (if exists), else print error fbk
+    u_shrt line_num = 0;                                                                                    // Line number counter
+    while ( fgets(in_buff, in_buff_size, file) != NULL ){                                                   // In case of file found, scan lines 'till null line (the last one)
+      ++line_num;                                                                                           // Line number val upd
+      printf("\n%s%d)%s ", lb, line_num, er);                                                               // Print line number fbk
+      puts(in_buff);                                                                                        // Print line content (str) fbk
+    }
+    fclose(file);                                                                                           // Close file
   }
 
   return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)

@@ -2312,14 +2312,9 @@ int getentropy (void *__buffer, size_t __length) ;
 
 
 # 15 "defines_files.c" 2
-# 23 "defines_files.c"
+# 28 "defines_files.c"
 
-# 23 "defines_files.c"
-printf("rerfeerr");printf("rerfeerdscdscsdsdr");
-
-
-
-
+# 28 "defines_files.c"
 const char *rd = "\033[0;31m";
 const char *bl = "\033[0;34m";
 const char *lb = "\033[1;34m";
@@ -2335,6 +2330,7 @@ const char *er = "\033[0m";
 
 
 typedef unsigned char byte;
+typedef unsigned short u_shrt;
 
 
 
@@ -2343,13 +2339,13 @@ static void logo(const byte start_sp, const char *txt, const char *txt_col, cons
 
   struct winsize w;
   ioctl(
-# 50 "defines_files.c" 3 4
+# 51 "defines_files.c" 3 4
        1
-# 50 "defines_files.c"
+# 51 "defines_files.c"
                     , 
-# 50 "defines_files.c" 3 4
+# 51 "defines_files.c" 3 4
                       0x5413
-# 50 "defines_files.c"
+# 51 "defines_files.c"
                                 , &w);
   byte vthck = (w.ws_row / 5);
   byte lthck = (w.ws_col / 6);
@@ -2401,7 +2397,8 @@ static void logo(const byte start_sp, const char *txt, const char *txt_col, cons
 
 int main(){
 
-
+  u_shrt in_buff_size = 1024;
+  char in_buff[in_buff_size];
 
 
   logo(4, "DEFINES AND FILES", ye, '#', gn);
@@ -2411,10 +2408,50 @@ int main(){
 
 
 
+
   int vett[10];
+  printf("\n\n%s>>>%s Defined vett[NUM] vector size:%s %lu", gn, pu, er, sizeof(vett)/4);
   int r = 4*4;
-  for(int i=0; i<10; ++i){printf("%d\n", i);};
-  4 + 5;
+  printf("\n\n%s>>>%s Defined print FOR cycle function: %s", gn, pu, er);
+  for(int i=0; i<10; ++i){r+=i;printf("%d", i);};
+  int c = 4 + 5;
+  printf("\n\n%s>>>%s Defined EXECUTE(+, 4, 5) function result print:%s %d", gn, pu, er, c);
+  printf("\n\n%s>>>%s Defined TEXT print function: %s", gn, pu, er); printf("rerfeerr");printf("rerfeerdscdscsdsdr");;
+
+
+
+  FILE *file;
+  file = fopen("data", "w");
+
+
+
+
+
+
+
+  fprintf(file, "%d", 10);
+  fclose(file);
+
+  printf("\n\n%s>>>%s Opening and reading \"%s\" file line by line...%s\n", gn, pu, "data", er);
+
+  file = fopen("data", "r");
+  if (file == 
+# 140 "defines_files.c" 3 4
+             ((void *)0)
+# 140 "defines_files.c"
+                 ) perror("Error in file open at line 135 of defines_files.c "); else {
+    u_shrt line_num = 0;
+    while ( fgets(in_buff, in_buff_size, file) != 
+# 142 "defines_files.c" 3 4
+                                                 ((void *)0) 
+# 142 "defines_files.c"
+                                                      ){
+      ++line_num;
+      printf("\n%s%d)%s ", lb, line_num, er);
+      puts(in_buff);
+    }
+    fclose(file);
+  }
 
   return 0;
 }

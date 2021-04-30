@@ -10,7 +10,8 @@
     "type_traits": "c",
     "limits": "c",
     "*.tcc": "c",
-    "cstdint": "c"
+    "cstdint": "c",
+    "libexercise4.h": "c"
   },
   "editor.tabSize": 2,
   "editor.detectIndentation": false

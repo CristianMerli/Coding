@@ -11,7 +11,9 @@
     "limits": "c",
     "*.tcc": "c",
     "cstdint": "c",
-    "libexercise4.h": "c"
+    "libexercise4.h": "c",
+    "lib_exercise1.h": "c",
+    "lib_timer.h": "c"
   },
   "editor.tabSize": 2,
   "editor.detectIndentation": false

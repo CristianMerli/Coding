@@ -66,3 +66,5 @@ cross *create_crss_collection(const u_int num_crss);                            
 cross *realloc_crss_collection(cross *crss_collec, const u_int num_crss);                                   // Dyn memo realloc function for crosses collection
 
 void print_strts_names_idxs(street *strts_collec, const u_int num_strts);                                   // Print streets names and indexes function
+
+void clear_map(street *strts_collec, cross *crss_collec);                                                   // Clear map from heap (free allocated dyn memo) function

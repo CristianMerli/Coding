@@ -56,9 +56,11 @@ void navigate(const street *start_strt){                                        
   street nav_strt = *start_strt;                                                                            // Assign starting street to navigation street
   int sel_srtr = 0;                                                                                         // Selected street in cross to continue navigation
   byte err_flg = 0;                                                                                         // Error flag
+  byte exit_flg = 0;                                                                                        // Exit flag
 
+  fbk_nl(1);                                                                                                // New line fbk
   while (nav_strt.conn_typ != NONE){                                                                        // Streets and crosses navigation while cycle (exit condition --> next street connection empty)
-    printf("%s\nn    --> %sNow you are in %s%s%s, continuing...%s\n",
+    printf("%s\n    --> %sNow you are in %s%s%s, continuing...%s\n",
             OG, CY, LBU, nav_strt.name, CY, ER);                                                            // Print this street name fbk
     delay(1000);                                                                                            // Delay [ms] function call
     switch (nav_strt.conn_typ)                                                                              // Navigation street connection type swith-case
@@ -69,19 +71,21 @@ void navigate(const street *start_strt){                                        
         break;
       ///////////
       case CROSS:                                                                                           // Case CROSS connection type
-        while (sel_srtr <= 0 || sel_srtr > STRTS_NUM){                                                      // Check if sel street val is in allowed range
-          printf("%s    --> %sCross with %s%d streets found%s, choose a street to continue... %s\n",
-                  OG, CY, LBU, STRTS_NUM, CY, ER);                                                          // Print cross found fbk
-          printf("\n    %s[1] %s%s,   %s[2] %s%s,   %s[3] %s%s,   %s[4] %s%s%s",
+        printf("\n%s    --> %sCross with %s%d streets found%s, choose a street to continue... %s\n",
+                OG, CY, LBU, STRTS_NUM, CY, ER);                                                            // Print cross found fbk
+        printf("\n        %s[1] %s%s,   %s[2] %s%s,   %s[3] %s%s,   %s[4] %s%s%s",
                 RD, OG, nav_strt.conn.cross->cross_strts[FIRST]->name,
                 RD, OG, nav_strt.conn.cross->cross_strts[SECOND]->name,
                 RD, OG, nav_strt.conn.cross->cross_strts[THIRD]->name,
                 RD, OG, nav_strt.conn.cross->cross_strts[FOURTH]->name, ER);                                // Print streets in cross options fbk
-          printf("\n\n    ");                                                                               // New lines fbk
-          printf("%s--> %sChoose a street to continue %s(max 1 numbers, value between 1 and %d)%s:%s ",
-                  OG, BU, LGN, STRTS_NUM, BU, ER);                                                          // Print choose street in cross to continue navigation fbk
-          sel_srtr = read_term_in_int();                                                                    // String conversion to byte and val save into selected street var
-        }
+        printf("\n    ");                                                                                   // New lines fbk
+        do{
+          sel_srtr = read_term_in_int_inrange(1, STRTS_NUM,
+                                              "Choose a street to continue", "The street number");          // String conversion to byte and val save into selected street var
+          exit_flg = (nav_strt.conn.cross->cross_strts[sel_srtr-1] != NULL);                                // Exit flag val update
+          if (!exit_flg)                                                                                    // Selected NULL street in cross detectin' cond
+            fbk_err("Street not existing, retry");                                                          // Error fbk
+        } while(!exit_flg);                                                                                 // Check if sel street val is in allowed range
         nav_strt = *nav_strt.conn.cross->cross_strts[sel_srtr-1];                                           // Proceed going into selected street
         break;
       ////////
@@ -94,7 +98,7 @@ void navigate(const street *start_strt){                                        
   }
   
   if (!err_flg){                                                                                            // Check error flag val
-    printf("%s    --> %sNow you are in %s%s%s, arrived! %s:)%s\n",
+    printf("\n%s    --> %sNow you are in %s%s%s, arrived! %s:)%s\n",
             OG, CY, LBU, nav_strt.name, CY, LGN, ER);                                                       // Print last street name fbk
     delay(1000);                                                                                            // Delay [ms] function call
     printf("\n%s    --> %sNavigation completed! %sThe road trip is terminated.%s\n", OG, LGN, OG, ER);      // Navigation completed fbk
@@ -104,11 +108,14 @@ void navigate(const street *start_strt){                                        
 
 void print_crs_strts_names(const cross *cross){                                                             // Print street names in cross function
   /* Body */
-  printf("%s    Cross streets: %s", YE, OG);                                                                // Set color
+  printf("%s    Cross streets  %s--> %s", YE, CY, ER);                                                      // Print info fbk
   for (strts_in_crss i = FIRST; i < STRTS_NUM; ++i){                                                        // Street names in cross print FOR cycle
-    printf(" | %s | ", cross->cross_strts[i]->name);                                                        // Prtint each street name in cross (vector of streets)
+    if (cross->cross_strts[i] != NULL)                                                                      // NOT-NULL street in cross detectin' cond
+      printf("%s | %s%s%s | %s", BU, OG, cross->cross_strts[i]->name, BU, ER);                              // Prtint each street name in cross (vector of streets)
+    else                                                                                                    // NULL street in cross
+      printf("%s | %sEMPTY%s | %s", BU, OG, BU, ER);                                                        // Prtint NULL street in cross (vector of streets)
   }
-  printf("%s\n", ER);                                                                                       // New line fbk and erase color
+  fbk_nl(1);                                                                                                // New line fbk
 }
 
 
@@ -200,4 +207,10 @@ void print_strts_names_idxs(street *strts_collec, const u_int num_strts){       
     printf("%s    +-------+%s--------------------------------+%s\n",
             table_body_col, table_databody_col, ER);                                                        // Bottom-line of the data inside the table
   }
+}
+
+
+void clear_map(street *strts_collec, cross *crss_collec){                                                   // Clear map from heap (free allocated dyn memo) function
+  free(strts_collec);                                                                                       // Clear streets collection
+  free(crss_collec);                                                                                        // Clear crosses collection
 }

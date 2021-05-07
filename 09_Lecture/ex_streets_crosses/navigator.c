@@ -92,6 +92,10 @@ static void build_map_conn(){                                                   
         print_strts_names_idxs(strts_collec_ptr, strts_num);                                                // Print streets names and indexes funciton call (as a table)
         int sel_strt = read_term_in_int_inrange(1, (int)strts_num, "Select street index",
                                             "Error! Street index");                                         // Select street idx
+        if ((sel_strt-1) == (int)i){                                                                        // Infinite-loop detecting condition
+          fbk_err("Infinite loop detected! A street can't be connected to itself, retry");                  // Infinite-loop detected fbk
+          continue;                                                                                         // Retry
+        }
         tmp_conn.strt = &strts_collec_ptr[sel_strt-1];                                                      // Define tmp connection with selected street idx in streets collection
         assign_conn_to_strt(&strts_collec_ptr[i], &tmp_conn, STREET);                                       // Pass tmp connection to street-to-street connection function
         break;                                                                                              // Exit street connections definition
@@ -139,8 +143,9 @@ static void build_map_conn(){                                                   
 static void navigate_in_map(){                                                                              // Navigate in map routine
   /* Body */
   press_enter("Starting navigation from the first defined street");                                         // Press enter to start navigation fbk
-  fbk_gn_cy("Ready to navigate in created virtual map...");                                                 // Print terminal input title fbk
+  fbk_gn_cy("Ready to navigate in created virtual map, starting navigation...");                            // Print terminal input title fbk
   navigate(strts_collec_ptr);                                                                               // Navigate through streets and crosses function call
+  clear_map(strts_collec_ptr, crss_collec_ptr);                                                             // Clear map from heap (free allocated dyn memo) function call
   close_fbk();                                                                                              // Close feedback function call
 }
 

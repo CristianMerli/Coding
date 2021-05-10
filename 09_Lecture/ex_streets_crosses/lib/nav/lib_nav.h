@@ -27,8 +27,8 @@ typedef enum strts_in_crss{ FIRST, SECOND, THIRD, FOURTH } strts_in_crss;       
 /* Unions & data-types */
 typedef union conn                                                                                          // Connection union (street or cross)
 {
-  struct street *strt;                                                                                             // Street connection to other street
-  struct cross *cross;                                                                                             // Street connection to cross
+  struct street *strt;                                                                                      // Street connection to other street
+  struct cross *cross;                                                                                      // Street connection to cross
 } conn;
 
 

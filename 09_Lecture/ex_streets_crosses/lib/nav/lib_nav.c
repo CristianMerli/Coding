@@ -130,7 +130,7 @@ street *create_strts_collection(const u_int num_strts, const char *name){       
     perror("Error in streets collection dynamic memory allocation with calloc!");                           // print perror fbk
     close_err();                                                                                            // Close software with error function call
   }
-  return ptr;                                                                                               // Return first streets collection allocated memo cell addr inside heap (pointer) or NULL in case of calloc error
+  return ptr;                                                                                               // Return first streets collection allocated memo cell addr inside heap (pointer)
 }
 
 
@@ -139,10 +139,10 @@ street *realloc_strts_collection(street *strts_collec, const u_int num_strts){  
   street *ptr = realloc(strts_collec, (size_t)num_strts*sizeof(street));                                    // Street ptr creation to point first streets collection allocated memo cell inside heap
   
   if (ptr == NULL){                                                                                         // Check realloc funct output to detect dynamic memory allocation errors
-    perror("Error in streets collection dynamic reallocation with realloc!");                               // Print perror fbk
+    perror("Error in streets collection dynamic memory reallocation with realloc!");                        // Print perror fbk
     close_err();                                                                                            // Close software with error function call
   }
-  return ptr;                                                                                               // Return first streets collection allocated memo cell addr inside heap (pointer) or NULL in case of realloc error
+  return ptr;                                                                                               // Return first streets collection allocated memo cell addr inside heap (pointer)
 }
 
 
@@ -161,7 +161,7 @@ cross *create_crss_collection(const u_int num_crss){                            
     perror("Error in crosses collection dynamic memory allocation with calloc!");                           // Print perror fbk
     close_err();                                                                                            // Close software with error function call
   }
-  return ptr;                                                                                               // Return first crosses collection allocated memo cell addr inside heap (pointer) or NULL in case of calloc error
+  return ptr;                                                                                               // Return first crosses collection allocated memo cell addr inside heap (pointer)
 }
 
 
@@ -170,10 +170,10 @@ cross *realloc_crss_collection(cross *crss_collec, const u_int num_crss){       
   cross *ptr = realloc(crss_collec, (size_t)num_crss*sizeof(cross));                                        // Cross ptr creation to point first crosses collection allocated memo cell inside heap
   
   if (ptr == NULL){                                                                                         // Check realloc funct output to detect dynamic memory allocation errors
-    perror("Error in crosses collection dynamic reallocation with realloc!");                               // Print perror fbk
+    perror("Error in crosses collection dynamic memory reallocation with realloc!");                        // Print perror fbk
     close_err();                                                                                            // Close software with error function call
   }
-  return ptr;                                                                                               // Return first cross collection allocated memo cell addr inside heap (pointer) or NULL in case of realloc error
+  return ptr;                                                                                               // Return first cross collection allocated memo cell addr inside heap (pointer)
 }
 
 
@@ -211,6 +211,7 @@ void print_strts_names_idxs(street *strts_collec, const u_int num_strts){       
 
 
 void clear_map(street *strts_collec, cross *crss_collec){                                                   // Clear map from heap (free allocated dyn memo) function
+  /* Body */
   free(strts_collec);                                                                                       // Clear streets collection
   free(crss_collec);                                                                                        // Clear crosses collection
 }

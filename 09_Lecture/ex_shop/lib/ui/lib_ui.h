@@ -33,6 +33,10 @@
 #define ER  "\033[0m"                                                                                       // End color
 
 
+/* Enums & data-types */
+typedef enum confirm{ YES, NO, CANCEL } confirm;                                                            // Confirmation enum typedef
+
+
 /* Data-types */
 typedef unsigned char   byte;                                                                               // Unsigned char alias (byte)
 typedef unsigned short  u_shrt;                                                                             // Unsigned short alias (u_shrt)
@@ -52,15 +56,17 @@ void fbk_gn_cy(const char *fbk_str);                                            
 
 void fbk_gn_pu(const char *fbk_str);                                                                        // Green-purple feedback function
 
-void fbk_gn_lbu_ye_int(const char *prfx_str_lbu, int val_ye);                                               // Green-lightblue-yellow int val feedback function
+void fbk_gn_lbu_ye_int(const char *prfx_str_lbu, const int val_ye);                                         // Green-lightblue-yellow int val feedback function
 
-void fbk_gn_lbu_ye_str(const char *prfx_str_lbu, char *str_ye);                                             // Green-lightblue-yellow str val feedback function
+void fbk_gn_lbu_ye_str(const char *prfx_str_lbu, const char *str_ye);                                       // Green-lightblue-yellow str val feedback function
 
 void fbk_err(const char *fbk_str);                                                                          // Error feedback function
 
 char *read_term_in();                                                                                       // Read terminal input function
 
 char *read_term_in_min_chrs(const byte min_chrs, const char *req_str, const char *err_str);                 // Read terminal input (min chars) function
+
+confirm read_term_in_confirm(const char *req_str);                                                          // Read terminal input confirmation function
 
 char *read_term_in_min_chrs_exit_chr(const byte min_chrs, const char *req_str,
                                      const char *err_str, const char exit_chr);                             // Read terminal input (min chars and exit char) function
@@ -71,6 +77,16 @@ int read_term_in_int_inrange(const int min_val, const int max_val,
                              const char *req_str, const char *err_str);                                     // Read terminal input INT (in-range) function
 
 void clr_term_in();                                                                                         // Clear terminal input buffer function
+
+void dbg();                                                                                                 // Fast debug function 
+
+void debug(const char *str);                                                                                // Debug print function
+
+void debug_str(const char *str, const char *val);                                                           // Debug string val print function
+
+void debug_int(const char *str, const int val);                                                             // Debug int val print function
+
+void debug_double(char *str, const double val);                                                             // Debug double val print function
 
 void close_err();                                                                                           // Close software with error function
 

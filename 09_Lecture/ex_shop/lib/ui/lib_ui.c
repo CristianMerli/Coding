@@ -71,7 +71,7 @@ void logo(const u_long start_sp, const char *txt, const char *txt_col, const cha
 
 void press_enter(const char *req_str){                                                                      // Press enter function
   /* Body */
-  printf("\n\n%s>>>%s %s! %sPress %sENTER%s to contine... %s;) %s",
+  printf("\n\n%s>>>%s %s! %sPress %sENTER%s to contine... %s;)%s",
           GN, PU, req_str, CY, YE, CY, RD, ER);                                                             // Build map, press enter key to start fbk
   read_term_in();                                                                                           // Wait enter key to start (read terminal input function call)
 }
@@ -96,13 +96,13 @@ void fbk_gn_pu(const char *fbk_str){                                            
 }
 
 
-void fbk_gn_lbu_ye_int(const char *prfx_str_lbu, int val_ye){                                               // Green-lightblue-yellow int val feedback function
+void fbk_gn_lbu_ye_int(const char *prfx_str_lbu, const int val_ye){                                         // Green-lightblue-yellow int val feedback function
   /* Body */
   printf("%s>>>%s %s: %s%d%s", GN, LBU, prfx_str_lbu, YE, val_ye, ER);                                      // Print green-lightblue-yellow int val feedback
 }
 
 
-void fbk_gn_lbu_ye_str(const char *prfx_str_lbu, char *str_ye){                                             // Green-lightblue-yellow str val feedback function
+void fbk_gn_lbu_ye_str(const char *prfx_str_lbu, const char *str_ye){                                       // Green-lightblue-yellow str val feedback function
   /* Body */
   printf("%s>>>%s %s: %s%s%s", GN, LBU, prfx_str_lbu, YE, str_ye, ER);                                      // Print green-lightblue-yellow str val feedback
 }
@@ -129,7 +129,7 @@ char *read_term_in_min_chrs(const byte min_chrs, const char *req_str, const char
 
   do{
     clr_term_in();                                                                                          // Clear terminal input buffer function call
-    printf("\n%s>>>%s %s,%s at least %s%d%s char(s), max %s%d%s chars%s: %s",
+    printf("%s>>>%s %s,%s at least %s%d%s char(s), max %s%d%s chars%s: %s",
             GN, PU, req_str, BU, OG, min_chrs, BU, OG, IN_BUFF_SIZE-1, BU, PU, ER);                         // Print request fbk
     in_str = read_term_in();                                                                                // Read terminal input function call
     exit_flg = (strlen(in_str) >= min_chrs);                                                                // Terminal input while-loop exit flag val upd
@@ -143,24 +143,35 @@ char *read_term_in_min_chrs(const byte min_chrs, const char *req_str, const char
 }
 
 
-char *read_term_in_confirm(const char *req_str, const char *err_str){                                       // Read terminal input confirmation function
+confirm read_term_in_confirm(const char *req_str){                                                          // Read terminal input confirmation function
   /* Body */
   char *in_str;                                                                                             // Terminal input string tmp var
+  confirm answ;                                                                                             // Confirmation answer
   byte exit_flg = 0;                                                                                        // Terminal input while-loop exit flag
 
   do{
     clr_term_in();                                                                                          // Clear terminal input buffer function call
-    printf("\n%s>>>%s %s,%s at least %s%d%s char(s), max %s%d%s chars%s: %s",
-            GN, PU, req_str, BU, OG, 2, BU, OG, IN_BUFF_SIZE-1, BU, PU, ER);                                // Print request fbk
+    printf("%s>>>%s %s?%s Options %s(yes/no/cancel)%s%s: %s", GN, PU, req_str, BU, OG, BU, PU, ER);         // Print request fbk
     in_str = read_term_in();                                                                                // Read terminal input function call
-    exit_flg = (strlen(in_str) >= 2);                                                                       // Terminal input while-loop exit flag val upd
+
+    if (0 == strcmp(in_str, "yes") || 0 == strcmp(in_str, "YES") || 0 == strcmp(in_str, "Yes")){            // YES answer
+      answ = YES;                                                                                           // Set answer = YES
+      ++exit_flg;                                                                                           // Set exit flag
+    } else if (0 == strcmp(in_str, "no") || 0 == strcmp(in_str, "NO") ||
+               0 == strcmp(in_str, "No") || 0 == strcmp(in_str, "nO")){                                     // NO answer
+      answ = NO;                                                                                            // Set answer = NO
+      ++exit_flg;                                                                                           // Set exit flag
+    } else if(0 == strcmp(in_str, "cancel") || 0 == strcmp(in_str, "CANCEL") ||
+              0 == strcmp(in_str, "Cancel")){                                                               // CANCEL answer
+      answ = CANCEL;                                                                                        // Set answer = CANCEL
+      ++exit_flg;                                                                                           // Set exit flag
+    }
 
     if (!exit_flg)                                                                                          // Exit flag val chack
-      printf("%s>>>%s %s must be at least %s%d%s char(s) long!%s\n",
-              OG, RD, err_str, YE, 2, RD, ER);                                                              // Print terminal input error fbk
+      printf("%s>>>%s The answer must be %s(yes/no/cancel)%s!%s\n", OG, RD, YE, RD, ER);                    // Print terminal input error fbk
   } while(!exit_flg);                                                                                       // Check while-loop exit flag val
   
-  return in_str;                                                                                            // Return terminal input string
+  return answ;                                                                                              // Return confirmation answer
 }
 
 
@@ -172,7 +183,7 @@ char *read_term_in_min_chrs_exit_chr(const byte min_chrs, const char *req_str,
 
   do{
     clr_term_in();                                                                                          // Clear terminal input buffer function call
-    printf("\n%s>>>%s %s %s(at least %s%d%s char(s) and max %s%d%s, type %s'%c'%s char to continue)%s: %s",
+    printf("%s>>>%s %s %s(at least %s%d%s char(s) and max %s%d%s, type %s'%c'%s char to continue)%s: %s",
             GN, PU, req_str, BU, OG, min_chrs, BU, OG, IN_BUFF_SIZE-1, BU, OG, exit_chr, BU, PU, ER);       // Print request fbk
     in_str = read_term_in();                                                                                // Read terminal input function call
     exit_flg = (strlen(in_str) >= min_chrs) || (in_str[0] == exit_chr);                                     // Terminal input while-loop exit flag val upd
@@ -200,7 +211,7 @@ int read_term_in_int_inrange(const int min_val, const int max_val,
 
   do{
     clr_term_in();                                                                                          // Clear terminal input buffer function call
-    printf("\n%s>>>%s %s %s(min %s%d%s, max %s%d%s and NOT %s0%s)%s: %s",
+    printf("%s>>>%s %s %s(min %s%d%s, max %s%d%s and NOT %s0%s)%s: %s",
             GN, PU, req_str, BU, OG, min_val, BU, OG, max_val, BU, OG, BU, PU, ER);                         // Enter the number of crosses to allocate fbk
     val = read_term_in_int();                                                                               // Read terminal input INT function call
     exit_flg = (val >= min_val && val <= max_val && val != 0);                                              // Terminal input while-loop exit flag val upd
@@ -220,9 +231,39 @@ void clr_term_in(){                                                             
 }
 
 
+void dbg(){                                                                                                 // Fast debug function
+  /* Body */
+  printf("\n\n%s    >>>>>> %s/*** DEBUG PRINT ***/%s\n\n", LGN, LGN, ER);                                   // Print debug line
+}
+
+
+void debug(const char *str){                                                                                // Debug print function
+  /* Body */
+  printf("\n\n%s    >>>>>>%s %s %s/*** DEBUG PRINT ***/%s\n\n", LGN, YE, str, LGN, ER);                     // Print debug line
+}
+
+
+void debug_str(const char *str, const char *val){                                                           // Debug string val print function
+  /* Body */
+  printf("\n\n%s    >>>>>>%s %s: %s%s %s/*** DEBUG PRINT ***/%s\n\n", LGN, YE, str, OG, val, LGN, ER);      // Print debug line
+}
+
+
+void debug_int(const char *str, const int val){                                                             // Debug int val print function
+  /* Body */
+  printf("\n\n%s    >>>>>>%s %s: %s%d %s/*** DEBUG PRINT ***/%s\n\n", LGN, YE, str, OG, val, LGN, ER);      // Print debug line
+}
+
+
+void debug_double(char *str, const double val){                                                             // Debug double val print function
+  /* Body */
+  printf("\n\n%s    >>>>>>%s %s: %s%lf %s/*** DEBUG PRINT ***/%s\n\n", LGN, YE, str, OG, val, LGN, ER);     // Print debug line
+}
+
+
 void close_err(){                                                                                           // Close software with error function
   /* Body */
-  printf("\n%s>>>%s Closin' due to error... %sSorry! %s:(%s\n", OG, RD, CY, CY, ER);                        // Closin' due to error fbk
+  printf("\n%s>>>%s Closin' due to error... %sSorry! %s:(%s\n", OG, RD, CY, OG, ER);                        // Closin' due to error fbk
   exit(1);                                                                                                  // Close software
 }
 

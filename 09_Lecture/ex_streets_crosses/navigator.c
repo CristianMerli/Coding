@@ -14,6 +14,11 @@
  * 
  * // Link-command:
  * gccW99_o navigator navigator.o lib/nav/lib_nav.so lib/ui/lib_ui.so lib/timer/lib_timer.so  --> LINK software and dynamic libraries object files to executable
+ * 
+ * // Aliases:
+ * alias gccW99_o="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o"
+ * alias gccW99_c="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c"
+ * alias gccW99_lib="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o"
  */
 
 

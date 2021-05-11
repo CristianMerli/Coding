@@ -1,6 +1,6 @@
 /*
  * Author: Cristian Merli
- * Code title: Files library
+ * Code title: Shop library
  * Code version: 3.0
  * Creation date: 07/05/2021
  * Last mod. date: 07/05/2021

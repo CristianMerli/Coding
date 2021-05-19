@@ -68,6 +68,8 @@ main() {
   return 0;
 }
 
+
+
 /* Task */
 /* 
  * Exam simulation

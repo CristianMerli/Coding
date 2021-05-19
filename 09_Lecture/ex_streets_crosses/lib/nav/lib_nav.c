@@ -123,7 +123,7 @@ street *create_strts_collection(const u_int num_strts, const char *name){       
   /* Body */
   street *ptr = calloc((size_t)num_strts, sizeof(street));                                                  // Street ptr creation to point first streets collection allocated memo cell inside heap
   
-  if (ptr != NULL){                                                                                         // Check calloc funct output to detect dynamic memory allocation errors
+  if (ptr != NULL && num_strts > 0){                                                                        // Check calloc funct output to detect dynamic memory allocation errors
     strcpy(ptr->name, name);                                                                                // First street name init inside heap through pointer dereferencing
     ptr->conn_typ = NONE;                                                                                   // First street connection type init inside heap through pointer dereferencing      
   } else {
@@ -138,7 +138,7 @@ street *realloc_strts_collection(street *strts_collec, const u_int num_strts){  
   /* Body */
   street *ptr = realloc(strts_collec, (size_t)num_strts*sizeof(street));                                    // Street ptr creation to point first streets collection allocated memo cell inside heap
   
-  if (ptr == NULL){                                                                                         // Check realloc funct output to detect dynamic memory allocation errors
+  if (ptr == NULL || num_strts == 0){                                                                       // Check realloc funct output to detect dynamic memory allocation errors
     perror("Error in streets collection dynamic memory reallocation with realloc!");                        // Print perror fbk
     close_err();                                                                                            // Close software with error function call
   }

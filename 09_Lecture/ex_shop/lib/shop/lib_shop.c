@@ -117,7 +117,7 @@ cage *allocate_shop_cages(const u_shrt num_cgs){                                
   /* Body */
   cage *ptr = calloc((size_t)num_cgs, sizeof(cage));                                                        // Cage ptr creation to point first shop cages allocated memo cell inside heap
   
-  if (ptr == NULL){                                                                                         // Check calloc funct output to detect dynamic memory allocation errors
+  if (ptr == NULL || num_cgs == 0){                                                                         // Check calloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during shop cages data management");                                     // Error fbk
     perror("Error in shop cages dynamic memory allocation with calloc!");                                   // print perror fbk
     close_err();                                                                                            // Close software with error function call
@@ -130,7 +130,7 @@ cage *reallocate_shop_cages(cage *shop_cgs, const u_shrt num_cgs){              
   /* Body */
   cage *ptr = realloc(shop_cgs, (size_t)num_cgs*sizeof(cage));                                              // Cage ptr creation to point first shop cages reallocated memo cell inside heap
   
-  if (ptr == NULL){                                                                                         // Check realloc funct output to detect dynamic memory allocation errors
+  if (ptr == NULL || num_cgs == 0){                                                                         // Check realloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during shop cages data management");                                     // Error fbk
     perror("Error in shop cages dynamic memory reallocation with realloc!");                                // Print perror fbk
     close_err();                                                                                            // Close software with error function call

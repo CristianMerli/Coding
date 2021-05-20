@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Linked lists library
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 11/05/2021
- * Last mod. date: 19/05/2021
+ * Last mod. date: 20/05/2021
  */
 
 
@@ -111,6 +111,18 @@ elem *rmv_elem_pos(elem **objs_list_head, const int pos){                       
 }
 
 
+void free_elems(elem **list_head){                                                                          // Function to free allocated elements in heap from specified list (or sub-list) head, 'till list (or sub-list) tail
+  /* Body */
+  elem *tmp_el = *list_head;                                                                                // Tmp var to clear allocated memo in heap
+  for (; tmp_el != NULL; tmp_el = tmp_el->nxt){                                                             // List (or sub-list) scrollin' FOR cycle to clear heap allocated memo
+    fbk_gn_lbu_ye_str("Removing allocated element from dynamic memory, element name", tmp_el->obj.name);    // Print removing element from heap
+    fbk_nl(1);                                                                                              // New line fbk
+    free(tmp_el);                                                                                           // Clear allocated elements
+  }
+  *list_head = NULL;                                                                                        // Set elements list (or sub-list) head to null
+}
+
+
 void selection_sort_name(elem **objs_list_head, const order_names ord){                                     // Selection sort algorithm (for linked lists) function - by object name
   /* Body */
   char *el1_propr = NULL, *el2_propr = NULL;                                                                // Element1  and element2 propriety pointers
@@ -165,7 +177,6 @@ void selection_sort_name(elem **objs_list_head, const order_names ord){         
 
 void selection_sort_time(elem **objs_list_head, const order ord){                                          // Selection sort algorithm (for linked lists) function - by object date/time
   /* Body */
-  int *el1_propr = NULL, *el2_propr = NULL;                                                                 // Element1  and element2 propriety pointers
   elem *el_b1 = *objs_list_head, *el1 = NULL, *el_b2 = NULL, *el2 = NULL;                                   // Local ptr vars to swap list elements --> Element-b4-element1, element1, element-b4-element2, element2
   byte el1_head_flg = 0;                                                                                    // Element1 equal to the elements list head flag
   // Check elements list
@@ -177,40 +188,10 @@ void selection_sort_time(elem **objs_list_head, const order ord){               
   for (el1 = el_b1; el1->nxt != NULL; el1 = el1->nxt){                                                      // Cycle 'till the one before the last element of the list has been reached (array scrolling FOR cycle)
     el_b2 = el1->nxt;                                                                                       // Set element-b4-element2 equal to the element after element1 in list
     for (el2 = el_b2; el2 != NULL; el2 = el2->nxt){                                                         // Cycle 'till last element of the list has been reached (unsorted sub-array scrolling FOR cycle)
-      el1_propr = &el1->obj.date.yy;                                                                        // Define ptr to the element1 propriety to sort inside list
-      el2_propr = &el2->obj.date.yy;                                                                        // Define ptr to the element2 propriety to sort inside list
-      for (byte idx = 1; *el1_propr == *el2_propr && idx < 6; ++idx){                                       // Compare and redefine element1 and element2 propriety ptrs FOR cylce (cycle 'till years/months/days/hours/minutes/seconds are different)
-        switch (idx)                                                                                        // Redefinition index switch-case
-        {
-        case 1:                                                                                             // If years are equivalents, check months
-          el1_propr = &el1->obj.date.mn;                                                                    // Redefine ptr to the element1 propriety to sort inside list
-          el2_propr = &el2->obj.date.mn;                                                                    // Redefine ptr to the element2 propriety to sort inside list
-          break;
-        ///////
-        case 2:                                                                                             // If months are equivalents, check days
-          el1_propr = &el1->obj.date.dd;                                                                    // Redefine ptr to the element1 propriety to sort inside list
-          el2_propr = &el2->obj.date.dd;                                                                    // Redefine ptr to the element2 propriety to sort inside list
-          break;
-        ///////
-        case 3:                                                                                             // If days are equivalents, check hours
-          el1_propr = &el1->obj.date.hh;                                                                    // Redefine ptr to the element1 propriety to sort inside list
-          el2_propr = &el2->obj.date.hh;                                                                    // Redefine ptr to the element2 propriety to sort inside list
-          break;
-        ///////
-        case 4:                                                                                             // If hours are equivalents, check minutes
-          el1_propr = &el1->obj.date.mm;                                                                    // Redefine ptr to the element1 propriety to sort inside list
-          el2_propr = &el2->obj.date.mm;                                                                    // Redefine ptr to the element2 propriety to sort inside list
-          break;
-        ///////
-        case 5:                                                                                             // If minutes are equivalents, check seconds
-          el1_propr = &el1->obj.date.ss;                                                                    // Redefine ptr to the element1 propriety to sort inside list
-          el2_propr = &el2->obj.date.ss;                                                                    // Redefine ptr to the element2 propriety to sort inside list
-          break;        
-        }
-      }
+      cmp_res date_cmp_res = cmp_date_time(&el1->obj.date, NEWER, &el2->obj.date);                          // Compare element1 and element2 assignation date (if element1 is newer than elemnt2)
       // Sortin' order conditions
-      if (((*el1_propr > *el2_propr) && ord == CREASING) ||                                                 // If elements swapin' operation is needed
-          ((*el1_propr < *el2_propr) && ord == DECREASING)){                                                // Creasing (or decreasing) order sorting conditions: swap element's positions if the element1 propriety is greater (or less) than the element2 propriety
+      if ((date_cmp_res == OK && ord == CREASING) ||                                                        // If elements swapin' operation is needed
+          (date_cmp_res == NOT_OK && ord == DECREASING)){                                                   // Creasing (or decreasing) order sorting conditions: swap element's positions if the element1 assignation date is greater (or less) than the element2 assignation date
         // Swap element1 and element2 next elements
         if (el1 == *objs_list_head)                                                                         // Check wheter the element1 is the head of the linked list
           ++el1_head_flg;                                                                                   // Set element1 equal to the elements list head flag

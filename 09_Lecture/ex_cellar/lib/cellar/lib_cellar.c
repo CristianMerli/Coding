@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Cellar library
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 10/05/2021
- * Last mod. date: 19/05/2021
+ * Last mod. date: 20/05/2021
  */
 
 
@@ -82,7 +82,7 @@ void add_ex_obj_in_cellar(elem **objs_list_head, const char *name,
 void print_objects_in_cellar(elem *const *objs_list_head){                                                  // Function to print objects in cellar
   /* Body */
   if (*objs_list_head != NULL){                                                                             // In case objects list has been already initialized
-    fbk_nl(1);  fbk_gn_pu("Printing objects in cellar..."); fbk_nl(2);                                      // Printing objects fbk
+    fbk_nl(1);  fbk_gn_pu("Printing objects..."); fbk_nl(2);                                                // Printing objects fbk
     // Table print
     const char *table_body_col = OG;                                                                        // Table body color
     const char *table_databody_col = GN;                                                                    // Table data-body color
@@ -100,16 +100,15 @@ void print_objects_in_cellar(elem *const *objs_list_head){                      
     for (elem *tmp_el = *objs_list_head; tmp_el != NULL; tmp_el = tmp_el->nxt, ++idx){                      // Data print FOR cycle
       printf("%s    | %s%4d %s| %s%30s%s | %s%9d%c%2d%c%2d%c%2d%c%2d%c%2d%s      |%s\n",
             table_body_col, table_idx_col, idx+1, table_body_col, table_data_col, tmp_el->obj.name,
-            table_databody_col, table_data_col, tmp_el->obj.date.yy, DATE_DELIM_CHR, tmp_el->obj.date.mn,
+            table_databody_col, table_data_col, tmp_el->obj.date.yyyy, DATE_DELIM_CHR, tmp_el->obj.date.mn,
             DATE_DELIM_CHR, tmp_el->obj.date.dd, DATE_TIME_DELIM_CHR, tmp_el->obj.date.hh-1, TIME_DELIM_CHR,
             tmp_el->obj.date.mm-1, TIME_DELIM_CHR, tmp_el->obj.date.ss-1, table_databody_col, ER);          // Data print (hours, minutes, seconds are +1 to detect errors in atoi when reading objs from file)
       printf("%s    +------+%s--------------------------------+-------------------------------+%s\n",
               table_body_col, table_databody_col, ER);                                                      // Bottom-line of the data inside the table
     }
     fbk_nl(1);                                                                                              // New line fbk
-  } else {                                                                                                  // Else if objects list hasn't been already initialized
+  } else                                                                                                    // Else if objects list hasn't been already initialized
     fbk_err("Error! List is empty, nothing to print");                                                      // Print error fbk
-  }
 }
 
 
@@ -127,57 +126,25 @@ void rmv_obj_name(elem **objs_list_head, const char *obj_name){                 
       fbk_nl(1);  fbk_gn_lbu_ye_str("Name of the removed element", el_rmv->obj.name);                       // Print name of removed element
       free(el_rmv);                                                                                         // Free allocated memo inside heap
     }
-  } else if (*objs_list_head == NULL){                                                                      // If list is empty
+  } else if (*objs_list_head == NULL)                                                                       // If list is empty
     fbk_err("Error! Nothing to remove, the list is empty");                                                 // Print error fbk
-  } else {                                                                                                  // If object name string length isn't greater than zero
+  else                                                                                                      // If object name string length isn't greater than zero
     fbk_err("Error! Name length must be greater than zero");                                                // Print error fbk
-  }
 }
 
 
 elem *rmv_obj_old_date(elem **objs_list_head, date_time *date){                                             // Remove elements older than defined date/time (return the list of elements to remove)
   /* Body */
   if (*objs_list_head != NULL){                                                                             // In case objects list has been already initialized
-    selection_sort_time(objs_list_head, DECREASING);                                                        // Sort elements by date decreasing order (older elements at the bottom of the list)
-    elem *rmv_list_head = *objs_list_head;                                                                  // List of elements to remove (list head ptr)
-    int *rmv_list_date_ptr = &rmv_list_head->obj.date.yy, *date_ptr = &date->yy;                            // -
-    // -
-    for (; rmv_list_head != NULL && *rmv_list_date_ptr <= *date_ptr; rmv_list_head = rmv_list_head->nxt){   // -
-      rmv_list_date_ptr = &rmv_list_head->obj.date.yy;                                                      // -
-      date_ptr = &date->yy;                                                                                 // -
-      for (byte idx = 1; *rmv_list_date_ptr == *date_ptr && idx < 6; ++idx){                                // Compare and redefine element1 and element2 propriety ptrs FOR cylce (cycle 'till years/months/days/hours/minutes/seconds are different)
-        switch (idx)                                                                                        // Redefinition index switch-case
-        {
-        case 1:                                                                                             // If years are equivalents, check months
-          rmv_list_date_ptr = &rmv_list_head->obj.date.mn;                                                  // -
-          date_ptr = &date->mn;                                                                             // -
-          break;
-        ///////
-        case 2:                                                                                             // If months are equivalents, check days
-          rmv_list_date_ptr = &rmv_list_head->obj.date.dd;                                                  // -
-          date_ptr = &date->dd;                                                                             // -
-          break;
-        ///////
-        case 3:                                                                                             // If days are equivalents, check hours
-          rmv_list_date_ptr = &rmv_list_head->obj.date.hh;                                                  // -
-          date_ptr = &date->hh;                                                                             // -
-          break;
-        ///////
-        case 4:                                                                                             // If hours are equivalents, check minutes
-          rmv_list_date_ptr = &rmv_list_head->obj.date.mm;                                                  // -
-          date_ptr = &date->mm;                                                                             // -
-          break;
-        ///////
-        case 5:                                                                                             // If minutes are equivalents, check seconds
-          rmv_list_date_ptr = &rmv_list_head->obj.date.ss;                                                  // -
-          date_ptr = &date->ss;                                                                             // -
-          break;        
-        }
-      }
-    }
-    fbk_nl(1);  fbk_gn_pu("Objects to remove...");                                                          // -
-    fbk_nl(1);  fbk_gn_lbu_ye_str("First elem name", rmv_list_head->obj.name);                              // -
-    return rmv_list_head;                                                                                   // -
+    fbk_gn_lbu_date_time("Scrolling elements list to find objects to remove, older than", date); fbk_nl(1); // Print date limit fbk
+    selection_sort_time(objs_list_head, DECREASING);                                                        // Sort elements by date, in decreasing order (older elements at the bottom of the list)
+    elem *rmv_list_head = *objs_list_head, *new_objs_list_tail = NULL;                                      // List of elements to remove (list head ptr) and new objects list tail
+    for (; rmv_list_head != NULL && cmp_date_time(&rmv_list_head->obj.date, OLDER, date) == NOT_OK;
+           new_objs_list_tail = rmv_list_head, rmv_list_head = rmv_list_head->nxt);                         // Elements list scrollin' FOR cycle 'till element is older than defined date/time
+    if (new_objs_list_tail != NULL)                                                                         // In case part of the objects list is older than defined date/time
+      new_objs_list_tail->nxt = NULL;                                                                       // Set the previus element as new objects list tail
+    fbk_nl(1);  fbk_gn_cy("List of old ojects to remove correctly created!");                               // List of old ojects to remove correctly created fbk
+    return rmv_list_head;                                                                                   // Return list of elements to remove (list head ptr)
   } else {                                                                                                  // Else if objects list hasn't been already initialized
     fbk_err("Error! Nothing to remove, the list is empty");                                                 // Print error fbk
     return NULL;                                                                                            // Return NULL ptr
@@ -188,7 +155,7 @@ elem *rmv_obj_old_date(elem **objs_list_head, date_time *date){                 
 void save_objs_file(elem *const *objs_list_head, const char *filename){                                     // Function to save objects list on file
   /* Body */
   if (*objs_list_head != NULL && strlen(filename) >= BKP_FILE_MIN_NAME_CHRS){                               // In case objects list has been already initialized and filename string length is greater than zero
-    fl bkp_file = open_file(filename, "w+");                                                                // Open file in write mode (clear text)
+    fl bkp_file = open_file(filename, "w");                                                                 // Open file in write mode (clear text)
 
     elem *tmp_el = *objs_list_head;                                                                         // Tmp element ptr var (objs list copy)
     int objs_num = 1; for (; tmp_el->nxt != NULL; tmp_el = tmp_el->nxt, ++objs_num);                        // Scroll list to determine the number of objects
@@ -214,7 +181,7 @@ void save_objs_file(elem *const *objs_list_head, const char *filename){         
         write_nl_on_file(bkp_file);                                                                         // Write new line in backup file
         write_str_on_file(bkp_file, BKP_FILE_OBJ_DATE_LBL);                                                 // Write object assignment date/time label in backup file
         char date_time_str[DATE_TIME_STR_LEN];                                                              // Str var to store date/time b4 file write operation
-        snprintf(date_time_str, DATE_TIME_STR_LEN, "%d%c%d%c%d%c%d%c%d%c%d", tmp_el->obj.date.yy,
+        snprintf(date_time_str, DATE_TIME_STR_LEN, "%d%c%d%c%d%c%d%c%d%c%d", tmp_el->obj.date.yyyy,
                  DATE_DELIM_CHR, tmp_el->obj.date.mn, DATE_DELIM_CHR, tmp_el->obj.date.dd,
                  DATE_TIME_DELIM_CHR, tmp_el->obj.date.hh, TIME_DELIM_CHR, tmp_el->obj.date.mm,
                  TIME_DELIM_CHR, tmp_el->obj.date.ss);                                                      // Convert obj assignation date/time to str
@@ -225,8 +192,7 @@ void save_objs_file(elem *const *objs_list_head, const char *filename){         
         }
       }
       close_file(bkp_file); open_file(filename, "r"); fbk_nl(1);                                            // Close file and re-open it in read mode
-      read_from_file(bkp_file);                                                                             // Read and print data written on file
-      close_file(bkp_file);                                                                                 // Close file
+      read_from_file(bkp_file); close_file(bkp_file);                                                       // Read and print data written on file, then re-close it
       fbk_nl(1);  fbk_gn_cy("Objects list export operation completed!");                                    // Objects list export on file completed fbk
     }
   } else if (*objs_list_head == NULL){                                                                      // If list is empty
@@ -251,8 +217,11 @@ void load_objs_file(elem **objs_list_head, const char *filename){               
   char obj_name[IN_BUFF_SIZE] = "";                                                                         // Object name tmp var
   byte corr_file_flg = 0;                                                                                   // Corrupted file flag
 
-  fl bkp_file = open_file(filename, "r");                                                                   // Open file in read-only mode (clear text)
+  fl bkp_file = open_file(filename, "r");                                                                   // Open file in read-only mode
+  fbk_nl(1);  fbk_gn_lbu_ye_str("Trying to load objects list from backup file, backup name", filename);     // Print trying to load backup file fbk
   if (bkp_file != NULL){                                                                                    // Check file ptr not null
+    fbk_nl(1);  read_from_file(bkp_file); close_file(bkp_file); open_file(filename, "r");                   // Read and print data on file, then close and re-open it in read-only mode
+    fbk_nl(1);  fbk_gn_cy("Objects list backup file correctly opened!");                                    // Objects list backup file correctly opened fbk
     u_int line_num = 0;                                                                                     // Line number counter
     while (fgets(file_in_buff, FILE_IN_BUFF_SIZE, bkp_file) != NULL){                                       // In case of file found, scan lines 'till null line (last one)
       char *txt = file_in_buff;                                                                             // Text pointer
@@ -267,7 +236,7 @@ void load_objs_file(elem **objs_list_head, const char *filename){               
         txt += (int)strlen(BKP_FILE_TITLE_LBL);                                                             // Extract objects list backup name removing objects list backup name prefix label
         txt[strlen(txt)-1] = '\0';                                                                          // Remove last char ('\n' char) from the objects list backup name string
         if(strlen(txt) > BKP_FILE_MIN_NAME_CHRS && 0 == strcmp(txt, filename) && !corr_file_flg){           // Check backup file name length and val to detect corrupted file
-          fbk_nl(1);  fbk_gn_lbu_ye_str("Loading objects list from backup file, backup name", txt);         // Print shop name fbk
+          fbk_nl(1);  fbk_gn_lbu_ye_str("Creating objects list from backup file, backup name", txt);        // Print creating objects list from backup file fbk
         } else                                                                                              // Else if file is corrupted
           ++corr_file_flg;                                                                                  // Set corrupted file flag
       // Extract data from number of objects (in list) line
@@ -334,7 +303,7 @@ void load_objs_file(elem **objs_list_head, const char *filename){               
             if (strlen(date_str) >= 8 && strlen(date_str) <= 10 &&
                 strlen(time_str) >= 5 && strlen(time_str) <= 8){                                            // If date and time strings length are coherent
               date_str = strtok(date_str, date_delim);                                                      // Extract years val by date delimiter char
-              tmp_date.yy = atoi(date_str);                                                                 // Save years val in tmp assignation date/time var
+              tmp_date.yyyy = atoi(date_str);                                                               // Save years val in tmp assignation date/time var
               date_str = strtok(NULL, date_delim);                                                          // Extract months val by date delimiter char
               tmp_date.mn = atoi(date_str);                                                                 // Save months val in tmp assignation date/time var
               date_str = strtok(NULL, date_delim);                                                          // Extract days val by date delimiter char
@@ -345,7 +314,7 @@ void load_objs_file(elem **objs_list_head, const char *filename){               
               tmp_date.mm = atoi(time_str);                                                                 // Save minutes val in tmp assignation date/time var
               time_str = strtok(NULL, time_delim);                                                          // Extract seconds val by time delimiter char
               tmp_date.ss = atoi(time_str);                                                                 // Save seconds val in tmp assignation date/time var
-              if (chk_date_in_range(tmp_date))                                                              // Check if date/time vals are in range
+              if (chk_date_in_range(tmp_date) == OK)                                                        // Check if date/time vals are in range
                 add_ex_obj_in_cellar(objs_list_head, obj_name, &tmp_date, TAIL, 0);                         // Add existing object in cellar (add object in list tail position)
               else                                                                                          // If date/time vals aren't in range
                 ++corr_file_flg;                                                                            // Set corrupted file flag
@@ -372,11 +341,8 @@ void load_objs_file(elem **objs_list_head, const char *filename){               
       fbk_err("Error! Objects list loading from file failed! File is empty");                               // Print error fbk
     }
     if ((corr_file_flg || line_num == 0) && *objs_list_head != NULL){                                       // In case of data not correctly loaded and dynamic memory has already been allocated
-      elem *tmp_el = *objs_list_head;                                                                       // Tmp var to clear allocated memo
-      for (; tmp_el != NULL; tmp_el = tmp_el->nxt)                                                          // List scrollin' FOR cycle to clear heap allocated memo
-        free(tmp_el);                                                                                       // Clear allocated elements
-      *objs_list_head = NULL;                                                                               // Set elements liste head to null
-      fbk_err("Allocated memory cleared");                                                                  // Print error fbk
+      free_elems(objs_list_head);                                                                           // Clear allocated dynamic memo
+      fbk_err("Allocated memory inside heap has been cleared");                                             // Print error fbk
     }
     close_file(bkp_file);                                                                                   // Close file
   } else {                                                                                                  // Else if file obj is null

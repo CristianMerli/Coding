@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Cellar library header file
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 10/05/2021
- * Last mod. date: 19/05/2021 
+ * Last mod. date: 20/05/2021 
  */
 
 
@@ -26,7 +26,7 @@
 
 
 /* Enums & data-types */
-typedef enum pos_typ{ HEAD, TAIL, POS } pos_typ;                                                            // Position type to add element in list enum typedef
+typedef enum pos_typ {HEAD, TAIL, POS} pos_typ;                                                             // Position type to add element in list enum typedef
 
 
 /* Library functions */
@@ -39,7 +39,7 @@ void print_objects_in_cellar(elem *const *objs_list_head);                      
 
 void rmv_obj_name(elem **objs_list_head, const char *obj_name);                                             // Function to remove object by name
 
-// elem *rmv_obj_old_date(elem **objs_list_head, date_time *date);                                            // Remove elements older than defined date/time
+elem *rmv_obj_old_date(elem **objs_list_head, date_time *date);                                             // Remove elements older than defined date/time (return the list of elements to remove)
 
 void save_objs_file(elem *const *objs_list_head, const char *filename);                                     // Function to save objects list on file
 

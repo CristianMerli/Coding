@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Cellar
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 10/05/2021
- * Last mod. date: 19/05/2021
+ * Last mod. date: 20/05/2021
  * 
  * 
  * // Compile-commands:
@@ -46,42 +46,53 @@ int main(){
   //
 
   /* Code */
-  logo(10, "CELLAR MANAGEMENT SOFTWARE", YE, '#', GN);                                                      // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
+  logo(4, "CELLAR MANAGEMENT LIBRARY TEST SOFTWARE", YE, '#', GN);                                          // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
   press_enter("Hi");                                                                                        // Press enter to start SW fbk
 
-  add_obj_in_cellar(&objs_list_head, "Abddd", HEAD, 0);                                                     // Add object in cellar (add object in list head position)
-  delay(1000);                                                                                              // Delay
-  add_obj_in_cellar(&objs_list_head, "Aaddd", TAIL, 0);                                                     // Add object in cellar (add object in list tail position)
-  delay(1000);                                                                                              // Delay
-  add_obj_in_cellar(&objs_list_head, "Acddd", POS, 2);                                                      // Add object in cellar (add object in list specific position)
-  delay(1000);                                                                                              // Delay
-  add_obj_in_cellar(&objs_list_head, "dcsdscd", HEAD, 0);                                                   // Add object in cellar (add object in list head position)
-  delay(1000);                                                                                              // Delay
-  add_obj_in_cellar(&objs_list_head, "fdvfsc", HEAD, 0);                                                    // Add object in cellar (add object in list head position)
-  delay(1000);                                                                                              // Delay
-  add_obj_in_cellar(&objs_list_head, "sdsdvsa", HEAD, 0);                                                   // Add object in cellar (add object in list head position)
-  delay(1000);                                                                                              // Delay
-  add_obj_in_cellar(&objs_list_head, "sdcdvsbdf", HEAD, 0);                                                 // Add object in cellar (add object in list head position)
-  delay(1000);                                                                                              // Delay
-  print_objects_in_cellar(&objs_list_head);                                                                 // Print elements in cellar
+  // add_obj_in_cellar(&objs_list_head, "Abddd", HEAD, 0);                                                     // Add object in cellar (add object in list head position)
+  // delay(1000);                                                                                              // Delay
+  // add_obj_in_cellar(&objs_list_head, "Aaddd", TAIL, 0);                                                     // Add object in cellar (add object in list tail position)
+  // delay(1000);                                                                                              // Delay
+  // add_obj_in_cellar(&objs_list_head, "Acddd", POS, 2);                                                      // Add object in cellar (add object in list specific position)
+  // delay(1000);                                                                                              // Delay
+  // add_obj_in_cellar(&objs_list_head, "dcsdscd", HEAD, 0);                                                   // Add object in cellar (add object in list head position)
+  // delay(1000);                                                                                              // Delay
+  // add_obj_in_cellar(&objs_list_head, "fdvfsc", HEAD, 0);                                                    // Add object in cellar (add object in list head position)
+  // delay(1000);                                                                                              // Delay
+  // add_obj_in_cellar(&objs_list_head, "sdsdvsa", HEAD, 0);                                                   // Add object in cellar (add object in list head position)
+  // delay(1000);                                                                                              // Delay
+  // add_obj_in_cellar(&objs_list_head, "sdcdvsbdf", HEAD, 0);                                                 // Add object in cellar (add object in list head position)
+  // delay(1000);                                                                                              // Delay
+  // print_objects_in_cellar(&objs_list_head);                                                                 // Print elements in cellar
 
-  selection_sort_name(&objs_list_head, AZ);                                                                 // Sort objects by name (A-Z order)
-  print_objects_in_cellar(&objs_list_head);                                                                 // Print elements in cellar
-  selection_sort_time(&objs_list_head, DECREASING);                                                         // Sort objects by date/time (DECREASING ORDER)
-  print_objects_in_cellar(&objs_list_head);                                                                 // Print elements in cellar
+  // selection_sort_name(&objs_list_head, AZ);                                                                 // Sort objects by name (A-Z order)
+  // print_objects_in_cellar(&objs_list_head);                                                                 // Print elements in cellar
+  // selection_sort_time(&objs_list_head, DECREASING);                                                         // Sort objects by date/time (DECREASING ORDER)
+  // print_objects_in_cellar(&objs_list_head);                                                                 // Print elements in cellar
 
-  rmv_obj_name(&objs_list_head, "Acddd");                                                                   // Remove element by name
-  print_objects_in_cellar(&objs_list_head);                                                                 // Print elements in cellar
+  // rmv_obj_name(&objs_list_head, "Acddd");                                                                   // Remove element by name
+  // print_objects_in_cellar(&objs_list_head);                                                                 // Print elements in cellar
 
-  //date_time tmp_date = objs_list_head->nxt->nxt->nxt->obj.date;                                             // Set tmp date/time var to remove objects added after this date
-  //rmv_obj_old_date(&objs_list_head, &tmp_date);                                                             // Remove elements older than defined date/time
-  print_objects_in_cellar(&objs_list_head);                                                                 // Print elements in cellar
-
-  save_objs_file(&objs_list_head, "bkps/Objs.bkp");                                                         // Save objects list on backup file
-  for (; objs_list_head != NULL; objs_list_head = objs_list_head->nxt)                                      // List scrollin' FOR cycle to clear heap allocated memo
-    free(objs_list_head);                                                                                   // Clear allocated elements
+  // save_objs_file(&objs_list_head, "bkps/Objs.bkp");                                                         // Save objects list on backup file
+  // for (; objs_list_head != NULL; objs_list_head = objs_list_head->nxt)                                      // List scrollin' FOR cycle to clear heap allocated memo
+  //   free(objs_list_head);                                                                                   // Clear allocated elements
   load_objs_file(&objs_list_head, "bkps/Objs.bkp");                                                         // Load objects list from backup file
   print_objects_in_cellar(&objs_list_head);                                                                 // Print elements in cellar
+
+  date_time tmp_date = assign_date_time(2021, 5, 20, 15, 51, 40);                                           // Set tmp date/time var to remove objects added after this date
+  if (tmp_date.yyyy != 0){                                                                                  // Check tmp date/time var consistency
+    elem *rmv_list_head = rmv_obj_old_date(&objs_list_head, &tmp_date);                                     // Remove elements older than defined date/time (return the list of elements to remove)
+    fbk_nl(1);  fbk_gn_pu("Printing list of objects to remove...");                                         // Printing objects to remove fbk
+    print_objects_in_cellar(&rmv_list_head);                                                                // Print elements to remove
+    if (rmv_list_head == objs_list_head)                                                                    // If the whole list is composed by objects older than specified date/time
+      objs_list_head = NULL;                                                                                // Reset even objects list head ptr var
+    free_elems(&rmv_list_head);                                                                             // Clear allocated dynamic memo
+    fbk_gn_pu("Printing list of remaning objects...");                                                      // Printing remaning objects fbk
+    print_objects_in_cellar(&objs_list_head);                                                               // Print remaning elements in cellar
+  } else {                                                                                                  // Else if date/time values are incorrect
+    fbk_err("Error! Incorrect date/time values");                                                           // Print error fbk
+  }
+  fbk_gn_pu("Test completed!");                                                                             // Print test completed fbk
 
   close_fbk();                                                                                              // Print close fbk
 

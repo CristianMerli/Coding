@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 06/05/2021
- * Last mod. date: 19/05/2021 
+ * Last mod. date: 20/05/2021 
  */
 
 
@@ -34,7 +34,7 @@
 
 
 /* Enums & data-types */
-typedef enum confirm{ YES, NO, CANCEL } confirm;                                                            // Confirmation enum typedef
+typedef enum confirm {YES, NO, CANCEL} confirm;                                                             // Confirmation enum typedef
 
 
 /* Data-types */
@@ -63,7 +63,7 @@ void fbk_gn_pu(const char *const fbk_str);                                      
 
 void fbk_gn_lbu_ye_int(const char *const prfx_str_lbu, const int val_ye);                                   // Green-lightblue-yellow int val feedback function
 
-void fbk_gn_lbu_ye_str(const char *const prfx_str_lbu, const char *str_ye);                                 // Green-lightblue-yellow str val feedback function
+void fbk_gn_lbu_ye_str(const char *const prfx_str_lbu, const char *const str_ye);                           // Green-lightblue-yellow str val feedback function
 
 void fbk_err(const char *const fbk_str);                                                                    // Error feedback function
 

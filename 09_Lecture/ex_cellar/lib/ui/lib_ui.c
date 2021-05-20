@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library
  * Code version: 3.0
  * Creation date: 06/05/2021
- * Last mod. date: 19/05/2021
+ * Last mod. date: 20/05/2021
  */
 
 
@@ -102,7 +102,7 @@ void fbk_gn_lbu_ye_int(const char *const prfx_str_lbu, const int val_ye){       
 }
 
 
-void fbk_gn_lbu_ye_str(const char *const prfx_str_lbu, const char *str_ye){                                 // Green-lightblue-yellow str val feedback function
+void fbk_gn_lbu_ye_str(const char *const prfx_str_lbu, const char *const str_ye){                           // Green-lightblue-yellow str val feedback function
   /* Body */
   printf("%s>>>%s %s: %s%s%s", GN, LBU, prfx_str_lbu, YE, str_ye, ER);                                      // Print green-lightblue-yellow str val feedback
 }

@@ -3,7 +3,7 @@
  * Code title: Files library
  * Code version: 3.0
  * Creation date: 07/05/2021
- * Last mod. date: 19/05/2021
+ * Last mod. date: 20/05/2021
  */
 
 
@@ -115,7 +115,6 @@ void read_from_file(fl file){                                                   
       ++line_num;                                                                                           // Line number val upd
       printf("%s%d)  %s%s", BU, line_num, OG, file_in_buff);                                                // Print line number and val fbk
     }
-    fbk_nl(1);                                                                                              // New line fbk
   } else {                                                                                                  // If file obj is null
     fbk_err("Error! Null file found during file read operation");                                           // Error fbk
     perror("Null file found during file read operation!");                                                  // Print perror fbk

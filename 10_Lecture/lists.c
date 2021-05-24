@@ -71,6 +71,8 @@ int main(){
   print_list(&objs_list_head);                                                                              // Print elemets in list
 
   close_fbk();                                                                                              // Print close fbk
+
+  return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }
 
 

@@ -47,6 +47,8 @@ int main(){
                                                                                                             // --> sometimes used in function parameters (to pass ptrs in read only mode), but pointed addr can be changed
   int *const d = &c;                                                                                        // Const ptr, this don't allow ptr addr modification
   const int *const p = &c;                                                                                  // Constant ptr address and constant value (dereferencing operation and address value modification not allowed)
+
+  return 0;                                                                                                 // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }
 
 

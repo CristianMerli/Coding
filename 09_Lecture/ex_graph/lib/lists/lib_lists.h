@@ -31,12 +31,12 @@ const char *order_names_str[] = {"A-Z", "Z-A"};                                 
 typedef struct object {                                                                                     // Object struct typedef (name, data)
   char name[OBJ_NAME_STR_LEN];                                                                              // Object name str
   date_time date;                                                                                           // Object assignment date/time
-}object;
+} object;
 
 typedef struct elem {                                                                                       // Element struct typedef for list creation (object, next object in list)
   object obj;                                                                                               // Element, object in this list position
   struct elem *nxt;                                                                                         // Next element, object in next list position
-}elem;
+} elem;
 
 
 /* Library functions */

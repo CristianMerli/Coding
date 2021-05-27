@@ -16,7 +16,8 @@
     "lib_timer.h": "c",
     "lib_shop.h": "c",
     "lib_lists.h": "c",
-    "lib_ui.h": "c"
+    "lib_ui.h": "c",
+    "math.h": "c"
   },
   "editor.tabSize": 2,
   "editor.detectIndentation": false

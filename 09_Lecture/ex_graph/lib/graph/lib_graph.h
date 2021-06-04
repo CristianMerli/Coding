@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Graph library header file
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 21/05/2021
- * Last mod. date: 03/06/2021 
+ * Last mod. date: 04/06/2021 
  */
 
 
@@ -51,18 +51,16 @@ C_str arch_pos_typ_str[] = {"LIST HEAD POSITION", "LIST SPECIFIC POSITION", "LIS
 
 
 /* Library functions */
-Graph_arch add_new_arch(C_real cost);                                                                       // Function to add new graph arch (arch allocated inside heap)
+void add_new_arch(C_real cost);                                                                             // Function to add new graph arch (arch allocated inside heap)
 
-Graph_node add_new_node();                                                                                  // Function to add new graph node (node allocated inside heap)
+void add_new_node();                                                                                        // Function to add new graph node (node allocated inside heap)
 
-void connect_node_arch(Graph_node* nd, Graph_arch* ar, Node_pos_in_arch nd_pos, Arch_pos_typ ar_pos, ...);  // Function to connect arch-node in graph (new anch list element allocated inside heap, opt param --> arch pos, non-zero index)
+void connect_node_arch(C_int ar_num, C_int nd_num, Node_pos_in_arch nd_pos, Arch_pos_typ ar_pos, ...);      // Function to connect arch-node in graph, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
 
-Graph_arch* archs_connected_to_node(const Graph_node* const nd, int* const vect_size, Verbose_mode v_mode); // Function to get a vector of arche ptrs connected to a node (vector allocated inside heap) - Y/N for verbose mode
+Graph_arch* archs_connected_to_node(C_int nd_num, int* const vect_size, Verbose_mode v_mode);               // Function to get a vector of arch ptrs connected to a node, non-zero index (vector allocated inside heap) - Y/N for verbose mode
 
-Graph_node* nodes_connected_to_node(const Graph_node* const nd, int* const vect_size);                      // Function to get a vector of node ptrs connected to a node (vector allocated inside heap)
+Graph_node* nodes_connected_to_node(C_int nd_num, int* const vect_size, Verbose_mode v_mode);               // Function to get a vector of node ptrs connected to a node, non-zero index (vector allocated inside heap) - Y/N for verbose mode
 
-void print_archs_costs(Graph_node* const start_nd);                                                         // Function to print all the arches costs, starting from a specified node and moving through the whole graph structure
+void print_archs_costs();                                                                                   // Function to print all the conn. graph arches costs associated to each graph node
 
-// void free_graph(Graph_arch* archs_collec_vect, int *const ar_num,
-//                  Graph_node* nodes_collec_vect, int *const nd_num);                                          // Function to free graph allocated memory
-
+void free_graph();                                                                                          // Function to free graph allocated memory

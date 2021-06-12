@@ -7,7 +7,7 @@
  * 
  * 
  * // Compile-commands:
- * gccW99_lib lib/graph/lib_graph.so lib/graph/lib_graph.c          --> Create GRAPH dynamic library object file (interface with linked lists library)
+ * gccW99_lib lib/graph/lib_graph.so lib/graph/lib_graph.c          --> Create GRAPH dynamic library object file
  * gccW99_lib lib/ui/lib_ui.so lib/ui/lib_ui.c                      --> Create UI (TERMINAL I/O) dynamic library object file
  * gccW99_c graph.c                                                 --> Create SOFTWARE object file
  * 
@@ -34,7 +34,7 @@
 
 
 /* Main routines */
-void terminate_keyboard(int signal){                                                                        // Manage program exit from keyboard ctrl+c shortcut
+static void terminate_keyboard(int signal){                                                                 // Manage program exit from keyboard ctrl+c shortcut
   /* Body */
   close_keyboard_interrupt(signal);                                                                         // Close SW with fbk due to keyboard interrupt detected (ctrl+c)
 }

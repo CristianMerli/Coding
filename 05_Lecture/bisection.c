@@ -79,9 +79,9 @@ double bisection(double a, double b, double k, int n, double si, double fi){    
     int idx = 0;                                                                                            // Algorithm iterations index
     double mean = (si + fi) / 2;                                                                            // Interval central point calc
     while (((fi - mean) > k) && (idx < n)){                                                                 // Error dimension while loop (cycle 'till err is lower than k spec val or 'till iterations specified n limit val reached)
-      if ((a*mean+b) > 0){                                                                                  // Zero in left-half interval case
+      if ((a*si+b)*(a*mean+b) < 0){                                                                         // Zero in left-half interval case
         fi = mean;
-      } else if ((a*mean+b) < 0){                                                                           // Zero in right-half interval case
+      } else if ((a*si+b)*(a*mean+b) > 0){                                                                  // Zero in right-half interval case
         si = mean;
       } else {                                                                                              // Zero exactly in the middle of the interval (mean val)
         printf("\n\n%s--> %sOK! %sExact solution (double precision) found after %s%d%s iterations!%s",
@@ -104,7 +104,7 @@ double bisection(double a, double b, double k, int n, double si, double fi){    
 /* Main cycle */
 int main(){
   /* Vars declaration and definition */
-  double a = 1.5, b = 2.5, k = 0.00001, si = -50.0, fi = +50.0;                                             // Double vars declaration and definition
+  double a = -1.5, b = -2.35, k = 0.00001, si = -50.0, fi = +50.0;                                             // Double vars declaration and definition
   int n = 100;                                                                                              // Int vars declaration and definition
 
   /* Code */

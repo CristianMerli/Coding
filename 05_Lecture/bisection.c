@@ -104,7 +104,7 @@ double bisection(double a, double b, double k, int n, double si, double fi){    
 /* Main cycle */
 int main(){
   /* Vars declaration and definition */
-  double a = -1.5, b = -2.35, k = 0.00001, si = -50.0, fi = +50.0;                                             // Double vars declaration and definition
+  double a = -1.5, b = -2.35, k = 0.00001, si = -50.0, fi = +50.0;                                          // Double vars declaration and definition
   int n = 100;                                                                                              // Int vars declaration and definition
 
   /* Code */

@@ -3,7 +3,7 @@
  * Code title: Graph library
  * Code version: 1.0
  * Creation date: 22/06/2021
- * Last mod. date: 22/06/2021
+ * Last mod. date: 03/07/2021
  */
 
 
@@ -18,6 +18,12 @@ static Node* nodes_collect_vect = NULL;                                         
 
 
 /* Functions */
+static int iaddr(C_int i, C_int j, C_int lda){                                                              // Arrays/vectors memo addressing
+  /* Body */
+  return (i*lda)+j;                                                                                         // Return index number
+}
+
+
 static List_elem* allocate_new_list_elems(C_int num){                                                       // Function to allocate new list elements (single/vect)
   /* Body */
   List_elem* tmp_list_elems = calloc((size_t)num, sizeof(List_elem));                                       // Tmp list element ptr creation to point at first allocated memo cell inside heap
@@ -31,7 +37,7 @@ static List_elem* allocate_new_list_elems(C_int num){                           
 
 
 static void add_elem_at_list_head(List* list, List_elem* const el_to_add){                                  // Function to add a new element in list (head position)
-  /* Body */  
+  /* Body */
   if (el_to_add != NULL){                                                                                   // Check element to add not null
     List tmp_el_head = *list;                                                                               // Copy the old list head addr in tmp var
     el_to_add->nxt = NULL;                                                                                  // Set new element as list tail (in case it's the only element in list - head&tail, otherwise connect it to the old head element)
@@ -67,7 +73,7 @@ static void add_elem_at_list_tail(List* list, List_elem* const el_to_add){      
     if (*list != NULL){                                                                                     // If objects list has been already initialized
       List tmp_list = *list;                                                                                // Copy old list in tmp var
       for (; tmp_list->nxt != NULL; tmp_list = tmp_list->nxt);                                              // Scroll the whole list 'till list tail, to find last element
-      el_to_add->nxt = NULL;                                                                                // Set new element as list tail 
+      el_to_add->nxt = NULL;                                                                                // Set new element as list tail
       tmp_list->nxt = el_to_add;                                                                            // Cotnnect last element to the new element to add
     } else                                                                                                  // Else if objects list ain't been already initialized
       add_elem_at_list_head(list, el_to_add);                                                               // Add element in list (head position)
@@ -87,12 +93,6 @@ static void free_list_elems(List* list_head, Verbose_mode v_mode){              
     free(tmp_list_head);                                                                                    // Clear allocated elements
   }
   *list_head = NULL;                                                                                        // Set elements list (or sub-list) head to null
-}
-
-
-static int iaddr(C_int i, C_int j, C_int lda){                                                              // Arrays/vectors memo addressing
-  /* Body */
-  return (i*lda)+j;                                                                                         // Return index number
 }
 
 

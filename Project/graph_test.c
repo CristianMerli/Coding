@@ -1,18 +1,18 @@
 /*
  * Author: Cristian Merli
- * Code title: Graph
+ * Code title: Graph test
  * Code version: 1.0
  * Creation date: 22/06/2021
- * Last mod. date: 22/06/2021
+ * Last mod. date: 03/07/2021
  * 
  * 
  * // Compile-commands:
- * gccW99_lib lib/graph/lib_graph.so lib/graph/lib_graph.c          --> Create GRAPH dynamic library object file
- * gccW99_lib lib/ui/lib_ui.so lib/ui/lib_ui.c                      --> Create UI (TERMINAL I/O) dynamic library object file
- * gccW99_c graph.c                                                 --> Create SOFTWARE object file
+ * gccW99_lib lib/graph/lib_graph.so lib/graph/lib_graph.c                    --> Create GRAPH dynamic library object file
+ * gccW99_lib lib/ui/lib_ui.so lib/ui/lib_ui.c                                --> Create UI (TERMINAL I/O) dynamic library object file
+ * gccW99_c graph_test.c                                                      --> Create MAIN object file
  * 
  * // Link-command:
- * gccW99_o graph graph.o lib/graph/lib_graph.so lib/ui/lib_ui.so   --> LINK software and dynamic libraries object files to executable
+ * gccW99_o graph_test graph_test.o lib/graph/lib_graph.so lib/ui/lib_ui.so   --> LINK main and dynamic libraries object files to executable
  * 
  * // Aliases:
  * alias gccW99_o="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o"

@@ -21,15 +21,15 @@ RUN = ./
 # In-files
 LIB_GRAPH_IN = lib/graph/lib_graph.c
 LIB_UI_IN = lib/ui/lib_ui.c
-MAIN_IN = graph.c
+MAIN_IN = graph_test.c
 # Header-files
 LIB_GRAPH_H = lib/graph/lib_graph.h
 LIB_UI_H = lib/ui/lib_ui.h
 # Out-files
 LIB_GRAPH_OUT = lib/graph/lib_graph.so
 LIB_UI_OUT = lib/ui/lib_ui.so
-MAIN_OUT = graph.o
-MAIN_NAME = graph
+MAIN_OUT = graph_test.o
+MAIN_NAME = graph_test
 
 # CMDS:
 # Compile

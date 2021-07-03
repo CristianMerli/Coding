@@ -26,7 +26,7 @@ int max_cons(int array[], int size){                                            
   if (size <= 0)                                                                                            // In case array size is negative/zero
     return 0;                                                                                               // Return zero
   else {                                                                                                    // Else if size is positive
-    int max_val = 0, tmp_cnt = 0;;                                                                          // Max consecutives counter and tmp counter var init
+    int max_val = 0, tmp_cnt = 0;                                                                           // Max consecutives counter and tmp counter var init
     for (int i = 0; i < size-1; ++i){                                                                       // Array elements scrolling FOR cycle
       if (array[i] == array[i+1])                                                                           // Chech consecutive detecting cond
         ++tmp_cnt;                                                                                          // Increment tmp cnt

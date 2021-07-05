@@ -18,7 +18,8 @@
     "lib_lists.h": "c",
     "lib_ui.h": "c",
     "math.h": "c",
-    "lib_graph.h": "c"
+    "lib_graph.h": "c",
+    "limits.h": "c"
   },
   "editor.tabSize": 2,
   "editor.detectIndentation": false

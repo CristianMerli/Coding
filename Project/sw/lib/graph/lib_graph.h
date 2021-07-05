@@ -3,16 +3,17 @@
  * Code title: Graph library header file
  * Code version: 1.0
  * Creation date: 22/06/2021
- * Last mod. date: 03/07/2021 
+ * Last mod. date: 04/07/2021 
  */
 
 
 /* Libraries */
 #include "../ui/lib_ui.h"                                                                                   // Import UI (terminal I/O) library header file
+#include <limits.h>                                                                                         // Include limits library (for _DBL_MAX_ --> Real max val to simulate +inf)
 
 
 /* Constants */
-#define INF 999999999                                                                                       // Infinite const
+const Real _REAL_MAX_ = __DBL_MAX__;                                                                        // Real max val to simulate +inf
 
 
 /* Structs & data-types */
@@ -23,8 +24,9 @@ typedef struct list_elem {                                                      
 
 typedef List_elem* List;                                                                                    // List of elements (list head element ptr) typedef
 
-typedef struct node {                                                                                       // Node struct typedef (list of arches)
+typedef struct node {                                                                                       // Node struct typedef (list of arches and Dijkstra-dataset ptr)
   List archs_lst;                                                                                           // Arches list
+  struct dijkstra_dataset* dd;                                                                              // Dijkstra-dataset pointer
 } Node;
 
 typedef Node* Graph_node;                                                                                   // Graph-node (aka Node ptr) typedef
@@ -37,8 +39,7 @@ typedef struct arch {                                                           
 
 typedef Arch* Graph_arch;                                                                                   // Graph-arch (aka Arch ptr) typedef
 
-typedef struct dijkstra_dataset {                                                                           // Dijkstra-dataset struct typedef (node ptr, prev node ptr, min path cost, node analyzed flag)
-  Graph_node  nd;                                                                                           // Node pointer
+typedef struct dijkstra_dataset {                                                                           // Dijkstra-dataset struct typedef (prev node ptr, min path cost, node analyzed flag)
   Graph_node  prev_nd;                                                                                      // Previous node pointer
   Real        min_path_cost;                                                                                // Min path cost
   Byte        an_flg;                                                                                       // Node analyzed flag
@@ -69,6 +70,6 @@ void add_new_node();                                                            
 
 void connect_node_arch(C_int ar_num, C_int nd_num, Node_pos_in_arch nd_pos, Arch_pos_typ ar_pos, ...);      // Function to connect arch-node in graph, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
 
-void dijkstra_alg(C_int src_nd_num, C_int dest_nd_num);                                                     // Dijikstra alg 2 find min graph-path btwn source and destination nodes (non-zero index)
+void dijkstra_alg(C_int src_nd_num, C_int dest_nd_num);                                                     // Dijkstra alg 2 find min graph-path btwn source and destination nodes (non-zero index)
 
 void free_graph();                                                                                          // Function to free graph allocated memory

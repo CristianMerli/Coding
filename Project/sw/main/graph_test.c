@@ -50,7 +50,7 @@ static void terminate_keyboard(int signal){                                     
 /* Main cycle */
 int main(){                                                                                                 // SW main cycle
   /* Main vars */
-  C_real ar_costs_vect[] = {1.165, 2.165, 3.165, 4.165, 5.165, 6.165, 7.165, 8.165};                        // Arches costs vector
+  C_real ar_costs_vect[] = {1.165, 2.165, 3.165, 4.165, 5.165, 6.165, 7.165, 8.165, 6.165, 0.165};          // Arches costs vector
 
   /* Code */
   signal(SIGINT, terminate_keyboard);                                                                       // Manage program exit from keyboard ctrl+c shortcut
@@ -66,7 +66,9 @@ int main(){                                                                     
   add_new_arch(ar_costs_vect[5]);                                                                           // Create new arch (arch allocated inside heap)
   add_new_arch(ar_costs_vect[6]);                                                                           // Create new arch (arch allocated inside heap)
   add_new_arch(ar_costs_vect[7]);                                                                           // Create new arch (arch allocated inside heap)
-  for (int i = 0; i < 9; ++i)                                                                               // Nodes creation FOR cycle
+  add_new_arch(ar_costs_vect[8]);                                                                           // Create new arch (arch allocated inside heap)
+  add_new_arch(ar_costs_vect[9]);                                                                           // Create new arch (arch allocated inside heap)
+  for (int i = 0; i < 10; ++i)                                                                               // Nodes creation FOR cycle
     add_new_node();                                                                                         // Create new node (node allocated inside heap)
   connect_node_arch(1, 1, ARCH_ND1, LIST_TAIL);                                                             // Connect arch1 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
   connect_node_arch(1, 2, ARCH_ND2, LIST_TAIL);                                                             // Connect arch1 to node2, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
@@ -84,8 +86,13 @@ int main(){                                                                     
   connect_node_arch(7, 8, ARCH_ND2, LIST_TAIL);                                                             // Connect arch7 to node8, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
   connect_node_arch(8, 8, ARCH_ND1, LIST_TAIL);                                                             // Connect arch8 to node8, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
   connect_node_arch(8, 9, ARCH_ND2, LIST_TAIL);                                                             // Connect arch8 to node9, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
+  connect_node_arch(9, 1, ARCH_ND1, LIST_TAIL);                                                             // Connect arch9 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
+  connect_node_arch(9, 7, ARCH_ND2, LIST_TAIL);                                                             // Connect arch9 to node7, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
+  connect_node_arch(10, 1, ARCH_ND1, LIST_TAIL);                                                            // Connect arch10 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
+  connect_node_arch(10, 6, ARCH_ND2, LIST_TAIL);                                                            // Connect arch10 to node6, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
   // Apply Dijkstra alg between graph node number 1 and 6 - test project function (function number 7)
   dijkstra_alg(1, 6);                                                                                       // Dijkstra alg 2 find min graph-path btwn source (Node 1) and destination (Node 6), non-zero index
+  dijkstra_alg(4, 9);                                                                                       // Dijkstra alg 2 find min graph-path btwn source (Node 4) and destination (Node 9), non-zero index
   // Deallocate the whole structure - test function number 8
   free_graph();                                                                                             // Clear the whole graph structure from heap
 

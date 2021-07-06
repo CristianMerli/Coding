@@ -12,10 +12,12 @@
 
 
 /* Lib vars */
-static int ars_collect_size = 0, nds_collect_size = 0;                                                      // Arches and nodes collection vectors sizes
+static int ars_collect_size = 0, nds_collect_size = 0, min_pth_conn_vect_size = 0;                          // Arches and nodes collection vectors sizes + min path connections vect size
 static Arch* archs_collect_vect = NULL;                                                                     // Graph arches collection vector ptr init
 static Node* nodes_collect_vect = NULL;                                                                     // Graph nodes collection vector ptr init
 static Dijkstra_dataset* dijk_dataset_vect = NULL;                                                          // Dijkstra-dataset vector ptr init
+static Connection* min_path_conn_vect = NULL;                                                               // Min path connections vect ptr init
+static Byte realloc_flg = 0;                                                                                // Realloc flag init
 
 
 /* Functions */
@@ -87,20 +89,14 @@ static void add_elem_at_list_tail(List* list, List_elem* const el_to_add){      
 static void free_list_elems(List* list_head, Verbose_mode v_mode){                                          // Function to free allocated elements inside heap, startin' from specified list (or sub-list) head, 'till list (or sub-list) tail - Y/N for verbose mode
   /* Body */
   List tmp_list_head = *list_head;                                                                          // Tmp var to clear allocated memo inside heap (list element)
-  List tmp_prev_el = *list_head;                                                                            // Tmp var to store previous element in list memo inside heap
-  dbg(); //////////
-  dbg_ptr("EL1", tmp_list_head);
-  dbg_ptr("EL2", tmp_list_head->nxt);
-  dbg_ptr("EL3", tmp_list_head->nxt->nxt);
-  dbg_ptr("EL4", tmp_list_head->nxt->nxt->nxt);
-  dbg_ptr("EL5", tmp_list_head->nxt->nxt->nxt->nxt);
-  for (int i = 0; tmp_list_head != NULL; tmp_list_head = tmp_list_head->nxt, ++i){                          // List (or sub-list) scrollin' FOR cycle to clear heap allocated memo
-    if (v_mode == Y){                                                                                       // If verbose mode is enabled, print fbk
-    fbk_nl(1);  fbk_gn_lbu_ye_int("Removing allocated list element from heap, element number", i+1);        // Print removing element from heap fbk
-    }
+  List tmp_nxt_el = *list_head;                                                                             // Tmp var to store next element in list memo inside heap
+  for (int i = 0; tmp_list_head != NULL; tmp_list_head = tmp_nxt_el, ++i){                                  // List (or sub-list) scrollin' FOR cycle to clear heap allocated memo
     if (tmp_list_head != NULL){                                                                             // If allocated element ain't null
-      dbg_ptr("Elem", tmp_list_head); //////////
-      //free(tmp_list_head);                                                                                  // Clear allocated elements
+      if (v_mode == Y){                                                                                     // If verbose mode is enabled, print fbk
+        fbk_nl(1);  fbk_gn_lbu_ye_int("Removing allocated list element from heap, element number", i+1);    // Print removing element from heap fbk
+      }
+      tmp_nxt_el = tmp_list_head->nxt;                                                                      // Updn ext element in list var
+      free(tmp_list_head);                                                                                  // Clear allocated elements
     }
   }
   *list_head = NULL;                                                                                        // Set elements list (or sub-list) head to null
@@ -212,9 +208,9 @@ static Connection* not_an_node_conn(Node* nd, int* const vect_size, Verbose_mode
     fbk_nl(1);  fbk_gn_pu("Looking for non-analyzed connections associated to a specific node...");         // Looking for non-analyzed connections associated to a specific node fbk
     fbk_nl(1);  fbk_gn_lbu_ye_ptr("Node address", nd);                                                      // Print node address fbk
   }
-  for (; tmp_el != NULL; tmp_el = tmp_el->nxt, ++*vect_size){                                               // Scroll node conn. arches list, upd num of non-analyzed connections associated to a specific node, resize node connections vect inside heap and define vector elements
-    if ((nd == tmp_el->ar->nd1 && tmp_el->ar->nd2->dd->an_flg == 0) ||
-        (nd == tmp_el->ar->nd2 && tmp_el->ar->nd1->dd->an_flg == 0)){                                       // Add node non-analyzed connection only if the destination node ain't been already analyzed
+  for (; tmp_el != NULL; tmp_el = tmp_el->nxt){                                                             // Scroll node conn. arches list, upd num of non-analyzed connections associated to a specific node, resize node connections vect inside heap and define vector elements
+  if ((nd == tmp_el->ar->nd1 && tmp_el->ar->nd2->dd->an_flg == 0) ||
+      (nd == tmp_el->ar->nd2 && tmp_el->ar->nd1->dd->an_flg == 0)){                                         // Add node non-analyzed connection only if the destination node ain't been already analyzed
       if (*vect_size == 0)                                                                                  // If it's the first iteration, allocate vector of non-analyzed connections associated to a specific node
         nan_nd_conn_vect = allocate_new_nd_conn_vect(*vect_size+1);                                         // Init node non-analyzed connections vect inside heap
       else                                                                                                  // If it's not the first iteration, reallocate vector of non-analyzed connections associated to a specific node (resize)
@@ -224,6 +220,7 @@ static Connection* not_an_node_conn(Node* nd, int* const vect_size, Verbose_mode
       else                                                                                                  // If specified node memo addr doesn't correspond to the arch conn. node1, assign arch conn. node1 in newly allocated element inside vect
         (nan_nd_conn_vect+iaddr(V, *vect_size, *vect_size+1))->nd = tmp_el->ar->nd1;                        // Define elements of node (non-analyzed) connections vect inside heap (connection node)
       (nan_nd_conn_vect+iaddr(V, *vect_size, *vect_size+1))->conn_ar = tmp_el->ar;                          // Define elements of node (non-analyzed) connections vect inside heap (connection arch)
+      ++*vect_size;                                                                                         // Vector of non-analyzed connections associated to a specific node size val upd
     }
   }
   if (v_mode == Y){                                                                                         // If verbose mode is enabled, print fbk
@@ -315,8 +312,12 @@ void connect_node_arch(C_int ar_num, C_int nd_num, Node_pos_in_arch nd_pos, Arch
 
 
 void dijkstra_alg(C_int src_nd_num, C_int dest_nd_num){                                                     // Dijkstra alg 2 find min graph-path btwn source and destination nodes (non-zero index)
+  fbk_nl(1);  fbk_gn_pu("Looking for min path cost between specified source and destination nodes...");     // Lookin' 4 shortest path btwn spec src and dest nd
+  fbk_nl(1);  fbk_gn_lbu_ye_int("Source node number", src_nd_num);                                          // Print src-nd num
+  fbk_nl(1);  fbk_gn_lbu_ye_int("Destination node number", dest_nd_num);                                    // Print dest-nd num
   // Inits
-  int min_cost_idx = 0;                                                                                     // Min cost node in dataset index val init
+  int min_cost_idx = 0;                                                                                     // Min cost node idx in dataset var init
+  Real min_cost_val = 0.0;                                                                                  // Min cost node val in dataset var init
   int nan_nd_conn_vect_size = 0;                                                                            // Node (non-analyzed) connections vector size var to store selected node non-analyzed connections init
   Real new_cost = 0.0;                                                                                      // New cost var init
   Connection* nan_nd_conn_vect = NULL;                                                                      // Node (non-analyzed) connections vector ptr var decl
@@ -333,27 +334,69 @@ void dijkstra_alg(C_int src_nd_num, C_int dest_nd_num){                         
   // Algorithm
   for (int j = 0; j < nds_collect_size-1; ++j){                                                             // Main algo loop
     // Select min-cost path node
+    min_cost_val = _REAL_MAX_;                                                                              // Min cost node val in dataset upd
     for (int k = 0; k < nds_collect_size; ++k){                                                             // Scroll the entire nodes collection 2 detect min cost path node
       if (nodes_collect_vect[k].dd->an_flg == 0 &&
-          nodes_collect_vect[k].dd->min_path_cost < nodes_collect_vect[min_cost_idx].dd->min_path_cost)     // Min cost path node detectin' cond (min val and node not alredy analized)
-        min_cost_idx = k;                                                                                   // If detectin' cond is met, upd min cost node idx val
+          nodes_collect_vect[k].dd->min_path_cost < min_cost_val){                                          // Min cost path node detectin' cond (min val and node not alredy analized)
+        min_cost_val = nodes_collect_vect[k].dd->min_path_cost;                                             // If detectin' cond is met, upd min cost node val
+        min_cost_idx = k;                                                                                   // And upd min cost node idx
+      }
     }
     ++nodes_collect_vect[min_cost_idx].dd->an_flg;                                                          // Mark selected node as alredy analized b4 processin' it
     // Find archs connected 2 selected node
     nan_nd_conn_vect_size = 0;                                                                              // Node (non-analyzed) connections vector size var to store selected node non-analyzed connections (rst)
     nan_nd_conn_vect = not_an_node_conn(&nodes_collect_vect[min_cost_idx], &nan_nd_conn_vect_size, N);      // Define selected node non-analyzed connections vect (vector allocated inside heap) - NO --> without verbose mode
-    for (int k = 0; k < nan_nd_conn_vect_size; ++k){                                                        // Scroll selected node non-analyzed connections vect
-      new_cost = nodes_collect_vect[min_cost_idx].dd->min_path_cost+nan_nd_conn_vect[k].conn_ar->cost;      // New cost val upd
-      if (new_cost < nan_nd_conn_vect[k].nd->dd->min_path_cost){                                            // In case new cost val is less than min cost val
-        nan_nd_conn_vect[k].nd->dd->min_path_cost = new_cost;                                               // Upd min cost val
-        nan_nd_conn_vect[k].nd->dd->prev_nd = &nodes_collect_vect[min_cost_idx];                            // Upd previous min path node
+    for (int l = 0; l < nan_nd_conn_vect_size; ++l){                                                        // Scroll selected node non-analyzed connections vect
+      new_cost = nodes_collect_vect[min_cost_idx].dd->min_path_cost+nan_nd_conn_vect[l].conn_ar->cost;      // New cost val upd
+      if (new_cost < nan_nd_conn_vect[l].nd->dd->min_path_cost){                                            // In case new cost val is less than min cost val
+        nan_nd_conn_vect[l].nd->dd->min_path_cost = new_cost;                                               // Upd min cost val
+        nan_nd_conn_vect[l].nd->dd->prev_nd = &nodes_collect_vect[min_cost_idx];                            // Upd previous min path node
       }
     }
     if (nan_nd_conn_vect != NULL)                                                                           // If node non-analyzed connections vector was correctly defined
       free(nan_nd_conn_vect);                                                                               // Free node non-analyzed connections vector allocated inside heap
   }
-  printf("%d", dest_nd_num); /////////////////////////////////////////////
+  //
+  //
+  for (int m = 0; m < nds_collect_size; ++m){                                                               // -
+    fbk_nl(1);  fbk_gn_lbu_ye_int("--> Node number", m);                                                    // -
+    fbk_nl(1);  fbk_gn_lbu_ye_real("Min cost path to node", nodes_collect_vect[m].dd->min_path_cost);       // -
+  }
+  fbk_nl(1);  fbk_gn_cy("Min cost paths correctly found!");                                                 // -
+  fbk_nl(1);  fbk_gn_lbu_ye_int("--> Destination node number", dest_nd_num);  fbk_nl(1);                    // -
+  fbk_gn_lbu_ye_real("Min cost path to node", nodes_collect_vect[dest_nd_num-1].dd->min_path_cost);         // -
+  //
+  //
+  Graph_node tmp_nd = &nodes_collect_vect[dest_nd_num-1];                                                   // -
+  if (min_pth_conn_vect_size != 0)                                                                          // -
+    min_pth_conn_vect_size = 0;                                                                             // -
+  while (tmp_nd->dd->prev_nd != NULL){                                                                      // -
+    if (realloc_flg == 0){                                                                                  // If realloc flag ain't set
+      min_path_conn_vect = allocate_new_nd_conn_vect(++min_pth_conn_vect_size);                             // -
+      ++realloc_flg;                                                                                        // And then set realloc flag
+    } else                                                                                                  // Else if realloc flag has been set
+      reallocate_nd_conn_vect(&min_path_conn_vect, ++min_pth_conn_vect_size);                               // -
+    (min_path_conn_vect+iaddr(V, min_pth_conn_vect_size-1, min_pth_conn_vect_size))->nd = tmp_nd;           // Define elements of --- connections vect inside heap (connection node)
+    tmp_nd = tmp_nd->dd->prev_nd;                                                                           // -
+  }
+  dbg_int("PTS", min_pth_conn_vect_size);
+  for (int n = min_pth_conn_vect_size-1; n >= 0; --n)
+    dbg_ptr("PT", min_path_conn_vect[n].nd);
+  fbk_nl(1);  fbk_gn_cy("Destination node min cost path correctly identified!\n");                          // -
+  /////////////
+  for (int i = 0; i < nds_collect_size; ++i){
+    fbk_nl(2);  fbk_gn_lbu_ye_int("Node number", i+1);  printf(" ");  fbk_gn_lbu_ye_ptr("Node addr", &nodes_collect_vect[i]);
+  }
+  /////////////
+  //
+  //
 }
+
+
+//
+
+
+//
 
 
 void free_graph(){                                                                                          // Function to free graph allocated memory
@@ -368,7 +411,11 @@ void free_graph(){                                                              
     free(nodes_collect_vect);                                                                               // Free nodes collection vector allocated memo inside heap
   if (dijk_dataset_vect != NULL)                                                                            // If Dijkstra-dataset vector needs to be cleared from heap
     free(dijk_dataset_vect);                                                                                // Free Dijkstra-dataset vector allocated memo inside heap
+  if (min_path_conn_vect != NULL)                                                                           // If min path connections vector needs to be cleared from heap
+    free(min_path_conn_vect);                                                                               // Free min path connections vector allocated memo inside heap
   ars_collect_size = 0;                                                                                     // Set graph arches number back to zero
   nds_collect_size = 0;                                                                                     // Set graph nodes number back to zero
-  fbk_nl(1);  fbk_gn_cy("Graph structure correctly erased!\n");                                             // Graph structure correctly created erased from heap fbk
+  min_pth_conn_vect_size = 0;                                                                               // Set min path connections vector size back to zero
+  realloc_flg = 0;                                                                                          // Realloc flag rst
+  fbk_nl(1);  fbk_gn_cy("Graph structure correctly erased!");                                               // Graph structure correctly created erased from heap fbk
 }

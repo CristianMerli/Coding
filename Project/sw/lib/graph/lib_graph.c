@@ -11,6 +11,10 @@
 #include "lib_graph.h"                                                                                      // Import graph library header file
 
 
+/* Global vars */
+const Real _REAL_MAX_ = __DBL_MAX__;                                                                        // Real max val to simulate +inf
+
+
 /* Lib vars */
 static int ars_collect_size = 0, nds_collect_size = 0, min_pth_conn_vect_size = 0;                          // Arches and nodes collection vectors sizes + min path connections vect size
 static Arch* archs_collect_vect = NULL;                                                                     // Graph arches collection vector ptr init
@@ -18,6 +22,7 @@ static Node* nodes_collect_vect = NULL;                                         
 static Dijkstra_dataset* dijk_dataset_vect = NULL;                                                          // Dijkstra-dataset vector ptr init
 static Connection* min_path_conn_vect = NULL;                                                               // Min path connections vect ptr init
 static Byte realloc_flg = 0;                                                                                // Realloc flag init
+static int src_node_num = 0, dest_node_num = 0;                                                             // -
 
 
 /* Functions */
@@ -32,7 +37,8 @@ static List_elem* allocate_new_list_elems(C_int num){                           
   List_elem* tmp_list_elems = calloc((size_t)num, sizeof(List_elem));                                       // Tmp list element ptr creation to point at first allocated memo cell inside heap
   if (tmp_list_elems == NULL || num == 0){                                                                  // Check calloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during lists data management");                                          // Error fbk
-    perror("Found error during list elements dynamic memory allocation with calloc!");                      // print perror fbk
+    perror("Found error during list elements dynamic memory allocation with calloc!");                      // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
     close_err();                                                                                            // Close software with error function call
   }
   return tmp_list_elems;                                                                                    // Return tmp list elements, firtst allocated memo cell inside heap (pointer)
@@ -109,7 +115,8 @@ static void allocate_new_archs(){                                               
   archs_collect_vect = calloc(1, sizeof(Arch));                                                             // Tmp graph arch ptr creation to point at first allocated memo cell inside heap
   if (archs_collect_vect == NULL){                                                                          // Check calloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during graph arches dynamic memory allocation with calloc!");                       // print perror fbk
+    perror("Found error during graph arches dynamic memory allocation with calloc!");                       // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
     close_err();                                                                                            // Close software with error function call
   } else                                                                                                    // In case of dyn memo allocation OK
     ++ars_collect_size;                                                                                     // Upd arches collection vect size
@@ -122,7 +129,8 @@ static void allocate_new_nodes(){                                               
   nodes_collect_vect = calloc(1, sizeof(Node));                                                             // Tmp graph node ptr creation to point at first allocated memo cell inside heap
   if (nodes_collect_vect == NULL){                                                                          // Check calloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during graph nodes dynamic memory allocation with calloc!");                        // print perror fbk
+    perror("Found error during graph nodes dynamic memory allocation with calloc!");                        // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
     close_err();                                                                                            // Close software with error function call
   } else                                                                                                    // In case of dyn memo allocation OK
     ++nds_collect_size;                                                                                     // Upd nodes collection vect size
@@ -134,7 +142,8 @@ static void reallocate_new_archs(){                                             
   archs_collect_vect = realloc(archs_collect_vect, (size_t)(ars_collect_size+1)*sizeof(Arch));              // Tmp graph arch ptr creation to point at first allocated memo cell inside heap
   if (archs_collect_vect == NULL){                                                                          // Check realloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during graph arches dynamic memory reallocation with realloc!");                    // print perror fbk
+    perror("Found error during graph arches dynamic memory reallocation with realloc!");                    // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
     close_err();                                                                                            // Close software with error function call
   } else                                                                                                    // In case of dyn memo reallocation OK
     ++ars_collect_size;                                                                                     // Upd arches collection vect size
@@ -146,34 +155,36 @@ static void reallocate_new_nodes(){                                             
   nodes_collect_vect = realloc(nodes_collect_vect, (size_t)(nds_collect_size+1)*sizeof(Node));              // Tmp graph node ptr creation to point at first allocated memo cell inside heap
   if (nodes_collect_vect == NULL){                                                                          // Check realloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during graph nodes dynamic memory reallocation with realloc!");                     // print perror fbk
+    perror("Found error during graph nodes dynamic memory reallocation with realloc!");                     // print Perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
     close_err();                                                                                            // Close software with error function call
   } else                                                                                                    // In case of dyn memo reallocation OK
     ++nds_collect_size;                                                                                     // Upd nodes collection vect size
 }
 
 
-static Dijkstra_dataset* allocate_new_dijk_dataset_vect(C_int num){                                         // Function to allocate new Dijkstra-dataset vector
+static void allocate_new_dijk_dataset_vect(){                                                               // Function to allocate new Dijkstra-dataset vector
   /* Body */
-  Dijkstra_dataset* tmp_dijk_dataset_ptr = calloc((size_t)num, sizeof(Dijkstra_dataset));                   // Tmp Dijkstra-dataset ptr creation to point at first allocated memo cell inside heap
-  if (tmp_dijk_dataset_ptr == NULL || num == 0){                                                            // Check calloc funct output to detect dynamic memory allocation errors
+  dijk_dataset_vect = calloc((size_t)nds_collect_size, sizeof(Dijkstra_dataset));                           // Dijkstra-dataset vect ptr creation to point at first allocated memo cell inside heap
+  if (dijk_dataset_vect == NULL || nds_collect_size == 0){                                                  // Check calloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during Dijkstra-dataset vector dynamic memory allocation with calloc!");            // print perror fbk
+    perror("Found error during Dijkstra-dataset vector dynamic memory allocation with calloc!");            // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
     close_err();                                                                                            // Close software with error function call
   }
-  return tmp_dijk_dataset_ptr;                                                                              // Return tmp Dijkstra-dataset ptr, firtst allocated memo cell inside heap (pointer)
 }
 
 
-// static void reallocate_dijk_dataset_vect(Dijkstra_dataset** dijk_dataset_vect, C_int size){                 // Function to reallocate Dijkstra-dataset vector (resize)
-//   /* Body */
-//   *dijk_dataset_vect = realloc(*dijk_dataset_vect, (size_t)size*sizeof(Dijkstra_dataset));                  // Dijkstra-dataset vect ptr addr upd to make sure it points at first reallocated memo cell inside heap
-//   if (*dijk_dataset_vect == NULL || size == 0){                                                             // Check realloc funct output to detect dynamic memory allocation errors
-//     fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-//     perror("Found error during Dijkstra-dataset vector dynamic memory reallocation with realloc!");         // print perror fbk
-//     close_err();                                                                                            // Close software with error function call
-//   }
-// }
+static void reallocate_dijk_dataset_vect(){                                                                 // Function to reallocate Dijkstra-dataset vector (resize)
+  /* Body */
+  dijk_dataset_vect = realloc(dijk_dataset_vect, (size_t)nds_collect_size*sizeof(Dijkstra_dataset));        // Dijkstra-dataset vect ptr addr upd to make sure it points at first reallocated memo cell inside heap
+  if (dijk_dataset_vect == NULL || nds_collect_size == 0){                                                  // Check realloc funct output to detect dynamic memory allocation errors
+    fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
+    perror("Found error during Dijkstra-dataset vector dynamic memory reallocation with realloc!");         // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
+    close_err();                                                                                            // Close software with error function call
+  }
+}
 
 
 static Connection* allocate_new_nd_conn_vect(C_int num){                                                    // Function to allocate new node connections vector
@@ -181,7 +192,8 @@ static Connection* allocate_new_nd_conn_vect(C_int num){                        
   Connection* tmp_nd_conn_ptr = calloc((size_t)num, sizeof(Connection));                                    // Tmp node connection ptr creation to point at first allocated memo cell inside heap
   if (tmp_nd_conn_ptr == NULL || num == 0){                                                                 // Check calloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during node connections vector dynamic memory allocation with calloc!");            // print perror fbk
+    perror("Found error during node connections vector dynamic memory allocation with calloc!");            // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
     close_err();                                                                                            // Close software with error function call
   }
   return tmp_nd_conn_ptr;                                                                                   // Return tmp node connection ptr, firtst allocated memo cell inside heap (pointer)
@@ -193,7 +205,8 @@ static void reallocate_nd_conn_vect(Connection** nd_conn_vect, C_int size){     
   *nd_conn_vect = realloc(*nd_conn_vect, (size_t)size*sizeof(Connection));                                  // Node connections vect ptr addr upd to make sure it points at first reallocated memo cell inside heap
   if (*nd_conn_vect == NULL || size == 0){                                                                  // Check realloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during node connections vector dynamic memory reallocation with realloc!");         // print perror fbk
+    perror("Found error during node connections vector dynamic memory reallocation with realloc!");         // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
     close_err();                                                                                            // Close software with error function call
   }
 }
@@ -231,30 +244,55 @@ static Connection* not_an_node_conn(Node* nd, int* const vect_size, Verbose_mode
 
 
 /* Public functions */
-void add_new_arch(C_real cost){                                                                             // Function to add new graph arch (arch allocated inside heap)
+void add_new_arch(C_real cost, const char *name){                                                           // Function to add new graph arch (arch allocated inside heap)
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Adding new graph arch...");                                                        // Adding new graph arch fbk
-  if (archs_collect_vect == NULL)                                                                           // Check arches collection vector, if null
-    allocate_new_archs();                                                                                   // Allocate a new graph arch inside arches collection vector (vect calloc)
-  else                                                                                                      // Else if not null
-    reallocate_new_archs();                                                                                 // Allocate a new graph arch inside arches collection vector (vect realloc)
-  archs_collect_vect[ars_collect_size-1].cost = cost;                                                       // Define arch cost
-  fbk_nl(1);  fbk_gn_lbu_ye_real("New arch cost", cost);                                                    // Adding new graph arch fbk
-  archs_collect_vect[ars_collect_size-1].nd1 = NULL;                                                        // Set node1 connection to NULL
-  archs_collect_vect[ars_collect_size-1].nd2 = NULL;                                                        // Set node2 connection to NULL
-  fbk_nl(1);  fbk_gn_cy("New graph arch correctly added!\n");                                               // New graph arch correctly added fbk
+  if (cost > 0.0){                                                                                          // If cost is positive
+    if (archs_collect_vect == NULL)                                                                         // Check arches collection vector, if null
+      allocate_new_archs();                                                                                 // Allocate a new graph arch inside arches collection vector (vect calloc)
+    else                                                                                                    // Else if not null
+      reallocate_new_archs();                                                                               // Allocate a new graph arch inside arches collection vector (vect realloc)
+    if (strlen(name) > 0 && strlen(name) < AR_STR_LEN){                                                     // -
+      strcpy(archs_collect_vect[ars_collect_size-1].name, name);  fbk_nl(1);                                // -
+    } else {                                                                                                // -
+      fbk_err("Error, invalid arch name size! Overriding arch name with arch number in collection");        // -
+      char name_ovrd[AR_STR_LEN];                                                                           // -
+      sprintf(name_ovrd, "%d", ars_collect_size);                                                           // -
+      strcpy(archs_collect_vect[ars_collect_size-1].name, name_ovrd);                                       // -
+    }
+    archs_collect_vect[ars_collect_size-1].cost = cost;                                                     // Define arch cost
+    archs_collect_vect[ars_collect_size-1].nd1 = NULL;                                                      // Set node1 connection to NULL
+    archs_collect_vect[ars_collect_size-1].nd2 = NULL;                                                      // Set node2 connection to NULL
+    fbk_gn_lbu_ye_str("New arch name", archs_collect_vect[ars_collect_size-1].name);                        // New graph arch name fbk
+    fbk_nl(1);  fbk_gn_lbu_ye_real("New arch cost", archs_collect_vect[ars_collect_size-1].cost);           // New graph arch cost fbk
+    fbk_nl(1);  fbk_gn_cy("New graph arch correctly added!\n");                                             // New graph arch correctly added fbk
+  } else {                                                                                                  // Else if cost ain't positive
+    fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
+    perror("Found error during arch object creation, its cost must be strictly positive!");                 // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
+    close_err();                                                                                            // Close software with error function call
+  }
 }
 
 
-void add_new_node(){                                                                                        // Function to add new graph node (node allocated inside heap)
+void add_new_node(const char *name){                                                                        // Function to add new graph node (node allocated inside heap)
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Adding new graph node...");                                                        // Adding new graph node fbk
   if (nodes_collect_vect == NULL)                                                                           // Check nodes collection vector, if null
-    allocate_new_nodes();                                                                                   // Allocate a new graph node inside arches collection vector (vect calloc)
+    allocate_new_nodes();                                                                                   // Allocate a new graph node inside nodes collection vector (vect calloc)
   else                                                                                                      // Else if not null
-    reallocate_new_nodes();                                                                                 // Allocate a new graph node inside arches collection vector (vect realloc)
+    reallocate_new_nodes();                                                                                 // Allocate a new graph node inside nodes collection vector (vect realloc)
+  if (strlen(name) > 0 && strlen(name) < ND_STR_LEN){                                                       // -
+    strcpy(nodes_collect_vect[nds_collect_size-1].name, name);  fbk_nl(1);                                  // -
+  } else {                                                                                                  // -
+    fbk_err("Error, invalid node name size! Overriding arch name with node number in collection");          // -
+    char name_ovrd[ND_STR_LEN];                                                                             // -
+    sprintf(name_ovrd, "%d", nds_collect_size);                                                             // -
+    strcpy(nodes_collect_vect[nds_collect_size-1].name, name_ovrd);                                         // -
+  }
   nodes_collect_vect[nds_collect_size-1].archs_lst = NULL;                                                  // Set node arches list to NULL
   nodes_collect_vect[nds_collect_size-1].dd = NULL;                                                         // Set node Dijkstra-dataset to NULL
+  fbk_gn_lbu_ye_str("New node name", nodes_collect_vect[nds_collect_size-1].name);                          // New graph arch name fbk
   fbk_nl(1);  fbk_gn_cy("New graph node correctly added!\n");                                               // New graph node correctly added fbk
 }
 
@@ -283,7 +321,7 @@ void connect_node_arch(C_int ar_num, C_int nd_num, Node_pos_in_arch nd_pos, Arch
       break;
     ////////
     default:                                                                                                // Unknown case
-      perror("Wrong \"nd_pos\" parameter value passsed to \"connect_node_arch\" function!");                // print perror fbk
+      perror("Wrong \"nd_pos\" parameter value passsed to \"connect_node_arch\" function!");                // Print perror fbk
     break;
   }
   // Assign arch to node
@@ -304,24 +342,28 @@ void connect_node_arch(C_int ar_num, C_int nd_num, Node_pos_in_arch nd_pos, Arch
       break;
     ////////
     default:                                                                                                // Unknown case
-      perror("Wrong \"ar_pos\" parameter value passsed to \"connect_node_arch\" function!");                // print perror fbk
+      perror("Wrong \"ar_pos\" parameter value passsed to \"connect_node_arch\" function!");                // Print perror fbk
       break;
   }
   fbk_nl(1);  fbk_gn_cy("Bidirectional node-arch connetion correctly created!\n");                          // Bidirectional node-arch connection correctly created fbk
 }
 
 
-void dijkstra_alg(C_int src_nd_num, C_int dest_nd_num){                                                     // Dijkstra alg 2 find min graph-path btwn source and destination nodes (non-zero index)
-  fbk_nl(1);  fbk_gn_pu("Looking for min path cost between specified source and destination nodes...");     // Lookin' 4 shortest path btwn spec src and dest nd
+void dijkstra_alg(C_int src_nd_num){                                                                        // Dijkstra alg 2 find min graph-path btwn source and each destination node (non-zero index)
+  /* Body */
+  fbk_nl(1);  fbk_gn_pu("Looking for min path costs from specified source with Dijkstra's algorithm...");   // Print lookin' 4 shortest path btwn spec src and each dest nd fbk
   fbk_nl(1);  fbk_gn_lbu_ye_int("Source node number", src_nd_num);                                          // Print src-nd num
-  fbk_nl(1);  fbk_gn_lbu_ye_int("Destination node number", dest_nd_num);                                    // Print dest-nd num
-  // Inits
+  // Algorithm inits
   int min_cost_idx = 0;                                                                                     // Min cost node idx in dataset var init
   Real min_cost_val = 0.0;                                                                                  // Min cost node val in dataset var init
   int nan_nd_conn_vect_size = 0;                                                                            // Node (non-analyzed) connections vector size var to store selected node non-analyzed connections init
   Real new_cost = 0.0;                                                                                      // New cost var init
   Connection* nan_nd_conn_vect = NULL;                                                                      // Node (non-analyzed) connections vector ptr var decl
-  dijk_dataset_vect = allocate_new_dijk_dataset_vect(nds_collect_size);                                     // Dijkstra-dataset vect init (vector allocated inside heap)
+  if (realloc_flg == 0){                                                                                    // If realloc flag ain't set
+    allocate_new_dijk_dataset_vect();                                                                       // Dijkstra-dataset vect init (vector allocated inside heap)
+    ++realloc_flg;                                                                                          // Set realloc flg
+  } else                                                                                                    // Else if realloc flag has been set
+    reallocate_dijk_dataset_vect();                                                                         // Dijkstra-dataset vect realloc (vector reallocated inside heap)
   for (int i = 0; i < nds_collect_size; ++i){                                                               // Inits FOR cycle
     nodes_collect_vect[i].dd = &dijk_dataset_vect[i];                                                       // Define and init nodes Dijkstra-datasets
     nodes_collect_vect[i].dd->prev_nd = NULL;                                                               // Node dataset prev node init
@@ -331,9 +373,10 @@ void dijkstra_alg(C_int src_nd_num, C_int dest_nd_num){                         
     else                                                                                                    // Else if node ain't different from source node (non-zero idx)
       nodes_collect_vect[i].dd->min_path_cost = 0;                                                          // Init source-to-source cost (preset val --> zero)
   }
-  // Algorithm
+  src_node_num = src_nd_num;                                                                                // -
+  // Algorithm loop
   for (int j = 0; j < nds_collect_size-1; ++j){                                                             // Main algo loop
-    // Select min-cost path node
+    // Select node with min-cost path
     min_cost_val = _REAL_MAX_;                                                                              // Min cost node val in dataset upd
     for (int k = 0; k < nds_collect_size; ++k){                                                             // Scroll the entire nodes collection 2 detect min cost path node
       if (nodes_collect_vect[k].dd->an_flg == 0 &&
@@ -343,11 +386,12 @@ void dijkstra_alg(C_int src_nd_num, C_int dest_nd_num){                         
       }
     }
     ++nodes_collect_vect[min_cost_idx].dd->an_flg;                                                          // Mark selected node as alredy analized b4 processin' it
-    // Find archs connected 2 selected node
+    // Find non-analyzed connections of selected node
     nan_nd_conn_vect_size = 0;                                                                              // Node (non-analyzed) connections vector size var to store selected node non-analyzed connections (rst)
     nan_nd_conn_vect = not_an_node_conn(&nodes_collect_vect[min_cost_idx], &nan_nd_conn_vect_size, N);      // Define selected node non-analyzed connections vect (vector allocated inside heap) - NO --> without verbose mode
     for (int l = 0; l < nan_nd_conn_vect_size; ++l){                                                        // Scroll selected node non-analyzed connections vect
       new_cost = nodes_collect_vect[min_cost_idx].dd->min_path_cost+nan_nd_conn_vect[l].conn_ar->cost;      // New cost val upd
+      // Upd min path cost and previous node in shortest path
       if (new_cost < nan_nd_conn_vect[l].nd->dd->min_path_cost){                                            // In case new cost val is less than min cost val
         nan_nd_conn_vect[l].nd->dd->min_path_cost = new_cost;                                               // Upd min cost val
         nan_nd_conn_vect[l].nd->dd->prev_nd = &nodes_collect_vect[min_cost_idx];                            // Upd previous min path node
@@ -356,66 +400,95 @@ void dijkstra_alg(C_int src_nd_num, C_int dest_nd_num){                         
     if (nan_nd_conn_vect != NULL)                                                                           // If node non-analyzed connections vector was correctly defined
       free(nan_nd_conn_vect);                                                                               // Free node non-analyzed connections vector allocated inside heap
   }
-  //
-  //
-  for (int m = 0; m < nds_collect_size; ++m){                                                               // -
-    fbk_nl(1);  fbk_gn_lbu_ye_int("--> Node number", m);                                                    // -
-    fbk_nl(1);  fbk_gn_lbu_ye_real("Min cost path to node", nodes_collect_vect[m].dd->min_path_cost);       // -
+  // Print each min path cost to reach every single accessible node from specified source-node
+  for (int m = 0; m < nds_collect_size; ++m){                                                               // Min path costs printin' FOR cycle
+    fbk_nl(1);  fbk_gn_lbu_ye_str(":----------------------------------------------------------------", ""); // Print separator fbk
+    fbk_nl(1);  fbk_gn_lbu_ye_int("--> Node number", m);                                                    // Print node number fbk
+    if (nodes_collect_vect[m].dd->min_path_cost < _REAL_MAX_ &&
+        &nodes_collect_vect[m] != &nodes_collect_vect[src_nd_num]){                                         // If node is reachble from specified source node
+      fbk_nl(1); fbk_gn_lbu_ye_real("Min path cost to node", nodes_collect_vect[m].dd->min_path_cost);      // Print min path cost to reach that node from specified source-node fbk
+    } else if (&nodes_collect_vect[m] == &nodes_collect_vect[src_nd_num]){                                  // Else if node memo addr corresponds to the source node memo addr
+      fbk_nl(1);                                                                                            // Print new-line fbk
+      fbk_gn_lbu_ye_str("Min path cost to node", "This node is the specified source node!");                // Print node correspondin' to the specified source node fbk
+    } else {                                                                                                // Else if node is unreachble from specified source node
+      fbk_nl(1);                                                                                            // Print new-line fbk
+      fbk_gn_lbu_ye_str("Min path cost to node", "Node unreachble from specified source node!");            // Print node unreachble fbk
+    }
   }
-  fbk_nl(1);  fbk_gn_cy("Min cost paths correctly found!");                                                 // -
-  fbk_nl(1);  fbk_gn_lbu_ye_int("--> Destination node number", dest_nd_num);  fbk_nl(1);                    // -
-  fbk_gn_lbu_ye_real("Min cost path to node", nodes_collect_vect[dest_nd_num-1].dd->min_path_cost);         // -
-  //
-  //
-  Graph_node tmp_nd = &nodes_collect_vect[dest_nd_num-1];                                                   // -
-  if (min_pth_conn_vect_size != 0)                                                                          // -
-    min_pth_conn_vect_size = 0;                                                                             // -
-  while (tmp_nd->dd->prev_nd != NULL){                                                                      // -
-    if (realloc_flg == 0){                                                                                  // If realloc flag ain't set
-      min_path_conn_vect = allocate_new_nd_conn_vect(++min_pth_conn_vect_size);                             // -
-      ++realloc_flg;                                                                                        // And then set realloc flag
-    } else                                                                                                  // Else if realloc flag has been set
-      reallocate_nd_conn_vect(&min_path_conn_vect, ++min_pth_conn_vect_size);                               // -
-    (min_path_conn_vect+iaddr(V, min_pth_conn_vect_size-1, min_pth_conn_vect_size))->nd = tmp_nd;           // Define elements of --- connections vect inside heap (connection node)
-    tmp_nd = tmp_nd->dd->prev_nd;                                                                           // -
-  }
-  dbg_int("PTS", min_pth_conn_vect_size);
-  for (int n = min_pth_conn_vect_size-1; n >= 0; --n)
-    dbg_ptr("PT", min_path_conn_vect[n].nd);
-  fbk_nl(1);  fbk_gn_cy("Destination node min cost path correctly identified!\n");                          // -
-  /////////////
-  for (int i = 0; i < nds_collect_size; ++i){
-    fbk_nl(2);  fbk_gn_lbu_ye_int("Node number", i+1);  printf(" ");  fbk_gn_lbu_ye_ptr("Node addr", &nodes_collect_vect[i]);
-  }
-  /////////////
-  //
-  //
+  fbk_nl(1);  fbk_gn_lbu_ye_str(":----------------------------------------------------------------", "");   // Print separator fbk
+  fbk_nl(1);  fbk_gn_cy("Min path costs correctly found!\n");                                               // Print min path costs correctly found fbk 
 }
 
 
-//
-
-
-//
+void buid_min_path(C_int dest_nd_num){                                                                      // Reconstruct min path to specified destination node from source node (pre-defined in Dijkstra's algorithm)
+  /* Body */
+  fbk_nl(1);  fbk_gn_pu("Building min cost path from pre-defined source to specified destination...");      // Print reconstructin' shortest path from pre-defined source to specified destination fbk
+  if (realloc_flg != 0){                                                                                    // If Dijkstra's algorithm has already been called at least once
+    fbk_nl(1);  fbk_gn_lbu_ye_int("--> Destination node number", dest_nd_num);                              // Print detination node number fbk
+    dest_node_num = dest_nd_num;                                                                            // -
+    if (nodes_collect_vect[dest_nd_num-1].dd->min_path_cost < _REAL_MAX_ &&
+        &nodes_collect_vect[dest_nd_num-1] != &nodes_collect_vect[src_node_num]){                           // If destination node is reachble from pre-defined source node
+      fbk_nl(1);                                                                                            // Print new-line fbk
+      fbk_gn_lbu_ye_real("Min path cost to node", nodes_collect_vect[dest_nd_num-1].dd->min_path_cost);     // Print min path cost to reach destination node from pre-defined source node fbk
+    } else if (&nodes_collect_vect[dest_nd_num-1] == &nodes_collect_vect[src_node_num]){                    // Else if destination node memo addr corresponds to the source node memo addr
+      fbk_nl(1);                                                                                            // Print new-line fbk
+      fbk_gn_lbu_ye_str("Min path cost to node", "Destination corresponds to pre-defined source node!");    // Print destination node correspondin' to the pre-defined source node fbk
+    } else {                                                                                                // Else if destination node is unreachble from pre-defined source node
+      fbk_nl(1);                                                                                            // Print new-line fbk
+      fbk_gn_lbu_ye_str("Min path cost to node", "Destination unreachble from pre-defined source node!");   // Print destination node unreachble fbk
+    }
+    Graph_node tmp_nd = &nodes_collect_vect[dest_nd_num-1];                                                 // -
+    if (min_pth_conn_vect_size != 0)                                                                        // -
+      min_pth_conn_vect_size = 0;                                                                           // -
+    while (tmp_nd->dd->prev_nd != NULL){                                                                    // -
+      if (realloc_flg == 1){                                                                                // If realloc flag has been set
+        min_path_conn_vect = allocate_new_nd_conn_vect(++min_pth_conn_vect_size);                           // -
+        ++realloc_flg;                                                                                      // And then upd realloc flag val to use reallocs instead of callocs 'till "free_graph()" funct call
+      } else                                                                                                // Else if realloc flag has been set
+        reallocate_nd_conn_vect(&min_path_conn_vect, ++min_pth_conn_vect_size);                             // -
+      (min_path_conn_vect+iaddr(V, min_pth_conn_vect_size-1, min_pth_conn_vect_size))->nd = tmp_nd;         // Define elements of -- MISSING --- connections vect inside heap (connection node)
+      tmp_nd = tmp_nd->dd->prev_nd;                                                                         // -
+      // Find arch and arch number in node -- MISSING ---
+    }
+    //////////////////////////////////////////////////////
+    dbg_int("PTS", min_pth_conn_vect_size);
+    for (int i = min_pth_conn_vect_size-1; i >= 0; --i)
+      dbg_ptr("PT", min_path_conn_vect[i].nd);
+    //////////////////////////////////////////////////////
+    fbk_nl(1);  fbk_gn_cy("Destination node min cost path correctly identified!\n");                        // Print destination node min cost path correctly identified fbk
+  } else {                                                                                                  // Else if Dijkstra's algorithm ain't been called
+    fbk_err("Error, min path can be reconstructed only after having called Dijkstra's algorithm!");         // Print error fbk
+  }
+}
 
 
 void free_graph(){                                                                                          // Function to free graph allocated memory
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Clearing the whole graph structure...");                                           // Clearing the whole graph from heap fbk
   for (int i = 0; i < nds_collect_size; ++i)                                                                // Graph nodes scrollin' FOR cycle
-    if (nodes_collect_vect[i].archs_lst != NULL)                                                            // If node arches list ain't null
+    if (nodes_collect_vect[i].archs_lst != NULL){                                                           // If node arches list ain't null
       free_list_elems(&nodes_collect_vect[i].archs_lst, N);                                                 // Free graph arches list elems associated to each graph node - NO --> without verbose mode
-  if (archs_collect_vect != NULL)                                                                           // If arches collection vector needs to be cleared from heap
+      nodes_collect_vect[i].archs_lst = NULL;                                                               // Set node arches list to null
+    }
+  if (archs_collect_vect != NULL){                                                                          // If arches collection vector needs to be cleared from heap
     free(archs_collect_vect);                                                                               // Free arches collection vector allocated memo inside heap
-  if (nodes_collect_vect != NULL)                                                                           // If nodes collection vector needs to be cleared from heap
+    archs_collect_vect = NULL;                                                                              // Set arches collection vector to null
+  }
+  if (nodes_collect_vect != NULL){                                                                          // If nodes collection vector needs to be cleared from heap
     free(nodes_collect_vect);                                                                               // Free nodes collection vector allocated memo inside heap
-  if (dijk_dataset_vect != NULL)                                                                            // If Dijkstra-dataset vector needs to be cleared from heap
+    nodes_collect_vect = NULL;                                                                              // Set nodes collection vector to null
+  }
+  if (dijk_dataset_vect != NULL){                                                                           // If Dijkstra-dataset vector needs to be cleared from heap
     free(dijk_dataset_vect);                                                                                // Free Dijkstra-dataset vector allocated memo inside heap
-  if (min_path_conn_vect != NULL)                                                                           // If min path connections vector needs to be cleared from heap
+    dijk_dataset_vect = NULL;                                                                               // Set Dijkstra-dataset vector to null
+  }
+  if (min_path_conn_vect != NULL){                                                                          // If min path connections vector needs to be cleared from heap
     free(min_path_conn_vect);                                                                               // Free min path connections vector allocated memo inside heap
+    min_path_conn_vect = NULL;                                                                              // Set min path connections vector to null
+  }
   ars_collect_size = 0;                                                                                     // Set graph arches number back to zero
   nds_collect_size = 0;                                                                                     // Set graph nodes number back to zero
   min_pth_conn_vect_size = 0;                                                                               // Set min path connections vector size back to zero
   realloc_flg = 0;                                                                                          // Realloc flag rst
-  fbk_nl(1);  fbk_gn_cy("Graph structure correctly erased!");                                               // Graph structure correctly created erased from heap fbk
+  fbk_nl(1);  fbk_gn_cy("Graph structure correctly erased!\n");                                             // Graph structure correctly created erased from heap fbk
 }

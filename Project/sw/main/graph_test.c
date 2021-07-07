@@ -23,7 +23,7 @@
 
 /* NOTES */
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- * Check old functions + verbose
+ * Check old functions + verbose + source node memo + names
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 
@@ -54,22 +54,34 @@ int main(){                                                                     
 
   /* Code */
   signal(SIGINT, terminate_keyboard);                                                                       // Manage program exit from keyboard ctrl+c shortcut
-  logo(6, "GRAPHS MANAGEMENT LIBRARY TEST SOFTWARE", YE, '#', GN);                                          // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
+  logo(6, "GRAPHS MANAGEMENT LIBRARY TEST SOFTWARE", LBU, '#', OG);                                         // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
   press_enter("Hi");                                                                                        // Press enter to start SW fbk
-  
-  // Create & connect nodes/arches - test functions number 1, 2 and 3
-  add_new_arch(ar_costs_vect[0]);                                                                           // Create new arch (arch allocated inside heap)
-  add_new_arch(ar_costs_vect[1]);                                                                           // Create new arch (arch allocated inside heap)
-  add_new_arch(ar_costs_vect[2]);                                                                           // Create new arch (arch allocated inside heap)
-  add_new_arch(ar_costs_vect[3]);                                                                           // Create new arch (arch allocated inside heap)
-  add_new_arch(ar_costs_vect[4]);                                                                           // Create new arch (arch allocated inside heap)
-  add_new_arch(ar_costs_vect[5]);                                                                           // Create new arch (arch allocated inside heap)
-  add_new_arch(ar_costs_vect[6]);                                                                           // Create new arch (arch allocated inside heap)
-  add_new_arch(ar_costs_vect[7]);                                                                           // Create new arch (arch allocated inside heap)
-  add_new_arch(ar_costs_vect[8]);                                                                           // Create new arch (arch allocated inside heap)
-  add_new_arch(ar_costs_vect[9]);                                                                           // Create new arch (arch allocated inside heap)
-  for (int i = 0; i < 10; ++i)                                                                               // Nodes creation FOR cycle
-    add_new_node();                                                                                         // Create new node (node allocated inside heap)
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //                                          LIBRARY TEST SOFTWATRE                                        // --> TEST BEGIN
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // Create some archs                                                                                      //
+  add_new_arch(ar_costs_vect[0], "1");                                                                      // Create new arch (arch allocated inside heap)
+  add_new_arch(ar_costs_vect[1], "2");                                                                      // "
+  add_new_arch(ar_costs_vect[2], "3");                                                                      // "
+  add_new_arch(ar_costs_vect[3], "4");                                                                      // "
+  add_new_arch(ar_costs_vect[4], "5");                                                                      // "
+  add_new_arch(ar_costs_vect[5], "6");                                                                      // "
+  add_new_arch(ar_costs_vect[6], "7");                                                                      // "
+  add_new_arch(ar_costs_vect[7], "8");                                                                      // "
+  add_new_arch(ar_costs_vect[8], "9");                                                                      // "
+  add_new_arch(ar_costs_vect[9], "10");                                                                     // "
+  // Create some nodes                                                                                      //
+  add_new_node("1");                                                                                        // Create new node (node allocated inside heap)
+  add_new_node("2");                                                                                        // "
+  add_new_node("3");                                                                                        // "
+  add_new_node("4");                                                                                        // "
+  add_new_node("5");                                                                                        // "
+  add_new_node("6");                                                                                        // "
+  add_new_node("7");                                                                                        // "
+  add_new_node("8");                                                                                        // "
+  add_new_node("9");                                                                                        // "
+  add_new_node("10");                                                                                       // "
+  // Connect archs & nodes (excluding node "10")                                                            //
   connect_node_arch(1, 1, ARCH_ND1, LIST_TAIL);                                                             // Connect arch1 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
   connect_node_arch(1, 2, ARCH_ND2, LIST_TAIL);                                                             // Connect arch1 to node2, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
   connect_node_arch(2, 1, ARCH_ND1, LIST_TAIL);                                                             // Connect arch2 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
@@ -90,12 +102,19 @@ int main(){                                                                     
   connect_node_arch(9, 7, ARCH_ND2, LIST_TAIL);                                                             // Connect arch9 to node7, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
   connect_node_arch(10, 1, ARCH_ND1, LIST_TAIL);                                                            // Connect arch10 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
   connect_node_arch(10, 6, ARCH_ND2, LIST_TAIL);                                                            // Connect arch10 to node6, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  // Apply Dijkstra alg between graph node number 1 and 6 - test project function (function number 7)
-  dijkstra_alg(1, 6);                                                                                       // Dijkstra alg 2 find min graph-path btwn source (Node 1) and destination (Node 6), non-zero index
-  dijkstra_alg(4, 9);                                                                                       // Dijkstra alg 2 find min graph-path btwn source (Node 4) and destination (Node 9), non-zero index
-  // Deallocate the whole structure - test function number 8
-  free_graph();                                                                                             // Clear the whole graph structure from heap
-
+  // Apply Dijkstra's algorithm and find some min paths                                                     //
+  dijkstra_alg(1);                                                                                          // Apply Dijkstra alg using node "1" as source node
+  buid_min_path(6);                                                                                         // -
+  buid_min_path(9);                                                                                         // -
+  // Apply Dijkstra's algorithm and find some min paths                                                     //
+  dijkstra_alg(4);                                                                                          // Apply Dijkstra alg using node "4" as source node
+  buid_min_path(8);                                                                                         // -
+  buid_min_path(10);                                                                                        // -
+  // Deallocate the whole graph structure                                                                   //
+  free_graph();                                                                                             // Clear graph structure from heap and reset some flags to be able to use again lib functions
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //                                          LIBRARY TEST SOFTWATRE                                        // --> TEST END
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
   close_fbk();                                                                                              // Close SW with fbk
   return EXIT_SUCCESS;                                                                                      // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }

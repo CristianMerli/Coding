@@ -13,7 +13,8 @@
 
 
 /* Constants */
-const Real _REAL_MAX_ = __DBL_MAX__;                                                                        // Real max val to simulate +inf
+#define ND_STR_LEN   31                                                                                     // String length used to define node-names (max 30 chars + '\0')
+#define AR_STR_LEN   31                                                                                     // String length used to define arch-names (max 30 chars + '\0')
 
 
 /* Structs & data-types */
@@ -24,14 +25,16 @@ typedef struct list_elem {                                                      
 
 typedef List_elem* List;                                                                                    // List of elements (list head element ptr) typedef
 
-typedef struct node {                                                                                       // Node struct typedef (list of arches and Dijkstra-dataset ptr)
+typedef struct node {                                                                                       // Node struct typedef (node name, list of arches and Dijkstra-dataset ptr)
+  char name[ND_STR_LEN];                                                                                    // Node name
   List archs_lst;                                                                                           // Arches list
   struct dijkstra_dataset* dd;                                                                              // Dijkstra-dataset pointer
 } Node;
 
 typedef Node* Graph_node;                                                                                   // Graph-node (aka Node ptr) typedef
 
-typedef struct arch {                                                                                       // Arch struct typedef (node1 ptr, arch cost, node2 ptr)
+typedef struct arch {                                                                                       // Arch struct typedef (arch name, node1 ptr, arch cost, node2 ptr)
+  char name[AR_STR_LEN];                                                                                    // Arch name
   Graph_node  nd1;                                                                                          // Node1 pointer
   Real        cost;                                                                                         // Arch cost
   Graph_node  nd2;                                                                                          // Node2 pointer
@@ -45,9 +48,10 @@ typedef struct dijkstra_dataset {                                               
   Byte        an_flg;                                                                                       // Node analyzed flag
 } Dijkstra_dataset;
 
-typedef struct connection {                                                                                 // Node connection struct typedef (node ptr, connection arch ptr)
+typedef struct connection {                                                                                 // Node connection struct typedef (node ptr, connection arch ptr, arch num in node)
   Graph_node  nd;                                                                                           // Node pointer
   Graph_arch  conn_ar;                                                                                      // Connection arch pointer
+  int         ar_num;                                                                                       // Arch number in node
 } Connection;
 
 
@@ -63,17 +67,19 @@ typedef enum arch_pos_typ {LIST_HEAD, LIST_POS, LIST_TAIL} Arch_pos_typ;        
 C_str arch_pos_typ_str[] = {"LIST HEAD POSITION", "LIST SPECIFIC POSITION", "LIST TAIL POSITION"};          // Position type to add arch in node arches connections list enum typedef strings array
 
 
-/* Library functions */
-void add_new_arch(C_real cost);                                                                             // Function to add new graph arch (arch allocated inside heap)
+/* Global vars */
+extern const Real _REAL_MAX;                                                                                // Real max val to simulate +inf
 
-void add_new_node();                                                                                        // Function to add new graph node (node allocated inside heap)
+
+/* Library functions */
+void add_new_arch(C_real cost, const char *name);                                                           // Function to add new graph arch (arch allocated inside heap)
+
+void add_new_node(const char *name);                                                                        // Function to add new graph node (node allocated inside heap)
 
 void connect_node_arch(C_int ar_num, C_int nd_num, Node_pos_in_arch nd_pos, Arch_pos_typ ar_pos, ...);      // Function to connect arch-node in graph, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
 
-void dijkstra_alg(C_int src_nd_num, C_int dest_nd_num);                                                     // Dijkstra alg 2 find min graph-path btwn source and destination nodes (non-zero index)
+void dijkstra_alg(C_int src_nd_num);                                                                        // Dijkstra alg 2 find min graph-path btwn source and each destination node (non-zero index)
 
-//
-
-//
+void buid_min_path(C_int dest_nd_num);                                                                      // Find min path to specified destination node from source node (pre-defined in Dijkstra's algorithm)
 
 void free_graph();                                                                                          // Function to free graph allocated memory

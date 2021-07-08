@@ -53,7 +53,8 @@ typedef const Byte        C_byte;                                               
 typedef const int         C_int;                                                                            // Const int alias (C_int)
 typedef const Real        C_real;                                                                           // Const real alias (C_real)
 typedef const long double Cl_real;                                                                          // Const long double alias (Cl_real)
-typedef C_char* const     C_str;                                                                            // Const char* const alias (C_str)
+typedef const Str         Cstr;                                                                             // Const char* alias (Cstr)
+typedef Cstr const        C_str;                                                                            // Const char* const alias (C_str)
 typedef const U_shrt      Cu_shrt;                                                                          // Const unsigned short alias (CU_shrt)
 typedef const void* const C_ptr;                                                                            // Const void* const alias (C_ptr)
 

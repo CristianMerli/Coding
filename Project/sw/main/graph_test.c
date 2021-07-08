@@ -23,7 +23,7 @@
 
 /* NOTES */
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- * Check old functions + verbose + source node memo + names
+ * Check old functions + verbose
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 
@@ -50,71 +50,71 @@ static void terminate_keyboard(int signal){                                     
 /* Main cycle */
 int main(){                                                                                                 // SW main cycle
   /* Main vars */
-  C_real ar_costs_vect[] = {1.165, 2.165, 3.165, 4.165, 5.165, 6.165, 7.165, 8.165, 6.165, 0.165};          // Arches costs vector
+  C_real strts_len_vect[] = {1.165, 2.165, 3.165, 4.165, 5.165, 6.165, 7.165, 8.165, 6.165, 0.165};         // Street-lenghts vector
 
   /* Code */
   signal(SIGINT, terminate_keyboard);                                                                       // Manage program exit from keyboard ctrl+c shortcut
   logo(6, "GRAPHS MANAGEMENT LIBRARY TEST SOFTWARE", LBU, '#', OG);                                         // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
   press_enter("Hi");                                                                                        // Press enter to start SW fbk
+  
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //                                          LIBRARY TEST SOFTWATRE                                        // --> TEST BEGIN
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
   // Create some archs                                                                                      //
-  add_new_arch(ar_costs_vect[0], "1");                                                                      // Create new arch (arch allocated inside heap)
-  add_new_arch(ar_costs_vect[1], "2");                                                                      // "
-  add_new_arch(ar_costs_vect[2], "3");                                                                      // "
-  add_new_arch(ar_costs_vect[3], "4");                                                                      // "
-  add_new_arch(ar_costs_vect[4], "5");                                                                      // "
-  add_new_arch(ar_costs_vect[5], "6");                                                                      // "
-  add_new_arch(ar_costs_vect[6], "7");                                                                      // "
-  add_new_arch(ar_costs_vect[7], "8");                                                                      // "
-  add_new_arch(ar_costs_vect[8], "9");                                                                      // "
-  add_new_arch(ar_costs_vect[9], "10");                                                                     // "
+  add_new_arch(strts_len_vect[0], "Street1");                                                               // Create new street (arch allocated inside heap)
+  add_new_arch(strts_len_vect[1], "Street2");                                                               // "
+  add_new_arch(strts_len_vect[2], "Street3");                                                               // "
+  add_new_arch(strts_len_vect[3], "Street4");                                                               // "
+  add_new_arch(strts_len_vect[4], "Street5");                                                               // "
+  add_new_arch(strts_len_vect[5], "Street6");                                                               // "
+  add_new_arch(strts_len_vect[6], "Street7");                                                               // "
+  add_new_arch(strts_len_vect[7], "Street8");                                                               // "
+  add_new_arch(strts_len_vect[8], "Street9");                                                               // "
+  add_new_arch(strts_len_vect[9], "Street10");                                                              // "
   // Create some nodes                                                                                      //
-  add_new_node("1");                                                                                        // Create new node (node allocated inside heap)
-  add_new_node("2");                                                                                        // "
-  add_new_node("3");                                                                                        // "
-  add_new_node("4");                                                                                        // "
-  add_new_node("5");                                                                                        // "
-  add_new_node("6");                                                                                        // "
-  add_new_node("7");                                                                                        // "
-  add_new_node("8");                                                                                        // "
-  add_new_node("9");                                                                                        // "
-  add_new_node("10");                                                                                       // "
+  add_new_node("Cross1");                                                                                   // Create new cross (node allocated inside heap)
+  add_new_node("Cross2");                                                                                   // "
+  add_new_node("Cross3");                                                                                   // "
+  add_new_node("Cross4");                                                                                   // "
+  add_new_node("Cross5");                                                                                   // "
+  add_new_node("Cross6");                                                                                   // "
+  add_new_node("Cross7");                                                                                   // "
+  add_new_node("Cross8");                                                                                   // "
+  add_new_node("Cross9");                                                                                   // "
+  add_new_node("Cross10");                                                                                  // "
   // Connect archs & nodes (excluding node "10")                                                            //
-  connect_node_arch(1, 1, ARCH_ND1, LIST_TAIL);                                                             // Connect arch1 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(1, 2, ARCH_ND2, LIST_TAIL);                                                             // Connect arch1 to node2, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(2, 1, ARCH_ND1, LIST_TAIL);                                                             // Connect arch2 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(2, 3, ARCH_ND2, LIST_TAIL);                                                             // Connect arch2 to node3, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(3, 1, ARCH_ND1, LIST_TAIL);                                                             // Connect arch3 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(3, 4, ARCH_ND2, LIST_TAIL);                                                             // Connect arch3 to node4, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(4, 1, ARCH_ND1, LIST_TAIL);                                                             // Connect arch4 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(4, 5, ARCH_ND2, LIST_TAIL);                                                             // Connect arch4 to node5, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(5, 5, ARCH_ND1, LIST_TAIL);                                                             // Connect arch5 to node5, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(5, 6, ARCH_ND2, LIST_TAIL);                                                             // Connect arch5 to node6, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(6, 6, ARCH_ND1, LIST_TAIL);                                                             // Connect arch6 to node6, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(6, 7, ARCH_ND2, LIST_TAIL);                                                             // Connect arch6 to node7, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(7, 6, ARCH_ND1, LIST_TAIL);                                                             // Connect arch7 to node6, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(7, 8, ARCH_ND2, LIST_TAIL);                                                             // Connect arch7 to node8, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(8, 8, ARCH_ND1, LIST_TAIL);                                                             // Connect arch8 to node8, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(8, 9, ARCH_ND2, LIST_TAIL);                                                             // Connect arch8 to node9, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(9, 1, ARCH_ND1, LIST_TAIL);                                                             // Connect arch9 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(9, 7, ARCH_ND2, LIST_TAIL);                                                             // Connect arch9 to node7, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(10, 1, ARCH_ND1, LIST_TAIL);                                                            // Connect arch10 to node1, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  connect_node_arch(10, 6, ARCH_ND2, LIST_TAIL);                                                            // Connect arch10 to node6, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
-  // Apply Dijkstra's algorithm and find some min paths                                                     //
-  dijkstra_alg(1);                                                                                          // Apply Dijkstra alg using node "1" as source node
-  buid_min_path(6);                                                                                         // -
-  buid_min_path(9);                                                                                         // -
-  // Apply Dijkstra's algorithm and find some min paths                                                     //
-  dijkstra_alg(4);                                                                                          // Apply Dijkstra alg using node "4" as source node
-  buid_min_path(8);                                                                                         // -
-  buid_min_path(10);                                                                                        // -
+  connect_node_arch("Street1", "Cross1", ARCH_ND1, LIST_TAIL);                                              // Connect "Street1" to "Cross1", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street1", "Cross2", ARCH_ND2, LIST_TAIL);                                              // Connect "Street1" to "Cross2", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street2", "Cross1", ARCH_ND1, LIST_TAIL);                                              // Connect "Street2" to "Cross1", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street2", "Cross3", ARCH_ND2, LIST_TAIL);                                              // Connect "Street2" to "Cross3", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street3", "Cross1", ARCH_ND1, LIST_TAIL);                                              // Connect "Street3" to "Cross1", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street3", "Cross4", ARCH_ND2, LIST_TAIL);                                              // Connect "Street3" to "Cross4", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street4", "Cross1", ARCH_ND1, LIST_TAIL);                                              // Connect "Street4" to "Cross1", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street4", "Cross5", ARCH_ND2, LIST_TAIL);                                              // Connect "Street4" to "Cross5", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street5", "Cross5", ARCH_ND1, LIST_TAIL);                                              // Connect "Street5" to "Cross5", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street5", "Cross6", ARCH_ND2, LIST_TAIL);                                              // Connect "Street5" to "Cross6", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street6", "Cross6", ARCH_ND1, LIST_TAIL);                                              // Connect "Street6" to "Cross6", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street6", "Cross7", ARCH_ND2, LIST_TAIL);                                              // Connect "Street6" to "Cross7", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street7", "Cross6", ARCH_ND1, LIST_TAIL);                                              // Connect "Street7" to "Cross6", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street7", "Cross8", ARCH_ND2, LIST_TAIL);                                              // Connect "Street7" to "Cross8", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street8", "Cross8", ARCH_ND1, LIST_TAIL);                                              // Connect "Street8" to "Cross8", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street8", "Cross9", ARCH_ND2, LIST_TAIL);                                              // Connect "Street8" to "Cross9", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street9", "Cross1", ARCH_ND1, LIST_TAIL);                                              // Connect "Street9" to "Cross1", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street9", "Cross7", ARCH_ND2, LIST_TAIL);                                              // Connect "Street9" to "Cross7", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street10", "Cross1", ARCH_ND1, LIST_TAIL);                                             // Connect "Street10" to "Cross1", (opt param --> arch pos, non-zero index)
+  connect_node_arch("Street10", "Cross6", ARCH_ND2, LIST_TAIL);                                             // Connect "Street10" to "Cross6", (opt param --> arch pos, non-zero index)
+  // Apply Dijkstra's algorithm and find some min paths (includin' some special cases)                      //
+  dijkstra_alg("Cross4");                                                                                   // Apply Dijkstra alg using "Cross4" as source node (find all min path-costs and prev nodes in shortest paths)
+  buid_shortest_path("Cross9");                                                                             // Reconstruct min path to "Cross9" startin' from "Cross4"
+  dbg_print("Some special-cases examples:");                                                                // Print special-cases examples debug fbk
+  buid_shortest_path("Cross4");                                                                             // Reconstruct min path to "Cross4" (src=dest) startin' from "Cross4"
+  buid_shortest_path("Cross10");                                                                            // Reconstruct min path to "Cross10" (unreachble node) startin' from "Cross4"
   // Deallocate the whole graph structure                                                                   //
   free_graph();                                                                                             // Clear graph structure from heap and reset some flags to be able to use again lib functions
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //                                          LIBRARY TEST SOFTWATRE                                        // --> TEST END
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
   close_fbk();                                                                                              // Close SW with fbk
   return EXIT_SUCCESS;                                                                                      // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }

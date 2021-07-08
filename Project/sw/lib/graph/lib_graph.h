@@ -60,6 +60,8 @@ typedef const enum vect_coords {V, V2, V3} Vect_coords;                         
 
 typedef const enum verbose_mode {Y, N} Verbose_mode;                                                        // Verbose mode enum typedef
 
+typedef const enum obj_type {AR, ND} Obj_type;                                                              // Object type enum typedef (arch/node)
+
 typedef const enum node_pos_in_arch {ARCH_ND1, ARCH_ND2} Node_pos_in_arch;                                  // Node position in arch enum typedef
 C_str node_pos_in_arch_str[] = {"ARCH NODE1 POSITION", "ARCH NODE2 POSITION"};                              // Node position in arch enum typedef strings array
 
@@ -72,14 +74,14 @@ extern const Real _REAL_MAX;                                                    
 
 
 /* Library functions */
-void add_new_arch(C_real cost, const char *name);                                                           // Function to add new graph arch (arch allocated inside heap)
+void add_new_arch(C_real cost, Cstr name);                                                                  // Function to add new graph arch (arch allocated inside heap)
 
-void add_new_node(const char *name);                                                                        // Function to add new graph node (node allocated inside heap)
+void add_new_node(Cstr name);                                                                               // Function to add new graph node (node allocated inside heap)
 
-void connect_node_arch(C_int ar_num, C_int nd_num, Node_pos_in_arch nd_pos, Arch_pos_typ ar_pos, ...);      // Function to connect arch-node in graph, non-zero index (new arch list element allocated inside heap, opt param --> arch pos, non-zero index)
+void connect_node_arch(Cstr ar_name, Cstr nd_name, Node_pos_in_arch nd_pos, Arch_pos_typ ar_pos, ...);      // Function to connect arch-node in graph (new arch list element allocated inside heap, opt param --> arch pos in arches list, non-zero index)
 
-void dijkstra_alg(C_int src_nd_num);                                                                        // Dijkstra alg 2 find min graph-path btwn source and each destination node (non-zero index)
+void dijkstra_alg(Cstr src_nd_name);                                                                        // Dijkstra's alg to find min graph-path btwn source and each destination node
 
-void buid_min_path(C_int dest_nd_num);                                                                      // Find min path to specified destination node from source node (pre-defined in Dijkstra's algorithm)
+void buid_shortest_path(Cstr dest_nd_name);                                                                 // Find shortest path to specified destination node from source node (pre-defined in Dijkstra's algorithm)
 
 void free_graph();                                                                                          // Function to free graph allocated memory

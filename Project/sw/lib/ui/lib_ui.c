@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library
  * Code version: 3.0
  * Creation date: 06/05/2021
- * Last mod. date: 04/07/2021
+ * Last mod. date: 09/07/2021
  */
 
 
@@ -78,8 +78,22 @@ void press_enter(C_str req_str){                                                
 
 void fbk_nl(C_int num){                                                                                     // New line feedback function
   /* Body */
-  for (int i = 0; i < num; ++i)
+  for (int i = 0; i < num; ++i)                                                                             // Chars printin' FOR cycle
     printf("\n");                                                                                           // Print new line fbk
+}
+
+
+void fbk_spaces(C_int num){                                                                                 // Spces feedback function
+  /* Body */
+  for (int i = 0; i < num; ++i)                                                                             // Chars printin' FOR cycle
+    printf(" ");                                                                                            // Print space fbk
+}
+
+
+void fbk_separator(C_char chr, C_str col, C_int num){                                                       // Separator feedback function
+  /* Body */
+  for (int i = 0; i < num; ++i)                                                                             // Chars printin' FOR cycle
+    printf("%s%c%s", col, chr, ER);                                                                         // Print space fbk
 }
 
 

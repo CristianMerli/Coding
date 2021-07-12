@@ -3,7 +3,7 @@
  * Code title: Graph library
  * Code version: 1.0
  * Creation date: 22/06/2021
- * Last mod. date: 04/07/2021
+ * Last mod. date: 09/07/2021
  */
 
 
@@ -13,16 +13,16 @@
 
 /* Global vars */
 const Real _REAL_MAX_ = __DBL_MAX__;                                                                        // Real max val to simulate +inf
+int ars_collect_size = 0, nds_collect_size = 0, min_pth_conn_vect_size = 0;                                 // Arches and nodes collection vectors sizes + min path connections vect size
+Arch* archs_collect_vect = NULL;                                                                            // Graph arches collection vector ptr init
+Node* nodes_collect_vect = NULL;                                                                            // Graph nodes collection vector ptr init
+Connection* min_path_conn_vect = NULL;                                                                      // Min path connections vect ptr init
 
 
 /* Lib vars */
-static int src_node_idx = 0, dest_node_idx = 0;                                                             // Source and destination node idxs (lib-vars)
-static int ars_collect_size = 0, nds_collect_size = 0, min_pth_conn_vect_size = 0;                          // Arches and nodes collection vectors sizes + min path connections vect size
-static Arch* archs_collect_vect = NULL;                                                                     // Graph arches collection vector ptr init
-static Node* nodes_collect_vect = NULL;                                                                     // Graph nodes collection vector ptr init
-static Dijkstra_dataset* dijk_dataset_vect = NULL;                                                          // Dijkstra-dataset vector ptr init
-static Connection* min_path_conn_vect = NULL;                                                               // Min path connections vect ptr init
-static Byte realloc_flg = 0;                                                                                // Realloc flag init (0=Dijk_algo-not-called / 1=Dijk_algo-called / 2=Dijk_algo-called+bld_shortest_pth-called)
+int src_node_idx = 0, dest_node_idx = 0;                                                                    // Source and destination node idxs (lib-vars)
+Dijkstra_dataset* dijk_dataset_vect = NULL;                                                                 // Dijkstra-dataset vector ptr init
+Byte realloc_flg = 0;                                                                                       // Realloc flag init (0=Dijk_algo-not-called / 1=Dijk_algo-called / 2=Dijk_algo-called+bld_shortest_pth-called)
 
 
 /* Functions */
@@ -77,7 +77,7 @@ static void add_elem_at_list_pos(List* list, List_elem* const el_to_add, C_int p
 
 
 static void add_elem_at_list_tail(List* list, List_elem* const el_to_add){                                  // Function to add a new element in list (tail position)
-  /* Body */ 
+  /* Body */
   if (el_to_add != NULL){                                                                                   // Check element to add not null
     if (*list != NULL){                                                                                     // If objects list has been already initialized
       List tmp_list = *list;                                                                                // Copy old list in tmp var
@@ -232,7 +232,7 @@ static Connection* not_an_node_conn(Node* nd, int* const vect_size, Verbose_mode
         (nan_nd_conn_vect+iaddr(V, *vect_size, *vect_size+1))->nd = tmp_el->ar->nd2;                        // Define elements of node (non-analyzed) connections vect inside heap (connection node)
       else                                                                                                  // If specified node memo addr doesn't correspond to the arch conn. node1, assign arch conn. node1 in newly allocated element inside vect
         (nan_nd_conn_vect+iaddr(V, *vect_size, *vect_size+1))->nd = tmp_el->ar->nd1;                        // Define elements of node (non-analyzed) connections vect inside heap (connection node)
-      (nan_nd_conn_vect+iaddr(V, *vect_size, *vect_size+1))->conn_ar = tmp_el->ar;                          // Define elements of node (non-analyzed) connections vect inside heap (connection arch)
+      (nan_nd_conn_vect+iaddr(V, *vect_size, *vect_size+1))->ar = tmp_el->ar;                               // Define elements of node (non-analyzed) connections vect inside heap (connection arch)
       ++*vect_size;                                                                                         // Vector of non-analyzed connections associated to a specific node size val upd
     }
   }
@@ -243,7 +243,7 @@ static Connection* not_an_node_conn(Node* nd, int* const vect_size, Verbose_mode
 }
 
 
-static int idx_by_name(Obj_type object_type, Cstr object_name){                                             // Function to get object (arch/node) vector index by name
+static int idx_by_name(Obj_type object_type, C_str object_name){                                            // Function to get object (arch/node) vector index by name
   /* Body */
   int match_found = -1;                                                                                     // Match found idx (-1 = No match found / -2 = Error)
   switch (object_type){                                                                                     // Object type switch-case
@@ -274,7 +274,7 @@ static int idx_by_name(Obj_type object_type, Cstr object_name){                 
 static void print_min_paths(){                                                                              // Function to print each min path cost to reach every single accessible node from specified source-node
   /* Body */
   for (int m = 0; m < nds_collect_size; ++m){                                                               // Min path costs printin' FOR cycle
-    fbk_nl(1);  fbk_gn_lbu_ye_str(":--------------------------------------------------------------", "");   // Print separator fbk
+    fbk_nl(1);  fbk_separator(SEP_CHR, GN, NUM_SEP_CHRS);                                                   // Print separator fbk
     fbk_nl(1);  fbk_gn_lbu_ye_str("--> Node name", nodes_collect_vect[m].name);                             // Print node name fbk
     if (nodes_collect_vect[m].dd->min_path_cost < _REAL_MAX_ &&
         &nodes_collect_vect[m] != &nodes_collect_vect[src_node_idx]){                                       // If node is reachble from specified source node
@@ -289,27 +289,50 @@ static void print_min_paths(){                                                  
       }
     }
   }
-  fbk_nl(1);  fbk_gn_lbu_ye_str(":--------------------------------------------------------------", "");     // Print separator fbk
+  fbk_nl(1);  fbk_separator(SEP_CHR, GN, NUM_SEP_CHRS);                                                     // Print separator fbk
 }
 
 
 static void print_shortest_path(){                                                                          // Print shortest path from pre-defined source node to specified destination node
   /* Body */
-  fbk_nl(1);                                                                                                // New line fbk
-  if (min_pth_conn_vect_size >= 2){                                                                         // If destination node is reachble and it's different from -
+  if (min_pth_conn_vect_size >= 2){                                                                         // If destination node is reachble and it's different from source node
+    fbk_nl(1);                                                                                              // New line fbk
     fbk_gn_lbu_ye_int("Number of nodes between source and destination node", min_pth_conn_vect_size-2);     // Print num of nodes btwn source and destination node fbk
-    for (int i = min_pth_conn_vect_size-1; i >= 0; --i){                                                    // -
-      fbk_nl(1);  fbk_gn_lbu_ye_str("Path-node name", min_path_conn_vect[i].nd->name);                      // -
+    fbk_nl(1);                                                                                              // New line fbk
+    fbk_gn_lbu_ye_int("Number of arches between source and destination node", min_pth_conn_vect_size-1);    // Print num of archs btwn source and destination node fbk
+    fbk_nl(1);  fbk_separator(SEP_CHR, LGN, NUM_SEP_CHRS);                                                  // Print separator fbk
+    fbk_nl(1);  fbk_gn_pu("Showing shortest path between specified source and destination nodes:");         // Showin' shortest path fbk
+    delay(PRINT_DLY_MS);                                                                                    // Wait dly time
+    fbk_nl(1);  fbk_gn_lbu_ye_str("Status", "STARTING");                                                    // Print startin' from source node fbk
+    delay(PRINT_DLY_MS);                                                                                    // Wait dly time
+    fbk_nl(1);                                                                                              // New line fbk
+    fbk_gn_lbu_ye_str("Source-node name", min_path_conn_vect[0].nd->name);                                  // Source node name fbk
+    delay(PRINT_DLY_MS);                                                                                    // Wait dly time
+    fbk_nl(1);  fbk_gn_lbu_ye_str("Path-arch name", min_path_conn_vect[1].ar->name);                        // Path arch name fbk
+    fbk_spaces(1);  fbk_gn_lbu_ye_real("Arch cost", min_path_conn_vect[1].ar->cost);                        // Path arch cost fbk
+    delay(PRINT_DLY_MS);                                                                                    // Wait dly time
+    for (int i = 1; i < min_pth_conn_vect_size-1; ++i){                                                     // Min path scrollin' and printin' FOR cycle (btwn src and dest nodes)
+      fbk_nl(1);  fbk_gn_lbu_ye_str("Path-node name", min_path_conn_vect[i].nd->name);                      // Path node name fbk
+      delay(PRINT_DLY_MS);                                                                                  // Wait dly time
+      fbk_nl(1);  fbk_gn_lbu_ye_str("Path-arch name", min_path_conn_vect[i+1].ar->name);                    // Path arch name fbk
+      fbk_spaces(1);  fbk_gn_lbu_ye_real("Arch cost", min_path_conn_vect[i+1].ar->cost);                    // Path arch cost fbk
+      delay(PRINT_DLY_MS);                                                                                  // Wait dly time
     }
-  } else {                                                                                                  // -
-    fbk_gn_lbu_ye_str("Number of nodes between source and destination node", "-");                          // -
-    fbk_nl(1);  fbk_gn_lbu_ye_str("Path-node name", "-");                                                   // -
+    fbk_nl(1);                                                                                              // New line fbk
+    fbk_gn_lbu_ye_str("Destination-node name", min_path_conn_vect[min_pth_conn_vect_size-1].nd->name);      // Destination node name fbk
+    delay(PRINT_DLY_MS);                                                                                    // Wait dly time
+    fbk_nl(1);  fbk_gn_lbu_ye_str("Status", "ARRIVED");                                                     // Print arrived to destination node fbk
+    fbk_nl(1);  fbk_separator(SEP_CHR, LGN, NUM_SEP_CHRS);                                                  // Print separator fbk
+    delay(PRINT_DLY_MS);                                                                                    // Wait dly time
+  } else {                                                                                                  // Else if destination node is unreachble or it's equal to source node
+    fbk_nl(1);  fbk_gn_lbu_ye_str("Number of nodes between source and destination node", "-");              // Print no nodes btwn src and dest nodes
+    fbk_nl(1);  fbk_gn_lbu_ye_str("Path-node name", "-");                                                   // Print no archs btwn src and dest nodes
   }
 }
 
 
 /* Public functions */
-void add_new_arch(C_real cost, Cstr name){                                                                  // Function to add new graph arch (arch allocated inside heap)
+void add_new_arch(C_str name, C_real cost){                                                                 // Function to add new graph arch (arch allocated inside heap)
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Adding new graph arch...");                                                        // Adding new graph arch fbk
   if (cost > 0.0){                                                                                          // If cost is positive
@@ -340,7 +363,7 @@ void add_new_arch(C_real cost, Cstr name){                                      
 }
 
 
-void add_new_node(Cstr name){                                                                               // Function to add new graph node (node allocated inside heap)
+void add_new_node(C_str name){                                                                              // Function to add new graph node (node allocated inside heap)
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Adding new graph node...");                                                        // Adding new graph node fbk
   if (nodes_collect_vect == NULL)                                                                           // Check nodes collection vector, if null
@@ -362,7 +385,7 @@ void add_new_node(Cstr name){                                                   
 }
 
 
-void connect_node_arch(Cstr ar_name, Cstr nd_name, Node_pos_in_arch nd_pos, Arch_pos_typ ar_pos, ...){      // Function to connect arch-node in graph (new arch list element allocated inside heap, opt param --> arch pos in arches list, non-zero index)
+void connect_node_arch(C_str ar_name, C_str nd_name, Node_pos_in_arch nd_pos, Arch_pos_typ ar_pos, ...){    // Function to connect arch-node in graph (new arch list element allocated inside heap, opt param --> arch pos in arches list, non-zero index)
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Creating bidirectional connection between node and arch...");                      // Creatin' bidirectional connection between node and arch
   int ar_num = idx_by_name(AR, ar_name);                                                                    // Get arch idx by-name
@@ -403,6 +426,7 @@ void connect_node_arch(Cstr ar_name, Cstr nd_name, Node_pos_in_arch nd_pos, Arch
         break;
       //////////////
       case LIST_POS:                                                                                        // Case: assign arch to node arches connections list (specific position, pos from optional funct param)
+        fbk_nl(1);  fbk_gn_lbu_ye_int("Specific list position number", lst_pos);                            // Specific list position num fbk
         add_elem_at_list_pos(&nodes_collect_vect[nd_num].archs_lst, tmp_el, lst_pos);                       // Assign arch (in tmp list element) to the specified node conn. arches list (specific position, non-zero index)
         break;
       ///////////////
@@ -424,7 +448,7 @@ void connect_node_arch(Cstr ar_name, Cstr nd_name, Node_pos_in_arch nd_pos, Arch
 }
 
 
-void dijkstra_alg(Cstr src_nd_name){                                                                        // Dijkstra's alg to find min graph-path btwn source and each destination node
+void dijkstra_alg(C_str src_nd_name){                                                                       // Dijkstra's alg to find min graph-path btwn source and each destination node (Dijkstra-dataset vect allocated/reallocated inside heap)
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Looking for min path costs from specified source with Dijkstra's algorithm...");   // Print lookin' 4 shortest path btwn spec src and each dest nd fbk
   int src_nd_num = idx_by_name(ND, src_nd_name);                                                            // Get source node idx by-name
@@ -467,7 +491,7 @@ void dijkstra_alg(Cstr src_nd_name){                                            
       nan_nd_conn_vect_size = 0;                                                                            // Node (non-analyzed) connections vector size var to store selected node non-analyzed connections (rst)
       nan_nd_conn_vect = not_an_node_conn(&nodes_collect_vect[min_cost_idx], &nan_nd_conn_vect_size, N);    // Define selected node non-analyzed connections vect (vector allocated inside heap) - NO --> without verbose mode
       for (int l = 0; l < nan_nd_conn_vect_size; ++l){                                                      // Scroll selected node non-analyzed connections vect
-        new_cost = nodes_collect_vect[min_cost_idx].dd->min_path_cost+nan_nd_conn_vect[l].conn_ar->cost;    // New cost val upd
+        new_cost = nodes_collect_vect[min_cost_idx].dd->min_path_cost+nan_nd_conn_vect[l].ar->cost;         // New cost val upd
         // Upd min path cost and previous node in shortest path
         if (new_cost < nan_nd_conn_vect[l].nd->dd->min_path_cost){                                          // In case new cost val is less than min cost val
           nan_nd_conn_vect[l].nd->dd->min_path_cost = new_cost;                                             // Upd min cost val
@@ -485,10 +509,11 @@ void dijkstra_alg(Cstr src_nd_name){                                            
 }
 
 
-void buid_shortest_path(Cstr dest_nd_name){                                                                 // Reconstruct shortest path to specified destination node from source node (pre-defined in Dijkstra's algorithm)
+void buid_shortest_path(C_str dest_nd_name){                                                                // Reconstruct shortest path to specified destination node from source node (pre-defined in Dijkstra's algorithm, min path connections vect allocated/reallocated inside heap)
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Building min cost path from pre-defined source to specified destination...");      // Print reconstructin' shortest path from pre-defined source to specified destination fbk
   if (realloc_flg != 0){                                                                                    // If Dijkstra's algorithm has already been called at least once
+    // Print info fbks
     fbk_nl(1);  fbk_gn_lbu_ye_str("--> Source node name", nodes_collect_vect[src_node_idx].name);           // Print src-nd name fbk
     int dest_nd_num = idx_by_name(ND, dest_nd_name);                                                        // Get destination node idx by-name
     fbk_nl(1);  fbk_gn_lbu_ye_str("--> Destination node name", dest_nd_name);                               // Print dest-nd name fbk
@@ -504,19 +529,33 @@ void buid_shortest_path(Cstr dest_nd_name){                                     
         fbk_nl(1);                                                                                          // Print new-line fbk
         fbk_gn_lbu_ye_str("Min path cost to node", "Destination unreachble from pre-defined source node!"); // Print destination node unreachble fbk
       }
-      Graph_node tmp_nd = &nodes_collect_vect[dest_nd_num];                                                 // -
-      //List_elem* tmp_el = nd->archs_lst;                                                                        // Define tmp list elem ptr var (to scroll arches inside node conn. arches list)
-      if (min_pth_conn_vect_size != 0)                                                                      // -
-        min_pth_conn_vect_size = 0;                                                                         // -
-      while (tmp_nd != NULL){                                                                               // -
-        if (realloc_flg == 1){                                                                              // If realloc flag has been set
-          min_path_conn_vect = allocate_new_nd_conn_vect(++min_pth_conn_vect_size);                         // -
+      // Find min-cost path archs & nodes goin' backward from destination to source node
+      Graph_node tmp_nd = &nodes_collect_vect[dest_nd_num];                                                 // Init tmp node var to reconstruct min-cost path backwards
+      List_elem* tmpl = NULL;                                                                               // Def tmp list ptr var (for archs) to reconstruct min-cost path backwards
+      if (min_pth_conn_vect_size != 0)                                                                      // If min-cost paths vector size ain't zero
+        min_pth_conn_vect_size = 0;                                                                         // Make it zero
+      while (tmp_nd != NULL){                                                                               // Scroll min-cost path backwars 'till src node
+        if (realloc_flg == 0){                                                                              // If realloc flag ain't been set
+          min_path_conn_vect = allocate_new_nd_conn_vect(++min_pth_conn_vect_size);                         // Allocate (iside heap) a new min path connections vector
           ++realloc_flg;                                                                                    // And then upd realloc flag val to use reallocs instead of callocs 'till "free_graph()" funct call
-        } else                                                                                              // Else if realloc flag has been set
-          reallocate_nd_conn_vect(&min_path_conn_vect, ++min_pth_conn_vect_size);                           // -
-        (min_path_conn_vect+iaddr(V, min_pth_conn_vect_size-1, min_pth_conn_vect_size))->nd = tmp_nd;       // Define elements of -- MISSING --- connections vect inside heap (connection node)
-        tmp_nd = tmp_nd->dd->prev_nd;                                                                       // -
-        // Find arch and arch number in node -- MISSING ---
+        } else                                                                                              // Else if realloc flag has already been set
+          reallocate_nd_conn_vect(&min_path_conn_vect, ++min_pth_conn_vect_size);                           // Reallocate (iside heap) the min path connections vector
+        tmpl = tmp_nd->archs_lst;                                                                           // Init tmp archs list ptr var
+        for (; tmpl != NULL; tmpl = tmpl->nxt){                                                             // Scroll min-cost parh node connection archs list to find min-cost path connection arch
+          if ((tmp_nd == tmpl->ar->nd1 && tmpl->ar->nd2 == tmp_nd->dd->prev_nd) ||
+              (tmp_nd == tmpl->ar->nd2 && tmpl->ar->nd1 == tmp_nd->dd->prev_nd)){                           // Min-cost path connection arch detectin' cond
+            (min_path_conn_vect+iaddr(V, min_pth_conn_vect_size-1, min_pth_conn_vect_size))->ar = tmpl->ar; // Save arch ptr val inside min path connections vector (min-path connection arch)
+          }
+        }
+        (min_path_conn_vect+iaddr(V, min_pth_conn_vect_size-1, min_pth_conn_vect_size))->nd = tmp_nd;       // Save node ptr val inside min path connections vector (min-path connection node)
+        tmp_nd = tmp_nd->dd->prev_nd;                                                                       // Upd tmp node var to reconstruct min-cost path backwards
+      }
+      // Swap elements to obtain shortest path (backward-to-forward path conversion)
+      Connection tmp_conn;                                                                                  // Tmp connection var to swap connections
+      for (int i = 0; i < min_pth_conn_vect_size/2; ++i){                                                   // Half min path connections vector scrollin' FOR cycle
+        tmp_conn = min_path_conn_vect[i];                                                                   // Define tmp var to swap connections
+        min_path_conn_vect[i] = min_path_conn_vect[min_pth_conn_vect_size-1-i];                             // Swap-step1
+        min_path_conn_vect[min_pth_conn_vect_size-i-1] = tmp_conn;                                          // Swap-step2
       }
       // Print shortest path from pre-defined source node to specified destination node
       print_shortest_path();                                                                                // Print shortest path funct call
@@ -528,7 +567,7 @@ void buid_shortest_path(Cstr dest_nd_name){                                     
 }
 
 
-void free_graph(){                                                                                          // Function to free graph allocated memory
+void free_graph(){                                                                                          // Function to free graph allocated memory inside heap
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Clearing the whole graph structure...");                                           // Clearing the whole graph from heap fbk
   for (int i = 0; i < nds_collect_size; ++i)                                                                // Graph nodes scrollin' FOR cycle

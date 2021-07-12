@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Graph library header file
- * Code version: 1.0
+ * Code version: 2.0
  * Creation date: 22/06/2021
- * Last mod. date: 09/07/2021 
+ * Last mod. date: 12/07/2021 
  */
 
 
@@ -17,7 +17,6 @@
 #define ND_STR_LEN    31                                                                                    // String length used to define node-names (max 30 chars + '\0')
 #define AR_STR_LEN    31                                                                                    // String length used to define arch-names (max 30 chars + '\0')
 #define SEP_CHR       '-'                                                                                   // Separator-char
-#define NUM_SEP_CHRS  75                                                                                    // Number of separator-chars
 #define PRINT_DLY_MS  500                                                                                   // Print delay [ms]
 
 
@@ -75,9 +74,9 @@ C_str arch_pos_typ_str[] = {"LIST HEAD POSITION", "LIST SPECIFIC POSITION", "LIS
 /* Global vars */
 extern const Real _REAL_MAX;                                                                                // Real max val to simulate +inf
 extern int ars_collect_size, nds_collect_size, min_pth_conn_vect_size;                                      // Arches and nodes collection vectors sizes + min path connections vect size
-extern Arch* archs_collect_vect;                                                                            // Graph arches collection vector ptr init
-extern Node* nodes_collect_vect;                                                                            // Graph nodes collection vector ptr init
-extern Connection* min_path_conn_vect;                                                                      // Min path connections vect ptr init
+extern Arch* archs_collect_vect;                                                                            // Graph arches collection vector ptr
+extern Node* nodes_collect_vect;                                                                            // Graph nodes collection vector ptr
+extern Connection* min_path_conn_vect;                                                                      // Min path connections vect ptr (from 0 to 'min_pth_conn_vect_size-1' nodes and from 1 to 'min_pth_conn_vect_size-1' archs)
 
 
 /* Library functions */
@@ -87,9 +86,9 @@ void add_new_node(C_str name);                                                  
 
 void connect_node_arch(C_str ar_name, C_str nd_name, Node_pos_in_arch nd_pos, Arch_pos_typ ar_pos, ...);    // Function to connect arch-node in graph (new arch list element allocated inside heap, opt param --> arch pos in arches list, non-zero index)
 
-void dijkstra_alg(C_str src_nd_name);                                                                       // Dijkstra's alg to find min graph-path btwn source and each destination node
+void dijkstra_alg(C_str src_nd_name, Verbose_mode v_mode);                                                  // Dijkstra's alg to find min graph-path btwn source and each destination node (Dijkstra-dataset vect allocated/reallocated inside heap) - Y/N for verbose mode
 
-void buid_shortest_path(C_str dest_nd_name);                                                                // Find shortest path to specified destination node from source node (pre-defined in Dijkstra's algorithm)
+void buid_shortest_path(C_str dest_nd_name, Verbose_mode v_mode);                                           // Find shortest path to specified destination node from source node (pre-defined in Dijkstra's algorithm, min path connections vect allocated/reallocated inside heap) - Y/N for verbose mode
 
 void free_graph();                                                                                          // Function to free graph allocated memory
 

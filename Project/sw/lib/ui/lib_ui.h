@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 06/05/2021
- * Last mod. date: 09/07/2021 
+ * Last mod. date: 12/07/2021 
  */
 
 
@@ -73,7 +73,7 @@ void fbk_nl(C_int num);                                                         
 
 void fbk_spaces(C_int num);                                                                                 // Spces feedback function
 
-void fbk_separator(C_char chr, C_str col, C_int num);                                                       // Separator feedback function
+void fbk_separator(C_char chr, C_str col);                                                                  // Separator feedback function
 
 void fbk_gn_cy(C_str fbk_str);                                                                              // Green-cyan feedback function
 

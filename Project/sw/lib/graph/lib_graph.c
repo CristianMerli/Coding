@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Graph library
- * Code version: 1.0
+ * Code version: 2.0
  * Creation date: 22/06/2021
- * Last mod. date: 09/07/2021
+ * Last mod. date: 12/07/2021
  */
 
 
@@ -16,7 +16,7 @@ const Real _REAL_MAX_ = __DBL_MAX__;                                            
 int ars_collect_size = 0, nds_collect_size = 0, min_pth_conn_vect_size = 0;                                 // Arches and nodes collection vectors sizes + min path connections vect size
 Arch* archs_collect_vect = NULL;                                                                            // Graph arches collection vector ptr init
 Node* nodes_collect_vect = NULL;                                                                            // Graph nodes collection vector ptr init
-Connection* min_path_conn_vect = NULL;                                                                      // Min path connections vect ptr init
+Connection* min_path_conn_vect = NULL;                                                                      // Min path connections vect ptr init (from 0 to 'min_pth_conn_vect_size-1' nodes and from 1 to 'min_pth_conn_vect_size-1' archs)
 
 
 /* Lib vars */
@@ -28,7 +28,15 @@ Byte realloc_flg = 0;                                                           
 /* Functions */
 static int iaddr(C_int i, C_int j, C_int lda){                                                              // Arrays/vectors memo addressing
   /* Body */
-  return (i*lda)+j;                                                                                         // Return index number
+  if (i >= 0 && j >= 0 && lda >= 0)                                                                         // Check params ok
+    return (i*lda)+j;                                                                                       // Return index number
+  else {                                                                                                    // If params ain't ok
+    fbk_err("Ops! Encountred error during arrays data management");                                         // Error fbk
+    perror("Found error during array-elements access with 'iaddr' function! Parameters must be positive!"); // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
+    close_err();                                                                                            // Close software with error function call
+    return -1;                                                                                              // Random return to avoid compile-errors
+  }
 }
 
 
@@ -212,15 +220,11 @@ static void reallocate_nd_conn_vect(Connection** nd_conn_vect, C_int size){     
 }
 
 
-static Connection* not_an_node_conn(Node* nd, int* const vect_size, Verbose_mode v_mode){                   // Function to get a vector of non-analyzed connections associated to a specific node (vector allocated inside heap) - Y/N for verbose mode
+static Connection* not_an_node_conn(Node* nd, int* const vect_size){                                        // Function to get a vector of non-analyzed connections associated to a specific node (vector allocated inside heap)
   /* Body */
   List_elem* tmp_el = nd->archs_lst;                                                                        // Define tmp list elem ptr var (to scroll arches inside node conn. arches list)
   Connection* nan_nd_conn_vect = NULL;                                                                      // Vector of non-analyzed connections associated to a specific node
   *vect_size = 0;                                                                                           // Number of non-analyzed connections associated to a specific node (rst)
-  if (v_mode == Y){                                                                                         // If verbose mode is enabled, print fbk
-    fbk_nl(1);  fbk_gn_pu("Looking for non-analyzed connections associated to a specific node...");         // Looking for non-analyzed connections associated to a specific node fbk
-    fbk_nl(1);  fbk_gn_lbu_ye_ptr("Node address", nd);                                                      // Print node address fbk
-  }
   for (; tmp_el != NULL; tmp_el = tmp_el->nxt){                                                             // Scroll node conn. arches list, upd num of non-analyzed connections associated to a specific node, resize node connections vect inside heap and define vector elements
     if ((nd == tmp_el->ar->nd1 && tmp_el->ar->nd2->dd->an_flg == 0) ||
         (nd == tmp_el->ar->nd2 && tmp_el->ar->nd1->dd->an_flg == 0)){                                       // Add node non-analyzed connection only if the destination node ain't been already analyzed
@@ -235,9 +239,6 @@ static Connection* not_an_node_conn(Node* nd, int* const vect_size, Verbose_mode
       (nan_nd_conn_vect+iaddr(V, *vect_size, *vect_size+1))->ar = tmp_el->ar;                               // Define elements of node (non-analyzed) connections vect inside heap (connection arch)
       ++*vect_size;                                                                                         // Vector of non-analyzed connections associated to a specific node size val upd
     }
-  }
-  if (v_mode == Y){                                                                                         // If verbose mode is enabled, print fbk
-    fbk_nl(1);  fbk_gn_cy("Non-analyzed connections associated to a specific node correctly acquired!\n");  // Non-analyzed connections associated to a specific node correctly acquired fbk
   }
   return nan_nd_conn_vect;                                                                                  // Return vector of non-analyzed connections associated to a specific node
 }
@@ -274,7 +275,7 @@ static int idx_by_name(Obj_type object_type, C_str object_name){                
 static void print_min_paths(){                                                                              // Function to print each min path cost to reach every single accessible node from specified source-node
   /* Body */
   for (int m = 0; m < nds_collect_size; ++m){                                                               // Min path costs printin' FOR cycle
-    fbk_nl(1);  fbk_separator(SEP_CHR, GN, NUM_SEP_CHRS);                                                   // Print separator fbk
+    fbk_nl(1);  fbk_separator(SEP_CHR, GN);                                                                 // Print separator fbk
     fbk_nl(1);  fbk_gn_lbu_ye_str("--> Node name", nodes_collect_vect[m].name);                             // Print node name fbk
     if (nodes_collect_vect[m].dd->min_path_cost < _REAL_MAX_ &&
         &nodes_collect_vect[m] != &nodes_collect_vect[src_node_idx]){                                       // If node is reachble from specified source node
@@ -289,7 +290,7 @@ static void print_min_paths(){                                                  
       }
     }
   }
-  fbk_nl(1);  fbk_separator(SEP_CHR, GN, NUM_SEP_CHRS);                                                     // Print separator fbk
+  fbk_nl(1);  fbk_separator(SEP_CHR, GN);                                                                   // Print separator fbk
 }
 
 
@@ -300,7 +301,7 @@ static void print_shortest_path(){                                              
     fbk_gn_lbu_ye_int("Number of nodes between source and destination node", min_pth_conn_vect_size-2);     // Print num of nodes btwn source and destination node fbk
     fbk_nl(1);                                                                                              // New line fbk
     fbk_gn_lbu_ye_int("Number of arches between source and destination node", min_pth_conn_vect_size-1);    // Print num of archs btwn source and destination node fbk
-    fbk_nl(1);  fbk_separator(SEP_CHR, LGN, NUM_SEP_CHRS);                                                  // Print separator fbk
+    fbk_nl(1);  fbk_separator(SEP_CHR, LGN);                                                                // Print separator fbk
     fbk_nl(1);  fbk_gn_pu("Showing shortest path between specified source and destination nodes:");         // Showin' shortest path fbk
     delay(PRINT_DLY_MS);                                                                                    // Wait dly time
     fbk_nl(1);  fbk_gn_lbu_ye_str("Status", "STARTING");                                                    // Print startin' from source node fbk
@@ -322,7 +323,7 @@ static void print_shortest_path(){                                              
     fbk_gn_lbu_ye_str("Destination-node name", min_path_conn_vect[min_pth_conn_vect_size-1].nd->name);      // Destination node name fbk
     delay(PRINT_DLY_MS);                                                                                    // Wait dly time
     fbk_nl(1);  fbk_gn_lbu_ye_str("Status", "ARRIVED");                                                     // Print arrived to destination node fbk
-    fbk_nl(1);  fbk_separator(SEP_CHR, LGN, NUM_SEP_CHRS);                                                  // Print separator fbk
+    fbk_nl(1);  fbk_separator(SEP_CHR, LGN);                                                                // Print separator fbk
     delay(PRINT_DLY_MS);                                                                                    // Wait dly time
   } else {                                                                                                  // Else if destination node is unreachble or it's equal to source node
     fbk_nl(1);  fbk_gn_lbu_ye_str("Number of nodes between source and destination node", "-");              // Print no nodes btwn src and dest nodes
@@ -448,7 +449,7 @@ void connect_node_arch(C_str ar_name, C_str nd_name, Node_pos_in_arch nd_pos, Ar
 }
 
 
-void dijkstra_alg(C_str src_nd_name){                                                                       // Dijkstra's alg to find min graph-path btwn source and each destination node (Dijkstra-dataset vect allocated/reallocated inside heap)
+void dijkstra_alg(C_str src_nd_name, Verbose_mode v_mode){                                                  // Dijkstra's alg to find min graph-path btwn source and each destination node (Dijkstra-dataset vect allocated/reallocated inside heap) - Y/N for verbose mode
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Looking for min path costs from specified source with Dijkstra's algorithm...");   // Print lookin' 4 shortest path btwn spec src and each dest nd fbk
   int src_nd_num = idx_by_name(ND, src_nd_name);                                                            // Get source node idx by-name
@@ -489,7 +490,7 @@ void dijkstra_alg(C_str src_nd_name){                                           
       ++nodes_collect_vect[min_cost_idx].dd->an_flg;                                                        // Mark selected node as alredy analized b4 processin' it
       // Find non-analyzed connections of selected node
       nan_nd_conn_vect_size = 0;                                                                            // Node (non-analyzed) connections vector size var to store selected node non-analyzed connections (rst)
-      nan_nd_conn_vect = not_an_node_conn(&nodes_collect_vect[min_cost_idx], &nan_nd_conn_vect_size, N);    // Define selected node non-analyzed connections vect (vector allocated inside heap) - NO --> without verbose mode
+      nan_nd_conn_vect = not_an_node_conn(&nodes_collect_vect[min_cost_idx], &nan_nd_conn_vect_size);       // Define selected node non-analyzed connections vect (vector allocated inside heap)
       for (int l = 0; l < nan_nd_conn_vect_size; ++l){                                                      // Scroll selected node non-analyzed connections vect
         new_cost = nodes_collect_vect[min_cost_idx].dd->min_path_cost+nan_nd_conn_vect[l].ar->cost;         // New cost val upd
         // Upd min path cost and previous node in shortest path
@@ -502,14 +503,15 @@ void dijkstra_alg(C_str src_nd_name){                                           
         free(nan_nd_conn_vect);                                                                             // Free node non-analyzed connections vector allocated inside heap
     }
     // Print each min path cost to reach every single accessible node from specified source-node
-    print_min_paths();                                                                                      // Print min paths funct call
+    if (v_mode == Y)                                                                                        // If verbose mode is enabled, print fbks
+      print_min_paths();                                                                                    // Print min paths funct call
     fbk_nl(1);  fbk_gn_cy("Min path costs correctly found!\n");                                             // Print min path costs correctly found fbk
   } else                                                                                                    // If error conditions ain't ok
     fbk_err("Error, not able to find min path costs with Dijkstra's algorithm");                            // Print error fbk
 }
 
 
-void buid_shortest_path(C_str dest_nd_name){                                                                // Reconstruct shortest path to specified destination node from source node (pre-defined in Dijkstra's algorithm, min path connections vect allocated/reallocated inside heap)
+void buid_shortest_path(C_str dest_nd_name, Verbose_mode v_mode){                                           // Reconstruct shortest path to specified destination node from source node (pre-defined in Dijkstra's algorithm, min path connections vect allocated/reallocated inside heap) - Y/N for verbose mode
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Building min cost path from pre-defined source to specified destination...");      // Print reconstructin' shortest path from pre-defined source to specified destination fbk
   if (realloc_flg != 0){                                                                                    // If Dijkstra's algorithm has already been called at least once
@@ -536,10 +538,10 @@ void buid_shortest_path(C_str dest_nd_name){                                    
         min_pth_conn_vect_size = 0;                                                                         // Make it zero
       while (tmp_nd != NULL){                                                                               // Scroll min-cost path backwars 'till src node
         if (realloc_flg == 0){                                                                              // If realloc flag ain't been set
-          min_path_conn_vect = allocate_new_nd_conn_vect(++min_pth_conn_vect_size);                         // Allocate (iside heap) a new min path connections vector
+          min_path_conn_vect = allocate_new_nd_conn_vect(++min_pth_conn_vect_size);                         // Allocate (inside heap) a new min path connections vector
           ++realloc_flg;                                                                                    // And then upd realloc flag val to use reallocs instead of callocs 'till "free_graph()" funct call
         } else                                                                                              // Else if realloc flag has already been set
-          reallocate_nd_conn_vect(&min_path_conn_vect, ++min_pth_conn_vect_size);                           // Reallocate (iside heap) the min path connections vector
+          reallocate_nd_conn_vect(&min_path_conn_vect, ++min_pth_conn_vect_size);                           // Reallocate (inside heap) the min path connections vector
         tmpl = tmp_nd->archs_lst;                                                                           // Init tmp archs list ptr var
         for (; tmpl != NULL; tmpl = tmpl->nxt){                                                             // Scroll min-cost parh node connection archs list to find min-cost path connection arch
           if ((tmp_nd == tmpl->ar->nd1 && tmpl->ar->nd2 == tmp_nd->dd->prev_nd) ||
@@ -558,7 +560,8 @@ void buid_shortest_path(C_str dest_nd_name){                                    
         min_path_conn_vect[min_pth_conn_vect_size-i-1] = tmp_conn;                                          // Swap-step2
       }
       // Print shortest path from pre-defined source node to specified destination node
-      print_shortest_path();                                                                                // Print shortest path funct call
+      if (v_mode == Y)                                                                                      // If verbose mode is enabled, print fbks
+        print_shortest_path();                                                                              // Print shortest path funct call
       fbk_nl(1);  fbk_gn_cy("Destination node min cost path correctly identified!\n");                      // Print destination node min cost path correctly identified fbk
     } else                                                                                                  // If error conditions ain't ok
       fbk_err("Error, not able to find destination node min cost path with Dijkstra's algorithm");          // Print error fbk

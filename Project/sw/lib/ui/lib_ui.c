@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library
  * Code version: 3.0
  * Creation date: 06/05/2021
- * Last mod. date: 09/07/2021
+ * Last mod. date: 12/07/2021
  */
 
 
@@ -90,9 +90,11 @@ void fbk_spaces(C_int num){                                                     
 }
 
 
-void fbk_separator(C_char chr, C_str col, C_int num){                                                       // Separator feedback function
+void fbk_separator(C_char chr, C_str col){                                                                  // Separator feedback function
   /* Body */
-  for (int i = 0; i < num; ++i)                                                                             // Chars printin' FOR cycle
+  struct winsize w;                                                                                         // Window-size struct declaration
+  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);                                                                     // Save the number of terminal's rows/cloumns in window-size struct
+  for (int i = 0; i < w.ws_col; ++i)                                                                        // Chars printin' FOR cycle
     printf("%s%c%s", col, chr, ER);                                                                         // Print space fbk
 }
 

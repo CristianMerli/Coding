@@ -3,7 +3,7 @@
  * Code title: Timer library header file
  * Code version: 3.0
  * Creation date: 04/05/2021
- * Last mod. date: 09/07/2021 
+ * Last mod. date: 12/07/2021 
  */
 
 

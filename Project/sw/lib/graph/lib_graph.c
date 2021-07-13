@@ -3,7 +3,7 @@
  * Code title: Graph library
  * Code version: 2.0
  * Creation date: 22/06/2021
- * Last mod. date: 12/07/2021
+ * Last mod. date: 13/07/2021
  */
 
 
@@ -301,7 +301,7 @@ static void print_shortest_path(){                                              
     fbk_gn_lbu_ye_int("Number of nodes between source and destination node", min_pth_conn_vect_size-2);     // Print num of nodes btwn source and destination node fbk
     fbk_nl(1);                                                                                              // New line fbk
     fbk_gn_lbu_ye_int("Number of arches between source and destination node", min_pth_conn_vect_size-1);    // Print num of archs btwn source and destination node fbk
-    fbk_nl(1);  fbk_separator(SEP_CHR, LGN);                                                                // Print separator fbk
+    fbk_nl(1);  fbk_separator(SHORT_PTH_SEP_CHR, LGN);                                                      // Print separator fbk
     fbk_nl(1);  fbk_gn_pu("Showing shortest path between specified source and destination nodes:");         // Showin' shortest path fbk
     delay(PRINT_DLY_MS);                                                                                    // Wait dly time
     fbk_nl(1);  fbk_gn_lbu_ye_str("Status", "STARTING");                                                    // Print startin' from source node fbk
@@ -323,7 +323,7 @@ static void print_shortest_path(){                                              
     fbk_gn_lbu_ye_str("Destination-node name", min_path_conn_vect[min_pth_conn_vect_size-1].nd->name);      // Destination node name fbk
     delay(PRINT_DLY_MS);                                                                                    // Wait dly time
     fbk_nl(1);  fbk_gn_lbu_ye_str("Status", "ARRIVED");                                                     // Print arrived to destination node fbk
-    fbk_nl(1);  fbk_separator(SEP_CHR, LGN);                                                                // Print separator fbk
+    fbk_nl(1);  fbk_separator(SHORT_PTH_SEP_CHR, LGN);                                                      // Print separator fbk
     delay(PRINT_DLY_MS);                                                                                    // Wait dly time
   } else {                                                                                                  // Else if destination node is unreachble or it's equal to source node
     fbk_nl(1);  fbk_gn_lbu_ye_str("Number of nodes between source and destination node", "-");              // Print no nodes btwn src and dest nodes

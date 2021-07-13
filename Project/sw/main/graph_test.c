@@ -3,9 +3,9 @@
  * Code title: Graph test
  * Code version: 2.0
  * Creation date: 22/06/2021
- * Last mod. date: 12/07/2021
+ * Last mod. date: 13/07/2021
  */
- 
+
 
 /* Compile-notes */
 /* 
@@ -27,22 +27,18 @@
  */
 
 
-/* NOTES */
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- * https://stackoverflow.com/questions/20406346/how-to-plot-tree-graph-web-data-on-gnuplot
- * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- */
-
-
 /* Libraries */
 #include "../lib/graph/lib_graph.h"                                                                         // Import graph library header file
 
 
 /* Constants */
+#define VERBOSE                       Y                                                                     // Verbose mode (Y/N)
 #define SOURCE_NODE_NAME              "Cross4"                                                              // Graph test sorce node name
 #define DESTINATION_NODE_NAME         "Cross9"                                                              // Graph test destination node name
-#define DEST_NODE_NAME_SPECIAL_CASE1  "Cross4"                                                              // Graph test destination node name (special case 1: destinstion=source node)
-#define DEST_NODE_NAME_SPECIAL_CASE2  "Cross10"                                                             // Graph test destination node name (special case 2: destinstion node unreachble from source node)
+#define DEST_NODE_NAME_SPECIAL_CASE1  "Cross4"                                                              // Graph test destination node name (special-case path 1: destinstion=source node)
+#define DEST_NODE_NAME_SPECIAL_CASE2  "Cross10"                                                             // Graph test destination node name (special-case path 2: destinstion node unreachble from source node)
+#define GPLOT_TEST_GRAPH_LAYOUT_CMD   "gnuplot -e \"load 'gnuplot/graph_plot.cmd'; pause -1\""              // Command to display test-graph layout with gnuplot
+#define GPLOT_SHORTEST_PATH_CMD       "gnuplot -e \"load 'gnuplot/shortest_plot.cmd'; pause -1\""           // Command to display test-graph layout and shortest path with gnuplot
 
 
 /* Structs & data-types */
@@ -59,16 +55,18 @@ static void terminate_keyboard(int signal){                                     
 }
 
 
+/* Main vars */
+const Street strts_vect[] = {{"Street1",1.1}, {"Street2",2.2}, {"Street3",3.3}, {"Street4",4.4}, 
+                              {"Street5",5.5}, {"Street6",6.6}, {"Street7",7.7}, {"Street8",8.8},
+                              {"Street9",6.3}, {"Street10",0.2}, {"Street11",9.3}, {"Street12",7.1},
+                              {"Street13",12.8}};                                                           // Street-structs vector
+
+C_str crss_names_vect[] =   {"Cross1", "Cross2", "Cross3", "Cross4", "Cross5", "Cross6", "Cross7",
+                              "Cross8", "Cross9", "Cross10"};                                               // Cross-names vector
+
+
 /* Main cycle */
 int main(){                                                                                                 // SW main cycle
-  /* Main vars */
-  const Street strts_vect[] = {{"Street1",1.1}, {"Street2",2.2}, {"Street3",3.3}, {"Street4",4.4}, 
-                               {"Street5",5.5}, {"Street6",6.6}, {"Street7",7.7}, {"Street8",8.8},
-                               {"Street9",6.3}, {"Street10",0.2}, {"Street11",9.3}, {"Street12",7.1},
-                               {"Street13",12.8}};                                                          // Street-structs vector
-  C_str crss_names_vect[] =   {"Cross1", "Cross2", "Cross3", "Cross4", "Cross5", "Cross6", "Cross7",
-                               "Cross8", "Cross9", "Cross10"};                                              // Cross-names vector
-
   /* Code */
   signal(SIGINT, terminate_keyboard);                                                                       // Manage program exit from keyboard ctrl+c shortcut
   logo(6, "GRAPHS MANAGEMENT LIBRARY TEST SOFTWARE", LBU, '#', OG);                                         // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
@@ -77,21 +75,19 @@ int main(){                                                                     
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //                                          LIBRARY TEST SOFTWATRE                                        // --> TEST BEGIN
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  int ret_val = system("gnuplot -e \"load 'gnuplot/shortest_gplot.cmd'; pause -1\"");                       // -
-  dbg_int("Ret", ret_val);                                                      ///////// / / / / / / / /
-  // Create some archs                                                                                      // ----------------------------------------------- (1.1)
+  // (1.1) Create some archs                                                                                // ----------------------------------------------- (1.1)
   fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                                   // Print separator fbk
   fbk_nl(1);  fbk_gn_pu("(1.1) Creatin' some archs...");                                                    // Print creatin' archs fbk
   fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk
   for (int i = 0; i < (int)(sizeof(strts_vect)/sizeof(const Street)); ++i)                                  // Streets allocation FOR cycle
     add_new_arch((C_str)strts_vect[i].name, strts_vect[i].length);                                          // Create new street (arch allocated inside heap)
-  // Create some nodes                                                                                      // ----------------------------------------------- (1.2)
+  // (1.2) Create some nodes                                                                                // ----------------------------------------------- (1.2)
   fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                                   // Print separator fbk
   fbk_nl(1);  fbk_gn_pu("(1.2) Creatin' some nodes...");                                                    // Print creatin' nodes fbk
   fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk
   for (int j = 0; j < (int)(sizeof(crss_names_vect)/sizeof(C_str)); ++j)                                    // Crosses allocation FOR cycle
     add_new_node(crss_names_vect[j]);                                                                       // Create new cross (node allocated inside heap)
-  // Connect archs & nodes (excluding node "Cross10")                                                       // ----------------------------------------------- (2.1)
+  // (2.1) Connect archs & nodes (excluding node "Cross10")                                                 // ----------------------------------------------- (2.1)
   fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                                   // Print separator fbk
   fbk_nl(1);  fbk_gn_pu("(2.1) Connectin' archs & nodes...");                                               // Print connectin' archs and nodes fbk
   fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk
@@ -121,20 +117,41 @@ int main(){                                                                     
   connect_node_arch((C_str)strts_vect[11].name, crss_names_vect[7], ARCH_ND2, LIST_TAIL);                   // Connect "Street12" to "Cross8"
   connect_node_arch((C_str)strts_vect[12].name, crss_names_vect[4], ARCH_ND1, LIST_TAIL);                   // Connect "Street13" to "Cross5"
   connect_node_arch((C_str)strts_vect[12].name, crss_names_vect[8], ARCH_ND2, LIST_TAIL);                   // Connect "Street13" to "Cross9"
-  // Apply Dijkstra's algorithm                                                                             // ----------------------------------------------- (3.1)
+  // (2.2) Display test-graph layout with gnuplot                                                           // ----------------------------------------------- (2.2)
+  fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                                   // Print separator fbk
+  fbk_nl(1);  fbk_gn_pu("(2.2) Displayin' test-graph layout with gnuplot...");                              // Print displayin' test-graph layout with gnuplot fbk
+  fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk
+  int ret_val = system(GPLOT_TEST_GRAPH_LAYOUT_CMD);                                                        // Display test-graph layout with gnuplot
+  if (ret_val == 0){                                                                                        // Chack command return val, if ok
+    fbk_nl(1);  fbk_gn_cy("Test-graph layout correctly displayed with gnuplot!\n");                         // Test-graph layout correctly displayed with gnuplot fbk
+  } else                                                                                                    // Else if command return val ain't ok
+    fbk_err("Ops! Encountred error during gnuplot command execution!");                                     // Error fbk
+  // (3.1) Apply Dijkstra's algorithm                                                                       // ----------------------------------------------- (3.1)
   fbk_nl(2);  fbk_separator(SEP_CHR, OG); fbk_nl(1);                                                        // Print separator fbk
   fbk_gn_pu("(3.1) Applyin' Dijkstra's algorithm to find min paths from specified source node...");         // Print applyin' Dijkstra's algorithm to find min paths fbk
   fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk
-  dijkstra_alg(SOURCE_NODE_NAME, Y);                                                                        // Apply Dijkstra alg using "Cross4" as source node (find all min path-costs and prev nodes in shortest paths, Dijkstra-dataset vect allocated/reallocated inside heap)
-  // Reconstruct some min paths (includin' some special cases)                                              // ----------------------------------------------- (3.2)
+  dijkstra_alg(SOURCE_NODE_NAME, VERBOSE);                                                                  // Apply Dijkstra alg using "Cross4" as source node (find all min path-costs and prev nodes in shortest paths, Dijkstra-dataset vect allocated/reallocated inside heap) - Y/N for verbose mode
+  // (3.2) Reconstruct test min path (Cross4-Cross9)                                                        // ----------------------------------------------- (3.2)
   fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                                   // Print separator fbk
-  fbk_nl(1);  fbk_gn_pu("(3.2) Reconstructin' some min paths (includin' special cases)...");                // Print reconstructin' some min paths fbk
+  fbk_nl(1);  fbk_gn_pu("(3.2) Reconstructin' test min path (Cross4-Cross9)...");                           // Print reconstructin' test min path fbk
   fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk
-  buid_shortest_path(DESTINATION_NODE_NAME, Y);                                                             // Reconstruct min path to "Cross9" startin' from "Cross4", (min path connections vect allocated/reallocated inside heap) - YES --> with verbose mode
-  dbg_print("Some special-cases examples:");                                                                // Print special-cases examples debug fbk
-  buid_shortest_path(DEST_NODE_NAME_SPECIAL_CASE1, Y);                                                      // Reconstruct min path to "Cross4" (src=dest) startin' from "Cross4", (min path connections vect allocated/reallocated inside heap) - YES --> with verbose mode
-  buid_shortest_path(DEST_NODE_NAME_SPECIAL_CASE2, Y);                                                      // Reconstruct min path to "Cross10" (unreachble node) startin' from "Cross4", (min path connections vect allocated/reallocated inside heap) - YES --> with verbose mode
-  // Deallocate the whole graph structure                                                                   // ----------------------------------------------- (4.1)
+  buid_shortest_path(DESTINATION_NODE_NAME, VERBOSE);                                                       // Reconstruct min path to "Cross9" startin' from "Cross4", (min path connections vect allocated/reallocated inside heap) - Y/N for verbose mode
+  // (3.3) Display test-graph layout and shortest path with gnuplot (Cr4-Cr9)                               // ----------------------------------------------- (3.3)
+  fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                                   // Print separator fbk
+  fbk_nl(1);  fbk_gn_pu("(3.3) Displayin' test-graph layout and shortest path with gnuplot (Cr4-Cr9)...");  // Print displayin' test-graph layout and shortest path with gnuplot fbk
+  fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk
+  ret_val = system(GPLOT_SHORTEST_PATH_CMD);                                                                // Display test-graph layout and shortest path with gnuplot
+  if (ret_val == 0){                                                                                        // Chack command return val, if ok
+    fbk_nl(1);  fbk_gn_cy("Test-graph layout and shortest path correctly displayed with gnuplot!\n");       // Test-graph layout and shortest path correctly displayed with gnuplot fbk
+  } else                                                                                                    // Else if command return val ain't ok
+    fbk_err("Ops! Encountred error during gnuplot command execution!");                                     // Error fbk
+  // (3.4) Reconstruct some special-cases paths (Cr4-Cr4 and Cr4-Cr10)                                      // ----------------------------------------------- (3.4)
+  fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                                   // Print separator fbk
+  fbk_nl(1);  fbk_gn_pu("(3.4) Reconstructin' some special-cases paths (Cr4-Cr4 and Cr4-Cr10)...");         // Print reconstructin' some special-cases paths fbk
+  fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk
+  buid_shortest_path(DEST_NODE_NAME_SPECIAL_CASE1, VERBOSE);                                                // Reconstruct min path to "Cross4" (src=dest) startin' from "Cross4", (min path connections vect allocated/reallocated inside heap) - Y/N for verbose mode
+  buid_shortest_path(DEST_NODE_NAME_SPECIAL_CASE2, VERBOSE);                                                // Reconstruct min path to "Cross10" (unreachble node) startin' from "Cross4", (min path connections vect allocated/reallocated inside heap) - Y/N for verbose mode
+  // (4.1) Deallocate the whole graph structure                                                             // ----------------------------------------------- (4.1)
   fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                                   // Print separator fbk
   fbk_nl(1);  fbk_gn_pu("(4.1) Deallocatin' the whole graph structure...");                                 // Print clearin' the whole graph structre fbk
   fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk

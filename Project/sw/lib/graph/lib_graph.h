@@ -3,7 +3,7 @@
  * Code title: Graph library header file
  * Code version: 2.0
  * Creation date: 22/06/2021
- * Last mod. date: 12/07/2021 
+ * Last mod. date: 13/07/2021 
  */
 
 
@@ -14,10 +14,11 @@
 
 
 /* Constants */
-#define ND_STR_LEN    31                                                                                    // String length used to define node-names (max 30 chars + '\0')
-#define AR_STR_LEN    31                                                                                    // String length used to define arch-names (max 30 chars + '\0')
-#define SEP_CHR       '-'                                                                                   // Separator-char
-#define PRINT_DLY_MS  500                                                                                   // Print delay [ms]
+#define ND_STR_LEN        31                                                                                // String length used to define node-names (max 30 chars + '\0')
+#define AR_STR_LEN        31                                                                                // String length used to define arch-names (max 30 chars + '\0')
+#define SEP_CHR           '-'                                                                               // Separator-char
+#define SHORT_PTH_SEP_CHR '*'                                                                               // Shortest path separator-char
+#define PRINT_DLY_MS      500                                                                               // Print delay [ms]
 
 
 /* Structs & data-types */

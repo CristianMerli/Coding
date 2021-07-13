@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library
  * Code version: 3.0
  * Creation date: 06/05/2021
- * Last mod. date: 12/07/2021
+ * Last mod. date: 13/07/2021
  */
 
 
@@ -76,7 +76,7 @@ void press_enter(C_str req_str){                                                
 }
 
 
-void fbk_nl(C_int num){                                                                                     // New line feedback function
+void fbk_nl(C_int num){                                                                                     // New lines feedback function
   /* Body */
   for (int i = 0; i < num; ++i)                                                                             // Chars printin' FOR cycle
     printf("\n");                                                                                           // Print new line fbk
@@ -87,6 +87,13 @@ void fbk_spaces(C_int num){                                                     
   /* Body */
   for (int i = 0; i < num; ++i)                                                                             // Chars printin' FOR cycle
     printf(" ");                                                                                            // Print space fbk
+}
+
+
+void fbk_tabs(C_int num){                                                                                   // Tabs feedback function
+  /* Body */
+  for (int i = 0; i < num; ++i)                                                                             // Chars printin' FOR cycle
+    printf("\t");                                                                                           // Print tab fbk
 }
 
 
@@ -162,7 +169,7 @@ Str read_term_in_min_chrs(C_byte min_chrs, C_str req_str, C_str err_str){       
   // Read input from terminal
   do{
     clr_term_in();                                                                                          // Clear terminal input buffer function call
-    printf("%s>>>%s %s,%s at least %s%d%s char(s), max %s%d%s chars%s: %s",
+    printf("\n%s>>>%s %s,%s at least %s%d%s char(s), max %s%d%s chars%s: %s",
             GN, PU, req_str, BU, OG, min_chrs, BU, OG, IN_BUFF_SIZE-1, BU, PU, ER);                         // Print request fbk
     in_str = read_term_in();                                                                                // Read terminal input function call
     exit_flg = (strlen(in_str) >= min_chrs);                                                                // Terminal input while-loop exit flag val upd
@@ -310,9 +317,10 @@ void close_err(){                                                               
 }
 
 
-void close_fbk(){                                                                                           // Close feedback function
+void close_fbk(){                                                                                           // Function to close software with feedback
   /* Body */
   printf("\n\n%s>>>%s Closin'... %sBye! %s;)%s\n", GN, PU, CY, RD, ER);                                     // Closin' fbk
+  exit(EXIT_SUCCESS);                                                                                       // Close software
 }
 
 

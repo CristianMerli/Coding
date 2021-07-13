@@ -81,6 +81,8 @@ extern Connection* min_path_conn_vect;                                          
 
 
 /* Library functions */
+int idx_by_name(Obj_type object_type, C_str object_name);                                                   // Function to get object (arch/node) vector index by name (-1 = No match found / -2 = Error)
+
 void add_new_arch(C_str, C_real cost);                                                                      // Function to add new graph arch (arch allocated inside heap)
 
 void add_new_node(C_str name);                                                                              // Function to add new graph node (node allocated inside heap)

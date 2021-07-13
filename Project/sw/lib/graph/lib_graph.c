@@ -244,34 +244,6 @@ static Connection* not_an_node_conn(Node* nd, int* const vect_size){            
 }
 
 
-static int idx_by_name(Obj_type object_type, C_str object_name){                                            // Function to get object (arch/node) vector index by name
-  /* Body */
-  int match_found = -1;                                                                                     // Match found idx (-1 = No match found / -2 = Error)
-  switch (object_type){                                                                                     // Object type switch-case
-    case AR:                                                                                                // Object type = arch
-      for (int i = 0; i < ars_collect_size; ++i)                                                            // Search match by-name in arches collection vector
-        if (strcmp(object_name, archs_collect_vect[i].name) == 0)                                           // Match detecting condition
-          match_found = i;                                                                                  // Retun match idx in vect
-      break;
-    ////////
-    case ND:                                                                                                // Object type = node
-      for (int j = 0; j < nds_collect_size; ++j)                                                            // Search match by-name in nodes collection vector
-        if (strcmp(object_name, nodes_collect_vect[j].name) == 0)                                           // Match detecting condition
-          match_found = j;                                                                                  // Retun match idx in vect
-      break;
-    ////////
-    default:                                                                                                // Unknown object type
-      fbk_err("Error, bad parameter value! A function got an unexpected patameter value");                  // Print error fbk
-      perror("Wrong \"object_type\" parameter value passsed to \"idx_by_name\" function!");                 // Print perror fbk
-      --match_found;                                                                                        // Decrease match found val to indicate error
-      break;
-  }
-  if (match_found == -1)                                                                                    // No march found cond
-    fbk_err("Error, no match found! Specified name probably wrong or not present in collection");           // Print err fbk
-  return match_found;                                                                                       // Return val
-}
-
-
 static void print_min_paths(){                                                                              // Function to print each min path cost to reach every single accessible node from specified source-node
   /* Body */
   for (int m = 0; m < nds_collect_size; ++m){                                                               // Min path costs printin' FOR cycle
@@ -310,13 +282,13 @@ static void print_shortest_path(){                                              
     fbk_gn_lbu_ye_str("Source-node name", min_path_conn_vect[0].nd->name);                                  // Source node name fbk
     delay(PRINT_DLY_MS);                                                                                    // Wait dly time
     fbk_nl(1);  fbk_gn_lbu_ye_str("Path-arch name", min_path_conn_vect[1].ar->name);                        // Path arch name fbk
-    fbk_spaces(1);  fbk_gn_lbu_ye_real("Arch cost", min_path_conn_vect[1].ar->cost);                        // Path arch cost fbk
+    fbk_tabs(1);  fbk_gn_lbu_ye_real("Arch cost", min_path_conn_vect[1].ar->cost);                          // Path arch cost fbk
     delay(PRINT_DLY_MS);                                                                                    // Wait dly time
     for (int i = 1; i < min_pth_conn_vect_size-1; ++i){                                                     // Min path scrollin' and printin' FOR cycle (btwn src and dest nodes)
       fbk_nl(1);  fbk_gn_lbu_ye_str("Path-node name", min_path_conn_vect[i].nd->name);                      // Path node name fbk
       delay(PRINT_DLY_MS);                                                                                  // Wait dly time
       fbk_nl(1);  fbk_gn_lbu_ye_str("Path-arch name", min_path_conn_vect[i+1].ar->name);                    // Path arch name fbk
-      fbk_spaces(1);  fbk_gn_lbu_ye_real("Arch cost", min_path_conn_vect[i+1].ar->cost);                    // Path arch cost fbk
+      fbk_tabs(1);  fbk_gn_lbu_ye_real("Arch cost", min_path_conn_vect[i+1].ar->cost);                      // Path arch cost fbk
       delay(PRINT_DLY_MS);                                                                                  // Wait dly time
     }
     fbk_nl(1);                                                                                              // New line fbk
@@ -333,6 +305,34 @@ static void print_shortest_path(){                                              
 
 
 /* Public functions */
+int idx_by_name(Obj_type object_type, C_str object_name){                                                   // Function to get object (arch/node) vector index by name (-1 = No match found / -2 = Error)
+  /* Body */
+  int match_found = -1;                                                                                     // Match found idx (-1 = No match found / -2 = Error)
+  switch (object_type){                                                                                     // Object type switch-case
+    case AR:                                                                                                // Object type = arch
+      for (int i = 0; i < ars_collect_size; ++i)                                                            // Search match by-name in arches collection vector
+        if (strcmp(object_name, archs_collect_vect[i].name) == 0)                                           // Match detecting condition
+          match_found = i;                                                                                  // Retun match idx in vect
+      break;
+    ////////
+    case ND:                                                                                                // Object type = node
+      for (int j = 0; j < nds_collect_size; ++j)                                                            // Search match by-name in nodes collection vector
+        if (strcmp(object_name, nodes_collect_vect[j].name) == 0)                                           // Match detecting condition
+          match_found = j;                                                                                  // Retun match idx in vect
+      break;
+    ////////
+    default:                                                                                                // Unknown object type
+      fbk_err("Error, bad parameter value! A function got an unexpected patameter value");                  // Print error fbk
+      perror("Wrong \"object_type\" parameter value passsed to \"idx_by_name\" function!");                 // Print perror fbk
+      --match_found;                                                                                        // Decrease match found val to indicate error
+      break;
+  }
+  if (match_found == -1)                                                                                    // No march found cond
+    fbk_err("Error, no match found! Specified name probably wrong or not present in collection");           // Print err fbk
+  return match_found;                                                                                       // Return val
+}
+
+
 void add_new_arch(C_str name, C_real cost){                                                                 // Function to add new graph arch (arch allocated inside heap)
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Adding new graph arch...");                                                        // Adding new graph arch fbk

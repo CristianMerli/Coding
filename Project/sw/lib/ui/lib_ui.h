@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 06/05/2021
- * Last mod. date: 12/07/2021 
+ * Last mod. date: 13/07/2021 
  */
 
 
@@ -69,9 +69,11 @@ void logo(Cu_shrt start_sp, C_str txt, C_str txt_col, C_char bkg_chr, C_str bkg_
 
 void press_enter(C_str req_str);                                                                            // Press enter function
 
-void fbk_nl(C_int num);                                                                                     // New line feedback function
+void fbk_nl(C_int num);                                                                                     // New lines feedback function
 
 void fbk_spaces(C_int num);                                                                                 // Spces feedback function
+
+void fbk_tabs(C_int num);                                                                                   // Tabs feedback function
 
 void fbk_separator(C_char chr, C_str col);                                                                  // Separator feedback function
 
@@ -121,6 +123,6 @@ void dbg_ptr(C_str str, C_ptr val);                                             
 
 void close_err();                                                                                           // Close software with error function
 
-void close_fbk();                                                                                           // Close feedback function
+void close_fbk();                                                                                           // Function to close software with feedback
 
 void close_keyboard_interrupt(C_int signal);                                                                // Function to close SW with fbk due to keyboard interrupt detected (ctrl+c)

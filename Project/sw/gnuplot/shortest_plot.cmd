@@ -15,4 +15,6 @@ plot \
   'gnuplot/shortest_archs.dat' using 1:2          with lines lt rgb "dark-green" notitle, \
   'gnuplot/shortest_costs.dat' using 1:2:3        with labels tc rgb "blue" offset (0,0) font 'Arial Bold' notitle, \
   'gnuplot/shortest_nodes.dat' using 1:2:(9.2)    with circles fill solid lc rgb "forest-green" notitle, \
-  'gnuplot/shortest_nodes.dat' using 1:2:3        with labels tc rgb "white" offset (0,0) font 'Arial Bold' notitle
+  'gnuplot/shortest_nodes.dat' using 1:2:3        with labels tc rgb "white" offset (0,0) font 'Arial Bold' notitle, \
+  'gnuplot/src_dest_nodes.dat' using 1:2:(9.2)    with circles fill solid lc rgb "dark-violet" notitle, \
+  'gnuplot/src_dest_nodes.dat' using 1:2:3        with labels tc rgb "white" offset (0,0) font 'Arial Bold' notitle

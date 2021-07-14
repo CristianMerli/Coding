@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Graph test
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 22/06/2021
- * Last mod. date: 13/07/2021
+ * Last mod. date: 14/07/2021
  */
 
 
@@ -19,16 +19,18 @@
  * // Compile-commands:
  * gccW99_lib lib/graph/lib_graph.so lib/graph/lib_graph.c                                              --> Create GRAPH dynamic library object file
  * gccW99_lib lib/ui/lib_ui.so lib/ui/lib_ui.c                                                          --> Create UI (TERMINAL I/O) dynamic library object file
+ * gccW99_lib lib/files/lib_files.so lib/files/lib_files.c                                              --> Create FILES dynamic library object file
  * gccW99_lib lib/timer/lib_timer.so lib/timer/lib_timer.c                                              --> Create TIMER dynamic library object file
  * gccW99_c main/graph_test.o main/graph_test.c                                                         --> Create MAIN object file
  * 
  * // Link-command:
- * gccW99_o graph_test main/graph_test.o lib/graph/lib_graph.so lib/ui/lib_ui.so lib/timer/lib_timer.so --> LINK main and dynamic libraries object files to test executable
+ * gccW99_o graph_test main/graph_test.o lib/graph/lib_graph.so lib/ui/lib_ui.so lib/files/lib_files.so lib/timer/lib_timer.so  --> LINK main and dynamic libraries object files to test executable
  */
 
 
 /* Libraries */
 #include "../lib/graph/lib_graph.h"                                                                         // Import graph library header file
+#include "../lib/files/lib_files.h"                                                                         // Import files library header file
 
 
 /* Constants */
@@ -39,6 +41,13 @@
 #define DEST_NODE_NAME_SPECIAL_CASE2  "Cross10"                                                             // Graph test destination node name (special-case path 2: destinstion node unreachble from source node)
 #define GPLOT_TEST_GRAPH_LAYOUT_CMD   "gnuplot -e \"load 'gnuplot/graph_plot.cmd'; pause -1\""              // Command to display test-graph layout with gnuplot
 #define GPLOT_SHORTEST_PATH_CMD       "gnuplot -e \"load 'gnuplot/shortest_plot.cmd'; pause -1\""           // Command to display test-graph layout and shortest path with gnuplot
+#define ARCHS_DAT_FILE                "gnuplot/archs.dat"                                                   // Test-graph gnuplot arch-coords .dat file
+#define COSTS_DAT_FILE                "gnuplot/costs.dat"                                                   // Test-graph gnuplot arches cost-coords .dat file
+#define NODES_DAT_FILE                "gnuplot/nodes.dat"                                                   // Test-graph gnuplot node-coords .dat file
+#define SHORTEST_ARCHS_DAT_FILE       "gnuplot/shortest_archs.dat"                                          // Test-graph shortest path gnuplot arch-coords .dat file
+#define SHORTEST_COSTS_DAT_FILE       "gnuplot/shortest_costs.dat"                                          // Test-graph shortest path gnuplot arches cost-coords .dat file
+#define SHORTEST_NODES_DAT_FILE       "gnuplot/shortest_nodes.dat"                                          // Test-graph shortest path gnuplot node-coords .dat file
+#define SRC_DEST_NODES_DAT_FILE       "gnuplot/src_dest_nodes.dat"                                          // Test-graph gnuplot source and destination node-coords .dat file
 
 
 /* Enums & data-types */
@@ -160,15 +169,113 @@ static void test_option_choice(Test_choice *const choice){                      
 }
 
 
+static void build_shortest_path_graphics_data(){                                                            // Routine to build the shortest-path graphics data for gnuplot
+  /* Body */
+  fbk_nl(1);  fbk_gn_pu("Building shortest-path graphics data (working on .dat files) for gnuplot...");     // Print workin' on gnuplot graphics data files fbk
+  // Open .dat files
+  Fl archs_dat_file = open_file(ARCHS_DAT_FILE, "r");                                                       // Open test-graph gnuplot arch-coords .dat file in read mode
+  Fl costs_dat_file = open_file(COSTS_DAT_FILE, "r");                                                       // Open test-graph gnuplot arches cost-coords .dat file in read mode
+  Fl nodes_dat_file = open_file(NODES_DAT_FILE, "r");                                                       // Open test-graph gnuplot node-coords .dat file in read mode
+  Fl shortest_archs_dat_file = open_file(SHORTEST_ARCHS_DAT_FILE, "w");                                     // Open test-graph shortest path gnuplot arch-coords .dat file in write mode, clearin' file at open
+  Fl shortest_costs_dat_file = open_file(SHORTEST_COSTS_DAT_FILE, "w");                                     // Open test-graph shortest path gnuplot arches cost-coords .dat file in write mode, clearin' file at open
+  Fl shortest_nodes_dat_file = open_file(SHORTEST_NODES_DAT_FILE, "w");                                     // Open test-graph shortest path gnuplot node-coords .dat file in write mode, clearin' file at open
+  Fl src_dest_nodes_dat_file = open_file(SRC_DEST_NODES_DAT_FILE, "w");                                     // Open test-graph gnuplot source and destination node-coords .dat file in write mode, clearin' file at open
+  // Check .dat files correctly opened
+  if (archs_dat_file != NULL && costs_dat_file != NULL && nodes_dat_file != NULL &&
+      shortest_archs_dat_file != NULL && shortest_costs_dat_file != NULL &&
+      shortest_nodes_dat_file != NULL && src_dest_nodes_dat_file != NULL){                                  // If gnuplot .dat files has been correctly opened
+    // -
+    int tgt_line_num = 0;                                                                                   // Define target-line number var to find path archs/nodes coordinates in test-graph .dat files
+    Str tgt_line_str = NULL;                                                                                // Define target-line string var to copy path archs/nodes coordinates from test-graph .dat files to shortest-path and src-dest nodes .dat files
+    // Archs
+    for (int i = 1; i < min_pth_conn_vect_size; ++i){                                                       // -
+      rewind(archs_dat_file);                                                                               // Restart scannin' file from line 0
+      tgt_line_num = get_substr_line_from_file(archs_dat_file, min_path_conn_vect[i].ar->name);             // -
+      if (tgt_line_num >= 0){                                                                               // -
+        for (int j = 0; j < 3; ++j, ++tgt_line_num){                                                        // -
+          rewind(archs_dat_file);                                                                           // Restart scannin' file from line 0
+          tgt_line_str = get_line_str_from_file(archs_dat_file, tgt_line_num);                              // -
+          if (tgt_line_str != NULL){                                                                        // -
+            write_str_on_file(shortest_archs_dat_file, tgt_line_str);                                       // -
+          } else                                                                                            // -
+            fbk_err("Err1");                                                                                // -
+        }
+      } else                                                                                                // -
+        fbk_err("Err2");                                                                                    // -
+    }
+    // Arch-costs
+    for (int i = 1; i < min_pth_conn_vect_size; ++i){                                                       // -
+      rewind(costs_dat_file);                                                                               // Restart scannin' file from line 0
+      tgt_line_num = get_substr_line_from_file(costs_dat_file, min_path_conn_vect[i].ar->name);             // -
+      if (tgt_line_num >= 0){                                                                               // -
+        for (int j = 0; j < 2; ++j, ++tgt_line_num){                                                        // -
+          rewind(costs_dat_file);                                                                           // Restart scannin' file from line 0
+          tgt_line_str = get_line_str_from_file(costs_dat_file, tgt_line_num);                              // -
+          if (tgt_line_str != NULL){                                                                        // -
+            write_str_on_file(shortest_costs_dat_file, tgt_line_str);                                       // -
+          } else                                                                                            // -
+            fbk_err("Err1");                                                                                // -
+        }
+      } else                                                                                                // -
+        fbk_err("Err2");                                                                                    // -
+    }
+    // Nodes (source and destination excluded)
+    for (int i = 1; i < min_pth_conn_vect_size-1; ++i){                                                     // -
+      rewind(nodes_dat_file);                                                                               // Restart scannin' file from line 0
+      tgt_line_num = get_substr_line_from_file(nodes_dat_file, min_path_conn_vect[i].nd->name);             // -
+      if (tgt_line_num >= 0){                                                                               // -
+        for (int j = 0; j < 2; ++j, ++tgt_line_num){                                                        // -
+          rewind(nodes_dat_file);                                                                           // Restart scannin' file from line 0
+          tgt_line_str = get_line_str_from_file(nodes_dat_file, tgt_line_num);                              // -
+          if (tgt_line_str != NULL){                                                                        // -
+            write_str_on_file(shortest_nodes_dat_file, tgt_line_str);                                       // -
+          } else                                                                                            // -
+            fbk_err("Err1");                                                                                // -
+        }
+      } else                                                                                                // -
+        fbk_err("Err2");                                                                                    // -
+    }
+    // Source and destination nodes
+    for (int i = 0; i < min_pth_conn_vect_size; i += (min_pth_conn_vect_size-1)){                           // -
+      rewind(nodes_dat_file);                                                                               // Restart scannin' file from line 0
+      tgt_line_num = get_substr_line_from_file(nodes_dat_file, min_path_conn_vect[i].nd->name);             // -
+      if (tgt_line_num >= 0){                                                                               // -
+        for (int j = 0; j < 2; ++j, ++tgt_line_num){                                                        // -
+          rewind(nodes_dat_file);                                                                           // Restart scannin' file from line 0
+          tgt_line_str = get_line_str_from_file(nodes_dat_file, tgt_line_num);                              // -
+          if (tgt_line_str != NULL){                                                                        // -
+            write_str_on_file(src_dest_nodes_dat_file, tgt_line_str);                                       // -
+          } else                                                                                            // -
+            fbk_err("Err1");                                                                                // -
+        }
+      } else                                                                                                // -
+        fbk_err("Err2");                                                                                    // -
+    }
+    // Close .dat files
+    close_file(archs_dat_file);                                                                             // Close test-graph gnuplot arch-coords .dat file
+    close_file(costs_dat_file);                                                                             // Close test-graph gnuplot arches cost-coords .dat file
+    close_file(nodes_dat_file);                                                                             // Close test-graph gnuplot node-coords .dat file
+    close_file(shortest_archs_dat_file);                                                                    // Close test-graph shortest path gnuplot arch-coords .dat file
+    close_file(shortest_costs_dat_file);                                                                    // Close test-graph shortest path gnuplot arches cost-coords .dat file
+    close_file(shortest_nodes_dat_file);                                                                    // Close test-graph shortest path gnuplot node-coords .dat file
+    close_file(src_dest_nodes_dat_file);                                                                    // Close test-graph gnuplot source and destination node-coords .dat file
+    fbk_nl(1);  fbk_gn_cy("Shortest-path graphics data managenent for gnuplot completed!\n");               // Print Shortest-path graphics data managenent completed fbk
+  } else                                                                                                    // Else if gnuplot .dat files ain't been correctly opened
+    fbk_err("Ops! Something went wrong during shortest-path graphics data managenent for gnuplot");         // Print err fbk
+}
+
+
 static void display_test_graph(C_str cmd){                                                                  // Routine to display test-graph through gnuplot
   /* Body */
   fbk_gn_pu("Close gnuplot to continue graph-library test..."); fbk_nl(1);                                  // Print close gnuplot to continue fbk
+  if (strcmp(cmd, GPLOT_SHORTEST_PATH_CMD) == 0)                                                            // If display command request min path
+    build_shortest_path_graphics_data();                                                                    // Routine call to build the shortest-path graphics data for gnuplot
   fflush(stdout);                                                                                           // Force fbk print b4 openin' gnuplot
   int ret_val = system(cmd);                                                                                // Display test-graph layout with gnuplot
   if (ret_val == 0){                                                                                        // Chack command return val, if ok
     fbk_nl(1);  fbk_gn_cy("Test-graph layout correctly displayed with gnuplot!\n");                         // Test-graph layout correctly displayed with gnuplot fbk
   } else                                                                                                    // Else if command return val ain't ok
-    fbk_err("Ops! Encountred error during gnuplot command execution!");                                     // Error fbk
+    fbk_err("Ops! Encountred error during gnuplot command execution, make sure to have gnuplot installed"); // Error fbk
 }
 
 
@@ -258,10 +365,12 @@ int main(){                                                                     
       fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                    // Print separator fbk
       reconstruct_min_path(DESTINATION_NODE_NAME);                                                          // Routine call to reconstruct min path
       // (3.3.1) Display test-graph layout and shortest path with gnuplot (from Cr4 to Cr9)                 // --------------------------------------------------------- (3.3.1)
-      fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                               // Print separator fbk
-      fbk_nl(1);  fbk_gn_pu("(3.3.1) Displayin' test-graph and shortest path with gnuplot (Cr4-Cr9)...");   // Print displayin' test-graph layout and shortest path with gnuplot fbk
-      fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                    // Print separator fbk
-      display_test_graph(GPLOT_SHORTEST_PATH_CMD);                                                          // Routine call to display test-graph through gnuplot
+      if (min_pth_conn_vect_size > 1){                                                                      // If min path contains at least src and dest nodes
+        fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                             // Print separator fbk
+        fbk_nl(1);  fbk_gn_pu("(3.3.1) Displayin' test-graph and shortest path with gnuplot (Cr4-Cr9)..."); // Print displayin' test-graph layout and shortest path with gnuplot fbk
+        fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                  // Print separator fbk
+        display_test_graph(GPLOT_SHORTEST_PATH_CMD);                                                        // Routine call to display test-graph through gnuplot
+      }                                                                                                     //
       // (3.4.1) Reconstruct some special-cases paths (Cr4-Cr4 and Cr4-Cr10)                                // --------------------------------------------------------- (3.4.1)
       fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                               // Print separator fbk
       fbk_nl(1);  fbk_gn_pu("(3.4.1) Reconstructin' some special-cases paths (Cr4-Cr4 and Cr4-Cr10)...");   // Print reconstructin' some special-cases paths fbk
@@ -286,10 +395,12 @@ int main(){                                                                     
       define_dest_node_name(&dest_nd_nm);                                                                   // Routine call to define presonalized destination-node name
       reconstruct_min_path(dest_nd_nm);                                                                     // Routine call to reconstruct min path
       // (3.3.2) Display test-graph layout and shortest path with gnuplot                                   // --------------------------------------------------------- (3.3.2)
-      fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                               // Print separator fbk
-      fbk_nl(1);  fbk_gn_pu("(3.3.2) Displayin' test-graph and shortest path with gnuplot...");             // Print displayin' test-graph layout and shortest path with gnuplot fbk
-      fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                    // Print separator fbk
-      display_test_graph(GPLOT_TEST_GRAPH_LAYOUT_CMD);                                                      // Routine call to display test-graph through gnuplot
+      if (min_pth_conn_vect_size > 1){                                                                      // If min path contains at least src and dest nodes
+        fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                             // Print separator fbk
+        fbk_nl(1);  fbk_gn_pu("(3.3.2) Displayin' test-graph and shortest path with gnuplot...");           // Print displayin' test-graph layout and shortest path with gnuplot fbk
+        fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                  // Print separator fbk
+        display_test_graph(GPLOT_SHORTEST_PATH_CMD);                                                        // Routine call to display test-graph through gnuplot
+      }                                                                                                     //
       break;                                                                                                //
     ////////                                                                                                //
     default:                                                                                                // Unknown option (avoid compile errors)

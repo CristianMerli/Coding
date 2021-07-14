@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Graph library header file
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 22/06/2021
- * Last mod. date: 13/07/2021 
+ * Last mod. date: 14/07/2021 
  */
 
 

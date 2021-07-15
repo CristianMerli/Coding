@@ -1,0 +1,1623 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML><HEAD></HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="FrameName" value="right">
+</OBJECT>
+<UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a91c2d807657171c394e27b914924954b"><param name="Name" value="__attribute__"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a196753fb597befc8de59dbc37f185ce5"><param name="Name" value="_REAL_MAX"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ad89076bc70181030841294fc1d100bbe"><param name="Name" value="_REAL_MAX_"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a27e5cc59d5bb27795199242b2a3d737a"><param name="Name" value="add_elem_at_list_head"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#af5aa8669cc12756f3dcadcaf0f06638a"><param name="Name" value="add_elem_at_list_pos"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a1db6fd139c1ba1ecfc2829125708b5e4"><param name="Name" value="add_elem_at_list_tail"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a70bbb2c5f05b7dbff77291e0fa16ceb4"><param name="Name" value="add_new_arch"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a70bbb2c5f05b7dbff77291e0fa16ceb4"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a1381b6bc337f9a41b46e4a3ffcabb3b3"><param name="Name" value="add_new_arch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a2fa12520fc6886afc0e7398f89dfacaf"><param name="Name" value="add_new_node"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a2fa12520fc6886afc0e7398f89dfacaf"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a2fa12520fc6886afc0e7398f89dfacaf"><param name="Name" value="add_new_node"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a3154d053b3bb7c7e9298b66b4f8f0e6f"><param name="Name" value="allocate_new_archs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ae401c1451b3cf0a5da38a6428d2eb394"><param name="Name" value="allocate_new_dijk_dataset_vect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ac7dd9d664ed1f8ef1520946312bde2b3"><param name="Name" value="allocate_new_list_elems"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a0a7400ca76243d1a7bcd961dd8c5a51c"><param name="Name" value="allocate_new_nd_conn_vect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ab1801ec94fdda1332e46d38755bd99e8"><param name="Name" value="allocate_new_nodes"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdijkstra__dataset.html#a09f4e0fcb5c4f9d0721bce3b9c487edb"><param name="Name" value="an_flg"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a306c81f1f994c864c0b0c69bac1ceac6"><param name="Name" value="apply_dijkstra"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structconnection.html#a59c9dd845d3d00f50c38dc16da66c173"><param name="Name" value="ar"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ac87c026b772bad1b7bb6edea6200fc92aaa54e8220a1a7dbfd4cf3843b1b04422"><param name="Name" value="AR"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structlist__elem.html#a6c9dd543be37882ea31238b58ab644d6"><param name="Name" value="ar"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a55d51defea88514c66b94efa195fd708"><param name="Name" value="AR_STR_LEN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html"><param name="Name" value="arch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html#a739e3d8f40003c2ea9245f57fe54c9c6"><param name="Name" value="arch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a912eaca81b9831a8873f3940f79fc422"><param name="Name" value="Arch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html"><param name="Name" value="arch"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html#a2a6cbf17137195cccf8be27a734795c1"><param name="Name" value="name"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html"><param name="Name" value="arch"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html#acbe273e70cb9302234dabef35fdd2223"><param name="Name" value="nd1"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html#ac63bba5fb7b43ba24e3afa348bbd579b"><param name="Name" value="arch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a5b8fda8fe3fe408974fa47cda6f8b2cba4c9fd04e211b991fe8dd91dd5b858446"><param name="Name" value="ARCH_ND1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a5b8fda8fe3fe408974fa47cda6f8b2cbab605ec16b7d01f4c8aa7d6a838dd9a74"><param name="Name" value="ARCH_ND2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#abc916a2cd185b0f8dae8e8ad7a21f3e0"><param name="Name" value="Arch_pos_typ"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a3c45957e2f9794194774aa2ea3b2a9c9"><param name="Name" value="arch_pos_typ_str"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a0337f66297283924755aab60e78202a1"><param name="Name" value="archs_collect_vect"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a0337f66297283924755aab60e78202a1"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a0337f66297283924755aab60e78202a1"><param name="Name" value="archs_collect_vect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ad85d846120d4ceffff0532ab0baee521"><param name="Name" value="ARCHS_DAT_FILE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structnode.html#a64d419c46e0ca6c97d84b514e402d187"><param name="Name" value="archs_lst"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a5662f3f923ecae18f40330360ccaf59e"><param name="Name" value="ars_collect_size"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a5662f3f923ecae18f40330360ccaf59e"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a5662f3f923ecae18f40330360ccaf59e"><param name="Name" value="ars_collect_size"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#afdef5a4554d50047c18d6e0dda01b319"><param name="Name" value="assign_date_time"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#afdef5a4554d50047c18d6e0dda01b319"><param name="Name" value="lib_timer.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#af5911c80d18f50a3d3a97f1bfefcfc41"><param name="Name" value="assign_date_time"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a46b7d4a88e4ac3dae1c8f8a8d8399b58"><param name="Name" value="BU"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="bug.html"><param name="Name" value="Bug List"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a9344d8aded31a4e9eb0bbaaa20f403de"><param name="Name" value="buid_shortest_path"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a9344d8aded31a4e9eb0bbaaa20f403de"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a9344d8aded31a4e9eb0bbaaa20f403de"><param name="Name" value="buid_shortest_path"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a8ce50baf9e16d38da95c61def1b9423b"><param name="Name" value="build_shortest_path_graphics_data"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ae3a497195d617519e5353ea7b417940f"><param name="Name" value="Byte"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a598f09f76efbf6ebca4aee62cf5bfe51"><param name="Name" value="C_byte"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#afd3f724a16eab56f235f0a3c30189e54"><param name="Name" value="C_char"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a25fc2524b96ae84e62c32c2a2a2b1cbc"><param name="Name" value="C_int"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#af0f23cd86045846c2b0eeb054fc1fa5c"><param name="Name" value="C_ptr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a07e297cf39b4faece3a1227415d66136"><param name="Name" value="C_real"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ad84c86543015fe710a5525a5049df308"><param name="Name" value="C_str"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727ae4842754cb17e5234637e3a85a7f3d90"><param name="Name" value="CANCEL"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#a3ecb9c3a19428f17f0f4fae828973087"><param name="Name" value="chk_date_in_range"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#a3ecb9c3a19428f17f0f4fae828973087"><param name="Name" value="lib_timer.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a3ecb9c3a19428f17f0f4fae828973087"><param name="Name" value="chk_date_in_range"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a8604fba41a687b0eb8403e1c79f99663"><param name="Name" value="Cl_real"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a5eccbbd00e789dc895772018c67781e7"><param name="Name" value="close_err"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a5eccbbd00e789dc895772018c67781e7"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a5eccbbd00e789dc895772018c67781e7"><param name="Name" value="close_err"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a848fa25476eae58424e5ae82d838124d"><param name="Name" value="close_fbk"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a848fa25476eae58424e5ae82d838124d"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a848fa25476eae58424e5ae82d838124d"><param name="Name" value="close_fbk"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a6d39326c3fbef1d07f957183962a2974"><param name="Name" value="close_file"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a6d39326c3fbef1d07f957183962a2974"><param name="Name" value="lib_files.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a6d39326c3fbef1d07f957183962a2974"><param name="Name" value="close_file"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a3a0b97b6d12502d0cbc2efff149bd7c0"><param name="Name" value="close_keyboard_interrupt"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a3a0b97b6d12502d0cbc2efff149bd7c0"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a3a0b97b6d12502d0cbc2efff149bd7c0"><param name="Name" value="close_keyboard_interrupt"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#aa44bcafa2d1275e6e6a212f755e59127"><param name="Name" value="clr_term_in"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#aa44bcafa2d1275e6e6a212f755e59127"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#aa44bcafa2d1275e6e6a212f755e59127"><param name="Name" value="clr_term_in"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#ab88482d71da5dd89883ccf7011a6d63a"><param name="Name" value="cmp_date_time"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#ab88482d71da5dd89883ccf7011a6d63a"><param name="Name" value="lib_timer.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ab88482d71da5dd89883ccf7011a6d63a"><param name="Name" value="cmp_date_time"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ab6eb6eacce7926d382c7aecb97b057d3"><param name="Name" value="Cmp_res"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a90f4535a4ce03e37f3e368cad7bc2275"><param name="Name" value="Confirm"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a61ca93af7e8a9d84781810c1f7d7bc60"><param name="Name" value="connect_node_arch"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a61ca93af7e8a9d84781810c1f7d7bc60"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a61ca93af7e8a9d84781810c1f7d7bc60"><param name="Name" value="connect_node_arch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structconnection.html"><param name="Name" value="connection"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structconnection.html#a59c9dd845d3d00f50c38dc16da66c173"><param name="Name" value="connection"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a8a313ef875ea712fd07add06466a978a"><param name="Name" value="Connection"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structconnection.html#a69e81728d900462fb31f095dcb3b1192"><param name="Name" value="connection"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html#a739e3d8f40003c2ea9245f57fe54c9c6"><param name="Name" value="cost"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a58526b331498d67c4e8c3f41ae7a73a5"><param name="Name" value="COSTS_DAT_FILE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#afa5f2f90e45b7d4294627c0398d7b90b"><param name="Name" value="create_archs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ab38a0220fa00d067358b24a31982ce73"><param name="Name" value="create_connections"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a3196aff96ed224d9f54fe365d1d5e3eb"><param name="Name" value="create_nodes"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#af8701958557dc50c7d279f431c2c7560"><param name="Name" value="crss_names_vect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#af3b9a28d7eb8c9227219d6cef2bf87fd"><param name="Name" value="Cstr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a82eb4502b56e4567d900f48616afbba2"><param name="Name" value="Cu_shrt"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ac5bc792e372b15e7a1d3efe6daac9aec"><param name="Name" value="CY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a2727a93440fd3c42b61b16a9a63af15d"><param name="Name" value="Date_cmp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#aaeef900bb0e56d5df4ebbc44ec74a9c8"><param name="Name" value="DATE_DELIM_CHR"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html"><param name="Name" value="date_time"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html"><param name="Name" value="date_time"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#a00457ce7dad2e289046a73fba0963b79"><param name="Name" value="dd"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#af338a6f93420fb6d0001558ba3b9d08a"><param name="Name" value="date_time"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ae82ea30da67e6901c992f0df3485637a"><param name="Name" value="Date_time"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html"><param name="Name" value="date_time"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#a2b2c5d5430542a5f9f7035486f2d62a0"><param name="Name" value="mm"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html"><param name="Name" value="date_time"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#a90041b7bbbd4c43e8907967d86fad057"><param name="Name" value="mn"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html"><param name="Name" value="date_time"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#a7497aae6f2c339a3635f2aaae5d85627"><param name="Name" value="ss"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#a9717890d891034bcca920fc567a397af"><param name="Name" value="date_time"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ad3d0205a14430b655aa00439605b4ad4"><param name="Name" value="DATE_TIME_DELIM_CHR"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a1c60ed337222ba80c9153d8eeb01e2d2"><param name="Name" value="DATE_TIME_STR_LEN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a97c972c42cb11129110bea3e528f5f72"><param name="Name" value="dbg"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a97c972c42cb11129110bea3e528f5f72"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a97c972c42cb11129110bea3e528f5f72"><param name="Name" value="dbg"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#af3f8bebb538d20ce846e96599a35e66a"><param name="Name" value="dbg_int"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#af3f8bebb538d20ce846e96599a35e66a"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#af3f8bebb538d20ce846e96599a35e66a"><param name="Name" value="dbg_int"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a14ec0b4dda5e3157ac920779e62f625c"><param name="Name" value="dbg_lreal"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a14ec0b4dda5e3157ac920779e62f625c"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a14ec0b4dda5e3157ac920779e62f625c"><param name="Name" value="dbg_lreal"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a221a99855d614a3352784f9d0e784789"><param name="Name" value="dbg_print"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a221a99855d614a3352784f9d0e784789"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a221a99855d614a3352784f9d0e784789"><param name="Name" value="dbg_print"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a29c5df266389d374e8e5954347c7ff80"><param name="Name" value="dbg_ptr"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a29c5df266389d374e8e5954347c7ff80"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a29c5df266389d374e8e5954347c7ff80"><param name="Name" value="dbg_ptr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a0b8cdad874e3ab4520f030ed6c43513c"><param name="Name" value="dbg_real"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a0b8cdad874e3ab4520f030ed6c43513c"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a0b8cdad874e3ab4520f030ed6c43513c"><param name="Name" value="dbg_real"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ac66c9e92612d1df7c658a86fe0707d1d"><param name="Name" value="dbg_str"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ac66c9e92612d1df7c658a86fe0707d1d"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ac66c9e92612d1df7c658a86fe0707d1d"><param name="Name" value="dbg_str"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#a00457ce7dad2e289046a73fba0963b79"><param name="Name" value="dd"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#a00457ce7dad2e289046a73fba0963b79"><param name="Name" value="date_time"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structnode.html#a5f59fc56367364ce3424b6aec516d8d2"><param name="Name" value="dd"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ae6156c07045d4ae685a48c5c101ebf04"><param name="Name" value="define_dest_node_name"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a38e6784f597a214ad33654c17fd0e181"><param name="Name" value="define_src_node_name"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#a8556f097846507dc696ed045bbd322bd"><param name="Name" value="delay"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#a8556f097846507dc696ed045bbd322bd"><param name="Name" value="lib_timer.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a8556f097846507dc696ed045bbd322bd"><param name="Name" value="delay"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a4dc8cd143c735ed53ff0c161079206b0"><param name="Name" value="dest_node_idx"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#aa8b4cf7a82eeef0d04459d7aa08a44ea"><param name="Name" value="DEST_NODE_NAME_SPECIAL_CASE1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a355aa2b53753f34516ccb8ad5f6d2334"><param name="Name" value="DEST_NODE_NAME_SPECIAL_CASE2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a3fa787c292bdeef4860660765d0160af"><param name="Name" value="DESTINATION_NODE_NAME"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a04651c2f79a7e220dc161296739b7830"><param name="Name" value="dijk_dataset_vect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a67ad50bcf5c0aee76ebf61c50446e0ff"><param name="Name" value="dijkstra_alg"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a67ad50bcf5c0aee76ebf61c50446e0ff"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a67ad50bcf5c0aee76ebf61c50446e0ff"><param name="Name" value="dijkstra_alg"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdijkstra__dataset.html"><param name="Name" value="dijkstra_dataset"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdijkstra__dataset.html#a09f4e0fcb5c4f9d0721bce3b9c487edb"><param name="Name" value="dijkstra_dataset"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a056284a702c0d4e557e84d2833770f16"><param name="Name" value="Dijkstra_dataset"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdijkstra__dataset.html"><param name="Name" value="dijkstra_dataset"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structdijkstra__dataset.html#a36312e4e78a2e052ce6bbf1e314d58f4"><param name="Name" value="min_path_cost"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdijkstra__dataset.html#ae267e32e2b42821207f2be040e144a0f"><param name="Name" value="dijkstra_dataset"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a72672eb3a3b3aefc3dd84b1998db7b38"><param name="Name" value="display_test_graph"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a21151d72f7cc58ba09ce95ec2fdbfd14"><param name="Name" value="ER"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0a7a10b5d68d31711288e1fe0fa17dbf4f"><param name="Name" value="EXIT"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#abcf2b1bd334cfa5b10438ef5f9e387ed"><param name="Name" value="fbk_err"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#abcf2b1bd334cfa5b10438ef5f9e387ed"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#abcf2b1bd334cfa5b10438ef5f9e387ed"><param name="Name" value="fbk_err"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a74eb94071236787ba5f879e4bb0cd396"><param name="Name" value="fbk_gn_cy"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a74eb94071236787ba5f879e4bb0cd396"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a74eb94071236787ba5f879e4bb0cd396"><param name="Name" value="fbk_gn_cy"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#acfd520b1046cc694266fd2f0231ff62d"><param name="Name" value="fbk_gn_lbu_date_time"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#acfd520b1046cc694266fd2f0231ff62d"><param name="Name" value="lib_timer.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#acfd520b1046cc694266fd2f0231ff62d"><param name="Name" value="fbk_gn_lbu_date_time"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#aa6940a50e7f1d5e3f16773ad7af6b6a5"><param name="Name" value="fbk_gn_lbu_ye_int"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#aa6940a50e7f1d5e3f16773ad7af6b6a5"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#aa6940a50e7f1d5e3f16773ad7af6b6a5"><param name="Name" value="fbk_gn_lbu_ye_int"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#af6fd33b81265a59a2715ab9d5cf49f76"><param name="Name" value="fbk_gn_lbu_ye_lreal"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#af6fd33b81265a59a2715ab9d5cf49f76"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#af6fd33b81265a59a2715ab9d5cf49f76"><param name="Name" value="fbk_gn_lbu_ye_lreal"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a37a4e2008c58a5dd9cc1796d04cb759e"><param name="Name" value="fbk_gn_lbu_ye_ptr"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a37a4e2008c58a5dd9cc1796d04cb759e"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a37a4e2008c58a5dd9cc1796d04cb759e"><param name="Name" value="fbk_gn_lbu_ye_ptr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a0553f5cf0877a6345ddf8ac3e4cc77be"><param name="Name" value="fbk_gn_lbu_ye_real"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a0553f5cf0877a6345ddf8ac3e4cc77be"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a0553f5cf0877a6345ddf8ac3e4cc77be"><param name="Name" value="fbk_gn_lbu_ye_real"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a2e3a15742d619caeed1dc0139ba38132"><param name="Name" value="fbk_gn_lbu_ye_str"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a2e3a15742d619caeed1dc0139ba38132"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a2e3a15742d619caeed1dc0139ba38132"><param name="Name" value="fbk_gn_lbu_ye_str"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a7ad73f9698ccf8019cf8eb69d5776116"><param name="Name" value="fbk_gn_pu"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a7ad73f9698ccf8019cf8eb69d5776116"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a7ad73f9698ccf8019cf8eb69d5776116"><param name="Name" value="fbk_gn_pu"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ad6191e205e78cd233b7aed28420d5bcf"><param name="Name" value="fbk_nl"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ad6191e205e78cd233b7aed28420d5bcf"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ad6191e205e78cd233b7aed28420d5bcf"><param name="Name" value="fbk_nl"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a0c0f7c670412013ce79cc9a642b229b0"><param name="Name" value="fbk_separator"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a0c0f7c670412013ce79cc9a642b229b0"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a0c0f7c670412013ce79cc9a642b229b0"><param name="Name" value="fbk_separator"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ad651d986ab2ea944e9ad070807bd838d"><param name="Name" value="fbk_spaces"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ad651d986ab2ea944e9ad070807bd838d"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ad651d986ab2ea944e9ad070807bd838d"><param name="Name" value="fbk_spaces"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a925e64ed6ea02055cef6a51beb80a2ca"><param name="Name" value="fbk_tabs"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a925e64ed6ea02055cef6a51beb80a2ca"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a925e64ed6ea02055cef6a51beb80a2ca"><param name="Name" value="fbk_tabs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a3494a4e0bde5ccf844f1492374bc2c69"><param name="Name" value="file_in_buff"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a3494a4e0bde5ccf844f1492374bc2c69"><param name="Name" value="lib_files.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a3494a4e0bde5ccf844f1492374bc2c69"><param name="Name" value="file_in_buff"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a463caf5507d5055c43fc53319416a55c"><param name="Name" value="FILE_IN_BUFF_SIZE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#abf80ad6966766d3b8d84a3f6fae92f95"><param name="Name" value="Fl"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a25f5aa939e4a3d9cbb380450a83c02e7"><param name="Name" value="free_graph"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a25f5aa939e4a3d9cbb380450a83c02e7"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a25f5aa939e4a3d9cbb380450a83c02e7"><param name="Name" value="free_graph"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a462f38495a21563ad66281c02ab1d4f1"><param name="Name" value="free_list_elems"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="page1.html"><param name="Name" value="General notes"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#a3af91197c7c156faa37c9edfb4261abc"><param name="Name" value="get_date_time"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#a3af91197c7c156faa37c9edfb4261abc"><param name="Name" value="lib_timer.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a3af91197c7c156faa37c9edfb4261abc"><param name="Name" value="get_date_time"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a7afafcb535822d7f6c8510697b529358"><param name="Name" value="get_line_str_from_file"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a7afafcb535822d7f6c8510697b529358"><param name="Name" value="lib_files.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a9a900be232e1f88f5a863baa02255c33"><param name="Name" value="get_line_str_from_file"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a3e6a31237e26953d9d8d98854d875dea"><param name="Name" value="get_substr_line_from_file"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a3e6a31237e26953d9d8d98854d875dea"><param name="Name" value="lib_files.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a3e6a31237e26953d9d8d98854d875dea"><param name="Name" value="get_substr_line_from_file"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a4fe57a13fdc265939879a40a8808005c"><param name="Name" value="GN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ae51861e1f83dadd8a77c1020e79c8712"><param name="Name" value="GPLOT_SHORTEST_PATH_CMD"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ae5633818219aaada9ace24af446090fc"><param name="Name" value="GPLOT_TEST_GRAPH_LAYOUT_CMD"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#afecfc9744dec6bf37705ac2037ff4a13"><param name="Name" value="Graph_arch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#aefe7e664412b2365eb495bf4c94b6a09"><param name="Name" value="Graph_node"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a306c81f1f994c864c0b0c69bac1ceac6"><param name="Name" value="apply_dijkstra"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ad85d846120d4ceffff0532ab0baee521"><param name="Name" value="ARCHS_DAT_FILE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a8ce50baf9e16d38da95c61def1b9423b"><param name="Name" value="build_shortest_path_graphics_data"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a58526b331498d67c4e8c3f41ae7a73a5"><param name="Name" value="COSTS_DAT_FILE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#afa5f2f90e45b7d4294627c0398d7b90b"><param name="Name" value="create_archs"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ab38a0220fa00d067358b24a31982ce73"><param name="Name" value="create_connections"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a3196aff96ed224d9f54fe365d1d5e3eb"><param name="Name" value="create_nodes"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#af8701958557dc50c7d279f431c2c7560"><param name="Name" value="crss_names_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ae6156c07045d4ae685a48c5c101ebf04"><param name="Name" value="define_dest_node_name"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a38e6784f597a214ad33654c17fd0e181"><param name="Name" value="define_src_node_name"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#aa8b4cf7a82eeef0d04459d7aa08a44ea"><param name="Name" value="DEST_NODE_NAME_SPECIAL_CASE1"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a355aa2b53753f34516ccb8ad5f6d2334"><param name="Name" value="DEST_NODE_NAME_SPECIAL_CASE2"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a3fa787c292bdeef4860660765d0160af"><param name="Name" value="DESTINATION_NODE_NAME"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a72672eb3a3b3aefc3dd84b1998db7b38"><param name="Name" value="display_test_graph"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0a7a10b5d68d31711288e1fe0fa17dbf4f"><param name="Name" value="EXIT"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ae51861e1f83dadd8a77c1020e79c8712"><param name="Name" value="GPLOT_SHORTEST_PATH_CMD"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ae5633818219aaada9ace24af446090fc"><param name="Name" value="GPLOT_TEST_GRAPH_LAYOUT_CMD"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4"><param name="Name" value="main"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a9699fda21aa10fd2ba67b49321ed3dfd"><param name="Name" value="NODES_DAT_FILE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0a2f770cf5dfbe6062bfd8072f6c1b93df"><param name="Name" value="PERSONALIZED"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0aca587e6ced264bc7afe62847cffb45ab"><param name="Name" value="PREPARED"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ac773bc49ea0484442864f586ef1cc8ce"><param name="Name" value="reconstruct_min_path"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ae14aa1afe916e4ae777e02a601bf5bcd"><param name="Name" value="SHORTEST_ARCHS_DAT_FILE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a040506cbeaa54e32e79dfcf378e079a7"><param name="Name" value="SHORTEST_COSTS_DAT_FILE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a83ae7dcebc5ade0ace3a6283afc27730"><param name="Name" value="SHORTEST_NODES_DAT_FILE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a42c91a39135d4feeb08d7d08b8340df9"><param name="Name" value="SOURCE_NODE_NAME"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#acf3072e9017b2087c338ee409839cb97"><param name="Name" value="SRC_DEST_NODES_DAT_FILE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ad07a104cc9835697745c277cace15128"><param name="Name" value="Street"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a153b34d568f9334500de3af1bc6b5a4e"><param name="Name" value="strts_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a83083b02dec5a5f9515692e69e91d412"><param name="Name" value="terminate_keyboard"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a41cd5e790f520e5ff47d502b249df008"><param name="Name" value="Test_choice"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html"><param name="Name" value="graph_test.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#aacfff22104497f04e70d3239c11f7f3f"><param name="Name" value="test_option_choice"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a42f8c497a1968074f38bf5055c650dca"><param name="Name" value="graph_test.c"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#af338a6f93420fb6d0001558ba3b9d08a"><param name="Name" value="hh"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a7754af5df615f3b14c4a0d621f43aab7"><param name="Name" value="iaddr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a0687de5af737423e25cc79bf75c7fc73"><param name="Name" value="idx_by_name"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a0687de5af737423e25cc79bf75c7fc73"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a0687de5af737423e25cc79bf75c7fc73"><param name="Name" value="idx_by_name"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ae5a33261a5b8393cac6d62817538cecd"><param name="Name" value="IN_BUFF_SIZE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a735fd65a838e03b6a77b0ccace1e844c"><param name="Name" value="L_real"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a2e26c4ad393da231a1102e8f95bc27dd"><param name="Name" value="LBU"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structstreet.html#ac520a69d3f3ae12115ebde5ed844a312"><param name="Name" value="length"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ada634186b41f0b4d3d7b4f8495573adb"><param name="Name" value="LGN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a491bf72c90e03f5c3cfed8a25941d2f2"><param name="Name" value="LGY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html"><param name="Name" value="lib_files.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a6d39326c3fbef1d07f957183962a2974"><param name="Name" value="close_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html"><param name="Name" value="lib_files.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a3494a4e0bde5ccf844f1492374bc2c69"><param name="Name" value="file_in_buff"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html"><param name="Name" value="lib_files.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a7afafcb535822d7f6c8510697b529358"><param name="Name" value="get_line_str_from_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html"><param name="Name" value="lib_files.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a3e6a31237e26953d9d8d98854d875dea"><param name="Name" value="get_substr_line_from_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html"><param name="Name" value="lib_files.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a83d11115a7c153b17292f094aba9d6df"><param name="Name" value="open_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html"><param name="Name" value="lib_files.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a1f4ca77075c2abdebac8ad3249b684d5"><param name="Name" value="read_from_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html"><param name="Name" value="lib_files.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a665502fe5824c245ce4520b60e05599c"><param name="Name" value="write_int_on_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html"><param name="Name" value="lib_files.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a7846b45285e8182395c724dbc12d8d87"><param name="Name" value="write_nl_on_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html"><param name="Name" value="lib_files.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a119f5035412ad897d1266f5df416aa26"><param name="Name" value="write_sep_on_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html"><param name="Name" value="lib_files.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a0340bf53db4b48af2d85488cbbab1ec1"><param name="Name" value="write_str_on_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#ad79871f2d54dba34c2b393aec9f2a068"><param name="Name" value="lib_files.c"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a6d39326c3fbef1d07f957183962a2974"><param name="Name" value="close_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a3494a4e0bde5ccf844f1492374bc2c69"><param name="Name" value="file_in_buff"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a463caf5507d5055c43fc53319416a55c"><param name="Name" value="FILE_IN_BUFF_SIZE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#abf80ad6966766d3b8d84a3f6fae92f95"><param name="Name" value="Fl"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a9a900be232e1f88f5a863baa02255c33"><param name="Name" value="get_line_str_from_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a3e6a31237e26953d9d8d98854d875dea"><param name="Name" value="get_substr_line_from_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a83d11115a7c153b17292f094aba9d6df"><param name="Name" value="open_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a1f4ca77075c2abdebac8ad3249b684d5"><param name="Name" value="read_from_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#ad5a570b3ea92ac6976aa28dcf250570b"><param name="Name" value="write_int_on_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a7846b45285e8182395c724dbc12d8d87"><param name="Name" value="write_nl_on_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a75887fa3cff279db090fab710684b8f2"><param name="Name" value="write_sep_on_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html"><param name="Name" value="lib_files.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a0340bf53db4b48af2d85488cbbab1ec1"><param name="Name" value="write_str_on_file"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#ad79871f2d54dba34c2b393aec9f2a068"><param name="Name" value="lib_files.h"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ad89076bc70181030841294fc1d100bbe"><param name="Name" value="_REAL_MAX_"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a27e5cc59d5bb27795199242b2a3d737a"><param name="Name" value="add_elem_at_list_head"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#af5aa8669cc12756f3dcadcaf0f06638a"><param name="Name" value="add_elem_at_list_pos"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a1db6fd139c1ba1ecfc2829125708b5e4"><param name="Name" value="add_elem_at_list_tail"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a70bbb2c5f05b7dbff77291e0fa16ceb4"><param name="Name" value="add_new_arch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a2fa12520fc6886afc0e7398f89dfacaf"><param name="Name" value="add_new_node"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a3154d053b3bb7c7e9298b66b4f8f0e6f"><param name="Name" value="allocate_new_archs"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ae401c1451b3cf0a5da38a6428d2eb394"><param name="Name" value="allocate_new_dijk_dataset_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ac7dd9d664ed1f8ef1520946312bde2b3"><param name="Name" value="allocate_new_list_elems"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a0a7400ca76243d1a7bcd961dd8c5a51c"><param name="Name" value="allocate_new_nd_conn_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ab1801ec94fdda1332e46d38755bd99e8"><param name="Name" value="allocate_new_nodes"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a0337f66297283924755aab60e78202a1"><param name="Name" value="archs_collect_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a5662f3f923ecae18f40330360ccaf59e"><param name="Name" value="ars_collect_size"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a9344d8aded31a4e9eb0bbaaa20f403de"><param name="Name" value="buid_shortest_path"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a61ca93af7e8a9d84781810c1f7d7bc60"><param name="Name" value="connect_node_arch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a4dc8cd143c735ed53ff0c161079206b0"><param name="Name" value="dest_node_idx"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a04651c2f79a7e220dc161296739b7830"><param name="Name" value="dijk_dataset_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a67ad50bcf5c0aee76ebf61c50446e0ff"><param name="Name" value="dijkstra_alg"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a25f5aa939e4a3d9cbb380450a83c02e7"><param name="Name" value="free_graph"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a462f38495a21563ad66281c02ab1d4f1"><param name="Name" value="free_list_elems"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a7754af5df615f3b14c4a0d621f43aab7"><param name="Name" value="iaddr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a0687de5af737423e25cc79bf75c7fc73"><param name="Name" value="idx_by_name"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ac74e899e1069a86919f5333fd6207216"><param name="Name" value="min_path_conn_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a1a2c17f3a450228f3bec01b3e64506fa"><param name="Name" value="min_pth_conn_vect_size"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a706c134b1c706b41954c0b1fef3d6cf5"><param name="Name" value="nds_collect_size"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a91ac417366979d61c7e745aeee72cf3b"><param name="Name" value="nodes_collect_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#aa87dc9d804249b953ae93ded8ce63ebe"><param name="Name" value="not_an_node_conn"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#aad862d83cc0263c50b962768dc4ced4a"><param name="Name" value="print_min_paths"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a7b2e4e6a1ed04e3119c35260cd0d991e"><param name="Name" value="print_shortest_path"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#aa3decb0ada989a23fe24e1e9b05aba83"><param name="Name" value="realloc_flg"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#abd062c44ef33e4535c5a14b6b4252fa0"><param name="Name" value="reallocate_dijk_dataset_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ad60453dd721bd4c270e041f9dbca5f7d"><param name="Name" value="reallocate_nd_conn_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#aca8518e582d7ec09da6e805613fb8616"><param name="Name" value="reallocate_new_archs"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html"><param name="Name" value="lib_graph.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ab41771f7cee6b9217a86c6be4ae106c5"><param name="Name" value="reallocate_new_nodes"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a21177045eb33aa8c30ea479b6b1f0070"><param name="Name" value="lib_graph.c"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a196753fb597befc8de59dbc37f185ce5"><param name="Name" value="_REAL_MAX"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a1381b6bc337f9a41b46e4a3ffcabb3b3"><param name="Name" value="add_new_arch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a2fa12520fc6886afc0e7398f89dfacaf"><param name="Name" value="add_new_node"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ac87c026b772bad1b7bb6edea6200fc92aaa54e8220a1a7dbfd4cf3843b1b04422"><param name="Name" value="AR"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a55d51defea88514c66b94efa195fd708"><param name="Name" value="AR_STR_LEN"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a912eaca81b9831a8873f3940f79fc422"><param name="Name" value="Arch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a5b8fda8fe3fe408974fa47cda6f8b2cba4c9fd04e211b991fe8dd91dd5b858446"><param name="Name" value="ARCH_ND1"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a5b8fda8fe3fe408974fa47cda6f8b2cbab605ec16b7d01f4c8aa7d6a838dd9a74"><param name="Name" value="ARCH_ND2"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#abc916a2cd185b0f8dae8e8ad7a21f3e0"><param name="Name" value="Arch_pos_typ"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a3c45957e2f9794194774aa2ea3b2a9c9"><param name="Name" value="arch_pos_typ_str"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a0337f66297283924755aab60e78202a1"><param name="Name" value="archs_collect_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a5662f3f923ecae18f40330360ccaf59e"><param name="Name" value="ars_collect_size"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a9344d8aded31a4e9eb0bbaaa20f403de"><param name="Name" value="buid_shortest_path"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a61ca93af7e8a9d84781810c1f7d7bc60"><param name="Name" value="connect_node_arch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a8a313ef875ea712fd07add06466a978a"><param name="Name" value="Connection"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a67ad50bcf5c0aee76ebf61c50446e0ff"><param name="Name" value="dijkstra_alg"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a056284a702c0d4e557e84d2833770f16"><param name="Name" value="Dijkstra_dataset"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a25f5aa939e4a3d9cbb380450a83c02e7"><param name="Name" value="free_graph"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#afecfc9744dec6bf37705ac2037ff4a13"><param name="Name" value="Graph_arch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#aefe7e664412b2365eb495bf4c94b6a09"><param name="Name" value="Graph_node"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a0687de5af737423e25cc79bf75c7fc73"><param name="Name" value="idx_by_name"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ae3bbc8b2faded480e82c19f927844359"><param name="Name" value="List"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a7d62773c4ecc99c0301b70012ee0d522"><param name="Name" value="List_elem"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ae58039b461c7fccfb5649b52e965f3e0abdf0fd732c6a91b57c5cbea177f1ae00"><param name="Name" value="LIST_HEAD"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ae58039b461c7fccfb5649b52e965f3e0a2ea243b8eac61378916b01de6659fbcb"><param name="Name" value="LIST_POS"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ae58039b461c7fccfb5649b52e965f3e0a92ccc72d8839c5167e82e2a7771215ae"><param name="Name" value="LIST_TAIL"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ac74e899e1069a86919f5333fd6207216"><param name="Name" value="min_path_conn_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a1a2c17f3a450228f3bec01b3e64506fa"><param name="Name" value="min_pth_conn_vect_size"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a6831eba86322184060ee38d9d6e4053ea2c63acbe79d9f41ba6bb7766e9c37702"><param name="Name" value="N"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ac87c026b772bad1b7bb6edea6200fc92a3888d33fbf016ed141225c1aa0c8f665"><param name="Name" value="ND"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a19494261950487fc03f0d609b24e8f68"><param name="Name" value="ND_STR_LEN"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a706c134b1c706b41954c0b1fef3d6cf5"><param name="Name" value="nds_collect_size"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ac09cf950484bd9550d14d602b0e5e7fb"><param name="Name" value="Node"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a541f7ed71d948f9c437475408b527707"><param name="Name" value="Node_pos_in_arch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a6a8c3f068506accda61a1a82614b0658"><param name="Name" value="node_pos_in_arch_str"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a91ac417366979d61c7e745aeee72cf3b"><param name="Name" value="nodes_collect_vect"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a0424a7a202415fd53847fb2e03f1dea0"><param name="Name" value="Obj_type"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a6bf1744a97620f6c7ccd0dfe6feee3f1"><param name="Name" value="PRINT_DLY_MS"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a48d1e1f72bb85f5f6befd3a4fe0b8baf"><param name="Name" value="SEP_CHR"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a9d8a4b4e76cccacccffc594cda5ac863"><param name="Name" value="SHORT_PTH_SEP_CHR"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#abf38414c45570b868ac3a1c6bb02afe0a28f41f1144eee94834387e9a6a088bc1"><param name="Name" value="V"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#abf38414c45570b868ac3a1c6bb02afe0a3e329bb4aa8def056d4ae1e93751a652"><param name="Name" value="V2"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#abf38414c45570b868ac3a1c6bb02afe0a43cba823b4d5aaeab2aa3c1e6657126b"><param name="Name" value="V3"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a1157d1ffdedacaba3fcc2db7caba1da1"><param name="Name" value="Vect_coords"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html"><param name="Name" value="lib_graph.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a2d27d0bf233cc18c644cdcee1972eb9c"><param name="Name" value="Verbose_mode"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a6831eba86322184060ee38d9d6e4053ea5596231eabd6cf29050967d5ac83ad84"><param name="Name" value="lib_graph.h"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html"><param name="Name" value="lib_timer.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#afdef5a4554d50047c18d6e0dda01b319"><param name="Name" value="assign_date_time"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html"><param name="Name" value="lib_timer.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#a3ecb9c3a19428f17f0f4fae828973087"><param name="Name" value="chk_date_in_range"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html"><param name="Name" value="lib_timer.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#ab88482d71da5dd89883ccf7011a6d63a"><param name="Name" value="cmp_date_time"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html"><param name="Name" value="lib_timer.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#a8556f097846507dc696ed045bbd322bd"><param name="Name" value="delay"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html"><param name="Name" value="lib_timer.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#acfd520b1046cc694266fd2f0231ff62d"><param name="Name" value="fbk_gn_lbu_date_time"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html"><param name="Name" value="lib_timer.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#a3af91197c7c156faa37c9edfb4261abc"><param name="Name" value="get_date_time"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#a07c4edcff0d1136d2bad9d8f4735a171"><param name="Name" value="lib_timer.c"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#af5911c80d18f50a3d3a97f1bfefcfc41"><param name="Name" value="assign_date_time"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a3ecb9c3a19428f17f0f4fae828973087"><param name="Name" value="chk_date_in_range"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ab88482d71da5dd89883ccf7011a6d63a"><param name="Name" value="cmp_date_time"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ab6eb6eacce7926d382c7aecb97b057d3"><param name="Name" value="Cmp_res"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a2727a93440fd3c42b61b16a9a63af15d"><param name="Name" value="Date_cmp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#aaeef900bb0e56d5df4ebbc44ec74a9c8"><param name="Name" value="DATE_DELIM_CHR"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ae82ea30da67e6901c992f0df3485637a"><param name="Name" value="Date_time"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ad3d0205a14430b655aa00439605b4ad4"><param name="Name" value="DATE_TIME_DELIM_CHR"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a1c60ed337222ba80c9153d8eeb01e2d2"><param name="Name" value="DATE_TIME_STR_LEN"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a8556f097846507dc696ed045bbd322bd"><param name="Name" value="delay"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#acfd520b1046cc694266fd2f0231ff62d"><param name="Name" value="fbk_gn_lbu_date_time"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a3af91197c7c156faa37c9edfb4261abc"><param name="Name" value="get_date_time"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a0a45174acf67260772bd0698a5ba3d2b"><param name="Name" value="MAX_DD"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a55125b60f940b6f23937432c02134f72"><param name="Name" value="MAX_HH"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a081de191d96de723de11fef4057129ac"><param name="Name" value="MAX_MM"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a5ff1ef7bd6c1df2a650162766a2ddb76"><param name="Name" value="MAX_MN"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a90266e3f50dcc3e9c1c9ac46a8a8c0c9"><param name="Name" value="MAX_SS"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#afc58f7a3ed8c9971f652f7a0ea1bad15"><param name="Name" value="MAX_YY"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a88909f5cac419acef0190d2388116fc8"><param name="Name" value="MIN_DD"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#aad383c7d706a3bf3c04c7501deae0a28"><param name="Name" value="MIN_HH"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a3319dbfe967768d1aa3dea1673e4d49d"><param name="Name" value="MIN_MM"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a6cb2a4b18fb08195f6d367795a09197f"><param name="Name" value="MIN_MN"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ac5fb45cd869c4499a45cc913c9e3eebe"><param name="Name" value="MIN_SS"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a38e499ebedad226d3f383a432d15e286"><param name="Name" value="MIN_YY"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ade5ef35d1b1144a3f4404ec9a09181e6ab16bfdb60cb8d1a1ef436c3943cdf8a7"><param name="Name" value="NEWER"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a4abc86ac83e212775cf72d5cb92b60c8ad1ed6238e81cc264553d7e9f0cb9a618"><param name="Name" value="NOT_OK"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a4abc86ac83e212775cf72d5cb92b60c8a2bc49ec37d6a5715dd23e85f1ff5bb59"><param name="Name" value="OK"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html"><param name="Name" value="lib_timer.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ade5ef35d1b1144a3f4404ec9a09181e6a1d1b94c103464376b36b2ee2058ccbf1"><param name="Name" value="OLDER"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a8c7f384d0edfaa7ae0499bed65473f10"><param name="Name" value="lib_timer.h"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a91c2d807657171c394e27b914924954b"><param name="Name" value="__attribute__"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a5eccbbd00e789dc895772018c67781e7"><param name="Name" value="close_err"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a848fa25476eae58424e5ae82d838124d"><param name="Name" value="close_fbk"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a3a0b97b6d12502d0cbc2efff149bd7c0"><param name="Name" value="close_keyboard_interrupt"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#aa44bcafa2d1275e6e6a212f755e59127"><param name="Name" value="clr_term_in"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a97c972c42cb11129110bea3e528f5f72"><param name="Name" value="dbg"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#af3f8bebb538d20ce846e96599a35e66a"><param name="Name" value="dbg_int"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a14ec0b4dda5e3157ac920779e62f625c"><param name="Name" value="dbg_lreal"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a221a99855d614a3352784f9d0e784789"><param name="Name" value="dbg_print"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a29c5df266389d374e8e5954347c7ff80"><param name="Name" value="dbg_ptr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a0b8cdad874e3ab4520f030ed6c43513c"><param name="Name" value="dbg_real"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ac66c9e92612d1df7c658a86fe0707d1d"><param name="Name" value="dbg_str"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#abcf2b1bd334cfa5b10438ef5f9e387ed"><param name="Name" value="fbk_err"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a74eb94071236787ba5f879e4bb0cd396"><param name="Name" value="fbk_gn_cy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#aa6940a50e7f1d5e3f16773ad7af6b6a5"><param name="Name" value="fbk_gn_lbu_ye_int"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#af6fd33b81265a59a2715ab9d5cf49f76"><param name="Name" value="fbk_gn_lbu_ye_lreal"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a37a4e2008c58a5dd9cc1796d04cb759e"><param name="Name" value="fbk_gn_lbu_ye_ptr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a0553f5cf0877a6345ddf8ac3e4cc77be"><param name="Name" value="fbk_gn_lbu_ye_real"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a2e3a15742d619caeed1dc0139ba38132"><param name="Name" value="fbk_gn_lbu_ye_str"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a7ad73f9698ccf8019cf8eb69d5776116"><param name="Name" value="fbk_gn_pu"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ad6191e205e78cd233b7aed28420d5bcf"><param name="Name" value="fbk_nl"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a0c0f7c670412013ce79cc9a642b229b0"><param name="Name" value="fbk_separator"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ad651d986ab2ea944e9ad070807bd838d"><param name="Name" value="fbk_spaces"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a925e64ed6ea02055cef6a51beb80a2ca"><param name="Name" value="fbk_tabs"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a71df8abd0abc6ad33a2a0e48196d4ba3"><param name="Name" value="logo"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ac4a36a9f74a70c4bac5ac13ba5ab3fcc"><param name="Name" value="press_enter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a3adde966e285ab14bddba8c84c4c2de2"><param name="Name" value="read_term_in"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a9f80f14c4db277099bd6785e5fa65f64"><param name="Name" value="read_term_in_confirm"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a6b6e780b880a47d53dbf467cc38e26e8"><param name="Name" value="read_term_in_int"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a956b1884479499438761c8bc63f599ad"><param name="Name" value="read_term_in_int_inrange"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a2d18dff32e01d0a139e33c52318c3861"><param name="Name" value="read_term_in_min_chrs"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html"><param name="Name" value="lib_ui.c"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a9d19f73abae0b9456c9664c5730ea1f9"><param name="Name" value="read_term_in_min_chrs_exit_chr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ae75290575196bf07e37203539f4aeb57"><param name="Name" value="lib_ui.c"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a46b7d4a88e4ac3dae1c8f8a8d8399b58"><param name="Name" value="BU"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ae3a497195d617519e5353ea7b417940f"><param name="Name" value="Byte"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a598f09f76efbf6ebca4aee62cf5bfe51"><param name="Name" value="C_byte"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#afd3f724a16eab56f235f0a3c30189e54"><param name="Name" value="C_char"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a25fc2524b96ae84e62c32c2a2a2b1cbc"><param name="Name" value="C_int"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#af0f23cd86045846c2b0eeb054fc1fa5c"><param name="Name" value="C_ptr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a07e297cf39b4faece3a1227415d66136"><param name="Name" value="C_real"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ad84c86543015fe710a5525a5049df308"><param name="Name" value="C_str"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727ae4842754cb17e5234637e3a85a7f3d90"><param name="Name" value="CANCEL"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a8604fba41a687b0eb8403e1c79f99663"><param name="Name" value="Cl_real"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a5eccbbd00e789dc895772018c67781e7"><param name="Name" value="close_err"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a848fa25476eae58424e5ae82d838124d"><param name="Name" value="close_fbk"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a3a0b97b6d12502d0cbc2efff149bd7c0"><param name="Name" value="close_keyboard_interrupt"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#aa44bcafa2d1275e6e6a212f755e59127"><param name="Name" value="clr_term_in"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a90f4535a4ce03e37f3e368cad7bc2275"><param name="Name" value="Confirm"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#af3b9a28d7eb8c9227219d6cef2bf87fd"><param name="Name" value="Cstr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a82eb4502b56e4567d900f48616afbba2"><param name="Name" value="Cu_shrt"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ac5bc792e372b15e7a1d3efe6daac9aec"><param name="Name" value="CY"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a97c972c42cb11129110bea3e528f5f72"><param name="Name" value="dbg"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#af3f8bebb538d20ce846e96599a35e66a"><param name="Name" value="dbg_int"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a14ec0b4dda5e3157ac920779e62f625c"><param name="Name" value="dbg_lreal"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a221a99855d614a3352784f9d0e784789"><param name="Name" value="dbg_print"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a29c5df266389d374e8e5954347c7ff80"><param name="Name" value="dbg_ptr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a0b8cdad874e3ab4520f030ed6c43513c"><param name="Name" value="dbg_real"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ac66c9e92612d1df7c658a86fe0707d1d"><param name="Name" value="dbg_str"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a21151d72f7cc58ba09ce95ec2fdbfd14"><param name="Name" value="ER"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#abcf2b1bd334cfa5b10438ef5f9e387ed"><param name="Name" value="fbk_err"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a74eb94071236787ba5f879e4bb0cd396"><param name="Name" value="fbk_gn_cy"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#aa6940a50e7f1d5e3f16773ad7af6b6a5"><param name="Name" value="fbk_gn_lbu_ye_int"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#af6fd33b81265a59a2715ab9d5cf49f76"><param name="Name" value="fbk_gn_lbu_ye_lreal"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a37a4e2008c58a5dd9cc1796d04cb759e"><param name="Name" value="fbk_gn_lbu_ye_ptr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a0553f5cf0877a6345ddf8ac3e4cc77be"><param name="Name" value="fbk_gn_lbu_ye_real"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a2e3a15742d619caeed1dc0139ba38132"><param name="Name" value="fbk_gn_lbu_ye_str"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a7ad73f9698ccf8019cf8eb69d5776116"><param name="Name" value="fbk_gn_pu"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ad6191e205e78cd233b7aed28420d5bcf"><param name="Name" value="fbk_nl"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a0c0f7c670412013ce79cc9a642b229b0"><param name="Name" value="fbk_separator"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ad651d986ab2ea944e9ad070807bd838d"><param name="Name" value="fbk_spaces"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a925e64ed6ea02055cef6a51beb80a2ca"><param name="Name" value="fbk_tabs"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a4fe57a13fdc265939879a40a8808005c"><param name="Name" value="GN"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ae5a33261a5b8393cac6d62817538cecd"><param name="Name" value="IN_BUFF_SIZE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a735fd65a838e03b6a77b0ccace1e844c"><param name="Name" value="L_real"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a2e26c4ad393da231a1102e8f95bc27dd"><param name="Name" value="LBU"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ada634186b41f0b4d3d7b4f8495573adb"><param name="Name" value="LGN"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a491bf72c90e03f5c3cfed8a25941d2f2"><param name="Name" value="LGY"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a71df8abd0abc6ad33a2a0e48196d4ba3"><param name="Name" value="logo"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727a0d077f5b932ce05e5b9f30c6087a2f31"><param name="Name" value="NO"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a27e656954ad90f1415b3238e2d1a9972"><param name="Name" value="OG"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ac4a36a9f74a70c4bac5ac13ba5ab3fcc"><param name="Name" value="press_enter"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a6ce3b7d762fb68676a01d4a36ebf42c1"><param name="Name" value="Ptr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a1b28968e7678d6e9809ee468e5354cdb"><param name="Name" value="PU"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#aefaf886fe6a8977a1a887fb491a6e82c"><param name="Name" value="RD"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a3adde966e285ab14bddba8c84c4c2de2"><param name="Name" value="read_term_in"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a9f80f14c4db277099bd6785e5fa65f64"><param name="Name" value="read_term_in_confirm"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a6b6e780b880a47d53dbf467cc38e26e8"><param name="Name" value="read_term_in_int"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a956b1884479499438761c8bc63f599ad"><param name="Name" value="read_term_in_int_inrange"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a2d18dff32e01d0a139e33c52318c3861"><param name="Name" value="read_term_in_min_chrs"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a9d19f73abae0b9456c9664c5730ea1f9"><param name="Name" value="read_term_in_min_chrs_exit_chr"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907"><param name="Name" value="Real"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ac7539ac92592b93c069bfbc1ce37ae4a"><param name="Name" value="Str"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ae75290575196bf07e37203539f4aeb57"><param name="Name" value="term_in_buff"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ab00b2d8adf6d193d282fb329f32963c4"><param name="Name" value="U_int"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a0d4257ef0d5906d55bce46ffcd5908e5"><param name="Name" value="U_long"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a43520c6a9ce5ce6082cd1a613f47444f"><param name="Name" value="U_shrt"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a2ff411b23972f6578df341c33895d3e2"><param name="Name" value="unused"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html"><param name="Name" value="lib_ui.h"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a9918952aea03577be45dcd8f272cd806"><param name="Name" value="YE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727a99f136a862ba5c7d16967231c29f09d6"><param name="Name" value="lib_ui.h"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ae3bbc8b2faded480e82c19f927844359"><param name="Name" value="List"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structlist__elem.html"><param name="Name" value="list_elem"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structlist__elem.html#a6c9dd543be37882ea31238b58ab644d6"><param name="Name" value="list_elem"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a7d62773c4ecc99c0301b70012ee0d522"><param name="Name" value="List_elem"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structlist__elem.html#a1a1205a84cdf1ba170e5bc8c810a18d9"><param name="Name" value="list_elem"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ae58039b461c7fccfb5649b52e965f3e0abdf0fd732c6a91b57c5cbea177f1ae00"><param name="Name" value="LIST_HEAD"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ae58039b461c7fccfb5649b52e965f3e0a2ea243b8eac61378916b01de6659fbcb"><param name="Name" value="LIST_POS"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ae58039b461c7fccfb5649b52e965f3e0a92ccc72d8839c5167e82e2a7771215ae"><param name="Name" value="LIST_TAIL"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a71df8abd0abc6ad33a2a0e48196d4ba3"><param name="Name" value="logo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a71df8abd0abc6ad33a2a0e48196d4ba3"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a71df8abd0abc6ad33a2a0e48196d4ba3"><param name="Name" value="logo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4"><param name="Name" value="main"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a0a45174acf67260772bd0698a5ba3d2b"><param name="Name" value="MAX_DD"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a55125b60f940b6f23937432c02134f72"><param name="Name" value="MAX_HH"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a081de191d96de723de11fef4057129ac"><param name="Name" value="MAX_MM"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a5ff1ef7bd6c1df2a650162766a2ddb76"><param name="Name" value="MAX_MN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a90266e3f50dcc3e9c1c9ac46a8a8c0c9"><param name="Name" value="MAX_SS"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#afc58f7a3ed8c9971f652f7a0ea1bad15"><param name="Name" value="MAX_YY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a88909f5cac419acef0190d2388116fc8"><param name="Name" value="MIN_DD"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#aad383c7d706a3bf3c04c7501deae0a28"><param name="Name" value="MIN_HH"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a3319dbfe967768d1aa3dea1673e4d49d"><param name="Name" value="MIN_MM"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a6cb2a4b18fb08195f6d367795a09197f"><param name="Name" value="MIN_MN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ac74e899e1069a86919f5333fd6207216"><param name="Name" value="min_path_conn_vect"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ac74e899e1069a86919f5333fd6207216"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ac74e899e1069a86919f5333fd6207216"><param name="Name" value="min_path_conn_vect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdijkstra__dataset.html#a36312e4e78a2e052ce6bbf1e314d58f4"><param name="Name" value="min_path_cost"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a1a2c17f3a450228f3bec01b3e64506fa"><param name="Name" value="min_pth_conn_vect_size"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a1a2c17f3a450228f3bec01b3e64506fa"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a1a2c17f3a450228f3bec01b3e64506fa"><param name="Name" value="min_pth_conn_vect_size"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ac5fb45cd869c4499a45cc913c9e3eebe"><param name="Name" value="MIN_SS"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a38e499ebedad226d3f383a432d15e286"><param name="Name" value="MIN_YY"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#a2b2c5d5430542a5f9f7035486f2d62a0"><param name="Name" value="mm"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#a90041b7bbbd4c43e8907967d86fad057"><param name="Name" value="mn"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a6831eba86322184060ee38d9d6e4053ea2c63acbe79d9f41ba6bb7766e9c37702"><param name="Name" value="N"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html#a2a6cbf17137195cccf8be27a734795c1"><param name="Name" value="name"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html#a2a6cbf17137195cccf8be27a734795c1"><param name="Name" value="arch"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structnode.html#aae463dc4f9706d49881b7b8f19491481"><param name="Name" value="name"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structnode.html#aae463dc4f9706d49881b7b8f19491481"><param name="Name" value="node"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structstreet.html#affba8f07505a5627820f9f09f0bb7e17"><param name="Name" value="name"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html#acbe273e70cb9302234dabef35fdd2223"><param name="Name" value="nd1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structarch.html#ac63bba5fb7b43ba24e3afa348bbd579b"><param name="Name" value="nd2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structconnection.html#a69e81728d900462fb31f095dcb3b1192"><param name="Name" value="nd"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ac87c026b772bad1b7bb6edea6200fc92a3888d33fbf016ed141225c1aa0c8f665"><param name="Name" value="ND"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a19494261950487fc03f0d609b24e8f68"><param name="Name" value="ND_STR_LEN"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a706c134b1c706b41954c0b1fef3d6cf5"><param name="Name" value="nds_collect_size"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a706c134b1c706b41954c0b1fef3d6cf5"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a706c134b1c706b41954c0b1fef3d6cf5"><param name="Name" value="nds_collect_size"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ade5ef35d1b1144a3f4404ec9a09181e6ab16bfdb60cb8d1a1ef436c3943cdf8a7"><param name="Name" value="NEWER"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727a0d077f5b932ce05e5b9f30c6087a2f31"><param name="Name" value="NO"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structnode.html"><param name="Name" value="node"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structnode.html"><param name="Name" value="node"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structnode.html#a64d419c46e0ca6c97d84b514e402d187"><param name="Name" value="archs_lst"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structnode.html#a5f59fc56367364ce3424b6aec516d8d2"><param name="Name" value="node"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#ac09cf950484bd9550d14d602b0e5e7fb"><param name="Name" value="Node"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structnode.html#aae463dc4f9706d49881b7b8f19491481"><param name="Name" value="node"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a541f7ed71d948f9c437475408b527707"><param name="Name" value="Node_pos_in_arch"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a6a8c3f068506accda61a1a82614b0658"><param name="Name" value="node_pos_in_arch_str"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a91ac417366979d61c7e745aeee72cf3b"><param name="Name" value="nodes_collect_vect"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a91ac417366979d61c7e745aeee72cf3b"><param name="Name" value="lib_graph.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a91ac417366979d61c7e745aeee72cf3b"><param name="Name" value="nodes_collect_vect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a9699fda21aa10fd2ba67b49321ed3dfd"><param name="Name" value="NODES_DAT_FILE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#aa87dc9d804249b953ae93ded8ce63ebe"><param name="Name" value="not_an_node_conn"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a4abc86ac83e212775cf72d5cb92b60c8ad1ed6238e81cc264553d7e9f0cb9a618"><param name="Name" value="NOT_OK"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structlist__elem.html#a1a1205a84cdf1ba170e5bc8c810a18d9"><param name="Name" value="nxt"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a0424a7a202415fd53847fb2e03f1dea0"><param name="Name" value="Obj_type"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a27e656954ad90f1415b3238e2d1a9972"><param name="Name" value="OG"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a4abc86ac83e212775cf72d5cb92b60c8a2bc49ec37d6a5715dd23e85f1ff5bb59"><param name="Name" value="OK"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#ade5ef35d1b1144a3f4404ec9a09181e6a1d1b94c103464376b36b2ee2058ccbf1"><param name="Name" value="OLDER"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a83d11115a7c153b17292f094aba9d6df"><param name="Name" value="open_file"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a83d11115a7c153b17292f094aba9d6df"><param name="Name" value="lib_files.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a83d11115a7c153b17292f094aba9d6df"><param name="Name" value="open_file"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0a2f770cf5dfbe6062bfd8072f6c1b93df"><param name="Name" value="PERSONALIZED"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0aca587e6ced264bc7afe62847cffb45ab"><param name="Name" value="PREPARED"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ac4a36a9f74a70c4bac5ac13ba5ab3fcc"><param name="Name" value="press_enter"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ac4a36a9f74a70c4bac5ac13ba5ab3fcc"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ac4a36a9f74a70c4bac5ac13ba5ab3fcc"><param name="Name" value="press_enter"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdijkstra__dataset.html#ae267e32e2b42821207f2be040e144a0f"><param name="Name" value="prev_nd"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a6bf1744a97620f6c7ccd0dfe6feee3f1"><param name="Name" value="PRINT_DLY_MS"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#aad862d83cc0263c50b962768dc4ced4a"><param name="Name" value="print_min_paths"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a7b2e4e6a1ed04e3119c35260cd0d991e"><param name="Name" value="print_shortest_path"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a6ce3b7d762fb68676a01d4a36ebf42c1"><param name="Name" value="Ptr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a1b28968e7678d6e9809ee468e5354cdb"><param name="Name" value="PU"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#aefaf886fe6a8977a1a887fb491a6e82c"><param name="Name" value="RD"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a1f4ca77075c2abdebac8ad3249b684d5"><param name="Name" value="read_from_file"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a1f4ca77075c2abdebac8ad3249b684d5"><param name="Name" value="lib_files.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a1f4ca77075c2abdebac8ad3249b684d5"><param name="Name" value="read_from_file"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a3adde966e285ab14bddba8c84c4c2de2"><param name="Name" value="read_term_in"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a3adde966e285ab14bddba8c84c4c2de2"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a3adde966e285ab14bddba8c84c4c2de2"><param name="Name" value="read_term_in"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a9f80f14c4db277099bd6785e5fa65f64"><param name="Name" value="read_term_in_confirm"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a9f80f14c4db277099bd6785e5fa65f64"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a9f80f14c4db277099bd6785e5fa65f64"><param name="Name" value="read_term_in_confirm"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a6b6e780b880a47d53dbf467cc38e26e8"><param name="Name" value="read_term_in_int"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a6b6e780b880a47d53dbf467cc38e26e8"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a6b6e780b880a47d53dbf467cc38e26e8"><param name="Name" value="read_term_in_int"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a956b1884479499438761c8bc63f599ad"><param name="Name" value="read_term_in_int_inrange"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a956b1884479499438761c8bc63f599ad"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a956b1884479499438761c8bc63f599ad"><param name="Name" value="read_term_in_int_inrange"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a2d18dff32e01d0a139e33c52318c3861"><param name="Name" value="read_term_in_min_chrs"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a2d18dff32e01d0a139e33c52318c3861"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a2d18dff32e01d0a139e33c52318c3861"><param name="Name" value="read_term_in_min_chrs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a9d19f73abae0b9456c9664c5730ea1f9"><param name="Name" value="read_term_in_min_chrs_exit_chr"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#a9d19f73abae0b9456c9664c5730ea1f9"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a9d19f73abae0b9456c9664c5730ea1f9"><param name="Name" value="read_term_in_min_chrs_exit_chr"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907"><param name="Name" value="Real"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#aa3decb0ada989a23fe24e1e9b05aba83"><param name="Name" value="realloc_flg"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#abd062c44ef33e4535c5a14b6b4252fa0"><param name="Name" value="reallocate_dijk_dataset_vect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ad60453dd721bd4c270e041f9dbca5f7d"><param name="Name" value="reallocate_nd_conn_vect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#aca8518e582d7ec09da6e805613fb8616"><param name="Name" value="reallocate_new_archs"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#ab41771f7cee6b9217a86c6be4ae106c5"><param name="Name" value="reallocate_new_nodes"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ac773bc49ea0484442864f586ef1cc8ce"><param name="Name" value="reconstruct_min_path"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a48d1e1f72bb85f5f6befd3a4fe0b8baf"><param name="Name" value="SEP_CHR"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a9d8a4b4e76cccacccffc594cda5ac863"><param name="Name" value="SHORT_PTH_SEP_CHR"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ae14aa1afe916e4ae777e02a601bf5bcd"><param name="Name" value="SHORTEST_ARCHS_DAT_FILE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a040506cbeaa54e32e79dfcf378e079a7"><param name="Name" value="SHORTEST_COSTS_DAT_FILE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a83ae7dcebc5ade0ace3a6283afc27730"><param name="Name" value="SHORTEST_NODES_DAT_FILE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a42c91a39135d4feeb08d7d08b8340df9"><param name="Name" value="SOURCE_NODE_NAME"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#acf3072e9017b2087c338ee409839cb97"><param name="Name" value="SRC_DEST_NODES_DAT_FILE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8c.html#a21177045eb33aa8c30ea479b6b1f0070"><param name="Name" value="src_node_idx"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#a7497aae6f2c339a3635f2aaae5d85627"><param name="Name" value="ss"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ac7539ac92592b93c069bfbc1ce37ae4a"><param name="Name" value="Str"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structstreet.html"><param name="Name" value="street"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#ad07a104cc9835697745c277cace15128"><param name="Name" value="Street"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structstreet.html"><param name="Name" value="street"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="structstreet.html#ac520a69d3f3ae12115ebde5ed844a312"><param name="Name" value="length"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structstreet.html#affba8f07505a5627820f9f09f0bb7e17"><param name="Name" value="street"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a153b34d568f9334500de3af1bc6b5a4e"><param name="Name" value="strts_vect"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ae75290575196bf07e37203539f4aeb57"><param name="Name" value="term_in_buff"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8c.html#ae75290575196bf07e37203539f4aeb57"><param name="Name" value="lib_ui.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ae75290575196bf07e37203539f4aeb57"><param name="Name" value="term_in_buff"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a83083b02dec5a5f9515692e69e91d412"><param name="Name" value="terminate_keyboard"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="page2.html"><param name="Name" value="Test-page"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a41cd5e790f520e5ff47d502b249df008"><param name="Name" value="Test_choice"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#aacfff22104497f04e70d3239c11f7f3f"><param name="Name" value="test_option_choice"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8h.html#a8c7f384d0edfaa7ae0499bed65473f10"><param name="Name" value="TIME_DELIM_CHR"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#ab00b2d8adf6d193d282fb329f32963c4"><param name="Name" value="U_int"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a0d4257ef0d5906d55bce46ffcd5908e5"><param name="Name" value="U_long"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a43520c6a9ce5ce6082cd1a613f47444f"><param name="Name" value="U_shrt"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a2ff411b23972f6578df341c33895d3e2"><param name="Name" value="unused"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#abf38414c45570b868ac3a1c6bb02afe0a3e329bb4aa8def056d4ae1e93751a652"><param name="Name" value="V2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#abf38414c45570b868ac3a1c6bb02afe0a43cba823b4d5aaeab2aa3c1e6657126b"><param name="Name" value="V3"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#abf38414c45570b868ac3a1c6bb02afe0a28f41f1144eee94834387e9a6a088bc1"><param name="Name" value="V"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__timer_8c.html#a07c4edcff0d1136d2bad9d8f4735a171"><param name="Name" value="val_in_rage"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a1157d1ffdedacaba3fcc2db7caba1da1"><param name="Name" value="Vect_coords"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="graph__test_8c.html#a42f8c497a1968074f38bf5055c650dca"><param name="Name" value="VERBOSE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a2d27d0bf233cc18c644cdcee1972eb9c"><param name="Name" value="Verbose_mode"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a665502fe5824c245ce4520b60e05599c"><param name="Name" value="write_int_on_file"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a665502fe5824c245ce4520b60e05599c"><param name="Name" value="lib_files.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#ad5a570b3ea92ac6976aa28dcf250570b"><param name="Name" value="write_int_on_file"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a7846b45285e8182395c724dbc12d8d87"><param name="Name" value="write_nl_on_file"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a7846b45285e8182395c724dbc12d8d87"><param name="Name" value="lib_files.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a7846b45285e8182395c724dbc12d8d87"><param name="Name" value="write_nl_on_file"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a119f5035412ad897d1266f5df416aa26"><param name="Name" value="write_sep_on_file"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a119f5035412ad897d1266f5df416aa26"><param name="Name" value="lib_files.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a75887fa3cff279db090fab710684b8f2"><param name="Name" value="write_sep_on_file"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a0340bf53db4b48af2d85488cbbab1ec1"><param name="Name" value="write_str_on_file"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#a0340bf53db4b48af2d85488cbbab1ec1"><param name="Name" value="lib_files.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#a0340bf53db4b48af2d85488cbbab1ec1"><param name="Name" value="write_str_on_file"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#ad79871f2d54dba34c2b393aec9f2a068"><param name="Name" value="write_tab_on_file"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8c.html#ad79871f2d54dba34c2b393aec9f2a068"><param name="Name" value="lib_files.c"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__files_8h.html#ad79871f2d54dba34c2b393aec9f2a068"><param name="Name" value="write_tab_on_file"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__graph_8h.html#a6831eba86322184060ee38d9d6e4053ea5596231eabd6cf29050967d5ac83ad84"><param name="Name" value="Y"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a9918952aea03577be45dcd8f272cd806"><param name="Name" value="YE"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727a99f136a862ba5c7d16967231c29f09d6"><param name="Name" value="YES"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="structdate__time.html#a9717890d891034bcca920fc567a397af"><param name="Name" value="yyyy"></OBJECT>
+</UL>
+</BODY>
+</HTML>

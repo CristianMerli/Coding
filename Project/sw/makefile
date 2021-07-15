@@ -6,7 +6,7 @@
 ###   Code title: Graph makefile   ###
 ###   Code version: 3.0            ###
 ###   Creation date: 03/07/2021    ###
-###   Last mod. date: 14/07/2021   ###
+###   Last mod. date: 15/07/2021   ###
 ###                                ###
 ######################################
 
@@ -16,35 +16,39 @@
 ################################
 
 # (1.1) Compile & run commands vars
-COMPILE_LIB 	=		gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o
-COMPILE_MAIN 	=		gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
-LINK 					=		gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o
-RUN 					=		./
+COMPILE_LIB   =   gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o
+COMPILE_MAIN  =   gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
+LINK          =   gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o
+RUN           =   ./
 
 # (1.2) Input-files
-LIB_GRAPH_IN 	=		lib/graph/lib_graph.c
-LIB_UI_IN 		=		lib/ui/lib_ui.c
-LIB_FILES_IN	=		lib/files/lib_files.c
-LIB_TIMER_IN	=		lib/timer/lib_timer.c
-MAIN_IN 			=		main/graph_test.c
+LIB_GRAPH_IN  =   lib/graph/lib_graph.c
+LIB_UI_IN     =   lib/ui/lib_ui.c
+LIB_FILES_IN  =   lib/files/lib_files.c
+LIB_TIMER_IN  =   lib/timer/lib_timer.c
+MAIN_IN       =   main/graph_test.c
 
 # (1.3) Header-files
-LIB_GRAPH_H 	=		lib/graph/lib_graph.h
-LIB_UI_H 			= 	lib/ui/lib_ui.h
-LIB_FILES_H		=		lib/files/lib_files.h
-LIB_TIMER_H 	= 	lib/timer/lib_timer.h
+LIB_GRAPH_H   =   lib/graph/lib_graph.h
+LIB_UI_H      =   lib/ui/lib_ui.h
+LIB_FILES_H   =   lib/files/lib_files.h
+LIB_TIMER_H   =   lib/timer/lib_timer.h
 
 # (1.4) Output-files
-LIB_GRAPH_OUT	=		lib/graph/lib_graph.so
-LIB_UI_OUT 		=		lib/ui/lib_ui.so
-LIB_FILES_OUT	=		lib/files/lib_files.so
-LIB_TIMER_OUT = 	lib/timer/lib_timer.so
-MAIN_OUT 			=		main/graph_test.o
-MAIN_NAME 		=		graph_test
+LIB_GRAPH_OUT =   lib/graph/lib_graph.so
+LIB_UI_OUT    =   lib/ui/lib_ui.so
+LIB_FILES_OUT =   lib/files/lib_files.so
+LIB_TIMER_OUT =   lib/timer/lib_timer.so
+MAIN_OUT      =   main/graph_test.o
+MAIN_NAME     =   graph_test
 
 # (1.5) Doxygen documentation
-DOX_STP 			=		../doc/doxygen/doxygen_config
-DOX_FLD 			= 	../doc/doxygen/exports/
+DOX_STP       =   ../doc/doxygen/doxygen_config
+DOX_FLD       =   ../doc/doxygen/exports/
+DOX_HTML      =   ../doc/doxygen/exports/html/index.html
+
+# (1.6) Abstract pdf file (from LaTeX)
+ABSTR_PDF     =   ../doc/abstract/abstract.pdf
 
 
 ################################
@@ -93,7 +97,16 @@ clr:
 	rm $(LIB_GRAPH_OUT) $(LIB_UI_OUT) $(LIB_FILES_OUT) $(LIB_TIMER_OUT) $(MAIN_OUT) $(MAIN_NAME)
 
 # (2.6) Export/clear documentation with doxygen
-doc: $(DOX_STP)
+docs: $(DOX_STP)
 	doxygen $(DOX_STP)
-doc_clr: $(DOX_FLD)
+docs_view: $(DOX_HTML)
+	firefox $(DOX_HTML)
+docs_gen_view: $(DOX_STP)
+	doxygen $(DOX_STP)
+	firefox $(DOX_HTML)
+docs_clr: $(DOX_FLD)
 	rm -r $(DOX_FLD)*
+
+# (2.7) Open abstract pdf file (made with LaTeX)
+abstract: $(ABSTR_PDF)
+	xdg-open $(ABSTR_PDF)

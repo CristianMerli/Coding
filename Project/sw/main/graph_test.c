@@ -3,7 +3,7 @@
  * Code title: Graph test
  * Code version: 3.0
  * Creation date: 22/06/2021
- * Last mod. date: 14/07/2021
+ * Last mod. date: 15/07/2021
  */
 
 
@@ -25,6 +25,45 @@
  * 
  * // Link-command:
  * gccW99_o graph_test main/graph_test.o lib/graph/lib_graph.so lib/ui/lib_ui.so lib/files/lib_files.so lib/timer/lib_timer.so  --> LINK main and dynamic libraries object files to test executable
+ */
+
+
+/*!
+ * \page        page1 General notes
+ *              Dijkstra's algorithm library test-software.
+ * 
+ * @author      Cristian Merli
+ * @date        15/07/2021
+ * @version     3.0 - Completed 15/05/2021
+ * 
+ * @note        Important notes:
+ *                - Graphical effects are managed by gnuplot (based on data manipulated by test software main program), so it is highly recommended to have it installed.
+ *                - It is possibile to compile, run and execute further actions tacking advantege of makefile, for more informations see doxygen 'Main page' or README.md file.
+ * @warning     - Pay attention, arch/node names must only be max 30 chars long. To modify max names lenght, change relative macros inside 'lib_graph.h' header file.
+ *              - .
+ * @bug         No known bugs.
+ * 
+ * \section     section1 Code title:
+ *              Polynomial interpolation with Newton algorithm and divided-differences.
+ * 
+ * \subsection  subsection1 Code details:
+ *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
+ *              polynomial evaluation in given points and derivate calculation.
+ * 
+ * @file        graph_test.c -.
+ * @brief       -.
+ */
+
+
+/*!
+ * \page        page2 Test-page
+ *              ---.
+ * \section     section1 Title:
+ *              ---.
+ * 
+ * \subsection  subsection1 Code details:
+ *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
+ *              polynomial evaluation in given points and derivate calculation.
  */
 
 
@@ -72,12 +111,24 @@ C_str crss_names_vect[] =   {"Cross1", "Cross2", "Cross3", "Cross4", "Cross5", "
 
 
 /* Main routines */
+/*!
+ * @brief             Static routine to manage close keyboard interrupt signal printing feedback to terminal.
+ * 
+ * \param[in] signal  Keyboard interrupt signal
+ * 
+ * @return            None.
+ */
 static void terminate_keyboard(int signal){                                                                 // Manage program exit from keyboard ctrl+c shortcut
   /* Body */
   close_keyboard_interrupt(signal);                                                                         // Close SW with fbk due to keyboard interrupt detected (ctrl+c)
 }
 
 
+/*!
+ * @brief             Static routine to create test-graph arches, working on graph-library public variables.
+ * 
+ * @return            None.
+ */
 static void create_archs(){                                                                                 // Routine to create archs
   /* Body */
   for (int i = 0; i < (int)(sizeof(strts_vect)/sizeof(const Street)); ++i)                                  // Streets allocation FOR cycle
@@ -85,6 +136,11 @@ static void create_archs(){                                                     
 }
 
 
+/*!
+ * @brief             Static routine to create test-graph nodes, working on graph-library public variables.
+ * 
+ * @return            None.
+ */
 static void create_nodes(){                                                                                 // Routine to create nodes
   /* Body */
   for (int j = 0; j < (int)(sizeof(crss_names_vect)/sizeof(C_str)); ++j)                                    // Crosses allocation FOR cycle
@@ -92,6 +148,11 @@ static void create_nodes(){                                                     
 }
 
 
+/*!
+ * @brief             Static routine to create test-graph arch-nodes connections, working on graph-library public variables.
+ * 
+ * @return            None.
+ */
 static void create_connections(){                                                                           // Routine to create connections btwn archs & nodes
   /* Body */
   connect_node_arch((C_str)strts_vect[0].name, crss_names_vect[0], ARCH_ND1, LIST_TAIL);                    // Connect "Street1" to "Cross1"
@@ -123,6 +184,16 @@ static void create_connections(){                                               
 }
 
 
+/*!
+ * @brief             Static routine to give give user the possibility to choose testing option, using pre-defined graph dynamically generated using graph-library functions:
+ *                    * Prepared test: find shortest path from 'Cross4' to 'Cross9' nodes, applying Dijkstra's algorithm. In addition, show........
+ *                    * Personalized test: find shortest path from user-defined source and destination nodes, applying Dijkstra's algorithm.......
+ *                    * Close test software: exit test software and.....
+ * 
+ * \param[in] signal  Keyboard interrupt signal
+ * 
+ * @return            None.
+ */
 static void test_option_choice(Test_choice *const choice){                                                  // Routine to choose testing option
   /* Body */
   fbk_nl(1);  fbk_gn_lbu_ye_str("[1]", "Prepared test (requires gnuplot)");                                 // Print opt 1 fbk
@@ -143,7 +214,6 @@ static void test_option_choice(Test_choice *const choice){                      
       Confirm answ = read_term_in_confirm("Are you sure you want to close test software");                  // Ask confirm
       switch (answ){                                                                                        // Confirm answ switch-case
         case YES:                                                                                           // YES answer
-          close_fbk();                                                                                      // Close SW with fbk
           break;
         ////////
         case NO:                                                                                            // NO answer
@@ -346,11 +416,13 @@ int main(){                                                                     
   fbk_nl(1);  fbk_gn_pu("(2.2) Testin' mode choice...");                                                    // Print testin' mode choice fbk
   fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk
   test_option_choice(&choice);                                                                              // Routine call to choose testing option
-  // (2.3) Display test-graph layout with gnuplot                                                           // --------------------------------------------------------- (2.3)
-  fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                                   // Print separator fbk
-  fbk_nl(1);  fbk_gn_pu("(2.3) Displayin' test-graph layout with gnuplot...");                              // Print displayin' test-graph layout with gnuplot fbk
-  fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk
-  display_test_graph(GPLOT_TEST_GRAPH_LAYOUT_CMD);                                                          // Routine call to display test-graph through gnuplot
+  if (choice == PREPARED || choice == PERSONALIZED){                                                        // If exit mode ain't been selected
+    // (2.3) Display test-graph layout with gnuplot                                                         // --------------------------------------------------------- (2.3)
+    fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                                 // Print separator fbk
+    fbk_nl(1);  fbk_gn_pu("(2.3) Displayin' test-graph layout with gnuplot...");                            // Print displayin' test-graph layout with gnuplot fbk
+    fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                      // Print separator fbk
+    display_test_graph(GPLOT_TEST_GRAPH_LAYOUT_CMD);                                                        // Routine call to display test-graph through gnuplot
+  }                                                                                                         //
   // (3.1) Apply Dijkstra's algorithm and find min parh                                                     //
   switch (choice){                                                                                          // Testin' option switch-case
     case PREPARED:                                                                                          // Option [1] -> Prepared test (requires gnuplot)

@@ -184,72 +184,72 @@ static void build_shortest_path_graphics_data(){                                
   if (archs_dat_file != NULL && costs_dat_file != NULL && nodes_dat_file != NULL &&
       shortest_archs_dat_file != NULL && shortest_costs_dat_file != NULL &&
       shortest_nodes_dat_file != NULL && src_dest_nodes_dat_file != NULL){                                  // If gnuplot .dat files has been correctly opened
-    // -
+    // Vars init to modify gnuplot .dat files
     int tgt_line_num = 0;                                                                                   // Define target-line number var to find path archs/nodes coordinates in test-graph .dat files
     Str tgt_line_str = NULL;                                                                                // Define target-line string var to copy path archs/nodes coordinates from test-graph .dat files to shortest-path and src-dest nodes .dat files
     // Archs
-    for (int i = 1; i < min_pth_conn_vect_size; ++i){                                                       // -
-      rewind(archs_dat_file);                                                                               // Restart scannin' file from line 0
-      tgt_line_num = get_substr_line_from_file(archs_dat_file, min_path_conn_vect[i].ar->name);             // -
-      if (tgt_line_num >= 0){                                                                               // -
-        for (int j = 0; j < 3; ++j, ++tgt_line_num){                                                        // -
+    for (int i = 1; i < min_pth_conn_vect_size; ++i){                                                       // Shortest-path archs scrollin' FOR cycle
+      rewind(archs_dat_file);                                                                               // Start/restart scannin' file from line 0
+      tgt_line_num = get_substr_line_from_file(archs_dat_file, min_path_conn_vect[i].ar->name);             // Define target line number by shortest-path arch name
+      if (tgt_line_num >= 0){                                                                               // If arch name has been found in shortest-path archs
+        for (int j = 0; j < 3; ++j, ++tgt_line_num){                                                        // Extract target-line and the two following lines FOR cycle
           rewind(archs_dat_file);                                                                           // Restart scannin' file from line 0
-          tgt_line_str = get_line_str_from_file(archs_dat_file, tgt_line_num);                              // -
-          if (tgt_line_str != NULL){                                                                        // -
-            write_str_on_file(shortest_archs_dat_file, tgt_line_str);                                       // -
-          } else                                                                                            // -
-            fbk_err("Err1");                                                                                // -
+          tgt_line_str = get_line_str_from_file(archs_dat_file, tgt_line_num);                              // Get extracted line content (str)
+          if (tgt_line_str != NULL){                                                                        // If target string ain't NULL (no errors and string correctly acquired)
+            write_str_on_file(shortest_archs_dat_file, tgt_line_str);                                       // Write extracted string inside dedicated shortest-path gnuplot .dat file
+          } else                                                                                            // Else in case of target string null
+            fbk_err("Err1");                                                                                // Print error fbk
         }
-      } else                                                                                                // -
-        fbk_err("Err2");                                                                                    // -
+      } else                                                                                                // Else in case of no-match found
+        fbk_err("Err2");                                                                                    // Print error fbk
     }
     // Arch-costs
-    for (int i = 1; i < min_pth_conn_vect_size; ++i){                                                       // -
-      rewind(costs_dat_file);                                                                               // Restart scannin' file from line 0
-      tgt_line_num = get_substr_line_from_file(costs_dat_file, min_path_conn_vect[i].ar->name);             // -
-      if (tgt_line_num >= 0){                                                                               // -
-        for (int j = 0; j < 2; ++j, ++tgt_line_num){                                                        // -
+    for (int i = 1; i < min_pth_conn_vect_size; ++i){                                                       // Shortest-path arch-costs scrollin' FOR cycle
+      rewind(costs_dat_file);                                                                               // Start/restart scannin' file from line 0
+      tgt_line_num = get_substr_line_from_file(costs_dat_file, min_path_conn_vect[i].ar->name);             // Define target line number by shortest-path arch name
+      if (tgt_line_num >= 0){                                                                               // If arch name has been found in shortest-path archs
+        for (int j = 0; j < 2; ++j, ++tgt_line_num){                                                        // Extract target-line and the following line FOR cycle
           rewind(costs_dat_file);                                                                           // Restart scannin' file from line 0
-          tgt_line_str = get_line_str_from_file(costs_dat_file, tgt_line_num);                              // -
-          if (tgt_line_str != NULL){                                                                        // -
-            write_str_on_file(shortest_costs_dat_file, tgt_line_str);                                       // -
-          } else                                                                                            // -
-            fbk_err("Err1");                                                                                // -
+          tgt_line_str = get_line_str_from_file(costs_dat_file, tgt_line_num);                              // Get extracted line content (str)
+          if (tgt_line_str != NULL){                                                                        // If target string ain't NULL (no errors and string correctly acquired)
+            write_str_on_file(shortest_costs_dat_file, tgt_line_str);                                       // Write extracted string inside dedicated shortest-path gnuplot .dat file
+          } else                                                                                            // Else in case of target string null
+            fbk_err("Err1");                                                                                // Print error fbk
         }
-      } else                                                                                                // -
-        fbk_err("Err2");                                                                                    // -
+      } else                                                                                                // Else in case of no-match found
+        fbk_err("Err2");                                                                                    // Print error fbk
     }
     // Nodes (source and destination excluded)
-    for (int i = 1; i < min_pth_conn_vect_size-1; ++i){                                                     // -
-      rewind(nodes_dat_file);                                                                               // Restart scannin' file from line 0
-      tgt_line_num = get_substr_line_from_file(nodes_dat_file, min_path_conn_vect[i].nd->name);             // -
-      if (tgt_line_num >= 0){                                                                               // -
-        for (int j = 0; j < 2; ++j, ++tgt_line_num){                                                        // -
+    for (int i = 1; i < min_pth_conn_vect_size-1; ++i){                                                     // Shortest-path intermediate-nodes scrollin' FOR cycle
+      rewind(nodes_dat_file);                                                                               // Start/restart scannin' file from line 0
+      tgt_line_num = get_substr_line_from_file(nodes_dat_file, min_path_conn_vect[i].nd->name);             // Define target line number by shortest-path node name
+      if (tgt_line_num >= 0){                                                                               // If node name has been found in shortest-path nodes
+        for (int j = 0; j < 2; ++j, ++tgt_line_num){                                                        // Extract target-line and the following line FOR cycle
           rewind(nodes_dat_file);                                                                           // Restart scannin' file from line 0
-          tgt_line_str = get_line_str_from_file(nodes_dat_file, tgt_line_num);                              // -
-          if (tgt_line_str != NULL){                                                                        // -
-            write_str_on_file(shortest_nodes_dat_file, tgt_line_str);                                       // -
-          } else                                                                                            // -
-            fbk_err("Err1");                                                                                // -
+          tgt_line_str = get_line_str_from_file(nodes_dat_file, tgt_line_num);                              // Get extracted line content (str)
+          if (tgt_line_str != NULL){                                                                        // If target string ain't NULL (no errors and string correctly acquired)
+            write_str_on_file(shortest_nodes_dat_file, tgt_line_str);                                       // Write extracted string inside dedicated shortest-path gnuplot .dat file
+          } else                                                                                            // Else in case of target string null
+            fbk_err("Err1");                                                                                // Print error fbk
         }
-      } else                                                                                                // -
-        fbk_err("Err2");                                                                                    // -
+      } else                                                                                                // Else in case of no-match found
+        fbk_err("Err2");                                                                                    // Print error fbk
     }
     // Source and destination nodes
-    for (int i = 0; i < min_pth_conn_vect_size; i += (min_pth_conn_vect_size-1)){                           // -
+    for (int i = 0; i < min_pth_conn_vect_size; i += (min_pth_conn_vect_size-1)){                           // Shortest-path source and destination nodes scrollin' FOR cycle
       rewind(nodes_dat_file);                                                                               // Restart scannin' file from line 0
-      tgt_line_num = get_substr_line_from_file(nodes_dat_file, min_path_conn_vect[i].nd->name);             // -
-      if (tgt_line_num >= 0){                                                                               // -
-        for (int j = 0; j < 2; ++j, ++tgt_line_num){                                                        // -
+      tgt_line_num = get_substr_line_from_file(nodes_dat_file, min_path_conn_vect[i].nd->name);             // Define target line number by shortest-path node name
+      if (tgt_line_num >= 0){                                                                               // If node name has been found in shortest-path nodes
+        for (int j = 0; j < 2; ++j, ++tgt_line_num){                                                        // Extract target-line and the following line FOR cycle
           rewind(nodes_dat_file);                                                                           // Restart scannin' file from line 0
-          tgt_line_str = get_line_str_from_file(nodes_dat_file, tgt_line_num);                              // -
-          if (tgt_line_str != NULL){                                                                        // -
-            write_str_on_file(src_dest_nodes_dat_file, tgt_line_str);                                       // -
-          } else                                                                                            // -
-            fbk_err("Err1");                                                                                // -
+          tgt_line_str = get_line_str_from_file(nodes_dat_file, tgt_line_num);                              // Get extracted line content (str)
+          if (tgt_line_str != NULL){                                                                        // If target string ain't NULL (no errors and string correctly acquired)
+            write_str_on_file(src_dest_nodes_dat_file, tgt_line_str);                                       // Write extracted string inside dedicated shortest-path gnuplot .dat file
+          } else                                                                                            // Else in case of target string null
+            fbk_err("Err1");                                                                                // Print error fbk
         }
-      } else                                                                                                // -
-        fbk_err("Err2");                                                                                    // -
+      } else                                                                                                // Else in case of no-match found
+        fbk_err("Err2");                                                                                    // Print error fbk
     }
     // Close .dat files
     close_file(archs_dat_file);                                                                             // Close test-graph gnuplot arch-coords .dat file

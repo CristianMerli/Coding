@@ -51,24 +51,23 @@ $(function() {
 <div class="contents">
 <a href="shortest__plot_8cmd.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;# Window-setup</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;set title &quot;Test graph layout with shortest-path&quot;  # Set title</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;set size square                                   # Maintain the same scale on x and y axes</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;set xrange [-145:85];                             # Define x-coord printin&#39; range</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;set yrange [-145:85];                             # Define y-coord printin&#39; range</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;unset xtics                                       # Hide x-axis ticks</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;unset ytics                                       # Hide y-axis ticks</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;# PLOT TEST NODES &amp; ARCHS FROM FILES WITH SHORTEST-PATH FROM SOURCE TO DESTINATION NODES</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;plot \</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  &#39;gnuplot/archs.dat&#39; using 1:2                   with lines lt rgb &quot;gray&quot; notitle, \</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  &#39;gnuplot/costs.dat&#39; using 1:2:3                 with labels tc rgb &quot;light-blue&quot; offset (0,0) font &#39;Arial Bold&#39; notitle, \</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  &#39;gnuplot/nodes.dat&#39; using 1:2:(9.2)             with circles fill solid lc rgb &quot;gray&quot; notitle, \</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  &#39;gnuplot/nodes.dat&#39; using 1:2:3                 with labels tc rgb &quot;white&quot; offset (0,0) font &#39;Arial&#39; notitle, \</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  &#39;gnuplot/shortest_archs.dat&#39; using 1:2          with lines lt rgb &quot;dark-green&quot; notitle, \</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  &#39;gnuplot/shortest_costs.dat&#39; using 1:2:3        with labels tc rgb &quot;blue&quot; offset (0,0) font &#39;Arial Bold&#39; notitle, \</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  &#39;gnuplot/shortest_nodes.dat&#39; using 1:2:(9.2)    with circles fill solid lc rgb &quot;forest-green&quot; notitle, \</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  &#39;gnuplot/shortest_nodes.dat&#39; using 1:2:3        with labels tc rgb &quot;white&quot; offset (0,0) font &#39;Arial Bold&#39; notitle, \</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  &#39;gnuplot/src_dest_nodes.dat&#39; using 1:2:(9.2)    with circles fill solid lc rgb &quot;dark-violet&quot; notitle, \</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  &#39;gnuplot/src_dest_nodes.dat&#39; using 1:2:3        with labels tc rgb &quot;white&quot; offset (0,0) font &#39;Arial Bold&#39; notitle</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;set xrange [-145:85];                             # Define x-coord printin&#39; range</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;set yrange [-145:85];                             # Define y-coord printin&#39; range</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;unset xtics                                       # Hide x-axis ticks</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;unset ytics                                       # Hide y-axis ticks</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;# PLOT TEST NODES &amp; ARCHS FROM FILES WITH SHORTEST-PATH FROM SOURCE TO DESTINATION NODES</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;plot \</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  &#39;gnuplot/archs.dat&#39; using 1:2                   with lines lt rgb &quot;gray&quot; notitle, \</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  &#39;gnuplot/costs.dat&#39; using 1:2:3                 with labels tc rgb &quot;light-blue&quot; offset (0,0) font &#39;Arial Bold&#39; notitle, \</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  &#39;gnuplot/nodes.dat&#39; using 1:2:(9.2)             with circles fill solid lc rgb &quot;gray&quot; notitle, \</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  &#39;gnuplot/nodes.dat&#39; using 1:2:3                 with labels tc rgb &quot;white&quot; offset (0,0) font &#39;Arial&#39; notitle, \</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  &#39;gnuplot/shortest_archs.dat&#39; using 1:2          with lines lt rgb &quot;dark-green&quot; notitle, \</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  &#39;gnuplot/shortest_costs.dat&#39; using 1:2:3        with labels tc rgb &quot;blue&quot; offset (0,0) font &#39;Arial Bold&#39; notitle, \</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  &#39;gnuplot/shortest_nodes.dat&#39; using 1:2:(9.2)    with circles fill solid lc rgb &quot;forest-green&quot; notitle, \</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  &#39;gnuplot/shortest_nodes.dat&#39; using 1:2:3        with labels tc rgb &quot;white&quot; offset (0,0) font &#39;Arial Bold&#39; notitle, \</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  &#39;gnuplot/src_dest_nodes.dat&#39; using 1:2:(9.2)    with circles fill solid lc rgb &quot;dark-violet&quot; notitle, \</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  &#39;gnuplot/src_dest_nodes.dat&#39; using 1:2:3        with labels tc rgb &quot;white&quot; offset (0,0) font &#39;Arial Bold&#39; notitle</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

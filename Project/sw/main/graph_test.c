@@ -112,7 +112,7 @@ C_str crss_names_vect[] =   {"Cross1", "Cross2", "Cross3", "Cross4", "Cross5", "
 
 /* Main routines */
 /*!
- * @brief             Static routine to manage close keyboard interrupt signal printing feedback to terminal.
+ * @brief             <p><b>Function description:</b></p> Static routine to manage close keyboard interrupt signal printing feedback to terminal.
  * 
  * \param[in] signal  Keyboard interrupt signal
  * 
@@ -125,9 +125,9 @@ static void terminate_keyboard(int signal){                                     
 
 
 /*!
- * @brief             Static routine to create test-graph arches, working on graph-library public variables.
+ * @brief   <p><b>Function description:</b></p> Static routine to create test-graph arches, working on graph-library public variables.
  * 
- * @return            None.
+ * @return  None.
  */
 static void create_archs(){                                                                                 // Routine to create archs
   /* Body */
@@ -137,9 +137,9 @@ static void create_archs(){                                                     
 
 
 /*!
- * @brief             Static routine to create test-graph nodes, working on graph-library public variables.
+ * @brief   <p><b>Function description:</b></p> Static routine to create test-graph nodes, working on graph-library public variables.
  * 
- * @return            None.
+ * @return  None.
  */
 static void create_nodes(){                                                                                 // Routine to create nodes
   /* Body */
@@ -149,9 +149,9 @@ static void create_nodes(){                                                     
 
 
 /*!
- * @brief             Static routine to create test-graph arch-nodes connections, working on graph-library public variables.
+ * @brief   <p><b>Function description:</b></p> Static routine to create test-graph arch-nodes connections, working on graph-library public variables.
  * 
- * @return            None.
+ * @return  None.
  */
 static void create_connections(){                                                                           // Routine to create connections btwn archs & nodes
   /* Body */
@@ -185,14 +185,15 @@ static void create_connections(){                                               
 
 
 /*!
- * @brief             Static routine to give give user the possibility to choose testing option, using pre-defined graph dynamically generated using graph-library functions:
- *                    * Prepared test: find shortest path from 'Cross4' to 'Cross9' nodes, applying Dijkstra's algorithm. In addition, show........
- *                    * Personalized test: find shortest path from user-defined source and destination nodes, applying Dijkstra's algorithm.......
- *                    * Close test software: exit test software and.....
+ * @brief                 <p><b>Function description:</b></p> Static routine to give give to the user the possibility to choose a testing option,
+ *                        using pre-defined graph dynamically generated with graph-library functions:
+ *                        * <b>Prepared test</b>: find shortest path from 'Cross4' to 'Cross9' nodes, applying Dijkstra's algorithm. In addition, show two special cases: shortest path from 'Cross4' to 'Cross4' (source = destination) and from 'Cross4' to 'Cross10' (unreachble node). In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
+ *                        * <b>Personalized test</b>: find shortest path from user-defined source and destination nodes, applying Dijkstra's algorithm. In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
+ *                        * <b>Close test software</b>: clear dynamic memory allocated inside heap and close test software.
  * 
- * \param[in] signal  Keyboard interrupt signal
+ * \param[in,out] choice  Option chosen by the user (enum).
  * 
- * @return            None.
+ * @return                None.
  */
 static void test_option_choice(Test_choice *const choice){                                                  // Routine to choose testing option
   /* Body */
@@ -239,6 +240,20 @@ static void test_option_choice(Test_choice *const choice){                      
 }
 
 
+/*!
+ * @brief   <p><b>Function description:</b></p> Static routine to build shortest-path graphical data, working on gnuplt .dat data files (listed below).
+ *          * <b>Test-graph gnuplot data files (gnuplot data source)</b>:
+ *            * <b>Archs .dat file</b>: data file which contains the coordinates to draw arches in graph, with target name as comment in the previous line.
+ *            * <b>Costs .dat file</b>: data file which contains the coordinates to draw arch-costs in graph, with target name as comment in the previous line.
+ *            * <b>Nodes .dat file</b>: data file which contains the coordinates to draw nodes in graph, with target name as comment in the previous line.
+ *          * <b>Test-graph shortest path gnuplot data files (gnuplot data destination of selected elements to graphically recreate the min-cost path)</b>:
+ *            * <b>Shortest-path archs .dat file</b>: data file which contains the coordinates to draw arches in shortest-path graph, with target name as comment in the previous line.
+ *            * <b>Shortest-path costs .dat file</b>: data file which contains the coordinates to draw arch-costs in shortest-path graph, with target name as comment in the previous line.
+ *            * <b>Shortest-path nodes .dat file (source-destination nodes excluded)</b>: data file which contains the coordinates to draw nodes in shortest-path graph (source-destination nodes excluded), with target name as comment in the previous line.
+ *            * <b>Shortest-path source and destination nodes .dat file</b>: data file which contains the coordinates to draw source and destination nodes in shortest-path graph, with target name as comment in the previous line.
+ * 
+ * @return  None.
+ */
 static void build_shortest_path_graphics_data(){                                                            // Routine to build the shortest-path graphics data for gnuplot
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Building shortest-path graphics data (working on .dat files) for gnuplot...");     // Print workin' on gnuplot graphics data files fbk
@@ -268,11 +283,11 @@ static void build_shortest_path_graphics_data(){                                
           if (tgt_line_str != NULL){                                                                        // If target string ain't NULL (no errors and string correctly acquired)
             write_str_on_file(shortest_archs_dat_file, tgt_line_str);                                       // Write extracted string inside dedicated shortest-path gnuplot .dat file
           } else                                                                                            // Else in case of target string null
-            fbk_err("Err1");                                                                                // Print error fbk
+            fbk_err("Found error durig archs data copy in shortest path file! Check archs .dat file");      // Print error fbk
         }
         write_nl_on_file(shortest_archs_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
-        fbk_err("Err2");                                                                                    // Print error fbk
+        fbk_err("Encountred error durig archs data copy in shortest path file! Check archs .dat file");     // Print error fbk
     }
     // Arch-costs
     for (int i = 1; i < min_pth_conn_vect_size; ++i){                                                       // Shortest-path arch-costs scrollin' FOR cycle
@@ -285,11 +300,11 @@ static void build_shortest_path_graphics_data(){                                
           if (tgt_line_str != NULL){                                                                        // If target string ain't NULL (no errors and string correctly acquired)
             write_str_on_file(shortest_costs_dat_file, tgt_line_str);                                       // Write extracted string inside dedicated shortest-path gnuplot .dat file
           } else                                                                                            // Else in case of target string null
-            fbk_err("Err1");                                                                                // Print error fbk
+            fbk_err("Found error durig costs data copy in shortest path file! Check costs .dat file");      // Print error fbk
         }
         write_nl_on_file(shortest_costs_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
-        fbk_err("Err2");                                                                                    // Print error fbk
+        fbk_err("Encountred error durig costs data copy in shortest path file! Check costs .dat file");     // Print error fbk
     }
     // Nodes (source and destination excluded)
     for (int i = 1; i < min_pth_conn_vect_size-1; ++i){                                                     // Shortest-path intermediate-nodes scrollin' FOR cycle
@@ -302,11 +317,11 @@ static void build_shortest_path_graphics_data(){                                
           if (tgt_line_str != NULL){                                                                        // If target string ain't NULL (no errors and string correctly acquired)
             write_str_on_file(shortest_nodes_dat_file, tgt_line_str);                                       // Write extracted string inside dedicated shortest-path gnuplot .dat file
           } else                                                                                            // Else in case of target string null
-            fbk_err("Err1");                                                                                // Print error fbk
+            fbk_err("Found error durig nodes data copy in shortest path file! Check nodes .dat file");      // Print error fbk
         }
         write_nl_on_file(shortest_nodes_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
-        fbk_err("Err2");                                                                                    // Print error fbk
+        fbk_err("Encountred error durig nodes data copy in shortest path file! Check nodes .dat file");     // Print error fbk
     }
     // Source and destination nodes
     for (int i = 0; i < min_pth_conn_vect_size; i += (min_pth_conn_vect_size-1)){                           // Shortest-path source and destination nodes scrollin' FOR cycle
@@ -319,11 +334,11 @@ static void build_shortest_path_graphics_data(){                                
           if (tgt_line_str != NULL){                                                                        // If target string ain't NULL (no errors and string correctly acquired)
             write_str_on_file(src_dest_nodes_dat_file, tgt_line_str);                                       // Write extracted string inside dedicated shortest-path gnuplot .dat file
           } else                                                                                            // Else in case of target string null
-            fbk_err("Err1");                                                                                // Print error fbk
+            fbk_err("Found error durig src-dest data copy in shortest path file! Check nodes .dat file");   // Print error fbk
         }
         write_nl_on_file(src_dest_nodes_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
-        fbk_err("Err2");                                                                                    // Print error fbk
+        fbk_err("Encountred error durig src-dest data copy in shortest path file! Check nodes .dat file");  // Print error fbk
     }
     // Close .dat files
     close_file(archs_dat_file);                                                                             // Close test-graph gnuplot arch-coords .dat file
@@ -339,6 +354,17 @@ static void build_shortest_path_graphics_data(){                                
 }
 
 
+/*!
+ * @brief                 <p><b>Function description:</b></p> Static routine to give give to the user the possibility to choose a testing option,
+ *                        using pre-defined graph dynamically generated with graph-library functions:
+ *                        * <b>Prepared test</b>: find shortest path from 'Cross4' to 'Cross9' nodes, applying Dijkstra's algorithm. In addition, show two special cases: shortest path from 'Cross4' to 'Cross4' (source = destination) and from 'Cross4' to 'Cross10' (unreachble node). In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
+ *                        * <b>Personalized test</b>: find shortest path from user-defined source and destination nodes, applying Dijkstra's algorithm. In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
+ *                        * <b>Close test software</b>: clear dynamic memory allocated inside heap and close test software.
+ * 
+ * \param[in,out] choice  Option chosen by the user (enum).
+ * 
+ * @return                None.
+ */
 static void display_test_graph(C_str cmd){                                                                  // Routine to display test-graph through gnuplot
   /* Body */
   fbk_gn_pu("Close gnuplot to continue graph-library test..."); fbk_nl(1);                                  // Print close gnuplot to continue fbk

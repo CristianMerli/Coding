@@ -3,39 +3,51 @@
 # Street1
 +0        +0        Cr1
 +0        +70       Cr2
+
 # Street2
 +0        +0        Cr1
 +56       +56       Cr3
+
 # Street3
 +0        +0        Cr1
 +70       +0        Cr4
+
 # Street4
 +0        +0        Cr1
 +0        -70       Cr5
+
 # Street10
 +0        +0        Cr1
 -56       -56       Cr6
+
 # Street9
 +0        +0        Cr1
 -70       +0        Cr7
+
 # Street7
 -56       -56       Cr6
 -125      -80       Cr8
+
 # Street8
 -125      -80       Cr8
 -75       -125      Cr9
+
 # Street5
 +0        -70       Cr5
 -56       -56       Cr6
+
 # Street6
 -56       -56       Cr6
 -70       +0        Cr7
+
 # Street11
 +70       +0        Cr4
 +0        -70       Cr5
+
 # Street12
 +0        -70       Cr5
 -125      -80       Cr8
+
 # Street13
 +0        -70       Cr5
 -75       -125      Cr9

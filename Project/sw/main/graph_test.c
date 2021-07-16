@@ -270,6 +270,7 @@ static void build_shortest_path_graphics_data(){                                
           } else                                                                                            // Else in case of target string null
             fbk_err("Err1");                                                                                // Print error fbk
         }
+        write_nl_on_file(shortest_archs_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
         fbk_err("Err2");                                                                                    // Print error fbk
     }
@@ -286,6 +287,7 @@ static void build_shortest_path_graphics_data(){                                
           } else                                                                                            // Else in case of target string null
             fbk_err("Err1");                                                                                // Print error fbk
         }
+        write_nl_on_file(shortest_costs_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
         fbk_err("Err2");                                                                                    // Print error fbk
     }
@@ -302,6 +304,7 @@ static void build_shortest_path_graphics_data(){                                
           } else                                                                                            // Else in case of target string null
             fbk_err("Err1");                                                                                // Print error fbk
         }
+        write_nl_on_file(shortest_nodes_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
         fbk_err("Err2");                                                                                    // Print error fbk
     }
@@ -318,6 +321,7 @@ static void build_shortest_path_graphics_data(){                                
           } else                                                                                            // Else in case of target string null
             fbk_err("Err1");                                                                                // Print error fbk
         }
+        write_nl_on_file(src_dest_nodes_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
         fbk_err("Err2");                                                                                    // Print error fbk
     }

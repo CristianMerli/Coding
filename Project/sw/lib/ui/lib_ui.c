@@ -11,7 +11,7 @@
 #include "lib_ui.h"                                                                                         // Import UI (terminal I/O) library header file
 
 
-/* Global vars */
+/* Public vars */
 char term_in_buff[IN_BUFF_SIZE] = "";                                                                       // Terminal input buffer char array for scanf func
 int unused __attribute__((unused));                                                                         // Unused var
 

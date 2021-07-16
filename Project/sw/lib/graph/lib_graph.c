@@ -7,11 +7,27 @@
  */
 
 
+/*!
+ * \page        page4 Test-page
+ *              ---.
+ * \section     section1 Title:
+ *              ---.
+ * 
+ * \subsection  subsection1 Code details:
+ *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
+ *              polynomial evaluation in given points and derivate calculation.
+ * 
+ * @file        lib_graph.c saxxasxsa
+ * 
+ * @brief       csdcds
+ */
+
+
 /* Libraries */
 #include "lib_graph.h"                                                                                      // Import graph library header file
 
 
-/* Global vars */
+/* Public vars */
 const Real _REAL_MAX_ = __DBL_MAX__;                                                                        // Real max val to simulate +inf
 int ars_collect_size = 0, nds_collect_size = 0, min_pth_conn_vect_size = 0;                                 // Arches and nodes collection vectors sizes + min path connections vect size
 Arch* archs_collect_vect = NULL;                                                                            // Graph arches collection vector ptr init

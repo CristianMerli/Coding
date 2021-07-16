@@ -12,7 +12,7 @@
 #include "../ui/lib_ui.h"                                                                                   // Import UI (terminal I/O) library header file
 
 
-/* Global vars */
+/* Public vars */
 char file_in_buff[FILE_IN_BUFF_SIZE] = "";                                                                  // File input buffer char array for fgets func
 
 

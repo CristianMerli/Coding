@@ -59,7 +59,7 @@ typedef const U_shrt      Cu_shrt;                                              
 typedef const void* const C_ptr;                                                                            // Const void* const alias (C_ptr)
 
 
-/* Global vars */
+/* Public vars */
 extern char term_in_buff[IN_BUFF_SIZE];                                                                     // Terminal input buffer char array for scanf func
 extern int unused;                                                                                          // Unused var
 

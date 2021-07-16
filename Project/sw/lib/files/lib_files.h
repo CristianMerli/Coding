@@ -19,7 +19,7 @@
 typedef FILE* Fl;                                                                                           // File ptr data type
 
 
-/* Global vars */
+/* Public vars */
 extern char file_in_buff[FILE_IN_BUFF_SIZE];                                                                // File input buffer char array for fgets func
 
 

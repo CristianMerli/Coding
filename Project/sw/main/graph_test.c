@@ -3,7 +3,7 @@
  * Code title: Graph test
  * Code version: 3.0
  * Creation date: 22/06/2021
- * Last mod. date: 15/07/2021
+ * Last mod. date: 16/07/2021
  */
 
 
@@ -37,10 +37,11 @@
  * @version     3.0 - Completed 15/05/2021
  * 
  * @note        Important notes:
- *                - Graphical effects are managed by gnuplot (based on data manipulated by test software main program), so it is highly recommended to have it installed.
- *                - It is possibile to compile, run and execute further actions tacking advantege of makefile, for more informations see doxygen 'Main page' or README.md file.
- * @warning     - Pay attention, arch/node names must only be max 30 chars long. To modify max names lenght, change relative macros inside 'lib_graph.h' header file.
- *              - .
+ *                * Graphical effects are managed by gnuplot (based on data manipulated by test software main program), so it is highly recommended to have it installed.
+ *                * It is possibile to compile, run and execute further actions tacking advantege of makefile, for more informations see doxygen 'Main page' or README.md file.
+ * @warning     Important warnings:
+ *                * Pay attention, arch/node names must only be max 30 chars long. To modify max names lenght, change relative macros inside 'lib_graph.h' header file: # and #.
+ *                * cddcs....
  * @bug         No known bugs.
  * 
  * \section     section1 Code title:
@@ -50,8 +51,7 @@
  *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
  *              polynomial evaluation in given points and derivate calculation.
  * 
- * @file        graph_test.c -.
- * @brief       -.
+ * @brief       rfefrerf
  */
 
 
@@ -64,6 +64,10 @@
  * \subsection  subsection1 Code details:
  *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
  *              polynomial evaluation in given points and derivate calculation.
+ * 
+ * @file        graph_test.c saxxasxsa
+ * 
+ * @brief       csdcds
  */
 
 
@@ -73,41 +77,68 @@
 
 
 /* Constants */
+/// <b>Macro description:</b> Advanced verbose mode (Y/N).
 #define VERBOSE                       Y                                                                     // Verbose mode (Y/N)
+/// <b>Macro description:</b> Source node name for graph-library prepared testing mode.
 #define SOURCE_NODE_NAME              "Cross4"                                                              // Graph test sorce node name
+/// <b>Macro description:</b> Destination node name for graph-library prepared testing mode.
 #define DESTINATION_NODE_NAME         "Cross9"                                                              // Graph test destination node name
+/// <b>Macro description:</b> Destination node name for graph-library prepared testing mode special case1 (source = destination).
 #define DEST_NODE_NAME_SPECIAL_CASE1  "Cross4"                                                              // Graph test destination node name (special-case path 1: destinstion=source node)
+/// <b>Macro description:</b> Destination node name for graph-library prepared testing mode special case2 (destination node unreachble).
 #define DEST_NODE_NAME_SPECIAL_CASE2  "Cross10"                                                             // Graph test destination node name (special-case path 2: destinstion node unreachble from source node)
+/// <b>Macro description:</b> Gnuplot graph plotting system command.
 #define GPLOT_TEST_GRAPH_LAYOUT_CMD   "gnuplot -e \"load 'gnuplot/graph_plot.cmd'; pause -1\""              // Command to display test-graph layout with gnuplot
+/// <b>Macro description:</b> Gnuplot graph and shortest path plotting system command.
 #define GPLOT_SHORTEST_PATH_CMD       "gnuplot -e \"load 'gnuplot/shortest_plot.cmd'; pause -1\""           // Command to display test-graph layout and shortest path with gnuplot
+/// <b>Macro description:</b> Gnuplot archs data file.
 #define ARCHS_DAT_FILE                "gnuplot/archs.dat"                                                   // Test-graph gnuplot arch-coords .dat file
+/// <b>Macro description:</b> Gnuplot arch-costs data file.
 #define COSTS_DAT_FILE                "gnuplot/costs.dat"                                                   // Test-graph gnuplot arches cost-coords .dat file
+/// <b>Macro description:</b> Gnuplot nodes data file.
 #define NODES_DAT_FILE                "gnuplot/nodes.dat"                                                   // Test-graph gnuplot node-coords .dat file
+/// <b>Macro description:</b> Gnuplot shortest-path archs data file.
 #define SHORTEST_ARCHS_DAT_FILE       "gnuplot/shortest_archs.dat"                                          // Test-graph shortest path gnuplot arch-coords .dat file
+/// <b>Macro description:</b> Gnuplot shortest-path arch-costs data file.
 #define SHORTEST_COSTS_DAT_FILE       "gnuplot/shortest_costs.dat"                                          // Test-graph shortest path gnuplot arches cost-coords .dat file
+/// <b>Macro description:</b> Gnuplot shortest-path nodes data file (source and destination nodes excluded).
 #define SHORTEST_NODES_DAT_FILE       "gnuplot/shortest_nodes.dat"                                          // Test-graph shortest path gnuplot node-coords .dat file
+/// <b>Macro description:</b> Gnuplot shortest-path source and destination nodes data file.
 #define SRC_DEST_NODES_DAT_FILE       "gnuplot/src_dest_nodes.dat"                                          // Test-graph gnuplot source and destination node-coords .dat file
 
 
 /* Enums & data-types */
+/*!
+ * \var PREPARED
+ * Prepared-test testing option: pre-defined source and destination nodes in graph to find min-cost path (defined with macros #SOURCE_NODE_NAME and #DESTINATION_NODE_NAME).
+ * \var PERSONALIZED
+ * Personalized-test testing option: choose source and destination nodes in graph to find min-cost path.
+ * \var EXIT
+ * Exit option: deallocate graph structure and close software.
+ */
+/// <b>Enum-typedef description:</b> Test-choice enum typedef to define graph-library testing mode: prepared test, personalized test or exit and close test software.
 typedef enum test_choice {PREPARED=1, PERSONALIZED, EXIT} Test_choice;                                      // Test-choice enum typedef
 
 
 /* Structs & data-types */
+/// <b>Struct-typedef description:</b> Street struct typedef for graph-library test (use crosses and streets as example of archs and nodes).
 typedef struct street {                                                                                     // Street (arch) struct typedef (street name, street length)
+  /// Street name (string length defined with macro #AR_STR_LEN).
   C_char  name[AR_STR_LEN];                                                                                 // Street name
+  /// Street length (arch cost).
   C_real  length;                                                                                           // Street length
 } Street;
 
 
 /* Global vars */
+/// <b>Global-variable description:</b> Street-structs vector (to dynamically initalize archs).
 const Street strts_vect[] = {{"Street1",1.1}, {"Street2",2.2}, {"Street3",3.3}, {"Street4",4.4}, 
-                              {"Street5",5.5}, {"Street6",6.6}, {"Street7",7.7}, {"Street8",8.8},
-                              {"Street9",6.3}, {"Street10",0.2}, {"Street11",9.3}, {"Street12",7.1},
-                              {"Street13",12.8}};                                                           // Street-structs vector
-
-C_str crss_names_vect[] =   {"Cross1", "Cross2", "Cross3", "Cross4", "Cross5", "Cross6", "Cross7",
-                              "Cross8", "Cross9", "Cross10"};                                               // Cross-names vector
+   {"Street5",5.5}, {"Street6",6.6}, {"Street7",7.7}, {"Street8",8.8},
+   {"Street9",6.3}, {"Street10",0.2}, {"Street11",9.3}, {"Street12",7.1},
+   {"Street13",12.8}};                                                                                      // Street-structs vector
+/// <b>Global-variable description:</b> Cross-names vector (to dynamically initalize nodes).
+C_str crss_names_vect[] = {"Cross1", "Cross2", "Cross3", "Cross4", "Cross5", "Cross6", "Cross7",
+   "Cross8", "Cross9", "Cross10"};                                                                          // Cross-names vector
 
 
 /* Main routines */
@@ -187,7 +218,7 @@ static void create_connections(){                                               
 /*!
  * @brief                 <p><b>Function description:</b></p> Static routine to give give to the user the possibility to choose a testing option,
  *                        using pre-defined graph dynamically generated with graph-library functions:
- *                        * <b>Prepared test</b>: find shortest path from 'Cross4' to 'Cross9' nodes, applying Dijkstra's algorithm. In addition, show two special cases: shortest path from 'Cross4' to 'Cross4' (source = destination) and from 'Cross4' to 'Cross10' (unreachble node). In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
+ *                        * <b>Prepared test</b>: find shortest path from 'Cross4' to 'Cross9' nodes (defined with macros #SOURCE_NODE_NAME and #DESTINATION_NODE_NAME), applying Dijkstra's algorithm. In addition, show two special cases: shortest path from 'Cross4' to 'Cross4' (source = destination) and from 'Cross4' to 'Cross10' (unreachble node). In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
  *                        * <b>Personalized test</b>: find shortest path from user-defined source and destination nodes, applying Dijkstra's algorithm. In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
  *                        * <b>Close test software</b>: clear dynamic memory allocated inside heap and close test software.
  * 
@@ -241,16 +272,16 @@ static void test_option_choice(Test_choice *const choice){                      
 
 
 /*!
- * @brief   <p><b>Function description:</b></p> Static routine to build shortest-path graphical data, working on gnuplt .dat data files (listed below).
+ * @brief   <p><b>Function description:</b></p> Static routine to build shortest-path graphical data, working on gnuplt .dat data files (listed below) and defined with macros.
  *          * <b>Test-graph gnuplot data files (gnuplot data source)</b>:
- *            * <b>Archs .dat file</b>: data file which contains the coordinates to draw arches in graph, with target name as comment in the previous line.
- *            * <b>Costs .dat file</b>: data file which contains the coordinates to draw arch-costs in graph, with target name as comment in the previous line.
- *            * <b>Nodes .dat file</b>: data file which contains the coordinates to draw nodes in graph, with target name as comment in the previous line.
+ *            * <b>Archs data file</b>: archs.dat data file which contains the coordinates to draw arches in graph, with target name as comment in the previous line (defined in #ARCHS_DAT_FILE).
+ *            * <b>Costs data file</b>: costs.dat data file which contains the coordinates to draw arch-costs in graph, with target name as comment in the previous line (defined in #COSTS_DAT_FILE).
+ *            * <b>Nodes data file</b>: nodes.dat data file which contains the coordinates to draw nodes in graph, with target name as comment in the previous line (defined in #NODES_DAT_FILE).
  *          * <b>Test-graph shortest path gnuplot data files (gnuplot data destination of selected elements to graphically recreate the min-cost path)</b>:
- *            * <b>Shortest-path archs .dat file</b>: data file which contains the coordinates to draw arches in shortest-path graph, with target name as comment in the previous line.
- *            * <b>Shortest-path costs .dat file</b>: data file which contains the coordinates to draw arch-costs in shortest-path graph, with target name as comment in the previous line.
- *            * <b>Shortest-path nodes .dat file (source-destination nodes excluded)</b>: data file which contains the coordinates to draw nodes in shortest-path graph (source-destination nodes excluded), with target name as comment in the previous line.
- *            * <b>Shortest-path source and destination nodes .dat file</b>: data file which contains the coordinates to draw source and destination nodes in shortest-path graph, with target name as comment in the previous line.
+ *            * <b>Shortest-path archs data file</b>: shortest_archs.dat data file which contains the coordinates to draw arches in shortest-path graph, with target name as comment in the previous line (defined in #SHORTEST_ARCHS_DAT_FILE).
+ *            * <b>Shortest-path costs data file</b>: shortest_costs.dat data file which contains the coordinates to draw arch-costs in shortest-path graph, with target name as comment in the previous line (defined in #SHORTEST_ARCHS_DAT_FILE).
+ *            * <b>Shortest-path nodes data file (source-destination nodes excluded)</b>: shortest_nodes.dat data file which contains the coordinates to draw nodes in shortest-path graph (source-destination nodes excluded), with target name as comment in the previous line (defined in #SHORTEST_NODES_DAT_FILE).
+ *            * <b>Shortest-path source and destination nodes data file</b>: src_dest_nodes.dat data file which contains the coordinates to draw source and destination nodes in shortest-path graph, with target name as comment in the previous line (defined in #SRC_DEST_NODES_DAT_FILE).
  * 
  * @return  None.
  */
@@ -355,15 +386,15 @@ static void build_shortest_path_graphics_data(){                                
 
 
 /*!
- * @brief                 <p><b>Function description:</b></p> Static routine to give give to the user the possibility to choose a testing option,
- *                        using pre-defined graph dynamically generated with graph-library functions:
- *                        * <b>Prepared test</b>: find shortest path from 'Cross4' to 'Cross9' nodes, applying Dijkstra's algorithm. In addition, show two special cases: shortest path from 'Cross4' to 'Cross4' (source = destination) and from 'Cross4' to 'Cross10' (unreachble node). In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
- *                        * <b>Personalized test</b>: find shortest path from user-defined source and destination nodes, applying Dijkstra's algorithm. In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
- *                        * <b>Close test software</b>: clear dynamic memory allocated inside heap and close test software.
+ * @brief         <p><b>Function description:</b></p> Static routine to send gnuplot system command string, with the aim of printing graphical data contained inside .dat files.
+ *                In case command is the one to print graph and highlight the shortest-path, call a specific function (build_shortest_path_graphics_data()) to manipulate gnuplot data and graphically recreate the min cost path.
+ *                Gnuplot system commands listed below:
+ *                * <b>Plot graph</b>: calls gnuplot and load plotting command in .cmd file (graph_plot.cmd, defined with a macro: #GPLOT_TEST_GRAPH_LAYOUT_CMD), in order to plot: arches, arch-costs and nodes in graph.
+ *                * <b>Plot graph with shortest-path</b>: calls gnuplot and load plotting command in .cmd file (shortest_plot.cmd, defined with a macro: #GPLOT_SHORTEST_PATH_CMD), in order to plot: arches, arch-costs and nodes in graph highlighting the shortest path.
  * 
- * \param[in,out] choice  Option chosen by the user (enum).
+ * \param[in] cmd Display test-graph gnuplot system command string.
  * 
- * @return                None.
+ * @return        None.
  */
 static void display_test_graph(C_str cmd){                                                                  // Routine to display test-graph through gnuplot
   /* Body */
@@ -379,18 +410,42 @@ static void display_test_graph(C_str cmd){                                      
 }
 
 
+/*!
+ * @brief                 <p><b>Function description:</b></p> Static routine to apply Dijkstra's algorithm with verbose-mode enabled, from specified source node (selected by-name and checking if contained in nodes collection).
+ *                        Find min-cost paths from specified source node, towards each other node inside allocated graph. Find out if a specific possible destination node is unreachble, or if it corresponds to the source node.
+ * 
+ * \param[in] src_nd_name Source node name, from which to apply Dijkstra's algorithm.
+ * 
+ * @return                None.
+ */
 static void apply_dijkstra(C_str src_nd_name){                                                              // Routine to apply Dijkstra's algorithm
   /* Body */
   dijkstra_alg(src_nd_name, VERBOSE);                                                                       // Apply Dijkstra alg using defined source node (find all min path-costs and prev nodes in shortest paths, Dijkstra-dataset vect allocated/reallocated inside heap) - Y/N for verbose mode
 }
 
 
+/*!
+ * @brief                   <p><b>Function description:</b></p> Static routine to reconstruct min-cost path with verbose-mode enabled, towards specified destination node (from source node defined when calling Dijkstra's algoritm;
+ *                          destination node selected by-name, checking if node is contained in nodes collection). Find out if a specific possible destination node is unreachble, or if it corresponds to the source node.
+ * 
+ * \param[in] dest_nd_name  Destination node name towards which min-cost path must be reconstructed (backwards).
+ * 
+ * @return                  None.
+ */
 static void reconstruct_min_path(C_str dest_nd_name){                                                       // Routine to reconstruct min path
   /* Body */
   buid_shortest_path(dest_nd_name, VERBOSE);                                                                // Reconstruct min path to defined destination node startin' from pre-defined source node, (min path connections vect allocated/reallocated inside heap) - Y/N for verbose mode
 }
 
 
+/*!
+ * @brief                   <p><b>Function description:</b></p> Static routine to define source node name for Dijkstra's algorithm function, from user terminal-input. After that, function checks if
+ *                          specified node is contained in nodes collection.
+ * 
+ * \param[in,out] src_nd_nm Source node name terminal-input, for Dijkstra's algorithm.
+ * 
+ * @return                  None.
+ */
 static void define_src_node_name(Str* src_nd_nm){                                                           // Routine to define presonalized source-node name
   /* Body */
   for (int i = 0; i < nds_collect_size; ++i){                                                               // Nodes collection vect scrollin' FOR cycle
@@ -402,6 +457,14 @@ static void define_src_node_name(Str* src_nd_nm){                               
 }
 
 
+/*!
+ * @brief                     <p><b>Function description:</b></p> Static routine to define destination node name from user terminal-input, to be abe to reconstruct min-cost pah from
+ *                            source node defined when calling Dijkstra's algorithm. After that, function checks if specified node is contained in nodes collection.
+ * 
+ * \param[in,out] dest_nd_nm  Destination node name terminal-input, to reconstruct min-cost path.
+ * 
+ * @return                    None.
+ */
 static void define_dest_node_name(Str* dest_nd_nm){                                                         // Routine to define presonalized destination-node name
   /* Body */
   for (int i = 0; i < nds_collect_size; ++i){                                                               // Nodes collection vect scrollin' FOR cycle
@@ -414,6 +477,12 @@ static void define_dest_node_name(Str* dest_nd_nm){                             
 
 
 /* Main cycle */
+/*!
+ * @brief   <p><b>Function description:</b></p> Main software routine to dynamically allocate a test-graph, asking for graph-library test mode, (eventually) displaying results and graphichs through
+ *          gnuplot and finally clearing allocated memory inside heap.
+ * 
+ * @return  None.
+ */
 int main(){                                                                                                 // Main SW cycle
   /* Main vars */
   Test_choice choice = 0;                                                                                   // Test choice var

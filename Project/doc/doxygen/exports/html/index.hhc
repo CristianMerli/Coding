@@ -12,6 +12,8 @@
     </UL>
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page2.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page4.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page3.html"><param name="ImageNumber" value="11"></OBJECT>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Bug List"><param name="Local" value="bug.html"><param name="ImageNumber" value="11"></OBJECT>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Data Structures"><param name="Local" value="annotated.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
@@ -456,9 +458,9 @@
         <LI><OBJECT type="text/sitemap"><param name="Name" value="Test_choice"><param name="Local" value="graph__test_8c.html#a41cd5e790f520e5ff47d502b249df008"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="test_choice"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0"><param name="ImageNumber" value="1"></OBJECT>
           <UL>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="PREPARED"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0aca587e6ced264bc7afe62847cffb45ab"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="PERSONALIZED"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0a2f770cf5dfbe6062bfd8072f6c1b93df"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="EXIT"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0a7a10b5d68d31711288e1fe0fa17dbf4f"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="PREPARED"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0a5e7d110f1447666239475d94625bc1ff"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="PERSONALIZED"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0a59a46c149ad1c43595c5177cf2bffae0"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="EXIT"><param name="Local" value="graph__test_8c.html#ab257d7f25b0533b003fb12b4f8c5e2f0a7f72b51fd69a4a1f82da54e116d22310"><param name="ImageNumber" value="11"></OBJECT>
           </UL>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="apply_dijkstra"><param name="Local" value="graph__test_8c.html#a306c81f1f994c864c0b0c69bac1ceac6"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="build_shortest_path_graphics_data"><param name="Local" value="graph__test_8c.html#a8ce50baf9e16d38da95c61def1b9423b"><param name="ImageNumber" value="11"></OBJECT>

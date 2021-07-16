@@ -6,7 +6,7 @@
 ###   Code title: Graph makefile   ###
 ###   Code version: 3.0            ###
 ###   Creation date: 03/07/2021    ###
-###   Last mod. date: 15/07/2021   ###
+###   Last mod. date: 16/07/2021   ###
 ###                                ###
 ######################################
 
@@ -98,9 +98,9 @@ clr:
 
 # (2.6) Export/clear documentation with doxygen
 docs: $(DOX_STP)
-	doxygen $(DOX_STP)
-docs_view: $(DOX_HTML)
 	firefox $(DOX_HTML)
+docs_gen: $(DOX_HTML)
+	doxygen $(DOX_STP)
 docs_gen_view: $(DOX_STP)
 	doxygen $(DOX_STP)
 	firefox $(DOX_HTML)

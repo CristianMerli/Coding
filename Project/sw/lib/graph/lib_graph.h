@@ -18,7 +18,7 @@
 #define AR_STR_LEN        31                                                                                // String length used to define arch-names (max 30 chars + '\0')
 #define SEP_CHR           '-'                                                                               // Separator-char
 #define SHORT_PTH_SEP_CHR '*'                                                                               // Shortest path separator-char
-#define PRINT_DLY_MS      500                                                                               // Print delay [ms]
+#define PRINT_DLY_MS      5                                                                               // Print delay [ms]
 
 
 /* Structs & data-types */

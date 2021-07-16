@@ -1,6 +1,5 @@
 # Window-setup
 set title "Test graph layout with shortest-path"  # Set title
-set size square                                   # Maintain the same scale on x and y axes
 set xrange [-145:85];                             # Define x-coord printin' range
 set yrange [-145:85];                             # Define y-coord printin' range
 unset xtics                                       # Hide x-axis ticks

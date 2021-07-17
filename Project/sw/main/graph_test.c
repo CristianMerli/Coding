@@ -77,33 +77,33 @@
 
 
 /* Constants */
-/// <b>Macro description:</b> Advanced verbose mode (Y/N).
+/// <b>Macro description:</b> Advanced verbose mode (Y/N) for #dijkstra_alg() and #buid_shortest_path() functions.
 #define VERBOSE                       Y                                                                     // Verbose mode (Y/N)
-/// <b>Macro description:</b> Source node name for graph-library prepared testing mode.
+/// <b>Macro description:</b> Source node name for graph-library prepared testing mode, for #dijkstra_alg() function.
 #define SOURCE_NODE_NAME              "Cross4"                                                              // Graph test sorce node name
-/// <b>Macro description:</b> Destination node name for graph-library prepared testing mode.
+/// <b>Macro description:</b> Destination node name for graph-library prepared testing mode, for #buid_shortest_path() function.
 #define DESTINATION_NODE_NAME         "Cross9"                                                              // Graph test destination node name
-/// <b>Macro description:</b> Destination node name for graph-library prepared testing mode special case1 (source = destination).
+/// <b>Macro description:</b> Destination node name for graph-library prepared testing mode special case1 (source = destination), for #buid_shortest_path() function.
 #define DEST_NODE_NAME_SPECIAL_CASE1  "Cross4"                                                              // Graph test destination node name (special-case path 1: destinstion=source node)
-/// <b>Macro description:</b> Destination node name for graph-library prepared testing mode special case2 (destination node unreachble).
+/// <b>Macro description:</b> Destination node name for graph-library prepared testing mode special case2 (destination node unreachble), for #buid_shortest_path() function.
 #define DEST_NODE_NAME_SPECIAL_CASE2  "Cross10"                                                             // Graph test destination node name (special-case path 2: destinstion node unreachble from source node)
-/// <b>Macro description:</b> Gnuplot graph plotting system command.
+/// <b>Macro description:</b> Gnuplot graph plotting system command, for #display_test_graph() function.
 #define GPLOT_TEST_GRAPH_LAYOUT_CMD   "gnuplot -e \"load 'gnuplot/graph_plot.cmd'; pause -1\""              // Command to display test-graph layout with gnuplot
-/// <b>Macro description:</b> Gnuplot graph and shortest path plotting system command.
+/// <b>Macro description:</b> Gnuplot graph and shortest path plotting system command, for #display_test_graph() function.
 #define GPLOT_SHORTEST_PATH_CMD       "gnuplot -e \"load 'gnuplot/shortest_plot.cmd'; pause -1\""           // Command to display test-graph layout and shortest path with gnuplot
-/// <b>Macro description:</b> Gnuplot archs data file.
+/// <b>Macro description:</b> Gnuplot archs data file, for #build_shortest_path_graphics_data() function.
 #define ARCHS_DAT_FILE                "gnuplot/archs.dat"                                                   // Test-graph gnuplot arch-coords .dat file
-/// <b>Macro description:</b> Gnuplot arch-costs data file.
+/// <b>Macro description:</b> Gnuplot arch-costs data file, for #build_shortest_path_graphics_data() function.
 #define COSTS_DAT_FILE                "gnuplot/costs.dat"                                                   // Test-graph gnuplot arches cost-coords .dat file
-/// <b>Macro description:</b> Gnuplot nodes data file.
+/// <b>Macro description:</b> Gnuplot nodes data file, for #build_shortest_path_graphics_data() function.
 #define NODES_DAT_FILE                "gnuplot/nodes.dat"                                                   // Test-graph gnuplot node-coords .dat file
-/// <b>Macro description:</b> Gnuplot shortest-path archs data file.
+/// <b>Macro description:</b> Gnuplot shortest-path archs data file, for #build_shortest_path_graphics_data() function.
 #define SHORTEST_ARCHS_DAT_FILE       "gnuplot/shortest_archs.dat"                                          // Test-graph shortest path gnuplot arch-coords .dat file
-/// <b>Macro description:</b> Gnuplot shortest-path arch-costs data file.
+/// <b>Macro description:</b> Gnuplot shortest-path arch-costs data file, for #build_shortest_path_graphics_data() function.
 #define SHORTEST_COSTS_DAT_FILE       "gnuplot/shortest_costs.dat"                                          // Test-graph shortest path gnuplot arches cost-coords .dat file
-/// <b>Macro description:</b> Gnuplot shortest-path nodes data file (source and destination nodes excluded).
+/// <b>Macro description:</b> Gnuplot shortest-path nodes data file (source and destination nodes excluded), for #build_shortest_path_graphics_data() function.
 #define SHORTEST_NODES_DAT_FILE       "gnuplot/shortest_nodes.dat"                                          // Test-graph shortest path gnuplot node-coords .dat file
-/// <b>Macro description:</b> Gnuplot shortest-path source and destination nodes data file.
+/// <b>Macro description:</b> Gnuplot shortest-path source and destination nodes data file, for #build_shortest_path_graphics_data() function.
 #define SRC_DEST_NODES_DAT_FILE       "gnuplot/src_dest_nodes.dat"                                          // Test-graph gnuplot source and destination node-coords .dat file
 
 
@@ -123,7 +123,7 @@ typedef enum test_choice {PREPARED=1, PERSONALIZED, EXIT} Test_choice;          
 /* Structs & data-types */
 /// <b>Struct-typedef description:</b> Street struct typedef for graph-library test (use crosses and streets as example of archs and nodes).
 typedef struct street {                                                                                     // Street (arch) struct typedef (street name, street length)
-  /// Street name (string length defined with macro #AR_STR_LEN).
+  /// Street name, string length defined through #AR_STR_LEN macro.
   C_char  name[AR_STR_LEN];                                                                                 // Street name
   /// Street length (arch cost).
   C_real  length;                                                                                           // Street length

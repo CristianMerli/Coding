@@ -48,20 +48,27 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><b>Struct-typedef description:</b> Dijkstra-dataset struct typedef to store informations about a specific node, in order to be able to find min-cost path with Dijkstra's algorithm and reconstruct shortest path.  
+ <a href="structdijkstra__dataset.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:ae267e32e2b42821207f2be040e144a0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lib__graph_8h.html#aefe7e664412b2365eb495bf4c94b6a09">Graph_node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdijkstra__dataset.html#ae267e32e2b42821207f2be040e144a0f">prev_nd</a></td></tr>
+<tr class="memdesc:ae267e32e2b42821207f2be040e144a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Previous node in shortest path (pointer to a graph-node element allocated in nodes collection vector inside heap: <a class="el" href="lib__graph_8h.html#a91ac417366979d61c7e745aeee72cf3b" title="Public-variable description: Nodes collection dynamic-memory vector (pointer to first vector memory c...">nodes_collect_vect</a>).  <a href="structdijkstra__dataset.html#ae267e32e2b42821207f2be040e144a0f">More...</a><br /></td></tr>
 <tr class="separator:ae267e32e2b42821207f2be040e144a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36312e4e78a2e052ce6bbf1e314d58f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lib__ui_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907">Real</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdijkstra__dataset.html#a36312e4e78a2e052ce6bbf1e314d58f4">min_path_cost</a></td></tr>
+<tr class="memdesc:a36312e4e78a2e052ce6bbf1e314d58f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shortest-path cost to reach that specific node, from source node specified during <a class="el" href="lib__graph_8c.html#a67ad50bcf5c0aee76ebf61c50446e0ff">dijkstra_alg()</a> function call (path can be reconstructed backwards using <a class="el" href="structdijkstra__dataset.html#ae267e32e2b42821207f2be040e144a0f" title="Previous node in shortest path (pointer to a graph-node element allocated in nodes collection vector ...">prev_nd</a> by calling <a class="el" href="lib__graph_8c.html#a9344d8aded31a4e9eb0bbaaa20f403de">buid_shortest_path()</a> function).  <a href="structdijkstra__dataset.html#a36312e4e78a2e052ce6bbf1e314d58f4">More...</a><br /></td></tr>
 <tr class="separator:a36312e4e78a2e052ce6bbf1e314d58f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09f4e0fcb5c4f9d0721bce3b9c487edb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lib__ui_8h.html#ae3a497195d617519e5353ea7b417940f">Byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdijkstra__dataset.html#a09f4e0fcb5c4f9d0721bce3b9c487edb">an_flg</a></td></tr>
+<tr class="memdesc:a09f4e0fcb5c4f9d0721bce3b9c487edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node flag to mark it as already analyzed when processed by <a class="el" href="lib__graph_8c.html#a67ad50bcf5c0aee76ebf61c50446e0ff">dijkstra_alg()</a> function.  <a href="structdijkstra__dataset.html#a09f4e0fcb5c4f9d0721bce3b9c487edb">More...</a><br /></td></tr>
 <tr class="separator:a09f4e0fcb5c4f9d0721bce3b9c487edb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00070">70</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
+<div class="textblock"><p><b>Struct-typedef description:</b> Dijkstra-dataset struct typedef to store informations about a specific node, in order to be able to find min-cost path with Dijkstra's algorithm and reconstruct shortest path. </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00086">86</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a09f4e0fcb5c4f9d0721bce3b9c487edb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a09f4e0fcb5c4f9d0721bce3b9c487edb">&#9670;&nbsp;</a></span>an_flg</h2>
@@ -75,7 +82,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00073">73</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
+<p>Node flag to mark it as already analyzed when processed by <a class="el" href="lib__graph_8c.html#a67ad50bcf5c0aee76ebf61c50446e0ff">dijkstra_alg()</a> function. </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00092">92</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
 
 </div>
 </div>
@@ -91,7 +100,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00072">72</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
+<p>Shortest-path cost to reach that specific node, from source node specified during <a class="el" href="lib__graph_8c.html#a67ad50bcf5c0aee76ebf61c50446e0ff">dijkstra_alg()</a> function call (path can be reconstructed backwards using <a class="el" href="structdijkstra__dataset.html#ae267e32e2b42821207f2be040e144a0f" title="Previous node in shortest path (pointer to a graph-node element allocated in nodes collection vector ...">prev_nd</a> by calling <a class="el" href="lib__graph_8c.html#a9344d8aded31a4e9eb0bbaaa20f403de">buid_shortest_path()</a> function). </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00090">90</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
 
 </div>
 </div>
@@ -107,7 +118,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00071">71</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
+<p>Previous node in shortest path (pointer to a graph-node element allocated in nodes collection vector inside heap: <a class="el" href="lib__graph_8h.html#a91ac417366979d61c7e745aeee72cf3b" title="Public-variable description: Nodes collection dynamic-memory vector (pointer to first vector memory c...">nodes_collect_vect</a>). </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00088">88</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
 
 </div>
 </div>

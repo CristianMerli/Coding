@@ -48,20 +48,27 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><b>Struct-typedef description:</b> Node struct typedef to store node name, a list of connection archs associated to that node and a Dijkstra-dataset which contains the informations about that specific node to find min-cost path with Dijkstra's algorithm and reconstruct shortest path.  
+ <a href="structnode.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:aae463dc4f9706d49881b7b8f19491481"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html#aae463dc4f9706d49881b7b8f19491481">name</a> [<a class="el" href="lib__graph_8h.html#a19494261950487fc03f0d609b24e8f68">ND_STR_LEN</a>]</td></tr>
+<tr class="memdesc:aae463dc4f9706d49881b7b8f19491481"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node-name string, length defined through <a class="el" href="lib__graph_8h.html#a19494261950487fc03f0d609b24e8f68" title="Macro description: Max node-names length in chars (30 + &#39;\0&#39;).">ND_STR_LEN</a> macro.  <a href="structnode.html#aae463dc4f9706d49881b7b8f19491481">More...</a><br /></td></tr>
 <tr class="separator:aae463dc4f9706d49881b7b8f19491481"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64d419c46e0ca6c97d84b514e402d187"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lib__graph_8h.html#ae3bbc8b2faded480e82c19f927844359">List</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html#a64d419c46e0ca6c97d84b514e402d187">archs_lst</a></td></tr>
+<tr class="memdesc:a64d419c46e0ca6c97d84b514e402d187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Node-connection archs list head pointer.  <a href="structnode.html#a64d419c46e0ca6c97d84b514e402d187">More...</a><br /></td></tr>
 <tr class="separator:a64d419c46e0ca6c97d84b514e402d187"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f59fc56367364ce3424b6aec516d8d2"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structdijkstra__dataset.html">dijkstra_dataset</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html#a5f59fc56367364ce3424b6aec516d8d2">dd</a></td></tr>
+<tr class="memdesc:a5f59fc56367364ce3424b6aec516d8d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dijkstra-dataset pointer (set of informations to be able to find and reconstruct min-cost path, allocated inside a dynamic-memory vector: <a class="el" href="lib__graph_8c.html#a04651c2f79a7e220dc161296739b7830" title="Library-variable description: Dynamic-memory vector pointer containing a set of informations to be ab...">dijk_dataset_vect</a>).  <a href="structnode.html#a5f59fc56367364ce3424b6aec516d8d2">More...</a><br /></td></tr>
 <tr class="separator:a5f59fc56367364ce3424b6aec516d8d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00053">53</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
+<div class="textblock"><p><b>Struct-typedef description:</b> Node struct typedef to store node name, a list of connection archs associated to that node and a Dijkstra-dataset which contains the informations about that specific node to find min-cost path with Dijkstra's algorithm and reconstruct shortest path. </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00058">58</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a64d419c46e0ca6c97d84b514e402d187"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a64d419c46e0ca6c97d84b514e402d187">&#9670;&nbsp;</a></span>archs_lst</h2>
@@ -75,7 +82,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00055">55</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
+<p>Node-connection archs list head pointer. </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00062">62</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
 
 </div>
 </div>
@@ -91,7 +100,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00056">56</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
+<p>Dijkstra-dataset pointer (set of informations to be able to find and reconstruct min-cost path, allocated inside a dynamic-memory vector: <a class="el" href="lib__graph_8c.html#a04651c2f79a7e220dc161296739b7830" title="Library-variable description: Dynamic-memory vector pointer containing a set of informations to be ab...">dijk_dataset_vect</a>). </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00064">64</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
 
 </div>
 </div>
@@ -107,7 +118,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00054">54</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
+<p>Node-name string, length defined through <a class="el" href="lib__graph_8h.html#a19494261950487fc03f0d609b24e8f68" title="Macro description: Max node-names length in chars (30 + &#39;\0&#39;).">ND_STR_LEN</a> macro. </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__graph_8h_source.html#l00060">60</a> of file <a class="el" href="lib__graph_8h_source.html">lib_graph.h</a>.</p>
 
 </div>
 </div>

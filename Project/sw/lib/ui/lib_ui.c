@@ -16,7 +16,7 @@ char term_in_buff[IN_BUFF_SIZE] = "";                                           
 int unused __attribute__((unused));                                                                         // Unused var
 
 
-/* Functions */
+/* Public functions */
 void logo(Cu_shrt start_sp, C_str txt, C_str txt_col, C_char bkg_chr, C_str bkg_col){                       // Print responsive-logo function
   /* Body */
   struct winsize w;                                                                                         // Window-size struct declaration

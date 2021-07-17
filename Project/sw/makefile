@@ -97,9 +97,9 @@ clr:
 	rm $(LIB_GRAPH_OUT) $(LIB_UI_OUT) $(LIB_FILES_OUT) $(LIB_TIMER_OUT) $(MAIN_OUT) $(MAIN_NAME)
 
 # (2.6) Export/clear documentation with doxygen
-docs: $(DOX_STP)
+docs: $(DOX_HTML)
 	firefox $(DOX_HTML)
-docs_gen: $(DOX_HTML)
+docs_gen: $(DOX_STP)
 	doxygen $(DOX_STP)
 docs_gen_view: $(DOX_STP)
 	doxygen $(DOX_STP)

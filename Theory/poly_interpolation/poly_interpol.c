@@ -165,7 +165,7 @@ static void logo(const byte start_sp, const char *txt, const char *txt_col, cons
       printf("\n");                                                                                         // New line fbk
     }
   }
-  printf("\033[0m\n");                                                                                      // New line fbk and erase logo bkg color
+  printf("\033[0m\n"  );                                                                                      // New line fbk and erase logo bkg color
 }
 
 /*!

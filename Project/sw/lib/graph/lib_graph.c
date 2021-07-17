@@ -28,20 +28,43 @@
 
 
 /* Public vars */
+/// <b>Public-variable description:</b> constant variabile to indicate max real value, simulating +&infin; in #dijkstra_alg() function.
 const Real _REAL_MAX_ = __DBL_MAX__;                                                                        // Real max val to simulate +inf
-int ars_collect_size = 0, nds_collect_size = 0, min_pth_conn_vect_size = 0;                                 // Arches and nodes collection vectors sizes + min path connections vect size
+/// <b>Public-variable description:</b> Archs collection vector size (size of #archs_collect_vect).
+int ars_collect_size = 0;                                                                                   // Arches collection vector size
+/// <b>Public-variable description:</b> Nodes collection vector size (size of #nodes_collect_vect).
+int nds_collect_size = 0;                                                                                   // Nodes collection vector size
+/// <b>Public-variable description:</b> Shortest-path connections vector size (size of #min_path_conn_vect).
+int min_pth_conn_vect_size = 0;                                                                             // Min path connections vector size
+/// <b>Public-variable description:</b> Archs collection dynamic-memory vector (pointer to first vector memory cell allocated inside heap).
 Arch* archs_collect_vect = NULL;                                                                            // Graph arches collection vector ptr init
+/// <b>Public-variable description:</b> Nodes collection dynamic-memory vector (pointer to first vector memory cell allocated inside heap).
 Node* nodes_collect_vect = NULL;                                                                            // Graph nodes collection vector ptr init
+/// <b>Public-variable description:</b> Shortest-path connections dynamic-memory vector (pointer to first vector memory cell allocated inside heap).
 Connection* min_path_conn_vect = NULL;                                                                      // Min path connections vect ptr init (from 0 to 'min_pth_conn_vect_size-1' nodes and from 1 to 'min_pth_conn_vect_size-1' archs)
 
 
 /* Lib vars */
-int src_node_idx = 0, dest_node_idx = 0;                                                                    // Source and destination node idxs (lib-vars)
+/// <b>Library-variable description:</b> Source node index, selected by-name using #idx_by_name() function.
+int src_node_idx = 0;                                                                                       // Source node idx (lib-var)
+/// <b>Library-variable description:</b> Destination node index, selected by-name using #idx_by_name() function.
+int dest_node_idx = 0;                                                                                      // Destination node idx (lib-var)
+/// <b>Library-variable description:</b> Dynamic-memory vector pointer containing a set of informations to be able to find and reconstruct min-cost path, later assigned to each node in #dijkstra_alg() function.
 Dijkstra_dataset* dijk_dataset_vect = NULL;                                                                 // Dijkstra-dataset vector ptr init
+/// <b>Library-variable description:</b> Reallocation flag to choose between callocs or reallocs in #dijkstra_alg() and #buid_shortest_path() functions <i>(0 = #dijkstra_alg() not-called / 1 = #dijkstra_alg() called / 2 = #dijkstra_alg() called and #buid_shortest_path() called)</i>.
 Byte realloc_flg = 0;                                                                                       // Realloc flag init (0=Dijk_algo-not-called / 1=Dijk_algo-called / 2=Dijk_algo-called+bld_shortest_pth-called)
 
 
 /* Functions */
+/*!
+ * @brief         <p><b>Function description:</b></p> Function to manage vectors, arrays and pointers addressing (treat all as 1d array = vector), defined using #vect_coords enum.
+ * 
+ * \param[in] i   Line number (starting from 0 since C is a zero-index language).
+ * \param[in] j   Column number (starting from 0 since C is a zero-index language).
+ * \param[in] lda Leading-dimension (Max number of columns for each matrix line, since the C languace follows line-indexing to allocate memory cells for matrix).
+ * 
+ * @return        Vector/pointer index number <i>(-1 = error)</i>.
+ */
 static int iaddr(C_int i, C_int j, C_int lda){                                                              // Arrays/vectors memo addressing
   /* Body */
   if (i >= 0 && j >= 0 && lda >= 0)                                                                         // Check params ok
@@ -56,6 +79,13 @@ static int iaddr(C_int i, C_int j, C_int lda){                                  
 }
 
 
+/*!
+ * @brief         <p><b>Function description:</b></p> Function to allocate defined number of new list elements inside heap.
+ * 
+ * \param[in] num Number of new list elements to allocate inside heap.
+ * 
+ * @return        Allocated list elements pointer (address of the first one).
+ */
 static List_elem* allocate_new_list_elems(C_int num){                                                       // Function to allocate new list elements (single/vect)
   /* Body */
   List_elem* tmp_list_elems = calloc((size_t)num, sizeof(List_elem));                                       // Tmp list element ptr creation to point at first allocated memo cell inside heap
@@ -69,6 +99,14 @@ static List_elem* allocate_new_list_elems(C_int num){                           
 }
 
 
+/*!
+ * @brief                   <p><b>Function description:</b></p> Function to add a new list-element at list-head position.
+ * 
+ * \param[in,out] list      List pointer (list-head pointer of pointer).
+ * \param[in,out] el_to_add Pointer to list-element to add.
+ * 
+ * @return                  None.
+ */
 static void add_elem_at_list_head(List* list, List_elem* const el_to_add){                                  // Function to add a new element in list (head position)
   /* Body */
   if (el_to_add != NULL){                                                                                   // Check element to add not null
@@ -82,6 +120,15 @@ static void add_elem_at_list_head(List* list, List_elem* const el_to_add){      
 }
 
 
+/*!
+ * @brief                   <p><b>Function description:</b></p> Function to add a new list-element at list-specific position.
+ * 
+ * \param[in,out] list      List pointer (list-head pointer of pointer).
+ * \param[in,out] el_to_add Pointer to list-element to add.
+ * \param[in]     pos       Position number in which to add the new list-element inside given list (non-zero index)
+ * 
+ * @return                  None.
+ */
 static void add_elem_at_list_pos(List* list, List_elem* const el_to_add, C_int pos){                        // Function to add a new element at a specific position of the list (non-zero index)
   /* Body */
   if (pos >= 1 && el_to_add != NULL){                                                                       // Check specified postion greater (or equal) than one and element to add not null
@@ -100,6 +147,14 @@ static void add_elem_at_list_pos(List* list, List_elem* const el_to_add, C_int p
 }
 
 
+/*!
+ * @brief                   <p><b>Function description:</b></p> Function to add a new list-element at list-tail position.
+ * 
+ * \param[in,out] list      List pointer (list-head pointer of pointer).
+ * \param[in,out] el_to_add Pointer to list-element to add.
+ * 
+ * @return                  None.
+ */
 static void add_elem_at_list_tail(List* list, List_elem* const el_to_add){                                  // Function to add a new element in list (tail position)
   /* Body */
   if (el_to_add != NULL){                                                                                   // Check element to add not null
@@ -116,6 +171,7 @@ static void add_elem_at_list_tail(List* list, List_elem* const el_to_add){      
 }
 
 
+/////////////
 static void free_list_elems(List* list_head, Verbose_mode v_mode){                                          // Function to free allocated elements inside heap, startin' from specified list (or sub-list) head, 'till list (or sub-list) tail - Y/N for verbose mode
   /* Body */
   List tmp_list_head = *list_head;                                                                          // Tmp var to clear allocated memo inside heap (list element)
@@ -321,6 +377,14 @@ static void print_shortest_path(){                                              
 
 
 /* Public functions */
+/*!
+ * @brief                 <p><b>Function description:</b></p> Function to get object (arch or node) vector index by name (inside #archs_collect_vect or #nodes_collect_vect).
+ * 
+ * \param[in] object_type Object type, defined through #obj_type enum-typedef value.
+ * \param[in] object_name Object name string (target name).
+ * 
+ * @return                Object (ARCH/NODE) vector index by name <i>(Special cases: -1 = No match found / -2 = Error)</i>.
+ */
 int idx_by_name(Obj_type object_type, C_str object_name){                                                   // Function to get object (arch/node) vector index by name (-1 = No match found / -2 = Error)
   /* Body */
   int match_found = -1;                                                                                     // Match found idx (-1 = No match found / -2 = Error)
@@ -349,6 +413,14 @@ int idx_by_name(Obj_type object_type, C_str object_name){                       
 }
 
 
+/*!
+ * @brief           <p><b>Function description:</b></p> Function to add a new arch inside #archs_collect_vect (archs collection vector allocated inside heap).
+ * 
+ * \param[in] name  New arch name.
+ * \param[in] cost  New arch cost value.
+ * 
+ * @return          None.
+ */
 void add_new_arch(C_str name, C_real cost){                                                                 // Function to add new graph arch (arch allocated inside heap)
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Adding new graph arch...");                                                        // Adding new graph arch fbk
@@ -380,6 +452,13 @@ void add_new_arch(C_str name, C_real cost){                                     
 }
 
 
+/*!
+ * @brief           <p><b>Function description:</b></p> Function to add a new node inside #nodes_collect_vect (nodes collection vector allocated inside heap).
+ * 
+ * \param[in] name  New node name.
+ * 
+ * @return          None.
+ */
 void add_new_node(C_str name){                                                                              // Function to add new graph node (node allocated inside heap)
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Adding new graph node...");                                                        // Adding new graph node fbk
@@ -402,6 +481,18 @@ void add_new_node(C_str name){                                                  
 }
 
 
+/*!
+ * @brief             <p><b>Function description:</b></p> Function to create bidirectional connection between specified arch and node in defined positions, using #node_pos_in_arch and #arch_pos_typ enums.
+ *                    Arch and node are selected by-name, looking for corresponding index inside #archs_collect_vect and #nodes_collect_vect through #idx_by_name() function.
+ * 
+ * \param[in] ar_name Arch name to connect.
+ * \param[in] nd_name Node name to connect.
+ * \param[in] nd_pos  Node position in arch.
+ * \param[in] ar_pos  Acrch position in node connection-archs list.
+ * \param[in] lst_pos <b>(optional parameter)</b>, required when 'ar_pos' parameter is equal to #LIST_POS (specify list position if specific list position adding mode has been selected).
+ * 
+ * @return            None.
+ */
 void connect_node_arch(C_str ar_name, C_str nd_name, Node_pos_in_arch nd_pos, Arch_pos_typ ar_pos, ...){    // Function to connect arch-node in graph (new arch list element allocated inside heap, opt param --> arch pos in arches list, non-zero index)
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Creating bidirectional connection between node and arch...");                      // Creatin' bidirectional connection between node and arch
@@ -465,6 +556,18 @@ void connect_node_arch(C_str ar_name, C_str nd_name, Node_pos_in_arch nd_pos, Ar
 }
 
 
+/*!
+ * @brief                 <p><b>Function description:</b></p> Function to apply Dijkstra's algorithm from specified source node,
+ *                        to find min-cost path towards each oder node in graph, working on Dijkstra-dataset info pointers inside each node data-structure (but allocated inside heap with #dijk_dataset_vect).
+ *                        In this way, Dijkstra-dataset memory inside heap is allocated only if, and when needed; in addition, #buid_shortest_path() function can be called multiple times, reconstructing different
+ *                        shortest-paths starting from pre-defined source node (defined in last #dijkstra_alg() function call) without continuously calling Dijstra's algorithm. Source node is selected by-name, looking for corresponding index inside #nodes_collect_vect through #idx_by_name() function.
+ *                        Dijkstra's algorithm is also able to detect special cases such as unreachble nodes and node equal to specified source node.
+ * 
+ * \param[in] src_nd_name Source node name.
+ * \param[in] v_mode      Advanced verbose mode (Y/N).
+ * 
+ * @return                None.
+ */
 void dijkstra_alg(C_str src_nd_name, Verbose_mode v_mode){                                                  // Dijkstra's alg to find min graph-path btwn source and each destination node (Dijkstra-dataset vect allocated/reallocated inside heap) - Y/N for verbose mode
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Looking for min path costs from specified source with Dijkstra's algorithm...");   // Print lookin' 4 shortest path btwn spec src and each dest nd fbk
@@ -527,6 +630,19 @@ void dijkstra_alg(C_str src_nd_name, Verbose_mode v_mode){                      
 }
 
 
+/*!
+ * @brief                   <p><b>Function description:</b></p> This function must be called once #dijkstra_alg() has been executed at least one time, to initialize and allocate key parameters like Dijkstra-dataset, contained in #dijk_dataset_vect.
+ *                          The aim of this function is to reconstruct shortest path towards specified destination node, from pre-defined source node (defined in last #dijkstra_alg() function call). To do that, the function re-creates the shortest path
+ *                          backwards from destination to source node, and then converts it in forward path. Once shortest-foward path has been correctly built, it's printed by calling #print_shortest_path() function, if advanced verbose mode has been enabled (setting 'v_mode' parameter to 'Y').
+ *                          Destination node is selected by-name, looking for corresponding index inside #nodes_collect_vect through #idx_by_name() function. This routine, similarly to #dijkstra_alg(), is also able to detect special cases like unreachble nodes and node equal to specified source node.
+ *                          The main reason of splitting shortest path detection in two functions: #dijkstra_alg() and #buid_shortest_path(), consists in being able to reconstruct multiple shortest paths towards different locations, executing Dijkstra's algorithm only one time (if source node is the same).
+ *                          So after calling #dijkstra_alg(), it is possible to call #buid_shortest_path() more times to reconstruct more shortest-paths from the same source node, towards different locations without re-executing Dijkstra's algorithm.
+ * 
+ * \param[in] dest_nd_name  Destination node name.
+ * \param[in] v_mode        Advanced verbose mode (Y/N).
+ * 
+ * @return                  None.
+ */
 void buid_shortest_path(C_str dest_nd_name, Verbose_mode v_mode){                                           // Reconstruct shortest path to specified destination node from source node (pre-defined in Dijkstra's algorithm, min path connections vect allocated/reallocated inside heap) - Y/N for verbose mode
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Building min cost path from pre-defined source to specified destination...");      // Print reconstructin' shortest path from pre-defined source to specified destination fbk
@@ -586,6 +702,11 @@ void buid_shortest_path(C_str dest_nd_name, Verbose_mode v_mode){               
 }
 
 
+/*!
+ * @brief           <p><b>Function description:</b></p> Function to deallocate graph-structure and clear all allocated memory inside heap.
+ * 
+ * @return          None.
+ */
 void free_graph(){                                                                                          // Function to free graph allocated memory inside heap
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Clearing the whole graph structure...");                                           // Clearing the whole graph from heap fbk

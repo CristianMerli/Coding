@@ -28,7 +28,7 @@
 
 
 /* Public vars */
-/// <b>Public-variable description:</b> constant variabile to indicate max real value, simulating +&infin; in #dijkstra_alg() function.
+/// <b>Public-variable description:</b> Constant variabile to indicate max real value, simulating +&infin; in #dijkstra_alg() function.
 const Real _REAL_MAX_ = __DBL_MAX__;                                                                        // Real max val to simulate +inf
 /// <b>Public-variable description:</b> Archs collection vector size (size of #archs_collect_vect).
 int ars_collect_size = 0;                                                                                   // Arches collection vector size
@@ -57,7 +57,7 @@ Byte realloc_flg = 0;                                                           
 
 /* Functions */
 /*!
- * @brief         <p><b>Function description:</b></p> Function to manage vectors, arrays and pointers addressing (treat all as 1d array = vector), defined using #vect_coords enum.
+ * @brief         <p><b>Static function description:</b></p> Function to manage vectors, arrays and pointers addressing (treat all as 1d array = vector), defined using #vect_coords enum.
  * 
  * \param[in] i   Line number (starting from 0 since C is a zero-index language).
  * \param[in] j   Column number (starting from 0 since C is a zero-index language).
@@ -80,7 +80,7 @@ static int iaddr(C_int i, C_int j, C_int lda){                                  
 
 
 /*!
- * @brief         <p><b>Function description:</b></p> Function to allocate defined number of new list elements inside heap.
+ * @brief         <p><b>Static function description:</b></p> Function to allocate defined number of new list elements inside heap.
  * 
  * \param[in] num Number of new list elements to allocate inside heap.
  * 
@@ -100,7 +100,7 @@ static List_elem* allocate_new_list_elems(C_int num){                           
 
 
 /*!
- * @brief                   <p><b>Function description:</b></p> Function to add a new list-element at list-head position.
+ * @brief                   <p><b>Static function description:</b></p> Function to add a new list-element at list-head position.
  * 
  * \param[in,out] list      List pointer (list-head pointer of pointer).
  * \param[in,out] el_to_add Pointer to list-element to add.
@@ -121,7 +121,7 @@ static void add_elem_at_list_head(List* list, List_elem* const el_to_add){      
 
 
 /*!
- * @brief                   <p><b>Function description:</b></p> Function to add a new list-element at list-specific position.
+ * @brief                   <p><b>Static function description:</b></p> Function to add a new list-element at list-specific position.
  * 
  * \param[in,out] list      List pointer (list-head pointer of pointer).
  * \param[in,out] el_to_add Pointer to list-element to add.
@@ -148,7 +148,7 @@ static void add_elem_at_list_pos(List* list, List_elem* const el_to_add, C_int p
 
 
 /*!
- * @brief                   <p><b>Function description:</b></p> Function to add a new list-element at list-tail position.
+ * @brief                   <p><b>Static function description:</b></p> Function to add a new list-element at list-tail position.
  * 
  * \param[in,out] list      List pointer (list-head pointer of pointer).
  * \param[in,out] el_to_add Pointer to list-element to add.
@@ -171,7 +171,14 @@ static void add_elem_at_list_tail(List* list, List_elem* const el_to_add){      
 }
 
 
-/////////////
+/*!
+ * @brief                   <p><b>Static function description:</b></p> Function to clear an entire list (or sub-list) from heap, starting from list/sublist-head element position.
+ * 
+ * \param[in,out] list_head List/sublist-head pointer (pointer of pointer) from which deallocating list elements until list-tail.
+ * \param[in] v_mode        Advanced verbose mode (Y/N).
+ * 
+ * @return                  None.
+ */
 static void free_list_elems(List* list_head, Verbose_mode v_mode){                                          // Function to free allocated elements inside heap, startin' from specified list (or sub-list) head, 'till list (or sub-list) tail - Y/N for verbose mode
   /* Body */
   List tmp_list_head = *list_head;                                                                          // Tmp var to clear allocated memo inside heap (list element)
@@ -189,13 +196,18 @@ static void free_list_elems(List* list_head, Verbose_mode v_mode){              
 }
 
 
-static void allocate_new_archs(){                                                                           // Function to allocate new graph arches (single/vect)
+/*!
+ * @brief         <p><b>Static function description:</b></p> Function to allocate a new graph-arch element in #archs_collect_vect (inside heap, using calloc() function to initialize archs collection vector).
+ * 
+ * @return        None.
+ */
+static void allocate_new_arch(){                                                                            // Function to allocate a new graph arch element
   /* Body */
   ars_collect_size = 0;                                                                                     // Make sure to have arches collection vect size set to zero
   archs_collect_vect = calloc(1, sizeof(Arch));                                                             // Tmp graph arch ptr creation to point at first allocated memo cell inside heap
   if (archs_collect_vect == NULL){                                                                          // Check calloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during graph arches dynamic memory allocation with calloc!");                       // Print perror fbk
+    perror("Found error during graph arch dynamic memory allocation with calloc!");                         // Print perror fbk
     free_graph();                                                                                           // Free graph structure b4 closin' sw
     close_err();                                                                                            // Close software with error function call
   } else                                                                                                    // In case of dyn memo allocation OK
@@ -203,13 +215,18 @@ static void allocate_new_archs(){                                               
 }
 
 
-static void allocate_new_nodes(){                                                                           // Function to allocate new graph nodes (single/vect)
+/*!
+ * @brief         <p><b>Static function description:</b></p> Function to allocate a new graph-node element in #nodes_collect_vect (inside heap, using calloc() function to initialize nodes collection vector).
+ * 
+ * @return        None.
+ */
+static void allocate_new_node(){                                                                            // Function to allocate a new graph node element
   /* Body */
   nds_collect_size = 0;                                                                                     // Make sure to have nodes collection vect size set to zero
   nodes_collect_vect = calloc(1, sizeof(Node));                                                             // Tmp graph node ptr creation to point at first allocated memo cell inside heap
   if (nodes_collect_vect == NULL){                                                                          // Check calloc funct output to detect dynamic memory allocation errors
     fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during graph nodes dynamic memory allocation with calloc!");                        // Print perror fbk
+    perror("Found error during graph node dynamic memory allocation with calloc!");                         // Print perror fbk
     free_graph();                                                                                           // Free graph structure b4 closin' sw
     close_err();                                                                                            // Close software with error function call
   } else                                                                                                    // In case of dyn memo allocation OK
@@ -217,33 +234,13 @@ static void allocate_new_nodes(){                                               
 }
 
 
-static void reallocate_new_archs(){                                                                         // Function to reallocate new graph arches (single/vect)
-  /* Body */
-  archs_collect_vect = realloc(archs_collect_vect, (size_t)(ars_collect_size+1)*sizeof(Arch));              // Tmp graph arch ptr creation to point at first allocated memo cell inside heap
-  if (archs_collect_vect == NULL){                                                                          // Check realloc funct output to detect dynamic memory allocation errors
-    fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during graph arches dynamic memory reallocation with realloc!");                    // Print perror fbk
-    free_graph();                                                                                           // Free graph structure b4 closin' sw
-    close_err();                                                                                            // Close software with error function call
-  } else                                                                                                    // In case of dyn memo reallocation OK
-    ++ars_collect_size;                                                                                     // Upd arches collection vect size
-}
-
-
-static void reallocate_new_nodes(){                                                                         // Function to reallocate new graph nodes (single/vect)
-  /* Body */
-  nodes_collect_vect = realloc(nodes_collect_vect, (size_t)(nds_collect_size+1)*sizeof(Node));              // Tmp graph node ptr creation to point at first allocated memo cell inside heap
-  if (nodes_collect_vect == NULL){                                                                          // Check realloc funct output to detect dynamic memory allocation errors
-    fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during graph nodes dynamic memory reallocation with realloc!");                     // print Perror fbk
-    free_graph();                                                                                           // Free graph structure b4 closin' sw
-    close_err();                                                                                            // Close software with error function call
-  } else                                                                                                    // In case of dyn memo reallocation OK
-    ++nds_collect_size;                                                                                     // Upd nodes collection vect size
-}
-
-
-static void allocate_new_dijk_dataset_vect(){                                                               // Function to allocate new Dijkstra-dataset vector
+/*!
+ * @brief         <p><b>Static function description:</b></p> Function to allocate Dijkstra's dataset vector inside heap, using calloc() function (#dijk_dataset_vect initialization with the same size of #nodes_collect_vect: #nds_collect_size).
+ *                Function called during #dijkstra_alg(), to store Dijkstra's algorithm informations about each node in graph (each vector memory cell, will be associated to each #dijkstra_dataset pointer inside every single #node element).
+ * 
+ * @return        None.
+ */
+static void allocate_new_dijk_dataset_vect(){                                                               // Function to allocate Dijkstra-dataset vector
   /* Body */
   dijk_dataset_vect = calloc((size_t)nds_collect_size, sizeof(Dijkstra_dataset));                           // Dijkstra-dataset vect ptr creation to point at first allocated memo cell inside heap
   if (dijk_dataset_vect == NULL || nds_collect_size == 0){                                                  // Check calloc funct output to detect dynamic memory allocation errors
@@ -255,18 +252,15 @@ static void allocate_new_dijk_dataset_vect(){                                   
 }
 
 
-static void reallocate_dijk_dataset_vect(){                                                                 // Function to reallocate Dijkstra-dataset vector (resize)
-  /* Body */
-  dijk_dataset_vect = realloc(dijk_dataset_vect, (size_t)nds_collect_size*sizeof(Dijkstra_dataset));        // Dijkstra-dataset vect ptr addr upd to make sure it points at first reallocated memo cell inside heap
-  if (dijk_dataset_vect == NULL || nds_collect_size == 0){                                                  // Check realloc funct output to detect dynamic memory allocation errors
-    fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
-    perror("Found error during Dijkstra-dataset vector dynamic memory reallocation with realloc!");         // Print perror fbk
-    free_graph();                                                                                           // Free graph structure b4 closin' sw
-    close_err();                                                                                            // Close software with error function call
-  }
-}
-
-
+/*!
+ * @brief         <p><b>Static function description:</b></p> Function to allocate a new node-connections vector inside heap, using calloc() function.
+ *                The purpose of this vector is to contain informations about node's connection: connection arch and node on the other edge of the arch.
+ *                Function used to reconstrunct min-cost path inside #buid_shortest_path() and to analyze adjacent vertices in #dijkstra_alg(), more precisely in #not_an_node_conn() to find not-already analized connections.
+ * 
+ * \param[in] num Number of node-connections to allocate inside heap (vector size).
+ * 
+ * @return        Connection pointer to the first memory cell allocated inside heap.
+ */
 static Connection* allocate_new_nd_conn_vect(C_int num){                                                    // Function to allocate new node connections vector
   /* Body */
   Connection* tmp_nd_conn_ptr = calloc((size_t)num, sizeof(Connection));                                    // Tmp node connection ptr creation to point at first allocated memo cell inside heap
@@ -280,6 +274,70 @@ static Connection* allocate_new_nd_conn_vect(C_int num){                        
 }
 
 
+/*!
+ * @brief         <p><b>Static function description:</b></p> Function to allocate a new graph-arch element in #archs_collect_vect (inside heap, using realloc() function to resize archs collection vector).
+ * 
+ * @return        None.
+ */
+static void reallocate_new_archs(){                                                                         // Function to reallocate new graph arches (single/vect)
+  /* Body */
+  archs_collect_vect = realloc(archs_collect_vect, (size_t)(ars_collect_size+1)*sizeof(Arch));              // Tmp graph arch ptr creation to point at first allocated memo cell inside heap
+  if (archs_collect_vect == NULL){                                                                          // Check realloc funct output to detect dynamic memory allocation errors
+    fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
+    perror("Found error during graph arches dynamic memory reallocation with realloc!");                    // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
+    close_err();                                                                                            // Close software with error function call
+  } else                                                                                                    // In case of dyn memo reallocation OK
+    ++ars_collect_size;                                                                                     // Upd arches collection vect size
+}
+
+
+/*!
+ * @brief         <p><b>Static function description:</b></p> Function to allocate a new graph-node element in #nodes_collect_vect (inside heap, using realloc() function to resize nodes collection vector).
+ * 
+ * @return        None.
+ */
+static void reallocate_new_nodes(){                                                                         // Function to reallocate new graph nodes (single/vect)
+  /* Body */
+  nodes_collect_vect = realloc(nodes_collect_vect, (size_t)(nds_collect_size+1)*sizeof(Node));              // Tmp graph node ptr creation to point at first allocated memo cell inside heap
+  if (nodes_collect_vect == NULL){                                                                          // Check realloc funct output to detect dynamic memory allocation errors
+    fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
+    perror("Found error during graph nodes dynamic memory reallocation with realloc!");                     // print Perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
+    close_err();                                                                                            // Close software with error function call
+  } else                                                                                                    // In case of dyn memo reallocation OK
+    ++nds_collect_size;                                                                                     // Upd nodes collection vect size
+}
+
+
+/*!
+ * @brief         <p><b>Static function description:</b></p> Function to reallocate Dijkstra's dataset vector inside heap, using calloc() function (#dijk_dataset_vect resize using the same size of #nodes_collect_vect: #nds_collect_size).
+ *                Function called during #dijkstra_alg(), to store Dijkstra's algorithm informations about each node in graph (each vector memory cell, will be associated to each #dijkstra_dataset pointer inside every single #node element).
+ * 
+ * @return        None.
+ */
+static void reallocate_dijk_dataset_vect(){                                                                 // Function to reallocate Dijkstra-dataset vector (resize)
+  /* Body */
+  dijk_dataset_vect = realloc(dijk_dataset_vect, (size_t)nds_collect_size*sizeof(Dijkstra_dataset));        // Dijkstra-dataset vect ptr addr upd to make sure it points at first reallocated memo cell inside heap
+  if (dijk_dataset_vect == NULL || nds_collect_size == 0){                                                  // Check realloc funct output to detect dynamic memory allocation errors
+    fbk_err("Ops! Encountred error during graph data management");                                          // Error fbk
+    perror("Found error during Dijkstra-dataset vector dynamic memory reallocation with realloc!");         // Print perror fbk
+    free_graph();                                                                                           // Free graph structure b4 closin' sw
+    close_err();                                                                                            // Close software with error function call
+  }
+}
+
+
+/*!
+ * @brief                       <p><b>Static function description:</b></p> Function to reallocate a node-connections vector inside heap, using realloc() function.
+ *                              The purpose of this vector is to contain informations about node's connection: connection arch and node on the other edge of the arch.
+ *                              Function used to reconstrunct min-cost path inside #buid_shortest_path() and to analyze adjacent vertices in #dijkstra_alg(), more precisely in #not_an_node_conn() to find not-already analized connections.
+ * 
+ * \param[in,out] nd_conn_vect  Node connection vector (pointer of pointer) to resize.
+ * \param[in]     size          Number of node-connections to reallocate inside heap (vector resize).
+ * 
+ * @return                      None.
+ */
 static void reallocate_nd_conn_vect(Connection** nd_conn_vect, C_int size){                                 // Function to reallocate node connections vector (resize)
   /* Body */
   *nd_conn_vect = realloc(*nd_conn_vect, (size_t)size*sizeof(Connection));                                  // Node connections vect ptr addr upd to make sure it points at first reallocated memo cell inside heap
@@ -292,6 +350,15 @@ static void reallocate_nd_conn_vect(Connection** nd_conn_vect, C_int size){     
 }
 
 
+/*!
+ * @brief               <p><b>Static function description:</b></p> Function to obtain a vector of non-analyzed node's connections associated to a specific node (vector allocated/reallocated inside heap using #allocate_new_nd_conn_vect() and
+ *                      #reallocate_nd_conn_vect() functions). This particular sub-routine is called by #dijkstra_alg() in order to anlyze graph data, with the aim of finding min-cost paths towards each node inside #nodes_collect_vect.
+ * 
+ * \param[in] nd        Graph's node from which to analyze not-already analyzed adjacent connections (node pointer).
+ * \param[in] vect_size Size of non-analyzed node connections dynamic-memory vector.
+ * 
+ * @return              Connection pointer to non-analyzed node connections dynamic-memory vector.
+ */
 static Connection* not_an_node_conn(Node* nd, int* const vect_size){                                        // Function to get a vector of non-analyzed connections associated to a specific node (vector allocated inside heap)
   /* Body */
   List_elem* tmp_el = nd->archs_lst;                                                                        // Define tmp list elem ptr var (to scroll arches inside node conn. arches list)
@@ -316,6 +383,12 @@ static Connection* not_an_node_conn(Node* nd, int* const vect_size){            
 }
 
 
+/*!
+ * @brief         <p><b>Static function description:</b></p> Function called from #dijkstra_alg(), to print min-path costs from source node specified in last Dijkstra's algorithm execution, towards each other node in #nodes_collect_vect.
+ *                In case a destination node is unreachble or it corresponds to the pre-defined source node, print dedicated terminal-output feedbacks (special cases management).
+ * 
+ * @return        None.
+ */
 static void print_min_paths(){                                                                              // Function to print each min path cost to reach every single accessible node from specified source-node
   /* Body */
   for (int m = 0; m < nds_collect_size; ++m){                                                               // Min path costs printin' FOR cycle
@@ -338,6 +411,13 @@ static void print_min_paths(){                                                  
 }
 
 
+/*!
+ * @brief         <p><b>Static function description:</b></p> Function called from #buid_shortest_path(), to print min-path cost from source node specified in last Dijkstra's algorithm execution, towards specified destination node (defined during build shortest-path function call).
+ *                In case the destination node is unreachble or it corresponds to the pre-defined source node, print a dedicated terminal-output feedback (special cases management). Print shortest path informations such as the number of nodes and archs between source and destination nodes,
+ *                shortest-path cost and describe route from source to destination with time-delay prints <i>(delay time in milliseconds, defined using #PRINT_DLY_MS macro)</i>.
+ * 
+ * @return        None.
+ */
 static void print_shortest_path(){                                                                          // Print shortest path from pre-defined source node to specified destination node
   /* Body */
   if (min_pth_conn_vect_size >= 2){                                                                         // If destination node is reachble and it's different from source node
@@ -426,7 +506,7 @@ void add_new_arch(C_str name, C_real cost){                                     
   fbk_nl(1);  fbk_gn_pu("Adding new graph arch...");                                                        // Adding new graph arch fbk
   if (cost > 0.0){                                                                                          // If cost is positive
     if (archs_collect_vect == NULL)                                                                         // Check arches collection vector, if null
-      allocate_new_archs();                                                                                 // Allocate a new graph arch inside arches collection vector (vect calloc)
+      allocate_new_arch();                                                                                  // Allocate a new graph arch inside arches collection vector (vect calloc)
     else                                                                                                    // Else if not null
       reallocate_new_archs();                                                                               // Allocate a new graph arch inside arches collection vector (vect realloc)
     if (strlen(name) > 0 && strlen(name) < AR_STR_LEN){                                                     // Check arch name length consistency, if ok
@@ -463,7 +543,7 @@ void add_new_node(C_str name){                                                  
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Adding new graph node...");                                                        // Adding new graph node fbk
   if (nodes_collect_vect == NULL)                                                                           // Check nodes collection vector, if null
-    allocate_new_nodes();                                                                                   // Allocate a new graph node inside nodes collection vector (vect calloc)
+    allocate_new_node();                                                                                    // Allocate a new graph node inside nodes collection vector (vect calloc)
   else                                                                                                      // Else if not null
     reallocate_new_nodes();                                                                                 // Allocate a new graph node inside nodes collection vector (vect realloc)
   if (strlen(name) > 0 && strlen(name) < ND_STR_LEN){                                                       // Check node name length consistency, if ok
@@ -560,8 +640,9 @@ void connect_node_arch(C_str ar_name, C_str nd_name, Node_pos_in_arch nd_pos, Ar
  * @brief                 <p><b>Function description:</b></p> Function to apply Dijkstra's algorithm from specified source node,
  *                        to find min-cost path towards each oder node in graph, working on Dijkstra-dataset info pointers inside each node data-structure (but allocated inside heap with #dijk_dataset_vect).
  *                        In this way, Dijkstra-dataset memory inside heap is allocated only if, and when needed; in addition, #buid_shortest_path() function can be called multiple times, reconstructing different
- *                        shortest-paths starting from pre-defined source node (defined in last #dijkstra_alg() function call) without continuously calling Dijstra's algorithm. Source node is selected by-name, looking for corresponding index inside #nodes_collect_vect through #idx_by_name() function.
- *                        Dijkstra's algorithm is also able to detect special cases such as unreachble nodes and node equal to specified source node.
+ *                        shortest-paths starting from pre-defined source node (defined in last #dijkstra_alg() function call) without continuously calling Dijstra's algorithm. Source node is selected by-name,
+ *                        looking for corresponding index inside #nodes_collect_vect through #idx_by_name() function. In addition, if advanced verbose mode has been enabled (setting 'v_mode' parameter to 'Y'), #print_min_paths() sub-routine
+ *                        is called to print further informations. Dijkstra's algorithm is also able to detect special cases such as unreachble nodes and node equal to specified source node.
  * 
  * \param[in] src_nd_name Source node name.
  * \param[in] v_mode      Advanced verbose mode (Y/N).

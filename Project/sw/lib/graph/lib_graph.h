@@ -157,7 +157,7 @@ C_str arch_pos_typ_str[] = {"LIST HEAD POSITION", "LIST SPECIFIC POSITION", "LIS
 
 
 /* Public vars */
-/// <b>Public-variable description:</b> constant variabile to indicate max real value, simulating +&infin; in #dijkstra_alg() function.
+/// <b>Public-variable description:</b> Constant variabile to indicate max real value, simulating +&infin; in #dijkstra_alg() function.
 extern const Real _REAL_MAX;                                                                                // Real max val to simulate +inf
 extern int ars_collect_size;                                                                                // Archs collection vector size
 extern int nds_collect_size;                                                                                // Nodes collection vector size

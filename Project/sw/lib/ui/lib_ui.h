@@ -7,6 +7,22 @@
  */
 
 
+/*!
+ * \page        page5 Test-page
+ *              ---.
+ * \section     section1 Title:
+ *              ---.
+ * 
+ * \subsection  subsection1 Code details:
+ *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
+ *              polynomial evaluation in given points and derivate calculation.
+ * 
+ * @file        lib_ui.h saxxasxsa
+ * 
+ * @brief       csdcds
+ */
+
+
 /* Libraries */
 #include <stdio.h>                                                                                          // Standard I/O library inclusion
 #include <stdlib.h>                                                                                         // Standard library inclusion (for exit, atoi, dynamic memory ecc.)
@@ -17,50 +33,86 @@
 #include <signal.h>                                                                                         // Signal library inclusion (SIGINT)
 
 
-/* Defines */
-#define IN_BUFF_SIZE  31                                                                                    // Terminal inputs buffer size
-
-
 /* Constants */
+/// <b>Macro description:</b> Max terminal-input strings length in chars (30 + '\0').
+#define IN_BUFF_SIZE  31                                                                                    // Terminal inputs buffer size
+/// <b>Macro description:</b> String to set terminal-color to red.
 #define RD  "\033[0;31m"                                                                                    // Red color
+/// <b>Macro description:</b> String to set terminal-color to blue.
 #define BU  "\033[0;34m"                                                                                    // Blue color
+/// <b>Macro description:</b> String to set terminal-color to light-blue.
 #define LBU "\033[1;34m"                                                                                    // Light blue color
+/// <b>Macro description:</b> String to set terminal-color to purple.
 #define PU  "\033[0;35m"                                                                                    // Purple color
+/// <b>Macro description:</b> String to set terminal-color to cyan.
 #define CY  "\033[0;36m"                                                                                    // Cyan color
+/// <b>Macro description:</b> String to set terminal-color to yellow.
 #define YE  "\033[1;33m"                                                                                    // Yellow color
+/// <b>Macro description:</b> String to set terminal-color to orange.
 #define OG  "\033[0;33m"                                                                                    // Orange color
+/// <b>Macro description:</b> String to set terminal-color to green.
 #define GN  "\033[0;32m"                                                                                    // Green color
+/// <b>Macro description:</b> String to set terminal-color to light-green.
 #define LGN "\033[1;32m"                                                                                    // Light green color
+/// <b>Macro description:</b> String to set terminal-color to light-gray.
 #define LGY "\033[0;37m"                                                                                    // Light gray color
+/// <b>Macro description:</b> String to erase terminal-color.
 #define ER  "\033[0m"                                                                                       // End color
 
 
 /* Enums & data-types */
+/*!
+ * \var YES
+ * Yes, confirm request.
+ * \var NO
+ * No, do not confirm request.
+ * \var CANCEL
+ * Cancel request.
+ */
+/// <b>Enum-typedef description:</b> Confirmation enum for #read_term_in_confirm() function.
 typedef enum confirm {YES, NO, CANCEL} Confirm;                                                             // Confirmation enum typedef
 
 
 /* Data-types */
+/// <b>Typedef description:</b> unsigned char alias (Byte).
 typedef unsigned char     Byte;                                                                             // Unsigned char alias (Byte)
+/// <b>Typedef description:</b> unsigned short alias (U_shrt).
 typedef unsigned short    U_shrt;                                                                           // Unsigned short alias (U_shrt)
+/// <b>Typedef description:</b> unsigned int alias (U_int).
 typedef unsigned int      U_int;                                                                            // Unsigned int alias (U_int)
+/// <b>Typedef description:</b> unsigned long alias (U_long).
 typedef unsigned long     U_long;                                                                           // Unsigned long alias (U_long)
+/// <b>Typedef description:</b> double alias (Real).
 typedef double            Real;                                                                             // Double alias (Real)
+/// <b>Typedef description:</b> long double alias (L_real).
 typedef long double       L_real;                                                                           // Long double alias (L_real)
+/// <b>Typedef description:</b> char* alias (Str).
 typedef char*             Str;                                                                              // Char* alias (Str)
+/// <b>Typedef description:</b> void* alias (Ptr).
 typedef void*             Ptr;                                                                              // Void* alias (Ptr)
+/// <b>Typedef description:</b> const char alias (C_char).
 typedef const char        C_char;                                                                           // Const char alias (C_char)
+/// <b>Typedef description:</b> const unsigned short alias (C_byte).
 typedef const Byte        C_byte;                                                                           // Const unsigned short alias (C_byte)
+/// <b>Typedef description:</b> const int alias (C_int).
 typedef const int         C_int;                                                                            // Const int alias (C_int)
+/// <b>Typedef description:</b> const real alias (C_real).
 typedef const Real        C_real;                                                                           // Const real alias (C_real)
+/// <b>Typedef description:</b> const long double alias (Cl_real).
 typedef const long double Cl_real;                                                                          // Const long double alias (Cl_real)
+/// <b>Typedef description:</b> const char* alias (Cstr).
 typedef const Str         Cstr;                                                                             // Const char* alias (Cstr)
+/// <b>Typedef description:</b> const char* const alias (C_str).
 typedef Cstr const        C_str;                                                                            // Const char* const alias (C_str)
+/// <b>Typedef description:</b> const unsigned short alias (CU_shrt).
 typedef const U_shrt      Cu_shrt;                                                                          // Const unsigned short alias (CU_shrt)
+/// <b>Typedef description:</b> const void* const alias (C_ptr).
 typedef const void* const C_ptr;                                                                            // Const void* const alias (C_ptr)
 
 
 /* Public vars */
 extern char term_in_buff[IN_BUFF_SIZE];                                                                     // Terminal input buffer char array for scanf func
+/// <b>Public-variable description:</b> Unused variabile to avoid compile-errors when a function has an unused return value, like scanf().
 extern int unused;                                                                                          // Unused var
 
 
@@ -95,17 +147,17 @@ void fbk_err(C_str fbk_str);                                                    
 
 Str read_term_in();                                                                                         // Read terminal input function
 
+void clr_term_in();                                                                                         // Clear terminal input buffer function
+
 Str read_term_in_min_chrs(C_byte min_chrs, C_str req_str, C_str err_str);                                   // Read terminal input (min chars) function
 
-Confirm read_term_in_confirm(C_str req_str);                                                                // Read terminal input confirmation function
-
 Str read_term_in_min_chrs_exit_chr(C_byte min_chrs, C_str req_str, C_str err_str, C_char exit_chr);         // Read terminal input (min chars and exit char) function
+
+Confirm read_term_in_confirm(C_str req_str);                                                                // Read terminal input confirmation function
 
 int read_term_in_int();                                                                                     // Read terminal input INT function
 
 int read_term_in_int_inrange(C_int min_val, C_int max_val, C_str req_str, C_str err_str);                   // Read terminal input INT (in-range) function
-
-void clr_term_in();                                                                                         // Clear terminal input buffer function
 
 void dbg();                                                                                                 // Fast debug function 
 
@@ -123,6 +175,6 @@ void dbg_ptr(C_str str, C_ptr val);                                             
 
 void close_err();                                                                                           // Close software with error function
 
-void close_fbk();                                                                                           // Function to close software with feedback
+void close_fbk();                                                                                           // Function to close software with error feedback
 
 void close_keyboard_interrupt(C_int signal);                                                                // Function to close SW with fbk due to keyboard interrupt detected (ctrl+c)

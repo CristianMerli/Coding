@@ -14,6 +14,8 @@
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page2.html"><param name="ImageNumber" value="11"></OBJECT>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page4.html"><param name="ImageNumber" value="11"></OBJECT>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page3.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page6.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page5.html"><param name="ImageNumber" value="11"></OBJECT>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Bug List"><param name="Local" value="bug.html"><param name="ImageNumber" value="11"></OBJECT>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Data Structures"><param name="Local" value="annotated.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
@@ -131,11 +133,11 @@
           <LI><OBJECT type="text/sitemap"><param name="Name" value="add_elem_at_list_tail"><param name="Local" value="lib__graph_8c.html#a1db6fd139c1ba1ecfc2829125708b5e4"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="add_new_arch"><param name="Local" value="lib__graph_8c.html#a70bbb2c5f05b7dbff77291e0fa16ceb4"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="add_new_node"><param name="Local" value="lib__graph_8c.html#a2fa12520fc6886afc0e7398f89dfacaf"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="allocate_new_archs"><param name="Local" value="lib__graph_8c.html#a3154d053b3bb7c7e9298b66b4f8f0e6f"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="allocate_new_arch"><param name="Local" value="lib__graph_8c.html#a231f50c33f8316d2000af6e3a47268be"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="allocate_new_dijk_dataset_vect"><param name="Local" value="lib__graph_8c.html#ae401c1451b3cf0a5da38a6428d2eb394"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="allocate_new_list_elems"><param name="Local" value="lib__graph_8c.html#ac7dd9d664ed1f8ef1520946312bde2b3"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="allocate_new_nd_conn_vect"><param name="Local" value="lib__graph_8c.html#a0a7400ca76243d1a7bcd961dd8c5a51c"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="allocate_new_nodes"><param name="Local" value="lib__graph_8c.html#ab1801ec94fdda1332e46d38755bd99e8"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="allocate_new_node"><param name="Local" value="lib__graph_8c.html#ae25ad4461432ceda146bfcdd4a42a653"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="buid_shortest_path"><param name="Local" value="lib__graph_8c.html#a9344d8aded31a4e9eb0bbaaa20f403de"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="connect_node_arch"><param name="Local" value="lib__graph_8c.html#a61ca93af7e8a9d84781810c1f7d7bc60"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="dijkstra_alg"><param name="Local" value="lib__graph_8c.html#a67ad50bcf5c0aee76ebf61c50446e0ff"><param name="ImageNumber" value="11"></OBJECT>
@@ -382,9 +384,9 @@
           <LI><OBJECT type="text/sitemap"><param name="Name" value="U_shrt"><param name="Local" value="lib__ui_8h.html#a43520c6a9ce5ce6082cd1a613f47444f"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="confirm"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727"><param name="ImageNumber" value="1"></OBJECT>
             <UL>
-            <LI><OBJECT type="text/sitemap"><param name="Name" value="YES"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727a99f136a862ba5c7d16967231c29f09d6"><param name="ImageNumber" value="11"></OBJECT>
-            <LI><OBJECT type="text/sitemap"><param name="Name" value="NO"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727a0d077f5b932ce05e5b9f30c6087a2f31"><param name="ImageNumber" value="11"></OBJECT>
-            <LI><OBJECT type="text/sitemap"><param name="Name" value="CANCEL"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727ae4842754cb17e5234637e3a85a7f3d90"><param name="ImageNumber" value="11"></OBJECT>
+            <LI><OBJECT type="text/sitemap"><param name="Name" value="YES"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727aae7b0120dd1aba15779c25b51c26924d"><param name="ImageNumber" value="11"></OBJECT>
+            <LI><OBJECT type="text/sitemap"><param name="Name" value="NO"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727a734e2ffb1c031c25193455fd1c26d9e7"><param name="ImageNumber" value="11"></OBJECT>
+            <LI><OBJECT type="text/sitemap"><param name="Name" value="CANCEL"><param name="Local" value="lib__ui_8h.html#a80eab7ef497bc82f028bda0b735f7727a257a4b32e106aff2b6ce1e8ab9ce979c"><param name="ImageNumber" value="11"></OBJECT>
             </UL>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="close_err"><param name="Local" value="lib__ui_8h.html#a5eccbbd00e789dc895772018c67781e7"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="close_fbk"><param name="Local" value="lib__ui_8h.html#a848fa25476eae58424e5ae82d838124d"><param name="ImageNumber" value="11"></OBJECT>

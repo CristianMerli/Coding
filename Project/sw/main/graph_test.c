@@ -41,7 +41,7 @@
  *                * It is possibile to compile, run and execute further actions tacking advantege of makefile, for more informations see doxygen 'Main page' or README.md file.
  * @warning     Important warnings:
  *                * Pay attention, arch/node names must only be max 30 chars long. To modify max names lenght, change relative macros inside 'lib_graph.h' header file: # and #.
- *                * cddcs....
+ *                * Change in_buff size also in UI lib and read funct....
  * @bug         No known bugs.
  * 
  * \section     section1 Code title:
@@ -143,9 +143,9 @@ C_str crss_names_vect[] = {"Cross1", "Cross2", "Cross3", "Cross4", "Cross5", "Cr
 
 /* Main routines */
 /*!
- * @brief             <p><b>Function description:</b></p> Static routine to manage close keyboard interrupt signal printing feedback to terminal.
+ * @brief             <p><b>Static function description:</b></p> Static routine to manage close keyboard interrupt signal calling #close_keyboard_interrupt() function.
  * 
- * \param[in] signal  Keyboard interrupt signal
+ * \param[in] signal  Keyboard interrupt signal.
  * 
  * @return            None.
  */
@@ -156,7 +156,7 @@ static void terminate_keyboard(int signal){                                     
 
 
 /*!
- * @brief   <p><b>Function description:</b></p> Static routine to create test-graph arches, working on graph-library public variables.
+ * @brief   <p><b>Static function description:</b></p> Static routine to create test-graph arches, working on graph-library public variables.
  * 
  * @return  None.
  */
@@ -168,7 +168,7 @@ static void create_archs(){                                                     
 
 
 /*!
- * @brief   <p><b>Function description:</b></p> Static routine to create test-graph nodes, working on graph-library public variables.
+ * @brief   <p><b>Static function description:</b></p> Static routine to create test-graph nodes, working on graph-library public variables.
  * 
  * @return  None.
  */
@@ -180,7 +180,7 @@ static void create_nodes(){                                                     
 
 
 /*!
- * @brief   <p><b>Function description:</b></p> Static routine to create test-graph arch-nodes connections, working on graph-library public variables.
+ * @brief   <p><b>Static function description:</b></p> Static routine to create test-graph arch-nodes connections, working on graph-library public variables.
  * 
  * @return  None.
  */
@@ -216,7 +216,7 @@ static void create_connections(){                                               
 
 
 /*!
- * @brief                 <p><b>Function description:</b></p> Static routine to give give to the user the possibility to choose a testing option,
+ * @brief                 <p><b>Static function description:</b></p> Static routine to give give to the user the possibility to choose a testing option,
  *                        using pre-defined graph dynamically generated with graph-library functions:
  *                        * <b>Prepared test</b>: find shortest path from 'Cross4' to 'Cross9' nodes (defined with macros #SOURCE_NODE_NAME and #DESTINATION_NODE_NAME), applying Dijkstra's algorithm. In addition, show two special cases: shortest path from 'Cross4' to 'Cross4' (source = destination) and from 'Cross4' to 'Cross10' (unreachble node). In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
  *                        * <b>Personalized test</b>: find shortest path from user-defined source and destination nodes, applying Dijkstra's algorithm. In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
@@ -272,7 +272,7 @@ static void test_option_choice(Test_choice *const choice){                      
 
 
 /*!
- * @brief   <p><b>Function description:</b></p> Static routine to build shortest-path graphical data, working on gnuplt .dat data files (listed below) and defined with macros.
+ * @brief   <p><b>Static function description:</b></p> Static routine to build shortest-path graphical data, working on gnuplt .dat data files (listed below) and defined with macros.
  *          * <b>Test-graph gnuplot data files (gnuplot data source)</b>:
  *            * <b>Archs data file</b>: archs.dat data file which contains the coordinates to draw arches in graph, with target name as comment in the previous line (defined in #ARCHS_DAT_FILE).
  *            * <b>Costs data file</b>: costs.dat data file which contains the coordinates to draw arch-costs in graph, with target name as comment in the previous line (defined in #COSTS_DAT_FILE).
@@ -386,7 +386,7 @@ static void build_shortest_path_graphics_data(){                                
 
 
 /*!
- * @brief         <p><b>Function description:</b></p> Static routine to send gnuplot system command string, with the aim of printing graphical data contained inside .dat files.
+ * @brief         <p><b>Static function description:</b></p> Static routine to send gnuplot system command string, with the aim of printing graphical data contained inside .dat files.
  *                In case command is the one to print graph and highlight the shortest-path, call a specific function (build_shortest_path_graphics_data()) to manipulate gnuplot data and graphically recreate the min cost path.
  *                Gnuplot system commands listed below:
  *                * <b>Plot graph</b>: calls gnuplot and load plotting command in .cmd file (graph_plot.cmd, defined with a macro: #GPLOT_TEST_GRAPH_LAYOUT_CMD), in order to plot: arches, arch-costs and nodes in graph.
@@ -411,7 +411,7 @@ static void display_test_graph(C_str cmd){                                      
 
 
 /*!
- * @brief                 <p><b>Function description:</b></p> Static routine to apply Dijkstra's algorithm with verbose-mode enabled, from specified source node (selected by-name and checking if contained in nodes collection).
+ * @brief                 <p><b>Static function description:</b></p> Static routine to apply Dijkstra's algorithm with verbose-mode enabled, from specified source node (selected by-name and checking if contained in nodes collection).
  *                        Find min-cost paths from specified source node, towards each other node inside allocated graph. Find out if a specific possible destination node is unreachble, or if it corresponds to the source node.
  * 
  * \param[in] src_nd_name Source node name, from which to apply Dijkstra's algorithm.
@@ -425,7 +425,7 @@ static void apply_dijkstra(C_str src_nd_name){                                  
 
 
 /*!
- * @brief                   <p><b>Function description:</b></p> Static routine to reconstruct min-cost path with verbose-mode enabled, towards specified destination node (from source node defined when calling Dijkstra's algoritm;
+ * @brief                   <p><b>Static function description:</b></p> Static routine to reconstruct min-cost path with verbose-mode enabled, towards specified destination node (from source node defined when calling Dijkstra's algoritm;
  *                          destination node selected by-name, checking if node is contained in nodes collection). Find out if a specific possible destination node is unreachble, or if it corresponds to the source node.
  * 
  * \param[in] dest_nd_name  Destination node name towards which min-cost path must be reconstructed (backwards).
@@ -439,7 +439,7 @@ static void reconstruct_min_path(C_str dest_nd_name){                           
 
 
 /*!
- * @brief                   <p><b>Function description:</b></p> Static routine to define source node name for Dijkstra's algorithm function, from user terminal-input. After that, function checks if
+ * @brief                   <p><b>Static function description:</b></p> Static routine to define source node name for Dijkstra's algorithm function, from user terminal-input. After that, function checks if
  *                          specified node is contained in nodes collection.
  * 
  * \param[in,out] src_nd_nm Source node name terminal-input, for Dijkstra's algorithm.
@@ -458,7 +458,7 @@ static void define_src_node_name(Str* src_nd_nm){                               
 
 
 /*!
- * @brief                     <p><b>Function description:</b></p> Static routine to define destination node name from user terminal-input, to be abe to reconstruct min-cost pah from
+ * @brief                     <p><b>Static function description:</b></p> Static routine to define destination node name from user terminal-input, to be abe to reconstruct min-cost pah from
  *                            source node defined when calling Dijkstra's algorithm. After that, function checks if specified node is contained in nodes collection.
  * 
  * \param[in,out] dest_nd_nm  Destination node name terminal-input, to reconstruct min-cost path.
@@ -491,7 +491,7 @@ int main(){                                                                     
   signal(SIGINT, terminate_keyboard);                                                                       // Manage program exit from keyboard ctrl+c shortcut
   logo(6, "GRAPHS MANAGEMENT LIBRARY TEST SOFTWARE", LBU, '#', OG);                                         // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
   press_enter("Hi");                                                                                        // Press enter to start SW fbk
-
+  unused = read_term_in_int();  ///// ------------------------------ ///// ?????????????????
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //                                          LIBRARY TEST SOFTWATRE                                        // --> TEST BEGIN
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////

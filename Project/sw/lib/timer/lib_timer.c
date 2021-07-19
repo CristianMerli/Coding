@@ -13,16 +13,51 @@
 
 
 /* Functions */
-static int val_in_rage(C_int val_min, C_int val, C_int val_max){                                            // Function to check val in range
+/*!
+ * @brief             <p><b>Static function description:</b></p> Function to check if an integer value is in-range (intervall extremes included).
+ * 
+ * @param[in] val_min Integer min value (lower extreme of the interval).
+ * @param[in] val     Integer value to check.
+ * @param[in] val_max Integer max value (higher extreme of the interval).
+ * 
+ * @return            If 'val' is in range ['val_min', 'val_max'], return #OK else #NOT_OK.
+ */
+static Cmp_res val_in_rage(C_int val_min, C_int val, C_int val_max){                                        // Function to check val in range
   /* Body */
   if (val >= val_min && val <= val_max)                                                                     // If val is in range
-    return 1;                                                                                               // Return 1
-  else                                                                                                      // Else if val isn't in range
-    return 0;                                                                                               // Return 0
+    return OK;                                                                                              // Return OK
+  else                                                                                                      // Else if val ain't in range
+    return NOT_OK;                                                                                          // Return NOT-OK
+}
+
+
+/*!
+ * @brief           <p><b>Static function description:</b></p> Function to check if a date/time data-structure manually assigned through #assign_date_time() function call,
+ *                  is actually correct (date/time values in range defined by macros).
+ * 
+ * @param[in] date  Date/time data-structure to check.
+ * 
+ * @return          If input date/time is correct return #OK, else #NOT_OK.
+ */
+static Cmp_res chk_date_in_range(const Date_time date){                                                     // Check date/time in range function
+  /* Body */
+  if (val_in_rage(MIN_YY, date.yyyy, MAX_YY) && val_in_rage(MIN_MN, date.mn, MAX_MN) &&
+      val_in_rage(MIN_DD, date.dd, MAX_DD) && val_in_rage(MIN_HH, date.hh, MAX_HH) &&
+      val_in_rage(MIN_MM, date.mm, MAX_MM) && val_in_rage(MIN_SS, date.ss, MAX_SS))                         // If date/time is in range
+    return OK;                                                                                              // Return OK
+  else                                                                                                      // Else if date/time ain't in range
+    return NOT_OK;                                                                                          // Return NOT-OK
 }
 
 
 /* Public functions */
+/*!
+ * @brief             <p><b>Function description:</b></p> Function to apply delay (wait specified delay time in milliseconds).
+ * 
+ * @param[in] time_ms Delay time in milliseconds to wait.
+ * 
+ * @return            None.
+ */
 void delay(const long time_ms){                                                                             // Delay [ms] function
   /* Body */
   if (time_ms > 0){                                                                                         // Check ms-dly val
@@ -34,6 +69,11 @@ void delay(const long time_ms){                                                 
 }
 
 
+/*!
+ * @brief   <p><b>Function description:</b></p> Function to get current date and time values (saving them in #date_time data-structure).
+ * 
+ * @return  Return current date/time info in dedicated data-structure.
+ */
 Date_time get_date_time(){                                                                                  // Get date/time function
   /* Body */
   Date_time tmp_date_time;                                                                                  // Temporary date/time var to return
@@ -49,7 +89,21 @@ Date_time get_date_time(){                                                      
 }
 
 
-Date_time assign_date_time(C_int yyyy, C_int mn, C_int dd, C_int hh, C_int mm, C_int ss){                   // Assign date/time function
+/*!
+ * @brief           <p><b>Function description:</b></p> Function to manually assign specific date and time values (saving them in #date_time data-structure).
+ *                  Check if input values are ok calling #chk_date_in_range(); in case specified values are not ok, set all the values inside the dedicated data-structure to zero.
+ * 
+ * @param[in] yyyy  Year value.
+ * @param[in] mn    Month value.
+ * @param[in] dd    Day value.
+ * @param[in] hh    Hours value.
+ * @param[in] mm    Minutes value.
+ * @param[in] ss    Seconds value.
+ * 
+ * @return          Return specific date/time info in dedicated data-structure.
+ */
+Date_time assign_date_time(const int yyyy, const int mn, const int dd,
+                           const int hh, const int mm, const int ss){                                       // Assign date/time function
   /* Body */
   Date_time tmp_date_time;                                                                                  // Temporary date/time var to return
   tmp_date_time.yyyy = yyyy;                                                                                // Save years var
@@ -59,6 +113,7 @@ Date_time assign_date_time(C_int yyyy, C_int mn, C_int dd, C_int hh, C_int mm, C
   tmp_date_time.mm = mm+1;                                                                                  // Save minutes var (+1)
   tmp_date_time.ss = ss+1;                                                                                  // Save seconds var (+1)
   if (chk_date_in_range(tmp_date_time) == NOT_OK){                                                          // Check date/time consistency (case NOT-OK)
+    fbk_err("Error! Invalid date/time");                                                                    // Print error fbk
     tmp_date_time.yyyy = 0;                                                                                 // Set years var to ZERO
     tmp_date_time.mn = 0;                                                                                   // Set months var to ZERO
     tmp_date_time.dd = 0;                                                                                   // Set days var to ZERO
@@ -70,6 +125,15 @@ Date_time assign_date_time(C_int yyyy, C_int mn, C_int dd, C_int hh, C_int mm, C
 }
 
 
+/*!
+ * @brief             <p><b>Function description:</b></p> Function to compare two input dates, detecting if the former is NEWER or OLDER than the latter.
+ * 
+ * @param[in] date1   First date/time data-structure in comparison.
+ * @param[in] cmp_typ Dates comparison type (NEWER/OLDER).
+ * @param[in] date2   Second date/time data-structure in comparison.
+ * 
+ * @return            Return dates comparison result.
+ */
 Cmp_res cmp_date_time(Date_time *const date1, const Date_cmp cmp_typ, Date_time *const date2){              // Compare date/time function
   /* Body */
   int *date1_val_ptr = &date1->yyyy, *date2_val_ptr = &date2->yyyy;                                         // Date/time ptrs vals
@@ -109,20 +173,28 @@ Cmp_res cmp_date_time(Date_time *const date1, const Date_cmp cmp_typ, Date_time 
 }
 
 
-Cmp_res chk_date_in_range(const Date_time date){                                                            // Check date/time in range function
+/*!
+ * @brief                   <p><b>Function description:</b></p> Function to print date/time light-blue/yellow feedback on terminal.
+ *                          In case date/time is invalid, print red error feedback.
+ * 
+ * @param[in] prfx_str_lbu  Prefix feedback string to print (in light-blue color).
+ * @param[in] date          Date/time data-structure to print (in yellow color).
+ * 
+ * @return                  None.
+ */
+void fbk_gn_lbu_ye_date_time(const char *const prfx_str_lbu, const Date_time *const date){                  // Green-lightblue-yellow date/time val feedback function
   /* Body */
-  if (val_in_rage(MIN_YY, date.yyyy, MAX_YY) && val_in_rage(MIN_MN, date.mn, MAX_MN) &&
-      val_in_rage(MIN_DD, date.dd, MAX_DD) && val_in_rage(MIN_HH, date.hh, MAX_HH) &&
-      val_in_rage(MIN_MM, date.mm, MAX_MM) && val_in_rage(MIN_SS, date.ss, MAX_SS))                         // If date/time is in range
-    return OK;                                                                                              // Return OK
-  else                                                                                                      // Else if date/time isn't in range
-    return NOT_OK;                                                                                          // Return NOT-OK
+  if (date->yyyy != 0 && date->mn != 0 && date->dd != 0 && date->hh != 0 && date->mm != 0 && date->ss != 0) // If date/time is correct
+    printf("%s>>>%s %s: %s%d%c%d%c%d%c%d%c%d%c%d%s",
+            GN, LBU, prfx_str_lbu, YE, date->yyyy, DATE_DELIM_CHR, date->mn, DATE_DELIM_CHR, date->dd,
+            DATE_TIME_DELIM_CHR, date->hh-1, TIME_DELIM_CHR, date->mm-1, TIME_DELIM_CHR, date->ss-1, ER);   // Print green-lightblue-yellow date/time val feedback
+  else                                                                                                      // Else if date/time ain't correct
+    fbk_err("Error! Invalid date/time");                                                                    // Print error fbk
 }
 
 
-void fbk_gn_lbu_date_time(const char *const prfx_str_lbu, const Date_time *const date){                     // Green-lightblue-yellow date/time val feedback function
-  /* Body */
-  printf("%s>>>%s %s: %s%d%c%d%c%d%c%d%c%d%c%d%s",
-          GN, LBU, prfx_str_lbu, YE, date->yyyy, DATE_DELIM_CHR, date->mn, DATE_DELIM_CHR, date->dd,
-          DATE_TIME_DELIM_CHR, date->hh-1, TIME_DELIM_CHR, date->mm-1, TIME_DELIM_CHR, date->ss-1, ER);     // Print green-lightblue-yellow date/time val feedback
-}
+
+/* Date/time fromat */
+/*
+ * (YYYY) + date_sep + (MN) + date_sep + (DD) + date_time_sep + (HH+1) + time_sep + (MM+1) + time_sep + (SS+1)
+ */

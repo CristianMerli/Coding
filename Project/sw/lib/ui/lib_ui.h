@@ -8,18 +8,23 @@
 
 
 /*!
- * \page        page5 Test-page
- *              ---.
- * \section     section1 Title:
- *              ---.
+ * @page        page6 6 - UI library
+ * @brief       User-interface-library info
  * 
- * \subsection  subsection1 Code details:
+ * @section     section1 Title:
+ *              ---.
+ * @subsection  subsection1 Code details:
  *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
  *              polynomial evaluation in given points and derivate calculation.
  * 
- * @file        lib_ui.h saxxasxsa
+ * @file        lib_ui.h <i>Library header file of lib_ui.c.</i>
+ * @brief       <b>User-interface-library header file</b>
  * 
- * @brief       csdcds
+ * @file        lib_ui.c <i>More info in <b>'UI library'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>User-interface-library code file</b>
+ * 
+ * @file        lib_ui.so <i>Library object file generated from lib_ui.c during compiling operations.</i>
+ * @brief       <b>User-interface-library object file</b>
  */
 
 
@@ -34,8 +39,8 @@
 
 
 /* Constants */
-/// <b>Macro description:</b> Max terminal-input strings length in chars (30 + '\0').
-#define IN_BUFF_SIZE  31                                                                                    // Terminal inputs buffer size
+/// <b>Macro description:</b> Max terminal-input strings length in chars <i>(63 + '\0')</i>, mainly used by scanf() function in terminal-input reading operations.
+#define IN_BUFF_SIZE  64                                                                                    // Terminal inputs buffer size
 /// <b>Macro description:</b> String to set terminal-color to red.
 #define RD  "\033[0;31m"                                                                                    // Red color
 /// <b>Macro description:</b> String to set terminal-color to blue.

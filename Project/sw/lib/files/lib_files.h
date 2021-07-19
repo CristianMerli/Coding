@@ -7,15 +7,38 @@
  */
 
 
+/*!
+ * @page        page7 7 - Files library
+ * @brief       Files-library info
+ * 
+ * @section     section1 Title:
+ *              ---.
+ * @subsection  subsection1 Code details:
+ *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
+ *              polynomial evaluation in given points and derivate calculation.
+ * 
+ * @file        lib_files.h <i>Library header file of lib_files.c.</i>
+ * @brief       <b>Files-library header file</b>
+ * 
+ * @file        lib_files.c <i>More info in <b>'Files library'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Files-library code file</b>
+ * 
+ * @file        lib_files.so <i>Library object file generated from lib_files.c during compiling operations.</i>
+ * @brief       <b>Files-library object file</b>
+ */
+
+
 /* Libraries */
 #include <stdio.h>                                                                                          // Standard I/O library inclusion (for files management ecc.)
 
 
 /* Constants */
+/// <b>Macro description:</b> Max file-input strings length in chars <i>(1023 + '\0')</i>, mainly used by fgets() function in file-reading operations.
 #define FILE_IN_BUFF_SIZE 1024                                                                              // File input buffer char array size for fgets func
 
 
 /* Data-types */
+/// <b>Typedef description:</b> FILE* alias (Fl).
 typedef FILE* Fl;                                                                                           // File ptr data type
 
 
@@ -46,12 +69,12 @@ void close_file(Fl file);                                                       
 
 
 
-/* File-open modes */
+/* File open modes */
 /*
- * "w" = write (clear file)
- * "r" = read only
- * "a" = append (do not clear file, add text in write only, create if file doesn't exist)
+ * "w"  = write (clear file or create if not existing)
+ * "r"  = read only
+ * "a"  = append (do not clear file, add text in write only, create if file doesn't exist)
  * "r+" = read/write (only if file exists)
- * "w+" = read&write (create file if not existing)
- * "a+" = read&write&append (create file if not existing)
+ * "w+" = read/write (create file if not existing)
+ * "a+" = read/write/append (create file if not existing)
  */

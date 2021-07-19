@@ -45,32 +45,57 @@ $(function() {
 <div class="title">Dijkstra's algorithm project Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><b>Project about graphs and Dijkstra's algorithm:</b></h1>
-<h2><b>Project content:</b></h2>
+<div class="textblock"><h1><b>Graphs and Dijkstra's algorithm C code with gnuplot graphics</b></h1>
+<h2><b>Main project contents:</b></h2>
 <hr  />
-<h3><b>Libraries:</b></h3>
+<h3><b>Main makefile commands</b> (<em>for more detailed info, see <b>'Makefile'</b> section inside doxygen <b>'Related pages'</b></em>)</h3>
 <ul>
-<li><b>Graph</b>: library for graphs management and minimum cost path with Dijkstra's algorithm.</li>
-<li><b>UI</b>: GUI (terminal I/O) library to print logo and coloured terminal feedbacks.</li>
+<li><b>Compile commands:</b><ul>
+<li><b>make:</b> command to compile and link the whole project to executable (shortcut command).</li>
+<li><b>make all:</b> same command as above, extended command.</li>
+<li><b>make run:</b> command to launch executable.</li>
+<li><b>make all_run:</b> command to compile/link the whole project to executable and run it.</li>
 </ul>
-<hr  />
-<h3><b>Main</b></h3>
-<ul>
-<li><b>Graph_test</b>: main test software to create a small graph and test Dijkstra's algorithm to find minimum cost path.</li>
+</li>
+<li><b>Doxygen commands:</b><ul>
+<li><b>make docs:</b> command to open firefox in order to display doxygen html documentation.</li>
 </ul>
-<hr  />
-<h3><b>Makefile</b></h3>
-<ul>
-<li><b>Compile commands</b>:<ul>
-<li><b>make</b>: command to compile and link the whole project to executable (shortcut command).</li>
-<li><b>make all</b>: same command as above, extended command.</li>
-<li><b>make run</b>: command to launch</li>
-<li><b>make all_run</b>: command to compile/link the whole project to executable and run it.</li>
+</li>
+<li><b>Abstract commands:</b><ul>
+<li><b>make abstract:</b> command to open and view LaTeX exported pdf file.</li>
 </ul>
 </li>
 </ul>
 <hr  />
-<h2><b>Project folders:</b></h2>
+<h3><b>Doxygen html documentation</b> (<em>for more detailed info, - <b>'-'</b> - <b>'-'</b></em>)</h3>
+<ul>
+<li><b>fvdff:</b> vfdffdvdfv.</li>
+</ul>
+<hr  />
+<h3><b>Abstract</b> (<em>for more detailed info, - <b>'-'</b> - <b>'-'</b></em>)</h3>
+<ul>
+<li><b>fvdff:</b> vfdffdvdfv.</li>
+</ul>
+<hr  />
+<h3><b>Libraries</b></h3>
+<ul>
+<li><b>Graph:</b> library for graphs management and minimum cost path with Dijkstra's algorithm (<em>for more detailed info, see <b>'Graph library'</b> section inside doxygen <b>'Related pages'</b></em>).</li>
+<li><b>UI:</b> User-interface (terminal I/O) library to print logo and coloured terminal feedbacks (<em>for more detailed info, see <b>'UI library'</b> section inside doxygen <b>'Related pages'</b></em>).</li>
+<li><b>Files:</b> - library to - (<em>for more detailed info, see <b>'Files library'</b> section inside doxygen <b>'Related pages'</b></em>).</li>
+<li><b>Timer:</b> - library to - (<em>for more detailed info, see <b>'Timer library'</b> section inside doxygen <b>'Related pages'</b></em>).</li>
+</ul>
+<hr  />
+<h3><b>Main</b> (<em>for more detailed info, see <b>'Testing software'</b> section inside doxygen <b>'Related pages'</b></em>)</h3>
+<ul>
+<li><b>Graph_test:</b> main test software to create a small graph and test Dijkstra's algorithm to find minimum cost path.</li>
+</ul>
+<hr  />
+<h3><b>Gnuplot</b> (<em>for more detailed info, see <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b></em>)</h3>
+<ul>
+<li><b>fvdff:</b> vfdffdvdfv.</li>
+</ul>
+<hr  />
+<h2><b>Project folders structure:</b></h2>
 <p>&#160;.<br  />
  ├── <a class="el" href="README_8md.html">README.md</a><br  />
  ├── doc<br  />
@@ -92,38 +117,38 @@ $(function() {
  │&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;└── logo.png<br  />
  └── sw<br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;├── gnuplot<br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="archs_8dat.html">archs.dat</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="costs_8dat.html">costs.dat</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="archs_8dat.html" title="File containing data to plot archs inside graph using gnuplot">archs.dat</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="costs_8dat.html" title="File containing data to plot arch-costs inside graph using gnuplot">costs.dat</a><br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── exports<br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── imgs<br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── pdf<br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="graph__plot_8cmd.html">graph_plot.cmd</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="nodes_8dat.html">nodes.dat</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="shortest__archs_8dat.html">shortest_archs.dat</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="shortest__costs_8dat.html">shortest_costs.dat</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="shortest__nodes_8dat.html">shortest_nodes.dat</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="shortest__plot_8cmd.html">shortest_plot.cmd</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="src__dest__nodes_8dat.html">src_dest_nodes.dat</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="graph__plot_8cmd.html" title="Gnuplot sctipt to plot graph structure">graph_plot.cmd</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="nodes_8dat.html" title="File containing data to plot nodes inside graph using gnuplot">nodes.dat</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="shortest__archs_8dat.html" title="Editable file containing data to plot shortest-path archs inside graph using gnuplot (green)">shortest_archs.dat</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="shortest__costs_8dat.html" title="Editable file containing data to plot shortest-path arch-costs inside graph using gnuplot (blue)">shortest_costs.dat</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="shortest__nodes_8dat.html" title="Editable file containing data to plot shortest-path nodes inside graph using gnuplot (green)">shortest_nodes.dat</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="shortest__plot_8cmd.html" title="Gnuplot sctipt to plot graph structure with shortest-path">shortest_plot.cmd</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="src__dest__nodes_8dat.html" title="Editable file containing data to plot shortest-path source and destination nodes inside graph using g...">src_dest_nodes.dat</a><br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;├── lib<br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── files<br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__files_8c.html">lib_files.c</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__files_8h.html">lib_files.h</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="lib__files_8so.html">lib_files.so</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__files_8c.html" title="Files-library code file">lib_files.c</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__files_8h.html" title="Files-library header file">lib_files.h</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="lib__files_8so.html" title="Files-library object file">lib_files.so</a><br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── graph<br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__graph_8c.html" title="csdcds">lib_graph.c</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__graph_8h.html" title="csdcds">lib_graph.h</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="lib__graph_8so.html">lib_graph.so</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__graph_8c.html" title="Graph-library code file">lib_graph.c</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__graph_8h.html" title="Graph-library header file">lib_graph.h</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="lib__graph_8so.html" title="Graph-library object file">lib_graph.so</a><br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── timer<br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__timer_8c.html">lib_timer.c</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__timer_8h.html">lib_timer.h</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="lib__timer_8so.html">lib_timer.so</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__timer_8c.html" title="Timer-library code file">lib_timer.c</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__timer_8h.html" title="Timer-library header file">lib_timer.h</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="lib__timer_8so.html" title="Timer-library object file">lib_timer.so</a><br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── ui<br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__ui_8c.html" title="csdcds">lib_ui.c</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__ui_8h.html" title="csdcds">lib_ui.h</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="lib__ui_8so.html">lib_ui.so</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__ui_8c.html" title="User-interface-library code file">lib_ui.c</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="lib__ui_8h.html" title="User-interface-library header file">lib_ui.h</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="lib__ui_8so.html" title="User-interface-library object file">lib_ui.so</a><br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;├── main<br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="graph__test_8c.html" title="csdcds">graph_test.c</a><br  />
- &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="graph__test_8o.html">graph_test.o</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <a class="el" href="graph__test_8c.html" title="Graph-library test software main code file">graph_test.c</a><br  />
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── <a class="el" href="graph__test_8o.html" title="Graph-library test software main object file">graph_test.o</a><br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;├── <b>graph_test</b><br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;└── <b>makefile</b><br  />
 </p>

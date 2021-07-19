@@ -8,31 +8,35 @@
 
 
 /*!
- * \page        page3 Test-page
- *              ---.
- * \section     section1 Title:
- *              ---.
+ * @page        page5 5 - Graph library
+ * @brief       Graph-library info
  * 
- * \subsection  subsection1 Code details:
+ * @section     section1 Title:
+ *              ---.
+ * @subsection  subsection1 Code details:
  *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
  *              polynomial evaluation in given points and derivate calculation.
  * 
- * @file        lib_graph.h saxxasxsa
+ * @file        lib_graph.h <i>Library header file of lib_graph.c.</i>
+ * @brief       <b>Graph-library header file</b>
  * 
- * @brief       csdcds
+ * @file        lib_graph.c <i>More info in <b>'Graph library'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Graph-library code file</b>
+ * 
+ * @file        lib_graph.so <i>Library object file generated from lib_graph.c during compiling operations.</i>
+ * @brief       <b>Graph-library object file</b>
  */
 
 
 /* Libraries */
 #include "../ui/lib_ui.h"                                                                                   // Import UI (terminal I/O) library header file
 #include "../timer/lib_timer.h"                                                                             // Import timer library header file
-#include <limits.h>                                                                                         // Include limits library (for _DBL_MAX_ --> Real max val to simulate +inf)
 
 
 /* Constants */
-/// <b>Macro description:</b> Max node-names length in chars (30 + '\0').
+/// <b>Macro description:</b> Max node-names length in chars <i>(30 + '\0')</i>.
 #define ND_STR_LEN        31                                                                                // String length used to define node-names (max 30 chars + '\0')
-/// <b>Macro description:</b> Max arch-names length in chars (30 + '\0').
+/// <b>Macro description:</b> Max arch-names length in chars <i>(30 + '\0')</i>.
 #define AR_STR_LEN        31                                                                                // String length used to define arch-names (max 30 chars + '\0')
 /// <b>Macro description:</b> Char used to create separator lines by library in output feedbacks.
 #define SEP_CHR           '-'                                                                               // Separator-char

@@ -7,67 +7,124 @@
  */
 
 
-/* Compile-notes */
-/* 
- * USE MAKEFILE OR THE FOLLOWING COMMANDS:
- * 
- * // Aliases:
- * alias gccW99_o="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o"
- * alias gccW99_c="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o"
- * alias gccW99_lib="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o"
- * 
- * // Compile-commands:
- * gccW99_lib lib/graph/lib_graph.so lib/graph/lib_graph.c                                              --> Create GRAPH dynamic library object file
- * gccW99_lib lib/ui/lib_ui.so lib/ui/lib_ui.c                                                          --> Create UI (TERMINAL I/O) dynamic library object file
- * gccW99_lib lib/files/lib_files.so lib/files/lib_files.c                                              --> Create FILES dynamic library object file
- * gccW99_lib lib/timer/lib_timer.so lib/timer/lib_timer.c                                              --> Create TIMER dynamic library object file
- * gccW99_c main/graph_test.o main/graph_test.c                                                         --> Create MAIN object file
- * 
- * // Link-command:
- * gccW99_o graph_test main/graph_test.o lib/graph/lib_graph.so lib/ui/lib_ui.so lib/files/lib_files.so lib/timer/lib_timer.so  --> LINK main and dynamic libraries object files to test executable
- */
-
-
 /*!
- * \page        page1 General notes
- *              Dijkstra's algorithm library test-software.
+ * @page        page1 1 - General notes about software
+ * @brief       General notes, informations and warnings about the software.
  * 
  * @author      Cristian Merli
- * @date        15/07/2021
- * @version     3.0 - Completed 15/05/2021
+ * @date        16/07/2021
+ * @version     3.0 - Completed 16/05/2021
  * 
  * @note        Important notes:
  *                * Graphical effects are managed by gnuplot (based on data manipulated by test software main program), so it is highly recommended to have it installed.
- *                * It is possibile to compile, run and execute further actions tacking advantege of makefile, for more informations see doxygen 'Main page' or README.md file.
+ *                * It is possibile to compile, run and execute further actions tacking advantege of makefile, <i>for more informations see doxygen <b>'Main page'</b> or <b>'Makefile'</b> section inside <b>'Related pages'</b>.</i>
  * @warning     Important warnings:
- *                * Pay attention, arch/node names must only be max 30 chars long. To modify max names lenght, change relative macros inside 'lib_graph.h' header file: # and #.
- *                * Change in_buff size also in UI lib and read funct....
+ *                * Pay attention, arch/node names must only be max 30 chars long. To modify max names lenght, change relative macros inside 'lib_graph.h' header file: #AR_STR_LEN and #ND_STR_LEN.
+ *                * User-interface library is now set to have an input buffer able to take max 63 chars strings + '\0'; to modify terminal-input buffer size see #IN_BUFF_SIZE macro.
+ *                * Similarly, files-library is now set to have an input buffer able to take max 1023 chars strings + '\0' (for each file line); to modify file-input buffer size see #FILE_IN_BUFF_SIZE macro.
+ *                * If there is need to modify graph-structe, gnuplot archs.dat, costs.dat and costs.dat files needs to be manually updated to have reliable graphical representations.
  * @bug         No known bugs.
  * 
- * \section     section1 Code title:
- *              Polynomial interpolation with Newton algorithm and divided-differences.
+ * <br/>
  * 
- * \subsection  subsection1 Code details:
- *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
- *              polynomial evaluation in given points and derivate calculation.
- * 
- * @brief       rfefrerf
+ * @section     section1 Code title:
+ *              Dijkstra's algorithm (contained in graph-library) test software.
+ * @subsection  subsection1 Code details:
+ *              Software to test Dijkstra's algorithm function placed inside graph-library.
+ *              This function has the purpose of finding the shortest path between source and destination nodes. Through this software, it is possible to run two different types
+ *              of test (<i>for more info, see <b>'Testing software'</b> section inside doxygen <b>'Related pages'</b></i>):
+ *              * Prepared test.
+ *              * Personalized test.
+ * @subsection  subsection2 Manual compiling operations (alternative to makefile):
+ *              * <b>Aliases:</b><br/>
+ *                * alias gccW99_o="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o"<br/>
+ *                * alias gccW99_c="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o"<br/>
+ *                * alias gccW99_lib="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o"<br/><br/>
+ *              
+ *              * <b>Compile-commands:</b><br/>
+ *                * gccW99_lib lib/graph/lib_graph.so lib/graph/lib_graph.c   &nbsp;&nbsp;--> <i>Create GRAPH dynamic library object file.</i><br/>
+ *                * gccW99_lib lib/ui/lib_ui.so lib/ui/lib_ui.c               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create UI (TERMINAL I/O) dynamic library object file.</i><br/>
+ *                * gccW99_lib lib/files/lib_files.so lib/files/lib_files.c   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create FILES dynamic library object file.</i><br/>
+ *                * gccW99_lib lib/timer/lib_timer.so lib/timer/lib_timer.c   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create TIMER dynamic library object file.</i><br/>
+ *                * gccW99_c main/graph_test.o main/graph_test.c              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create MAIN object file.</i><br/><br/>
+ *              
+ *              * <b>Link-command:</b><br/>
+ *                * gccW99_o graph_test main/graph_test.o lib/graph/lib_graph.so lib/ui/lib_ui.so lib/files/lib_files.so lib/timer/lib_timer.so  &nbsp;&nbsp;--> <i>LINK main and dynamic libraries object files to test executable.</i>
  */
 
 
 /*!
- * \page        page2 Test-page
- *              ---.
- * \section     section1 Title:
- *              ---.
+ * @page        page2 2 - Testing software
+ * @brief       Graph-library test software main code file info
  * 
- * \subsection  subsection1 Code details:
+ * @section     section1 Title:
+ *              ---.
+ * @subsection  subsection1 Code details:
  *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
  *              polynomial evaluation in given points and derivate calculation.
  * 
- * @file        graph_test.c saxxasxsa
+ * @file        graph_test.c <i>More info in <b>'Testing software'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Graph-library test software main code file</b>
  * 
- * @brief       csdcds
+ * @file        graph_test.o <i>Object file generated from graph_test.c during compiling operations.</i>
+ * @brief       <b>Graph-library test software main object file</b>
+ * 
+ * @file        graph_test <i>Executable file generated from graph_test.c during compiling operations.</i>
+ * @brief       <b>Graph-library test software main executable file</b>
+ */
+
+
+/*!
+ * @page        page3 3 - Makefile
+ * @brief       Software makefile info
+ * 
+ * @section     section1 Title:
+ *              ---.
+ * @subsection  subsection1 Code details:
+ *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
+ *              polynomial evaluation in given points and derivate calculation.
+ * 
+ * @file        makefile <i>More info in <b>'Makefile'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Makefile to compile/run software, make/view doxygen documentation and view LaTeX abstract pdf</b>
+ */
+
+
+/*!
+ * @page        page4 4 - Gnuplot
+ * @brief       Info about graphical representations through gnuplot
+ * 
+ * @section     section1 Title:
+ *              ---.
+ * @subsection  subsection1 Code details:
+ *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
+ *              polynomial evaluation in given points and derivate calculation.
+ * 
+ * @file        archs.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>File containing data to plot archs inside graph using gnuplot</b>
+ * 
+ * @file        costs.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>File containing data to plot arch-costs inside graph using gnuplot</b>
+ * 
+ * @file        nodes.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>File containing data to plot nodes inside graph using gnuplot</b>
+ * 
+ * @file        shortest_archs.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Editable file containing data to plot shortest-path archs inside graph using gnuplot (green)</b>
+ * 
+ * @file        shortest_costs.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Editable file containing data to plot shortest-path arch-costs inside graph using gnuplot (blue)</b>
+ * 
+ * @file        shortest_nodes.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Editable file containing data to plot shortest-path nodes inside graph using gnuplot (green)</b>
+ * 
+ * @file        src_dest_nodes.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Editable file containing data to plot shortest-path source and destination nodes inside graph using gnuplot (purple)</b>
+ * 
+ * @file        graph_plot.cmd <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Gnuplot sctipt to plot graph structure</b>
+ * 
+ * @file        shortest_plot.cmd <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Gnuplot sctipt to plot graph structure with shortest-path</b>
  */
 
 
@@ -77,7 +134,7 @@
 
 
 /* Constants */
-/// <b>Macro description:</b> Advanced verbose mode (Y/N) for #dijkstra_alg() and #buid_shortest_path() functions.
+/// <b>Macro description:</b> Advanced verbose mode </i>(Y/N)</i> for #dijkstra_alg() and #buid_shortest_path() functions.
 #define VERBOSE                       Y                                                                     // Verbose mode (Y/N)
 /// <b>Macro description:</b> Source node name for graph-library prepared testing mode, for #dijkstra_alg() function.
 #define SOURCE_NODE_NAME              "Cross4"                                                              // Graph test sorce node name
@@ -145,7 +202,7 @@ C_str crss_names_vect[] = {"Cross1", "Cross2", "Cross3", "Cross4", "Cross5", "Cr
 /*!
  * @brief             <p><b>Static function description:</b></p> Static routine to manage close keyboard interrupt signal calling #close_keyboard_interrupt() function.
  * 
- * \param[in] signal  Keyboard interrupt signal.
+ * @param[in] signal  Keyboard interrupt signal.
  * 
  * @return            None.
  */
@@ -222,7 +279,7 @@ static void create_connections(){                                               
  *                        * <b>Personalized test</b>: find shortest path from user-defined source and destination nodes, applying Dijkstra's algorithm. In conclusion clear dynamic memory allocated inside heap. This option requires gnuplot to display graphical data.
  *                        * <b>Close test software</b>: clear dynamic memory allocated inside heap and close test software.
  * 
- * \param[in,out] choice  Option chosen by the user (enum).
+ * @param[in,out] choice  Option chosen by the user (enum).
  * 
  * @return                None.
  */
@@ -318,7 +375,7 @@ static void build_shortest_path_graphics_data(){                                
         }
         write_nl_on_file(shortest_archs_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
-        fbk_err("Encountred error durig archs data copy in shortest path file! Check archs .dat file");     // Print error fbk
+        fbk_err("Encountered error durig archs data copy in shortest path file! Check archs .dat file");    // Print error fbk
     }
     // Arch-costs
     for (int i = 1; i < min_pth_conn_vect_size; ++i){                                                       // Shortest-path arch-costs scrollin' FOR cycle
@@ -335,7 +392,7 @@ static void build_shortest_path_graphics_data(){                                
         }
         write_nl_on_file(shortest_costs_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
-        fbk_err("Encountred error durig costs data copy in shortest path file! Check costs .dat file");     // Print error fbk
+        fbk_err("Encountered error durig costs data copy in shortest path file! Check costs .dat file");    // Print error fbk
     }
     // Nodes (source and destination excluded)
     for (int i = 1; i < min_pth_conn_vect_size-1; ++i){                                                     // Shortest-path intermediate-nodes scrollin' FOR cycle
@@ -352,7 +409,7 @@ static void build_shortest_path_graphics_data(){                                
         }
         write_nl_on_file(shortest_nodes_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
-        fbk_err("Encountred error durig nodes data copy in shortest path file! Check nodes .dat file");     // Print error fbk
+        fbk_err("Encountered error durig nodes data copy in shortest path file! Check nodes .dat file");    // Print error fbk
     }
     // Source and destination nodes
     for (int i = 0; i < min_pth_conn_vect_size; i += (min_pth_conn_vect_size-1)){                           // Shortest-path source and destination nodes scrollin' FOR cycle
@@ -369,7 +426,7 @@ static void build_shortest_path_graphics_data(){                                
         }
         write_nl_on_file(src_dest_nodes_dat_file);                                                          // Write new line inside dedicated shortest-path gnuplot .dat file
       } else                                                                                                // Else in case of no-match found
-        fbk_err("Encountred error durig src-dest data copy in shortest path file! Check nodes .dat file");  // Print error fbk
+        fbk_err("Encountered error durig src-dest data copy in shortest path file! Check nodes .dat file"); // Print error fbk
     }
     // Close .dat files
     close_file(archs_dat_file);                                                                             // Close test-graph gnuplot arch-coords .dat file
@@ -389,10 +446,10 @@ static void build_shortest_path_graphics_data(){                                
  * @brief         <p><b>Static function description:</b></p> Static routine to send gnuplot system command string, with the aim of printing graphical data contained inside .dat files.
  *                In case command is the one to print graph and highlight the shortest-path, call a specific function (build_shortest_path_graphics_data()) to manipulate gnuplot data and graphically recreate the min cost path.
  *                Gnuplot system commands listed below:
- *                * <b>Plot graph</b>: calls gnuplot and load plotting command in .cmd file (graph_plot.cmd, defined with a macro: #GPLOT_TEST_GRAPH_LAYOUT_CMD), in order to plot: arches, arch-costs and nodes in graph.
- *                * <b>Plot graph with shortest-path</b>: calls gnuplot and load plotting command in .cmd file (shortest_plot.cmd, defined with a macro: #GPLOT_SHORTEST_PATH_CMD), in order to plot: arches, arch-costs and nodes in graph highlighting the shortest path.
+ *                * <b>Plot graph</b>: calls gnuplot and load plotting command in .cmd file (graph_plot.cmd, defined with a macro: #GPLOT_TEST_GRAPH_LAYOUT_CMD), in order to plot: arches, arch-costs and nodes in graph. @image html test_graph.png
+ *                * <b>Plot graph with shortest-path</b>: calls gnuplot and load plotting command in .cmd file (shortest_plot.cmd, defined with a macro: #GPLOT_SHORTEST_PATH_CMD), in order to plot: arches, arch-costs and nodes in graph highlighting the shortest path. @image html personalized_shortest_path.png
  * 
- * \param[in] cmd Display test-graph gnuplot system command string.
+ * @param[in] cmd Display test-graph gnuplot system command string.
  * 
  * @return        None.
  */
@@ -406,7 +463,7 @@ static void display_test_graph(C_str cmd){                                      
   if (ret_val == 0){                                                                                        // Chack command return val, if ok
     fbk_nl(1);  fbk_gn_cy("Test-graph layout correctly displayed with gnuplot!\n");                         // Test-graph layout correctly displayed with gnuplot fbk
   } else                                                                                                    // Else if command return val ain't ok
-    fbk_err("Ops! Encountred error during gnuplot command execution, make sure to have gnuplot installed"); // Error fbk
+    fbk_err("Ops! Encountered error during gnuplot command exec, make sure to have gnuplot installed");     // Error fbk
 }
 
 
@@ -414,7 +471,7 @@ static void display_test_graph(C_str cmd){                                      
  * @brief                 <p><b>Static function description:</b></p> Static routine to apply Dijkstra's algorithm with verbose-mode enabled, from specified source node (selected by-name and checking if contained in nodes collection).
  *                        Find min-cost paths from specified source node, towards each other node inside allocated graph. Find out if a specific possible destination node is unreachble, or if it corresponds to the source node.
  * 
- * \param[in] src_nd_name Source node name, from which to apply Dijkstra's algorithm.
+ * @param[in] src_nd_name Source node name, from which to apply Dijkstra's algorithm.
  * 
  * @return                None.
  */
@@ -428,7 +485,7 @@ static void apply_dijkstra(C_str src_nd_name){                                  
  * @brief                   <p><b>Static function description:</b></p> Static routine to reconstruct min-cost path with verbose-mode enabled, towards specified destination node (from source node defined when calling Dijkstra's algoritm;
  *                          destination node selected by-name, checking if node is contained in nodes collection). Find out if a specific possible destination node is unreachble, or if it corresponds to the source node.
  * 
- * \param[in] dest_nd_name  Destination node name towards which min-cost path must be reconstructed (backwards).
+ * @param[in] dest_nd_name  Destination node name towards which min-cost path must be reconstructed (backwards).
  * 
  * @return                  None.
  */
@@ -442,7 +499,7 @@ static void reconstruct_min_path(C_str dest_nd_name){                           
  * @brief                   <p><b>Static function description:</b></p> Static routine to define source node name for Dijkstra's algorithm function, from user terminal-input. After that, function checks if
  *                          specified node is contained in nodes collection.
  * 
- * \param[in,out] src_nd_nm Source node name terminal-input, for Dijkstra's algorithm.
+ * @param[in,out] src_nd_nm Source node name terminal-input, for Dijkstra's algorithm.
  * 
  * @return                  None.
  */
@@ -461,7 +518,7 @@ static void define_src_node_name(Str* src_nd_nm){                               
  * @brief                     <p><b>Static function description:</b></p> Static routine to define destination node name from user terminal-input, to be abe to reconstruct min-cost pah from
  *                            source node defined when calling Dijkstra's algorithm. After that, function checks if specified node is contained in nodes collection.
  * 
- * \param[in,out] dest_nd_nm  Destination node name terminal-input, to reconstruct min-cost path.
+ * @param[in,out] dest_nd_nm  Destination node name terminal-input, to reconstruct min-cost path.
  * 
  * @return                    None.
  */
@@ -491,7 +548,7 @@ int main(){                                                                     
   signal(SIGINT, terminate_keyboard);                                                                       // Manage program exit from keyboard ctrl+c shortcut
   logo(6, "GRAPHS MANAGEMENT LIBRARY TEST SOFTWARE", LBU, '#', OG);                                         // Print responsive-logo function call (start_spaces, text, txt_color, background_char, bkgchr_color)
   press_enter("Hi");                                                                                        // Press enter to start SW fbk
-  unused = read_term_in_int();  ///// ------------------------------ ///// ?????????????????
+
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //                                          LIBRARY TEST SOFTWATRE                                        // --> TEST BEGIN
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -48,26 +48,38 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><b>Struct-typedef description:</b> Date/time data-structure (yyyy/mn/dd, hh:mm:ss), defined using <a class="el" href="lib__timer_8c.html#a3af91197c7c156faa37c9edfb4261abc">get_date_time()</a> or <a class="el" href="lib__timer_8c.html#af5911c80d18f50a3d3a97f1bfefcfc41">assign_date_time()</a> functions.<br  />
+ Date/time exact format: <em>(yyyy) + <a class="el" href="lib__timer_8h.html#aaeef900bb0e56d5df4ebbc44ec74a9c8" title="Macro description: Date delimiter char.">DATE_DELIM_CHR</a> + (mn) + <a class="el" href="lib__timer_8h.html#aaeef900bb0e56d5df4ebbc44ec74a9c8" title="Macro description: Date delimiter char.">DATE_DELIM_CHR</a> + (dd) + <a class="el" href="lib__timer_8h.html#ad3d0205a14430b655aa00439605b4ad4" title="Macro description: Date/time delimiter char.">DATE_TIME_DELIM_CHR</a> + (hh+1) + <a class="el" href="lib__timer_8h.html#a8c7f384d0edfaa7ae0499bed65473f10" title="Macro description: Time delimiter char.">TIME_DELIM_CHR</a> + (mm+1) + <a class="el" href="lib__timer_8h.html#a8c7f384d0edfaa7ae0499bed65473f10" title="Macro description: Time delimiter char.">TIME_DELIM_CHR</a> + (ss+1)</em>.  
+ <a href="structdate__time.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:a9717890d891034bcca920fc567a397af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdate__time.html#a9717890d891034bcca920fc567a397af">yyyy</a></td></tr>
+<tr class="memdesc:a9717890d891034bcca920fc567a397af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Years value.  <a href="structdate__time.html#a9717890d891034bcca920fc567a397af">More...</a><br /></td></tr>
 <tr class="separator:a9717890d891034bcca920fc567a397af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90041b7bbbd4c43e8907967d86fad057"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdate__time.html#a90041b7bbbd4c43e8907967d86fad057">mn</a></td></tr>
+<tr class="memdesc:a90041b7bbbd4c43e8907967d86fad057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monts value.  <a href="structdate__time.html#a90041b7bbbd4c43e8907967d86fad057">More...</a><br /></td></tr>
 <tr class="separator:a90041b7bbbd4c43e8907967d86fad057"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00457ce7dad2e289046a73fba0963b79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdate__time.html#a00457ce7dad2e289046a73fba0963b79">dd</a></td></tr>
+<tr class="memdesc:a00457ce7dad2e289046a73fba0963b79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Days value.  <a href="structdate__time.html#a00457ce7dad2e289046a73fba0963b79">More...</a><br /></td></tr>
 <tr class="separator:a00457ce7dad2e289046a73fba0963b79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af338a6f93420fb6d0001558ba3b9d08a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdate__time.html#af338a6f93420fb6d0001558ba3b9d08a">hh</a></td></tr>
+<tr class="memdesc:af338a6f93420fb6d0001558ba3b9d08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hours value (+1).  <a href="structdate__time.html#af338a6f93420fb6d0001558ba3b9d08a">More...</a><br /></td></tr>
 <tr class="separator:af338a6f93420fb6d0001558ba3b9d08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b2c5d5430542a5f9f7035486f2d62a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdate__time.html#a2b2c5d5430542a5f9f7035486f2d62a0">mm</a></td></tr>
+<tr class="memdesc:a2b2c5d5430542a5f9f7035486f2d62a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minutes value (+1).  <a href="structdate__time.html#a2b2c5d5430542a5f9f7035486f2d62a0">More...</a><br /></td></tr>
 <tr class="separator:a2b2c5d5430542a5f9f7035486f2d62a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7497aae6f2c339a3635f2aaae5d85627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdate__time.html#a7497aae6f2c339a3635f2aaae5d85627">ss</a></td></tr>
+<tr class="memdesc:a7497aae6f2c339a3635f2aaae5d85627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seconds value (+1).  <a href="structdate__time.html#a7497aae6f2c339a3635f2aaae5d85627">More...</a><br /></td></tr>
 <tr class="separator:a7497aae6f2c339a3635f2aaae5d85627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00034">34</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
+<div class="textblock"><p><b>Struct-typedef description:</b> Date/time data-structure (yyyy/mn/dd, hh:mm:ss), defined using <a class="el" href="lib__timer_8c.html#a3af91197c7c156faa37c9edfb4261abc">get_date_time()</a> or <a class="el" href="lib__timer_8c.html#af5911c80d18f50a3d3a97f1bfefcfc41">assign_date_time()</a> functions.<br  />
+ Date/time exact format: <em>(yyyy) + <a class="el" href="lib__timer_8h.html#aaeef900bb0e56d5df4ebbc44ec74a9c8" title="Macro description: Date delimiter char.">DATE_DELIM_CHR</a> + (mn) + <a class="el" href="lib__timer_8h.html#aaeef900bb0e56d5df4ebbc44ec74a9c8" title="Macro description: Date delimiter char.">DATE_DELIM_CHR</a> + (dd) + <a class="el" href="lib__timer_8h.html#ad3d0205a14430b655aa00439605b4ad4" title="Macro description: Date/time delimiter char.">DATE_TIME_DELIM_CHR</a> + (hh+1) + <a class="el" href="lib__timer_8h.html#a8c7f384d0edfaa7ae0499bed65473f10" title="Macro description: Time delimiter char.">TIME_DELIM_CHR</a> + (mm+1) + <a class="el" href="lib__timer_8h.html#a8c7f384d0edfaa7ae0499bed65473f10" title="Macro description: Time delimiter char.">TIME_DELIM_CHR</a> + (ss+1)</em>. </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00073">73</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a00457ce7dad2e289046a73fba0963b79"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00457ce7dad2e289046a73fba0963b79">&#9670;&nbsp;</a></span>dd</h2>
@@ -81,7 +93,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00037">37</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
+<p>Days value. </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00079">79</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
 
 </div>
 </div>
@@ -97,7 +111,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00038">38</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
+<p>Hours value (+1). </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00081">81</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
 
 </div>
 </div>
@@ -113,7 +129,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00039">39</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
+<p>Minutes value (+1). </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00083">83</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
 
 </div>
 </div>
@@ -129,7 +147,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00036">36</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
+<p>Monts value. </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00077">77</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
 
 </div>
 </div>
@@ -145,7 +165,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00040">40</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
+<p>Seconds value (+1). </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00085">85</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
 
 </div>
 </div>
@@ -161,7 +183,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00035">35</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
+<p>Years value. </p>
+
+<p class="definition">Definition at line <a class="el" href="lib__timer_8h_source.html#l00075">75</a> of file <a class="el" href="lib__timer_8h_source.html">lib_timer.h</a>.</p>
 
 </div>
 </div>

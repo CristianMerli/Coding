@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dijkstra&#39;s algorithm project: General notes</title>
+<title>Dijkstra&#39;s algorithm project: 1 - General notes about software</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -42,31 +42,72 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">General notes </div>  </div>
+<div class="title">1 - General notes about software </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>rfefrerf</p>
-<p>Dijkstra's algorithm library test-software.</p>
+<div class="textblock"><p>General notes, informations and warnings about the software.</p>
 <dl class="section author"><dt>Author</dt><dd>Cristian Merli </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>15/07/2021 </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>3.0 - Completed 15/05/2021</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>16/07/2021 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>3.0 - Completed 16/05/2021</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Important notes:<ul>
 <li>Graphical effects are managed by gnuplot (based on data manipulated by test software main program), so it is highly recommended to have it installed.</li>
-<li>It is possibile to compile, run and execute further actions tacking advantege of makefile, for more informations see doxygen 'Main page' or <a class="el" href="README_8md.html">README.md</a> file. </li>
+<li>It is possibile to compile, run and execute further actions tacking advantege of makefile, <em>for more informations see doxygen <b>'Main page'</b> or <b>'Makefile'</b> section inside <b>'Related pages'</b>.</em> </li>
 </ul>
 </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Important warnings:<ul>
-<li>Pay attention, arch/node names must only be max 30 chars long. To modify max names lenght, change relative macros inside '<a class="el" href="lib__graph_8h.html" title="csdcds">lib_graph.h</a>' header file: # and #.</li>
-<li>Change in_buff size also in UI lib and read funct.... </li>
+<li>Pay attention, arch/node names must only be max 30 chars long. To modify max names lenght, change relative macros inside '<a class="el" href="lib__graph_8h.html" title="Graph-library header file">lib_graph.h</a>' header file: <a class="el" href="lib__graph_8h.html#a55d51defea88514c66b94efa195fd708" title="Macro description: Max arch-names length in chars (30 + &#39;\0&#39;).">AR_STR_LEN</a> and <a class="el" href="lib__graph_8h.html#a19494261950487fc03f0d609b24e8f68" title="Macro description: Max node-names length in chars (30 + &#39;\0&#39;).">ND_STR_LEN</a>.</li>
+<li>User-interface library is now set to have an input buffer able to take max 63 chars strings + '\0'; to modify terminal-input buffer size see <a class="el" href="lib__ui_8h.html#ae5a33261a5b8393cac6d62817538cecd" title="Macro description: Max terminal-input strings length in chars (63 + &#39;\0&#39;), mainly used by scanf() fun...">IN_BUFF_SIZE</a> macro.</li>
+<li>Similarly, files-library is now set to have an input buffer able to take max 1023 chars strings + '\0' (for each file line); to modify file-input buffer size see <a class="el" href="lib__files_8h.html#a463caf5507d5055c43fc53319416a55c" title="Macro description: Max file-input strings length in chars (1023 + &#39;\0&#39;), mainly used by fgets() funct...">FILE_IN_BUFF_SIZE</a> macro.</li>
+<li>If there is need to modify graph-structe, gnuplot <a class="el" href="archs_8dat.html" title="File containing data to plot archs inside graph using gnuplot">archs.dat</a>, <a class="el" href="costs_8dat.html" title="File containing data to plot arch-costs inside graph using gnuplot">costs.dat</a> and <a class="el" href="costs_8dat.html" title="File containing data to plot arch-costs inside graph using gnuplot">costs.dat</a> files needs to be manually updated to have reliable graphical representations. </li>
 </ul>
 </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>No known bugs.</dd></dl>
+<p><br  />
+</p>
 <h1><a class="anchor" id="section1"></a>
 Code title:</h1>
-<p>Polynomial interpolation with Newton algorithm and divided-differences.</p>
+<p>Dijkstra's algorithm (contained in graph-library) test software. </p>
 <h2><a class="anchor" id="subsection1"></a>
 Code details:</h2>
-<p>Polynomial interpolation C code --&gt; Newton algorithm with divided-differences to interpolate 'till 170 points, polynomial evaluation in given points and derivate calculation. </p>
+<p>Software to test Dijkstra's algorithm function placed inside graph-library. This function has the purpose of finding the shortest path between source and destination nodes. Through this software, it is possible to run two different types of test (<em>for more info, see <b>'Testing software'</b> section inside doxygen <b>'Related pages'</b></em>):</p><ul>
+<li>Prepared test.</li>
+<li>Personalized test. </li>
+</ul>
+<h2><a class="anchor" id="subsection2"></a>
+Manual compiling operations (alternative to makefile):</h2>
+<ul>
+<li><b>Aliases:</b><br  />
+<ul>
+<li>alias gccW99_o="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o"<br  />
+</li>
+<li>alias gccW99_c="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o"<br  />
+</li>
+<li>alias gccW99_lib="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o"<br  />
+<br  />
+</li>
+</ul>
+</li>
+<li><b>Compile-commands:</b><br  />
+<ul>
+<li>gccW99_lib <a class="el" href="lib__graph_8so.html" title="Graph-library object file">lib/graph/lib_graph.so</a> <a class="el" href="lib__graph_8c.html" title="Graph-library code file">lib/graph/lib_graph.c</a> &#160;&#160;--&gt; <em>Create GRAPH dynamic library object file.</em><br  />
+</li>
+<li>gccW99_lib <a class="el" href="lib__ui_8so.html" title="User-interface-library object file">lib/ui/lib_ui.so</a> <a class="el" href="lib__ui_8c.html" title="User-interface-library code file">lib/ui/lib_ui.c</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Create UI (TERMINAL I/O) dynamic library object file.</em><br  />
+</li>
+<li>gccW99_lib <a class="el" href="lib__files_8so.html" title="Files-library object file">lib/files/lib_files.so</a> <a class="el" href="lib__files_8c.html" title="Files-library code file">lib/files/lib_files.c</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Create FILES dynamic library object file.</em><br  />
+</li>
+<li>gccW99_lib <a class="el" href="lib__timer_8so.html" title="Timer-library object file">lib/timer/lib_timer.so</a> <a class="el" href="lib__timer_8c.html" title="Timer-library code file">lib/timer/lib_timer.c</a> &#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Create TIMER dynamic library object file.</em><br  />
+</li>
+<li>gccW99_c <a class="el" href="graph__test_8o.html" title="Graph-library test software main object file">main/graph_test.o</a> <a class="el" href="graph__test_8c.html" title="Graph-library test software main code file">main/graph_test.c</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Create MAIN object file.</em><br  />
+<br  />
+</li>
+</ul>
+</li>
+<li><b>Link-command:</b><br  />
+<ul>
+<li>gccW99_o graph_test <a class="el" href="graph__test_8o.html" title="Graph-library test software main object file">main/graph_test.o</a> <a class="el" href="lib__graph_8so.html" title="Graph-library object file">lib/graph/lib_graph.so</a> <a class="el" href="lib__ui_8so.html" title="User-interface-library object file">lib/ui/lib_ui.so</a> <a class="el" href="lib__files_8so.html" title="Files-library object file">lib/files/lib_files.so</a> <a class="el" href="lib__timer_8so.html" title="Timer-library object file">lib/timer/lib_timer.so</a> &#160;&#160;--&gt; <em>LINK main and dynamic libraries object files to test executable.</em> </li>
+</ul>
+</li>
+</ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

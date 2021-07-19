@@ -13,28 +13,51 @@
 
 
 /* Public vars */
+/// <b>Public-variable description:</b> File-input buffer string variabile (size defined with #FILE_IN_BUFF_SIZE macro), mainly used by fgets() function in file-reading operations.
 char file_in_buff[FILE_IN_BUFF_SIZE] = "";                                                                  // File input buffer char array for fgets func
 
 
 /* Functions */
+/*!
+ * @brief               <p><b>Function description:</b></p> Function to open file by-name in specified mode.
+ * 
+ * @param[in] filename  File name/path string of the to open.
+ * @param[in] mode      File opening mode:
+ *                      * "w"   = Write (clear file or create if not existing).
+ *                      * "r"   = Read only.
+ *                      * "a"   = Append (do not clear file, add text in write only, create if file doesn't exist).
+ *                      * "r+"  = Read/write (only if file exists).
+ *                      * "w+"  = Read/write (create file if not existing).
+ *                      * "a+"  = Read/write/append (create file if not existing).
+ * 
+ * @return              Return opened file pointer, NULL in case file-opening operation failed.
+ */
 Fl open_file(const char *const filename, const char *const mode){                                           // Function to open file
   /* Body */
   FILE *file;                                                                                               // Define file obj pointer
-  file = fopen(filename, mode);                                                                             // Open defined file in specified mode (see the end of code)
+  file = fopen(filename, mode);                                                                             // Open defined file in specified mode
   if (file == NULL){                                                                                        // Check open file operation result
-    fbk_err("Ops! Encountred error during file open operation");                                            // Print error fbk
+    fbk_err("Ops! Encountered error during file open operation");                                           // Print error fbk
     perror("File open operation failed!");                                                                  // Print perror fbk
   }
   return file;                                                                                              // Return file pointer
 }
 
 
-void write_int_on_file(Fl file, C_int num){                                                                 // Function to write int on file
+/*!
+ * @brief           <p><b>Function description:</b></p> Function to write integer on file.
+ * 
+ * @param[in] file  File pointer on which to apply writing operation.
+ * @param[in] num   Integer value to write on file.
+ * 
+ * @return          None.
+ */
+void write_int_on_file(Fl file, const int num){                                                             // Function to write int on file
   /* Body */
   if (file != NULL){                                                                                        // Check file obj not null
     C_int res = fprintf(file, "%d", num);                                                                   // Insert number in file
     if (res < 1){                                                                                           // Check file write operation result
-      fbk_err("Ops! Encountred error during int value file write operation");                               // Print error fbk
+      fbk_err("Ops! Encountered error during int value file write operation");                              // Print error fbk
       perror("File write operation of int value, failed!");                                                 // Print perror fbk
     }
   } else {                                                                                                  // If file obj is null
@@ -44,12 +67,20 @@ void write_int_on_file(Fl file, C_int num){                                     
 }
 
 
+/*!
+ * @brief           <p><b>Function description:</b></p> Function to write string on file.
+ * 
+ * @param[in] file  File pointer on which to apply writing operation.
+ * @param[in] str   String value to write on file.
+ * 
+ * @return          None.
+ */
 void write_str_on_file(Fl file, const char *const str){                                                     // Function to write string on file
   /* Body */
   if (file != NULL){                                                                                        // Check file obj not null
     C_int res = fprintf(file, "%s", str);                                                                   // Insert string in file
     if (res < 1){                                                                                           // Check file write operation result
-      fbk_err("Ops! Encountred error during string file write operation");                                  // Print error fbk
+      fbk_err("Ops! Encountered error during string file write operation");                                 // Print error fbk
       perror("File write operation of string failed!");                                                     // Print perror fbk
     }
   } else {                                                                                                  // If file obj is null
@@ -59,12 +90,20 @@ void write_str_on_file(Fl file, const char *const str){                         
 }
 
 
-void write_sep_on_file(Fl file, C_char sep){                                                                // Function to write separator on file
+/*!
+ * @brief           <p><b>Function description:</b></p> Function to write separator-char on file.
+ * 
+ * @param[in] file  File pointer on which to apply writing operation.
+ * @param[in] sep   Separator char to write on file.
+ * 
+ * @return          None.
+ */
+void write_sep_on_file(Fl file, const char sep){                                                            // Function to write separator on file
   /* Body */
   if (file != NULL){                                                                                        // Check file obj not null
     C_int res = fprintf(file, "%c", sep);                                                                   // Insert separator in file
     if (res < 1){                                                                                           // Check file write operation result
-      fbk_err("Ops! Encountred error during separator char file write operation");                          // Print error fbk
+      fbk_err("Ops! Encountered error during separator char file write operation");                         // Print error fbk
       perror("File write operation of separator char failed!");                                             // Print perror fbk
     }
   } else {                                                                                                  // If file obj is null
@@ -74,12 +113,19 @@ void write_sep_on_file(Fl file, C_char sep){                                    
 }
 
 
+/*!
+ * @brief           <p><b>Function description:</b></p> Function to write new-line on file.
+ * 
+ * @param[in] file  File pointer on which to apply writing operation.
+ * 
+ * @return          None.
+ */
 void write_nl_on_file(Fl file){                                                                             // Function to write new line on file
   /* Body */
   if (file != NULL){                                                                                        // Check file obj not null
     C_int res = fprintf(file, "\n");                                                                        // Insert new line in file
     if (res < 1){                                                                                           // Check file write operation result
-      fbk_err("Ops! Encountred error during new line file write operation");                                // Print error fbk
+      fbk_err("Ops! Encountered error during new line file write operation");                               // Print error fbk
       perror("File write operation of new line failed!");                                                   // Print perror fbk
     }
   } else {                                                                                                  // If file obj is null
@@ -89,12 +135,19 @@ void write_nl_on_file(Fl file){                                                 
 }
 
 
+/*!
+ * @brief           <p><b>Function description:</b></p> Function to write tab on file.
+ * 
+ * @param[in] file  File pointer on which to apply writing operation.
+ * 
+ * @return          None.
+ */
 void write_tab_on_file(Fl file){                                                                            // Function to write tab on file
   /* Body */
   if (file != NULL){                                                                                        // Check file obj not null
     C_int res = fprintf(file, "\t");                                                                        // Insert tab in file
     if (res < 1){                                                                                           // Check file write operation result
-      fbk_err("Ops! Encountred error during tab file write operation");                                     // Print error fbk
+      fbk_err("Ops! Encountered error during tab file write operation");                                    // Print error fbk
       perror("File write operation of tab failed!");                                                        // Print perror fbk
     }
   } else {                                                                                                  // If file obj is null
@@ -104,6 +157,13 @@ void write_tab_on_file(Fl file){                                                
 }
 
 
+/*!
+ * @brief           <p><b>Function description:</b></p> Function to read lines in file, printing them on terminal as feedback.
+ * 
+ * @param[in] file  File pointer on which to apply reading operation.
+ * 
+ * @return          None.
+ */
 void read_from_file(Fl file){                                                                               // Function to read from file
   /* Body */
   if (file != NULL){                                                                                        // Check file obj not null
@@ -120,6 +180,14 @@ void read_from_file(Fl file){                                                   
 }
 
 
+/*!
+ * @brief             <p><b>Function description:</b></p> Function to read lines in file, looking for target-string (or sub-string) line number.
+ * 
+ * @param[in] file    File pointer on which to apply reading operation.
+ * @param[in] tgt_str Target string (or sub-string) to find inside file, with the aim of detecting its line number.
+ * 
+ * @return            Return specified target-string line number.
+ */
 int get_substr_line_from_file(Fl file, const char *const tgt_str){                                          // Function to get sub-string line number from file (by target-string, returns -1 for no-match found or error)
   /* Body */
   if (file != NULL){                                                                                        // Check file obj not null
@@ -137,7 +205,15 @@ int get_substr_line_from_file(Fl file, const char *const tgt_str){              
 }
 
 
-char* get_line_str_from_file(Fl file, C_int tgt_str_line_num){                                              // Function to get line-string from file (by target-string line number, returns NULL for no-match found or error)
+/*!
+ * @brief                       <p><b>Function description:</b></p> Function to read lines in file until target-string line number, to give back line content.
+ * 
+ * @param[in] file              File pointer on which to apply reading operation.
+ * @param[in] tgt_str_line_num  Target string line number inside the file.
+ * 
+ * @return                      Return specified target-string line number content (string).
+ */
+char* get_line_str_from_file(Fl file, const int tgt_str_line_num){                                          // Function to get line-string from file (by target-string line number, returns NULL for no-match found or error)
   /* Body */
   if (file != NULL){                                                                                        // Check file obj not null
     int line_num = 0;                                                                                       // Line number counter
@@ -154,12 +230,19 @@ char* get_line_str_from_file(Fl file, C_int tgt_str_line_num){                  
 }
 
 
+/*!
+ * @brief           <p><b>Function description:</b></p> Function to close opened file.
+ * 
+ * @param[in] file  File pointer on which to apply closing operation.
+ * 
+ * @return          None.
+ */
 void close_file(Fl file){                                                                                   // Function to close file
   /* Body */
   if (file != NULL){                                                                                        // Check file obj not null
     C_int res = fclose(file);                                                                               // Close file
     if (res == EOF){                                                                                        // Check file close operation result
-      fbk_err("Ops! Encountred error during file close operation");                                         // Print error fbk
+      fbk_err("Ops! Encountered error during file close operation");                                        // Print error fbk
       perror("File close operation failed!");                                                               // Print perror fbk
     }
   } else {                                                                                                  // If file obj is null
@@ -172,10 +255,10 @@ void close_file(Fl file){                                                       
 
 /* File open modes */
 /*
- * "w" = write (clear file)
- * "r" = read only
- * "a" = append (do not clear file, add text in write only, create if file doesn't exist)
+ * "w"  = write (clear file or create if not existing)
+ * "r"  = read only
+ * "a"  = append (do not clear file, add text in write only, create if file doesn't exist)
  * "r+" = read/write (only if file exists)
- * "w+" = read&write (create file if not existing)
- * "a+" = read&write&append (create file if not existing)
+ * "w+" = read/write (create file if not existing)
+ * "a+" = read/write/append (create file if not existing)
  */

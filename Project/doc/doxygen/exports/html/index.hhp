@@ -65,10 +65,12 @@ graph__test_8o.html
 makefile.html
 page1.html
 page2.html
-page4.html
 page3.html
-page6.html
+page4.html
 page5.html
+page6.html
+page7.html
+page8.html
 bug.html
 structarch.html
 structconnection.html
@@ -131,3 +133,5 @@ open.png
 bdwn.png
 sync_on.png
 sync_off.png
+test_graph.png
+personalized_shortest_path.png

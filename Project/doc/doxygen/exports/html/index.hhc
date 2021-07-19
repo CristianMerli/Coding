@@ -4,18 +4,21 @@
 <param name="FrameName" value="right">
 </OBJECT>
 <UL>
-<LI><OBJECT type="text/sitemap"><param name="Name" value="General notes"><param name="Local" value="page1.html"><param name="ImageNumber" value="1"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="1 - General notes about software"><param name="Local" value="page1.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="Code title:"><param name="Local" value="page1.html#section1"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Code details:"><param name="Local" value="page1.html#subsection1"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Manual compiling operations (alternative to makefile):"><param name="Local" value="page1.html#subsection2"><param name="ImageNumber" value="11"></OBJECT>
     </UL>
   </UL>
-<LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page2.html"><param name="ImageNumber" value="11"></OBJECT>
-<LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page4.html"><param name="ImageNumber" value="11"></OBJECT>
-<LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page3.html"><param name="ImageNumber" value="11"></OBJECT>
-<LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page6.html"><param name="ImageNumber" value="11"></OBJECT>
-<LI><OBJECT type="text/sitemap"><param name="Name" value="Test-page"><param name="Local" value="page5.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="2 - Testing software"><param name="Local" value="page2.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="3 - Makefile"><param name="Local" value="page3.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="4 - Gnuplot"><param name="Local" value="page4.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="5 - Graph library"><param name="Local" value="page5.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="6 - UI library"><param name="Local" value="page6.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="7 - Files library"><param name="Local" value="page7.html"><param name="ImageNumber" value="11"></OBJECT>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="8 - Timer library"><param name="Local" value="page8.html"><param name="ImageNumber" value="11"></OBJECT>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Bug List"><param name="Local" value="bug.html"><param name="ImageNumber" value="11"></OBJECT>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Data Structures"><param name="Local" value="annotated.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
@@ -95,13 +98,13 @@
         <LI><OBJECT type="text/sitemap"><param name="Name" value="lib_files.c"><param name="Local" value="lib__files_8c.html"><param name="ImageNumber" value="1"></OBJECT>
           <UL>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="close_file"><param name="Local" value="lib__files_8c.html#a6d39326c3fbef1d07f957183962a2974"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="get_line_str_from_file"><param name="Local" value="lib__files_8c.html#a7afafcb535822d7f6c8510697b529358"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="get_line_str_from_file"><param name="Local" value="lib__files_8c.html#a9a900be232e1f88f5a863baa02255c33"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="get_substr_line_from_file"><param name="Local" value="lib__files_8c.html#a3e6a31237e26953d9d8d98854d875dea"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="open_file"><param name="Local" value="lib__files_8c.html#a83d11115a7c153b17292f094aba9d6df"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="read_from_file"><param name="Local" value="lib__files_8c.html#a1f4ca77075c2abdebac8ad3249b684d5"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="write_int_on_file"><param name="Local" value="lib__files_8c.html#a665502fe5824c245ce4520b60e05599c"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="write_int_on_file"><param name="Local" value="lib__files_8c.html#ad5a570b3ea92ac6976aa28dcf250570b"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="write_nl_on_file"><param name="Local" value="lib__files_8c.html#a7846b45285e8182395c724dbc12d8d87"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="write_sep_on_file"><param name="Local" value="lib__files_8c.html#a119f5035412ad897d1266f5df416aa26"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="write_sep_on_file"><param name="Local" value="lib__files_8c.html#a75887fa3cff279db090fab710684b8f2"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="write_str_on_file"><param name="Local" value="lib__files_8c.html#a0340bf53db4b48af2d85488cbbab1ec1"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="write_tab_on_file"><param name="Local" value="lib__files_8c.html#ad79871f2d54dba34c2b393aec9f2a068"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="file_in_buff"><param name="Local" value="lib__files_8c.html#a3494a4e0bde5ccf844f1492374bc2c69"><param name="ImageNumber" value="11"></OBJECT>
@@ -263,13 +266,13 @@
         <UL>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="lib_timer.c"><param name="Local" value="lib__timer_8c.html"><param name="ImageNumber" value="1"></OBJECT>
           <UL>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="assign_date_time"><param name="Local" value="lib__timer_8c.html#afdef5a4554d50047c18d6e0dda01b319"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="chk_date_in_range"><param name="Local" value="lib__timer_8c.html#a3ecb9c3a19428f17f0f4fae828973087"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="assign_date_time"><param name="Local" value="lib__timer_8c.html#af5911c80d18f50a3d3a97f1bfefcfc41"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="chk_date_in_range"><param name="Local" value="lib__timer_8c.html#ad61852189a97d56526998ba343a49c81"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="cmp_date_time"><param name="Local" value="lib__timer_8c.html#ab88482d71da5dd89883ccf7011a6d63a"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="delay"><param name="Local" value="lib__timer_8c.html#a8556f097846507dc696ed045bbd322bd"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="fbk_gn_lbu_date_time"><param name="Local" value="lib__timer_8c.html#acfd520b1046cc694266fd2f0231ff62d"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="fbk_gn_lbu_ye_date_time"><param name="Local" value="lib__timer_8c.html#a260a760aa7876c7210578fac0389d6bc"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="get_date_time"><param name="Local" value="lib__timer_8c.html#a3af91197c7c156faa37c9edfb4261abc"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="val_in_rage"><param name="Local" value="lib__timer_8c.html#a07c4edcff0d1136d2bad9d8f4735a171"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="val_in_rage"><param name="Local" value="lib__timer_8c.html#af125287318c8d33015020c0268458aae"><param name="ImageNumber" value="11"></OBJECT>
           </UL>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="lib_timer.h"><param name="Local" value="lib__timer_8h.html"><param name="ImageNumber" value="1"></OBJECT>
           <UL>
@@ -303,19 +306,18 @@
           <LI><OBJECT type="text/sitemap"><param name="Name" value="Date_time"><param name="Local" value="lib__timer_8h.html#ae82ea30da67e6901c992f0df3485637a"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="cmp_res"><param name="Local" value="lib__timer_8h.html#a4abc86ac83e212775cf72d5cb92b60c8"><param name="ImageNumber" value="1"></OBJECT>
             <UL>
-            <LI><OBJECT type="text/sitemap"><param name="Name" value="OK"><param name="Local" value="lib__timer_8h.html#a4abc86ac83e212775cf72d5cb92b60c8a2bc49ec37d6a5715dd23e85f1ff5bb59"><param name="ImageNumber" value="11"></OBJECT>
-            <LI><OBJECT type="text/sitemap"><param name="Name" value="NOT_OK"><param name="Local" value="lib__timer_8h.html#a4abc86ac83e212775cf72d5cb92b60c8ad1ed6238e81cc264553d7e9f0cb9a618"><param name="ImageNumber" value="11"></OBJECT>
+            <LI><OBJECT type="text/sitemap"><param name="Name" value="NOT_OK"><param name="Local" value="lib__timer_8h.html#a4abc86ac83e212775cf72d5cb92b60c8abad1f7ebe332243ee9dab4f3ba5f1454"><param name="ImageNumber" value="11"></OBJECT>
+            <LI><OBJECT type="text/sitemap"><param name="Name" value="OK"><param name="Local" value="lib__timer_8h.html#a4abc86ac83e212775cf72d5cb92b60c8a509f04652b5e1b2d2b9e6bc121a87e50"><param name="ImageNumber" value="11"></OBJECT>
             </UL>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="date_cmp"><param name="Local" value="lib__timer_8h.html#ade5ef35d1b1144a3f4404ec9a09181e6"><param name="ImageNumber" value="1"></OBJECT>
             <UL>
-            <LI><OBJECT type="text/sitemap"><param name="Name" value="OLDER"><param name="Local" value="lib__timer_8h.html#ade5ef35d1b1144a3f4404ec9a09181e6a1d1b94c103464376b36b2ee2058ccbf1"><param name="ImageNumber" value="11"></OBJECT>
-            <LI><OBJECT type="text/sitemap"><param name="Name" value="NEWER"><param name="Local" value="lib__timer_8h.html#ade5ef35d1b1144a3f4404ec9a09181e6ab16bfdb60cb8d1a1ef436c3943cdf8a7"><param name="ImageNumber" value="11"></OBJECT>
+            <LI><OBJECT type="text/sitemap"><param name="Name" value="OLDER"><param name="Local" value="lib__timer_8h.html#ade5ef35d1b1144a3f4404ec9a09181e6a4e74ca67a8e75115ef9e2a14238780a1"><param name="ImageNumber" value="11"></OBJECT>
+            <LI><OBJECT type="text/sitemap"><param name="Name" value="NEWER"><param name="Local" value="lib__timer_8h.html#ade5ef35d1b1144a3f4404ec9a09181e6aee40e3fd8a9b1085431e33db200ea59b"><param name="ImageNumber" value="11"></OBJECT>
             </UL>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="assign_date_time"><param name="Local" value="lib__timer_8h.html#af5911c80d18f50a3d3a97f1bfefcfc41"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="chk_date_in_range"><param name="Local" value="lib__timer_8h.html#a3ecb9c3a19428f17f0f4fae828973087"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="cmp_date_time"><param name="Local" value="lib__timer_8h.html#ab88482d71da5dd89883ccf7011a6d63a"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="delay"><param name="Local" value="lib__timer_8h.html#a8556f097846507dc696ed045bbd322bd"><param name="ImageNumber" value="11"></OBJECT>
-          <LI><OBJECT type="text/sitemap"><param name="Name" value="fbk_gn_lbu_date_time"><param name="Local" value="lib__timer_8h.html#acfd520b1046cc694266fd2f0231ff62d"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="fbk_gn_lbu_ye_date_time"><param name="Local" value="lib__timer_8h.html#a260a760aa7876c7210578fac0389d6bc"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="get_date_time"><param name="Local" value="lib__timer_8h.html#a3af91197c7c156faa37c9edfb4261abc"><param name="ImageNumber" value="11"></OBJECT>
           </UL>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="lib_timer.so"><param name="Local" value="lib__timer_8so.html"><param name="ImageNumber" value="11"></OBJECT>

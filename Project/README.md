@@ -1,33 +1,57 @@
-<h1><b>Project about graphs and Dijkstra's algorithm:</b></h1>
+<h1><b>Graphs and Dijkstra's algorithm C code with gnuplot graphics</b></h1>
 
-<h2><b>Project content:</b></h2>
-
----
-
-<h3><b>Libraries:</b></h3>
-
-* <b>Graph</b>: library for graphs management and minimum cost path with Dijkstra's algorithm.
-* <b>UI</b>: GUI (terminal I/O) library to print logo and coloured terminal feedbacks.
+<h2><b>Main project contents:</b></h2>
 
 ---
 
-<h3><b>Main</b></h3>
+<h3><b>Main makefile commands</b> (<i>for more detailed info, see <b>'Makefile'</b> section inside doxygen <b>'Related pages'</b></i>)</h3>
 
-* <b>Graph_test</b>: main test software to create a small graph and test Dijkstra's algorithm to find minimum cost path.
-
----
-
-<h3><b>Makefile</b></h3>
-
-* <b>Compile commands</b>:
-  * <b>make</b>: command to compile and link the whole project to executable (shortcut command).
-  * <b>make all</b>: same command as above, extended command.
-  * <b>make run</b>: command to launch
-  * <b>make all_run</b>: command to compile/link the whole project to executable and run it.
+* <b>Compile commands:</b>
+  * <b>make:</b> command to compile and link the whole project to executable (shortcut command).
+  * <b>make all:</b> same command as above, extended command.
+  * <b>make run:</b> command to launch executable.
+  * <b>make all_run:</b> command to compile/link the whole project to executable and run it.
+* <b>Doxygen commands:</b>
+  * <b>make docs:</b> command to open firefox in order to display doxygen html documentation.
+* <b>Abstract commands:</b>
+  * <b>make abstract:</b> command to open and view LaTeX exported pdf file.
 
 ---
 
-<h2><b>Project folders:</b></h2>
+<h3><b>Doxygen html documentation</b> (<i>for more detailed info, - <b>'-'</b> - <b>'-'</b></i>)</h3>
+
+* <b>fvdff:</b> vfdffdvdfv.
+
+---
+
+<h3><b>Abstract</b> (<i>for more detailed info, - <b>'-'</b> - <b>'-'</b></i>)</h3>
+
+* <b>fvdff:</b> vfdffdvdfv.
+
+---
+
+<h3><b>Libraries</b></h3>
+
+* <b>Graph:</b> library for graphs management and minimum cost path with Dijkstra's algorithm (<i>for more detailed info, see <b>'Graph library'</b> section inside doxygen <b>'Related pages'</b></i>).
+* <b>UI:</b> User-interface (terminal I/O) library to print logo and coloured terminal feedbacks (<i>for more detailed info, see <b>'UI library'</b> section inside doxygen <b>'Related pages'</b></i>).
+* <b>Files:</b> - library to - (<i>for more detailed info, see <b>'Files library'</b> section inside doxygen <b>'Related pages'</b></i>).
+* <b>Timer:</b> - library to - (<i>for more detailed info, see <b>'Timer library'</b> section inside doxygen <b>'Related pages'</b></i>).
+
+---
+
+<h3><b>Main</b> (<i>for more detailed info, see <b>'Testing software'</b> section inside doxygen <b>'Related pages'</b></i>)</h3>
+
+* <b>Graph_test:</b> main test software to create a small graph and test Dijkstra's algorithm to find minimum cost path.
+
+---
+
+<h3><b>Gnuplot</b> (<i>for more detailed info, see <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b></i>)</h3>
+
+* <b>fvdff:</b> vfdffdvdfv.
+
+---
+
+<h2><b>Project folders structure:</b></h2>
 
 &nbsp;.<br/>
 ├── README.md<br/>

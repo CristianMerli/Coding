@@ -48,7 +48,7 @@ DOX_FLD       =   ../doc/doxygen/exports/
 DOX_HTML      =   ../doc/doxygen/exports/html/index.html
 
 # (1.6) Abstract pdf file (from LaTeX)
-ABSTR_PDF     =   ../doc/abstract/abstract.pdf
+ABSTR_PDF     =   ../doc/abstract/relazione-finale-CRISTIAN-MERLI.pdf
 
 
 ################################

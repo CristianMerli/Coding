@@ -67,46 +67,62 @@ $(function() {
 </li>
 </ul>
 <hr  />
-<h3><b>Doxygen html documentation</b> (<em>for more detailed info, - <b>'-'</b> - <b>'-'</b></em>)</h3>
-<ul>
-<li><b>fvdff:</b> vfdffdvdfv.</li>
-</ul>
+<h3><b>Doxygen html documentation</b> - <em>to open doxygen html documentation, see <b>'make docs'</b> makefile command (firefox required)</em></h3>
+<p>Html documentation of the software containing: files, functions, enums, data-types descriptions and so on.</p>
 <hr  />
-<h3><b>Abstract</b> (<em>for more detailed info, - <b>'-'</b> - <b>'-'</b></em>)</h3>
-<ul>
-<li><b>fvdff:</b> vfdffdvdfv.</li>
+<h3><b>Abstract</b> - <em>to open pdf abstract, see <b>'make abstract'</b> makefile command (a pdf viewer is required)</em></h3>
+<p>Introduction and brief description of the software, particularly about Dijkstra's algorithm theoretical aspects and implementation.</p>
+<hr  />
+<h3><b>Main</b> (<em>for more detailed info, see <b>'Testing software'</b> section inside doxygen <b>'Related pages'</b></em>)</h3>
+<p><b>Graph test:</b> main test software to create a small graph allocated inside heap and test Dijkstra's algorithm, to find minimum cost path. More in details, test main program allows to run two different typed of test on graph-library and Dijkstra's algorithm (<a class="el" href="lib__graph_8c.html#a67ad50bcf5c0aee76ebf61c50446e0ff">dijkstra_alg()</a> function inside <a class="el" href="lib__graph_8c.html" title="Graph-library code file">lib_graph.c</a>):</p><ul>
+<li><b>Predefined test:</b> test from a pre-defined source node towards a pre-defined destination node (designated by <a class="el" href="graph__test_8c.html#a42c91a39135d4feeb08d7d08b8340df9" title="Macro description: Source node name for graph-library prepared testing mode, for dijkstra_alg() funct...">SOURCE_NODE_NAME</a> and <a class="el" href="graph__test_8c.html#a3fa787c292bdeef4860660765d0160af" title="Macro description: Destination node name for graph-library prepared testing mode, for buid_shortest_p...">DESTINATION_NODE_NAME</a> macros).</li>
+<li><b>Personalized test:</b> test from a user-defined source node towards a user-defined destination node (designated by user terminal-inputs during test execution).</li>
 </ul>
 <hr  />
 <h3><b>Libraries</b></h3>
 <ul>
-<li><b>Graph:</b> library for graphs management and minimum cost path with Dijkstra's algorithm (<em>for more detailed info, see <b>'Graph library'</b> section inside doxygen <b>'Related pages'</b></em>).</li>
-<li><b>UI:</b> User-interface (terminal I/O) library to print logo and coloured terminal feedbacks (<em>for more detailed info, see <b>'UI library'</b> section inside doxygen <b>'Related pages'</b></em>).</li>
-<li><b>Files:</b> - library to - (<em>for more detailed info, see <b>'Files library'</b> section inside doxygen <b>'Related pages'</b></em>).</li>
-<li><b>Timer:</b> - library to - (<em>for more detailed info, see <b>'Timer library'</b> section inside doxygen <b>'Related pages'</b></em>).</li>
-</ul>
-<hr  />
-<h3><b>Main</b> (<em>for more detailed info, see <b>'Testing software'</b> section inside doxygen <b>'Related pages'</b></em>)</h3>
-<ul>
-<li><b>Graph_test:</b> main test software to create a small graph and test Dijkstra's algorithm to find minimum cost path.</li>
+<li><b>Graph:</b> library for low-level graphs data management and for finding minimum cost path with Dijkstra's algorithm (<em>for more detailed info, see <b>'Graph library'</b> section inside doxygen <b>'Related pages'</b></em> - files <a class="el" href="lib__graph_8h.html" title="Graph-library header file">lib_graph.h</a> and <a class="el" href="lib__graph_8c.html" title="Graph-library code file">lib_graph.c</a>).</li>
+<li><b>UI:</b> User-interface (terminal I/O) library to safetly manage terminal-inputs, print logo and coloured terminal-output feedbacks (<em>for more detailed info, see <b>'UI library'</b> section inside doxygen <b>'Related pages'</b></em> - files <a class="el" href="lib__ui_8h.html" title="User-interface-library header file">lib_ui.h</a> and <a class="el" href="lib__ui_8c.html" title="User-interface-library code file">lib_ui.c</a>).</li>
+<li><b>Files:</b> library to manage files through open/close and read/write operations. (<em>for more detailed info, see <b>'Files library'</b> section inside doxygen <b>'Related pages'</b></em> - files <a class="el" href="lib__files_8h.html" title="Files-library header file">lib_files.h</a> and <a class="el" href="lib__files_8c.html" title="Files-library code file">lib_files.c</a>).</li>
+<li><b>Timer:</b> library to manage time operations like delays (<em>for more detailed info, see <b>'Timer library'</b> section inside doxygen <b>'Related pages'</b></em> - files <a class="el" href="lib__timer_8h.html" title="Timer-library header file">lib_timer.h</a> and <a class="el" href="lib__timer_8c.html" title="Timer-library code file">lib_timer.c</a>).</li>
 </ul>
 <hr  />
 <h3><b>Gnuplot</b> (<em>for more detailed info, see <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b></em>)</h3>
+<p>In this software, gnuplot has the main purpose of plotting graph and shortest-path data. In order to that, inside main program (<a class="el" href="graph__test_8c.html" title="Graph-library test software main code file">graph_test.c</a>), two gnuplot scripts will be called to load and plot manipulated data inside .dat files. The former is called immediately after the testing option choice, while the latter is called once shortest-path has been displayed and descried on terminal.</p>
 <ul>
-<li><b>fvdff:</b> vfdffdvdfv.</li>
+<li><b>Graph plotting script:</b> this file (<a class="el" href="graph__plot_8cmd.html" title="Gnuplot sctipt to plot graph structure">graph_plot.cmd</a>) is called from main testing software through a system command, with the aim of graphically showing the allocated graph structure to the user. Gnuplot's script, will then print data manually inserted by the user inside graph-plotting data files: <a class="el" href="archs_8dat.html" title="File containing data to plot archs inside graph using gnuplot">archs.dat</a>, <a class="el" href="costs_8dat.html" title="File containing data to plot arch-costs inside graph using gnuplot">costs.dat</a> and <a class="el" href="nodes_8dat.html" title="File containing data to plot nodes inside graph using gnuplot">nodes.dat</a>.</li>
 </ul>
+<p><img src="sw/gnuplot/exports/imgs/test_graph.png" alt="" class="inline"/></p>
+<div class="image">
+<img src="test_graph.png" alt=""/>
+<div class="caption">
+--&gt; Test-graph layout exported from gnuplot.</div></div>
+<ul>
+<li><b>Shortest path plotting script:</b> this other file (<a class="el" href="shortest__plot_8cmd.html" title="Gnuplot sctipt to plot graph structure with shortest-path">shortest_plot.cmd</a>), is also called from main testing software through a system command, with the aim of graphically showing the allocated graph structure and detected min-cost path to the user. Gnuplot's script will then print data manually inserted by the user, inside graph-plotting data files: <a class="el" href="archs_8dat.html" title="File containing data to plot archs inside graph using gnuplot">archs.dat</a>, <a class="el" href="costs_8dat.html" title="File containing data to plot arch-costs inside graph using gnuplot">costs.dat</a> and <a class="el" href="nodes_8dat.html" title="File containing data to plot nodes inside graph using gnuplot">nodes.dat</a> (light-gray colored). In addition, print data manipulated by test software (data from <a class="el" href="shortest__archs_8dat.html" title="Editable file containing data to plot shortest-path archs inside graph using gnuplot (green)">shortest_archs.dat</a>, <a class="el" href="shortest__costs_8dat.html" title="Editable file containing data to plot shortest-path arch-costs inside graph using gnuplot (blue)">shortest_costs.dat</a>, <a class="el" href="shortest__nodes_8dat.html" title="Editable file containing data to plot shortest-path nodes inside graph using gnuplot (green)">shortest_nodes.dat</a> and <a class="el" href="src__dest__nodes_8dat.html" title="Editable file containing data to plot shortest-path source and destination nodes inside graph using g...">src_dest_nodes.dat</a> files), using colors to highlight shortest path from specified source node to specified destination node.</li>
+</ul>
+<p><img src="sw/gnuplot/exports/imgs/shortest_path.png" alt="" class="inline"/></p>
+<div class="image">
+<img src="shortest_path.png" alt=""/>
+<div class="caption">
+--&gt; Test-graph layout with predefined shortest path exported from gnuplot.</div></div>
+<p><img src="sw/gnuplot/exports/imgs/personalized_shortest_path.png" alt="" class="inline"/></p>
+<div class="image">
+<img src="personalized_shortest_path.png" alt=""/>
+<div class="caption">
+--&gt; Test-graph layout with personalized shortest path exported from gnuplot.</div></div>
 <hr  />
 <h2><b>Project folders structure:</b></h2>
 <p>&#160;.<br  />
  ├── <a class="el" href="README_8md.html">README.md</a><br  />
  ├── doc<br  />
  │&#160;&#160;&#160;&#160;&#160;&#160;├── abstract<br  />
- │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── abstract.aux<br  />
- │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── abstract.fdb_latexmk<br  />
- │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── abstract.fls<br  />
- │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── abstract.log<br  />
- │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <b>abstract.pdf</b><br  />
- │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── abstract.synctex.gz<br  />
- │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── abstract.tex<br  />
+ │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── relazione-finale-CRISTIAN-MERLI.aux<br  />
+ │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── relazione-finale-CRISTIAN-MERLI.fdb_latexmk<br  />
+ │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── relazione-finale-CRISTIAN-MERLI.fls<br  />
+ │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── relazione-finale-CRISTIAN-MERLI.log<br  />
+ │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── <b>relazione-finale-CRISTIAN-MERLI.pdf</b><br  />
+ │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;├── relazione-finale-CRISTIAN-MERLI.synctex.gz<br  />
+ │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;└── relazione-finale-CRISTIAN-MERLI.tex<br  />
  │&#160;&#160;&#160;&#160;&#160;&#160;│&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;└── abstract.tex<br  />
  │&#160;&#160;&#160;&#160;&#160;&#160;└── doxygen<br  />
  │&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;├── doxygen_config<br  />
@@ -152,7 +168,7 @@ $(function() {
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;├── <b>graph_test</b><br  />
  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;└── <b>makefile</b><br  />
 </p>
-<p>18 directories, 35 files </p>
+<p><em>18 directories, 35 files</em> </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->

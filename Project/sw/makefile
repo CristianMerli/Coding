@@ -106,6 +106,9 @@ docs_gen_view: $(DOX_STP)
 	firefox $(DOX_HTML)
 docs_clr: $(DOX_FLD)
 	rm -r $(DOX_FLD)*
+docs_clr_gen: $(DOX_FLD)
+	rm -r $(DOX_FLD)*
+	doxygen $(DOX_STP)
 
 # (2.7) Open abstract pdf file (made with LaTeX)
 abstract: $(ABSTR_PDF)

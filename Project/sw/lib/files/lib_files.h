@@ -11,11 +11,23 @@
  * @page        page7 7 - Files library
  * @brief       Files-library info
  * 
- * @section     section1 Title:
- *              ---.
- * @subsection  subsection1 Code details:
- *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
- *              polynomial evaluation in given points and derivate calculation.
+ * @section     section7 Library description:
+ *              This library has the main purpose of managing files open/close and read/write operations (files lib_files.h and lib_files.c).
+ * @subsection  subsection7 Library details:
+ *              Library to manage files using <stdio.h> system-library and to give the possibility to wait a delay time during runtime.<br/>
+ *              * <b>Library date/time structure:</b>
+ *                * #date_time                    &nbsp;--> <i>Date/time personalized data-structure.</i>
+ *              * <b>Library functions:</b>
+ *                * #open_file()                  &nbsp;--> <i>Function to wait specified delay time in milliseconds.</i>
+ *                * #write_int_on_file()          &nbsp;--> <i>Function to get current date/time.</i>
+ *                * #write_str_on_file()          &nbsp;--> <i>Function to manually assign date/time values.</i>
+ *                * #write_sep_on_file()          &nbsp;--> <i>Function to compare two dates/times.</i>
+ *                * #write_nl_on_file()           &nbsp;--> <i>Function to print date/time feedback.</i>
+ *                * #write_tab_on_file()          &nbsp;--> <i>Function to print date/time feedback.</i>
+ *                * #read_from_file()             &nbsp;--> <i>Function to print date/time feedback.</i>
+ *                * #get_substr_line_from_file()  &nbsp;--> <i>Function to print date/time feedback.</i>
+ *                * #get_line_str_from_file()     &nbsp;--> <i>Function to print date/time feedback.</i>
+ *                * #close_file()                 &nbsp;--> <i>Function to print date/time feedback.</i>
  * 
  * @file        lib_files.h <i>Library header file of lib_files.c.</i>
  * @brief       <b>Files-library header file</b>

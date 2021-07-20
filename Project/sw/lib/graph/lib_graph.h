@@ -11,11 +11,10 @@
  * @page        page5 5 - Graph library
  * @brief       Graph-library info
  * 
- * @section     section1 Title:
- *              ---.
- * @subsection  subsection1 Code details:
- *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
- *              polynomial evaluation in given points and derivate calculation.
+ * @section     section5 Library description:
+ *              vdfdvfvfv.
+ * @subsection  subsection5 Library details:
+ *              vdfdvfvfv.
  * 
  * @file        lib_graph.h <i>Library header file of lib_graph.c.</i>
  * @brief       <b>Graph-library header file</b>

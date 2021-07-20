@@ -11,11 +11,18 @@
  * @page        page8 8 - Timer library
  * @brief       Timer-library info
  * 
- * @section     section1 Title:
- *              ---.
- * @subsection  subsection1 Code details:
- *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
- *              polynomial evaluation in given points and derivate calculation.
+ * @section     section8 Library description:
+ *              This library has the main purpose of managing time's concerning operations (files lib_timer.h and lib_timer.c).
+ * @subsection  subsection8 Library details:
+ *              Library to manage date/time data structures from <time.h> system-library and to give the possibility to wait a delay time during runtime.<br/>
+ *              * <b>Library date/time structure:</b>
+ *                * #date_time                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Date/time personalized data-structure.</i>
+ *              * <b>Library functions:</b>
+ *                * #delay()                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to wait specified delay time in milliseconds.</i>
+ *                * #get_date_time()            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to get current date/time.</i>
+ *                * #assign_date_time()         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to manually assign date/time values.</i>
+ *                * #cmp_date_time()            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to compare two dates/times.</i>
+ *                * #fbk_gn_lbu_ye_date_time()  &nbsp;--> <i>Function to print date/time feedback.</i>
  * 
  * @file        lib_timer.h <i>Library header file of lib_timer.c.</i>
  * @brief       <b>Timer-library header file</b>

@@ -11,11 +11,10 @@
  * @page        page6 6 - UI library
  * @brief       User-interface-library info
  * 
- * @section     section1 Title:
- *              ---.
- * @subsection  subsection1 Code details:
- *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
- *              polynomial evaluation in given points and derivate calculation.
+ * @section     section6 Library description:
+ *              vdfdvfvfv.
+ * @subsection  subsection6 Library details:
+ *              vdfdvfvfv.
  * 
  * @file        lib_ui.h <i>Library header file of lib_ui.c.</i>
  * @brief       <b>User-interface-library header file</b>

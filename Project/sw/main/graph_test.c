@@ -57,11 +57,10 @@
  * @page        page2 2 - Testing software
  * @brief       Graph-library test software main code file info
  * 
- * @section     section1 Title:
- *              ---.
- * @subsection  subsection1 Code details:
- *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
- *              polynomial evaluation in given points and derivate calculation.
+ * @section     section2 Main code description:
+ *              vdfdvfvfv.
+ * @subsection  subsection2 Main code details:
+ *              vdfdvfvfv.
  * 
  * @file        graph_test.c <i>More info in <b>'Testing software'</b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Graph-library test software main code file</b>
@@ -75,14 +74,13 @@
 
 
 /*!
- * @page        page3 3 - Makefile
+ * @page        page3 3 - Makefile description:
  * @brief       Software makefile info
  * 
- * @section     section1 Title:
- *              ---.
- * @subsection  subsection1 Code details:
- *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
- *              polynomial evaluation in given points and derivate calculation.
+ * @section     section3 Makefile details:
+ *              vdfdvfvfv.
+ * @subsection  subsection3 Makefile details:
+ *              vdfdvfvfv.
  * 
  * @file        makefile <i>More info in <b>'Makefile'</b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Makefile to compile/run software, make/view doxygen documentation and view LaTeX abstract pdf</b>
@@ -93,11 +91,10 @@
  * @page        page4 4 - Gnuplot
  * @brief       Info about graphical representations through gnuplot
  * 
- * @section     section1 Title:
- *              ---.
- * @subsection  subsection1 Code details:
- *              Polynomial interpolation C code --> Newton algorithm with divided-differences to interpolate 'till 170 points,
- *              polynomial evaluation in given points and derivate calculation.
+ * @section     section4 Gnuplot description:
+ *              vdfdvfvfv.
+ * @subsection  subsection4 Gnuplot details:
+ *              vdfdvfvfv.
  * 
  * @file        archs.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>File containing data to plot archs inside graph using gnuplot</b>

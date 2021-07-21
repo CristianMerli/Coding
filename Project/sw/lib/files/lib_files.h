@@ -14,20 +14,20 @@
  * @section     section7 Library description:
  *              This library has the main purpose of managing files open/close and read/write operations (files lib_files.h and lib_files.c).
  * @subsection  subsection7 Library details:
- *              Library to manage files using <stdio.h> system-library and to give the possibility to wait a delay time during runtime.<br/>
- *              * <b>Library date/time structure:</b>
- *                * #date_time                    &nbsp;--> <i>Date/time personalized data-structure.</i>
+ *              Library to manage files using <stdio.h> system-library, giving the possibility to write strings/chars, searching for matches and to read/extract data.<br/>
+ *              * <b>Library file type:</b>
+ *                * #Fl                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>File pointer data-type.</i>
  *              * <b>Library functions:</b>
- *                * #open_file()                  &nbsp;--> <i>Function to wait specified delay time in milliseconds.</i>
- *                * #write_int_on_file()          &nbsp;--> <i>Function to get current date/time.</i>
- *                * #write_str_on_file()          &nbsp;--> <i>Function to manually assign date/time values.</i>
- *                * #write_sep_on_file()          &nbsp;--> <i>Function to compare two dates/times.</i>
- *                * #write_nl_on_file()           &nbsp;--> <i>Function to print date/time feedback.</i>
- *                * #write_tab_on_file()          &nbsp;--> <i>Function to print date/time feedback.</i>
- *                * #read_from_file()             &nbsp;--> <i>Function to print date/time feedback.</i>
- *                * #get_substr_line_from_file()  &nbsp;--> <i>Function to print date/time feedback.</i>
- *                * #get_line_str_from_file()     &nbsp;--> <i>Function to print date/time feedback.</i>
- *                * #close_file()                 &nbsp;--> <i>Function to print date/time feedback.</i>
+ *                * #open_file()                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to open a file.</i>
+ *                * #write_int_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write an integer on file.</i>
+ *                * #write_str_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a string on file.</i>
+ *                * #write_sep_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a separator char on file.</i>
+ *                * #write_nl_on_file()           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a new-line on file.</i>
+ *                * #write_tab_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a tab char on file.</i>
+ *                * #read_from_file()             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to read from file, printing feedback on terminal.</i>
+ *                * #get_substr_line_from_file()  &nbsp;--> <i>Function to get string (or substring) line number inside file.</i>
+ *                * #get_line_str_from_file()     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to get line string content from file.</i>
+ *                * #close_file()                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to close a file.</i>
  * 
  * @file        lib_files.h <i>Library header file of lib_files.c.</i>
  * @brief       <b>Files-library header file</b>

@@ -84,6 +84,23 @@ void logo(Cu_shrt start_sp, C_str txt, C_str txt_col, C_char bkg_chr, C_str bkg_
 
 
 /*!
+ * @brief         <p><b>Function description:</b></p> Function to print responsive text-separator on terminal depending on teminal size.
+ * 
+ * @param[in] chr Char to use in order to create the text-separator.
+ * @param[in] col Color to use in order to create the text-separator (requires color macro).
+ * 
+ * @return        None.
+ */
+void fbk_separator(C_char chr, C_str col){                                                                  // Separator feedback function
+  /* Body */
+  struct winsize w;                                                                                         // Window-size struct declaration
+  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);                                                                     // Save the number of terminal's rows/cloumns in window-size struct
+  for (int i = 0; i < w.ws_col; ++i)                                                                        // Chars printin' FOR cycle
+    printf("%s%c%s", col, chr, ER);                                                                         // Print space fbk
+}
+
+
+/*!
  * @brief             <p><b>Function description:</b></p> Function to request 'ENTER' key button to start software with request string printing on terminal.
  * 
  * @param[in] req_str Request string to print when asking for 'ENTER' key to start software.
@@ -141,19 +158,15 @@ void fbk_tabs(C_int num){                                                       
 
 
 /*!
- * @brief         <p><b>Function description:</b></p> Function to print responsive text-separator on terminal depending on teminal size.
+ * @brief             <p><b>Function description:</b></p> Function to print green/purple feedback on terminal (generally used to print operation-start feedbacks).
  * 
- * @param[in] chr Char to use in order to create the text-separator.
- * @param[in] col Color to use in order to create the text-separator (requires color macro).
+ * @param[in] fbk_str Feedback string to print.
  * 
- * @return        None.
+ * @return            None.
  */
-void fbk_separator(C_char chr, C_str col){                                                                  // Separator feedback function
+void fbk_gn_pu(C_str fbk_str){                                                                              // Green-purple feedback function
   /* Body */
-  struct winsize w;                                                                                         // Window-size struct declaration
-  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);                                                                     // Save the number of terminal's rows/cloumns in window-size struct
-  for (int i = 0; i < w.ws_col; ++i)                                                                        // Chars printin' FOR cycle
-    printf("%s%c%s", col, chr, ER);                                                                         // Print space fbk
+  printf("%s>>>%s %s%s", GN, PU, fbk_str, ER);                                                              // Print green-purple string fbk
 }
 
 
@@ -167,19 +180,6 @@ void fbk_separator(C_char chr, C_str col){                                      
 void fbk_gn_cy(C_str fbk_str){                                                                              // Green-cyan feedback function
   /* Body */
   printf("%s>>>%s %s%s", GN, CY, fbk_str, ER);                                                              // Print green-cyan string fbk
-}
-
-
-/*!
- * @brief             <p><b>Function description:</b></p> Function to print green/purple feedback on terminal (generally used to print operation-start feedbacks).
- * 
- * @param[in] fbk_str Feedback string to print.
- * 
- * @return            None.
- */
-void fbk_gn_pu(C_str fbk_str){                                                                              // Green-purple feedback function
-  /* Body */
-  printf("%s>>>%s %s%s", GN, PU, fbk_str, ER);                                                              // Print green-purple string fbk
 }
 
 
@@ -357,45 +357,6 @@ Str read_term_in_min_chrs_exit_chr(C_byte min_chrs, C_str req_str, C_str err_str
 
 
 /*!
- * @brief             <p><b>Function description:</b></p> Function to read user terminal-input confirmation (YES/NO/CANEL).
- *                    In addition, print request string and eventually, standard error string (in case the of unexpected answer from #read_term_in() function).
- * 
- * @param[in] req_str Request string to print in green/purple color.
- * 
- * @return            Return user-defined confirmation (by means of #confirm enum).
- */
-Confirm read_term_in_confirm(C_str req_str){                                                                // Read terminal input confirmation function
-  /* Body */
-  Str in_str;                                                                                               // Terminal input string tmp var
-  Confirm answ;                                                                                             // Confirmation answer
-  Byte exit_flg = 0;                                                                                        // Terminal input while-loop exit flag
-  // Read input from terminal
-  do{
-    clr_term_in();                                                                                          // Clear terminal input buffer function call
-    printf("%s>>>%s %s?%s Options %s(yes/no/cancel)%s%s: %s", GN, PU, req_str, BU, OG, BU, PU, ER);         // Print request fbk
-    in_str = read_term_in();                                                                                // Read terminal input function call
-    if (0 == strcmp(in_str, "yes") || 0 == strcmp(in_str, "YES") || 0 == strcmp(in_str, "Yes")){            // YES answer
-      answ = YES;                                                                                           // Set answer = YES
-      ++exit_flg;                                                                                           // Set exit flag
-    } else if (0 == strcmp(in_str, "no") || 0 == strcmp(in_str, "NO") ||
-               0 == strcmp(in_str, "No") || 0 == strcmp(in_str, "nO")){                                     // NO answer
-      answ = NO;                                                                                            // Set answer = NO
-      ++exit_flg;                                                                                           // Set exit flag
-    } else if(0 == strcmp(in_str, "cancel") || 0 == strcmp(in_str, "CANCEL") ||
-              0 == strcmp(in_str, "Cancel")){                                                               // CANCEL answer
-      answ = CANCEL;                                                                                        // Set answer = CANCEL
-      ++exit_flg;                                                                                           // Set exit flag
-    }
-    // Chk xit flg
-    if (!exit_flg)                                                                                          // Exit flag val chack
-      printf("%s>>>%s The answer must be %s(yes/no/cancel)%s!%s\n", OG, RD, YE, RD, ER);                    // Print terminal input error fbk
-  } while(!exit_flg);                                                                                       // Check while-loop exit flag val
-  
-  return answ;                                                                                              // Return confirmation answer
-}
-
-
-/*!
  * @brief   <p><b>Function description:</b></p> Function to read integer terminal-input, converting string returned by #read_term_in() function using strtol().
  * 
  * @return  Terminal input string converted into integer (value in LONG/INT range and string correctly converted).
@@ -461,6 +422,45 @@ int read_term_in_int_inrange(C_int min_val, C_int max_val, C_str req_str, C_str 
   } while(!exit_flg);                                                                                       // Check while-loop exit flag val
     
   return val;                                                                                               // Return terminal input val
+}
+
+
+/*!
+ * @brief             <p><b>Function description:</b></p> Function to read user terminal-input confirmation (YES/NO/CANEL).
+ *                    In addition, print request string and eventually, standard error string (in case the of unexpected answer from #read_term_in() function).
+ * 
+ * @param[in] req_str Request string to print in green/purple color.
+ * 
+ * @return            Return user-defined confirmation (by means of #confirm enum).
+ */
+Confirm read_term_in_confirm(C_str req_str){                                                                // Read terminal input confirmation function
+  /* Body */
+  Str in_str;                                                                                               // Terminal input string tmp var
+  Confirm answ;                                                                                             // Confirmation answer
+  Byte exit_flg = 0;                                                                                        // Terminal input while-loop exit flag
+  // Read input from terminal
+  do{
+    clr_term_in();                                                                                          // Clear terminal input buffer function call
+    printf("%s>>>%s %s?%s Options %s(yes/no/cancel)%s%s: %s", GN, PU, req_str, BU, OG, BU, PU, ER);         // Print request fbk
+    in_str = read_term_in();                                                                                // Read terminal input function call
+    if (0 == strcmp(in_str, "yes") || 0 == strcmp(in_str, "YES") || 0 == strcmp(in_str, "Yes")){            // YES answer
+      answ = YES;                                                                                           // Set answer = YES
+      ++exit_flg;                                                                                           // Set exit flag
+    } else if (0 == strcmp(in_str, "no") || 0 == strcmp(in_str, "NO") ||
+               0 == strcmp(in_str, "No") || 0 == strcmp(in_str, "nO")){                                     // NO answer
+      answ = NO;                                                                                            // Set answer = NO
+      ++exit_flg;                                                                                           // Set exit flag
+    } else if(0 == strcmp(in_str, "cancel") || 0 == strcmp(in_str, "CANCEL") ||
+              0 == strcmp(in_str, "Cancel")){                                                               // CANCEL answer
+      answ = CANCEL;                                                                                        // Set answer = CANCEL
+      ++exit_flg;                                                                                           // Set exit flag
+    }
+    // Chk xit flg
+    if (!exit_flg)                                                                                          // Exit flag val chack
+      printf("%s>>>%s The answer must be %s(yes/no/cancel)%s!%s\n", OG, RD, YE, RD, ER);                    // Print terminal input error fbk
+  } while(!exit_flg);                                                                                       // Check while-loop exit flag val
+  
+  return answ;                                                                                              // Return confirmation answer
 }
 
 
@@ -571,7 +571,7 @@ void close_err(){                                                               
 
 
 /*!
- * @brief         <p><b>Function description:</b></p> Function to close software with feedback on terminal before closing (multicolor closing feedback).
+ * @brief         <p><b>Function description:</b></p> Function to close software with goodbye feedback on terminal before closing (multicolor closing feedback).
  * 
  * @return        None.
  */

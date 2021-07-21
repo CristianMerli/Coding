@@ -634,7 +634,7 @@ void connect_node_arch(C_str ar_name, C_str nd_name, Node_pos_in_arch nd_pos, Ar
  * 
  * @return                None.
  */
-void dijkstra_alg(C_str src_nd_name, Verbose_mode v_mode){                                                  // Dijkstra's alg to find min graph-path btwn source and each destination node (Dijkstra-dataset vect allocated/reallocated inside heap) - Y/N for verbose mode
+void dijkstra_alg(C_str src_nd_name, Verbose_mode v_mode){                                                  // Dijkstra's algrithm function to find min-cost paths between source and each destination node (Dijkstra-dataset vect allocated/reallocated inside heap) - Y/N for verbose mode
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Looking for min path costs from specified source with Dijkstra's algorithm...");   // Print lookin' 4 shortest path btwn spec src and each dest nd fbk
   int src_nd_num = idx_by_name(ND, src_nd_name);                                                            // Get source node idx by-name
@@ -709,7 +709,7 @@ void dijkstra_alg(C_str src_nd_name, Verbose_mode v_mode){                      
  * 
  * @return                  None.
  */
-void buid_shortest_path(C_str dest_nd_name, Verbose_mode v_mode){                                           // Reconstruct shortest path to specified destination node from source node (pre-defined in Dijkstra's algorithm, min path connections vect allocated/reallocated inside heap) - Y/N for verbose mode
+void buid_shortest_path(C_str dest_nd_name, Verbose_mode v_mode){                                           // Function to reconstruct shortest path towards specified destination node, from source node (pre-defined in Dijkstra's algorithm, min path connections vect allocated/reallocated inside heap) - Y/N for verbose mode
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Building min cost path from pre-defined source to specified destination...");      // Print reconstructin' shortest path from pre-defined source to specified destination fbk
   if (realloc_flg != 0){                                                                                    // If Dijkstra's algorithm has already been called at least once
@@ -773,7 +773,7 @@ void buid_shortest_path(C_str dest_nd_name, Verbose_mode v_mode){               
  * 
  * @return          None.
  */
-void free_graph(){                                                                                          // Function to free graph allocated memory inside heap
+void free_graph(){                                                                                          // Function to free graph's allocated memory inside heap
   /* Body */
   fbk_nl(1);  fbk_gn_pu("Clearing the whole graph structure...");                                           // Clearing the whole graph from heap fbk
   for (int i = 0; i < nds_collect_size; ++i)                                                                // Graph nodes scrollin' FOR cycle

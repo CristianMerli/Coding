@@ -11,13 +11,17 @@
  * @page        page1 1 - General notes about software
  * @brief       General notes, informations and warnings about the software.
  * 
+ * ---
+ * 
+ * @section     section1 Software info:
+ * 
  * @author      Cristian Merli
  * @date        16/07/2021
  * @version     3.0 - Completed 16/05/2021
  * 
  * @note        Important notes:
  *                * Graphical effects are managed by gnuplot (based on data manipulated by test software main program), so it is highly recommended to have it installed.
- *                * It is possibile to compile, run and execute further actions tacking advantege of makefile, <i>for more informations see doxygen <b>'Main page'</b> or <b>'Makefile'</b> section inside <b>'Related pages'</b>.</i>
+ *                * It is possibile to compile, run and execute further actions tacking advantege of makefile, <i>for more informations see doxygen <b><a href="page3.html">'Makefile'</a></b> section inside <b>'Related pages'</b> (or main makefile commands in <b><a href="index.html">'Main page'</a></b>).</i>
  * @warning     Important warnings:
  *                * Pay attention, arch/node names must only be max 30 chars long. To modify max names lenght, change relative macros inside 'lib_graph.h' header file: #AR_STR_LEN and #ND_STR_LEN.
  *                * User-interface library is now set to have an input buffer able to take max 63 chars strings + '\0'; to modify terminal-input buffer size see #IN_BUFF_SIZE macro.
@@ -25,31 +29,42 @@
  *                * If there is need to modify graph-structe, gnuplot archs.dat, costs.dat and costs.dat files needs to be manually updated to have reliable graphical representations.
  * @bug         No known bugs.
  * 
- * <br/>
+ * ---
  * 
- * @section     section1 Code title:
+ * @section     section2 Code:
  *              Dijkstra's algorithm (contained in graph-library) test software.
  * @subsection  subsection1 Code details:
  *              Software to test Dijkstra's algorithm function placed inside graph-library.
  *              This function has the purpose of finding the shortest path between source and destination nodes. Through this software, it is possible to run two different types
- *              of test (<i>for more info, see <b>'Testing software'</b> section inside doxygen <b>'Related pages'</b></i>):
+ *              of test (<i>for more info, see <b><a href="page2.html">'Testing software'</a></b> section inside doxygen <b>'Related pages'</b></i>):
  *              * Prepared test.
  *              * Personalized test.
- * @subsection  subsection2 Manual compiling operations (alternative to makefile):
+ * @subsection  subsection2 Manual compiling operations:
+ *              Manual compiling and linking operations, alternative to the automated commands in <a href="page3.html">'makefile'</a>:
  *              * <b>Aliases:</b><br/>
  *                * alias gccW99_o="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o"<br/>
  *                * alias gccW99_c="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o"<br/>
  *                * alias gccW99_lib="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o"<br/><br/>
- *              
  *              * <b>Compile-commands:</b><br/>
  *                * gccW99_lib lib/graph/lib_graph.so lib/graph/lib_graph.c   &nbsp;&nbsp;--> <i>Create GRAPH dynamic library object file.</i><br/>
  *                * gccW99_lib lib/ui/lib_ui.so lib/ui/lib_ui.c               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create UI (TERMINAL I/O) dynamic library object file.</i><br/>
  *                * gccW99_lib lib/files/lib_files.so lib/files/lib_files.c   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create FILES dynamic library object file.</i><br/>
  *                * gccW99_lib lib/timer/lib_timer.so lib/timer/lib_timer.c   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create TIMER dynamic library object file.</i><br/>
  *                * gccW99_c main/graph_test.o main/graph_test.c              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create MAIN object file.</i><br/><br/>
- *              
  *              * <b>Link-command:</b><br/>
  *                * gccW99_o graph_test main/graph_test.o lib/graph/lib_graph.so lib/ui/lib_ui.so lib/files/lib_files.so lib/timer/lib_timer.so  &nbsp;&nbsp;--> <i>LINK main and dynamic libraries object files to test executable.</i>
+ * 
+ * ---
+ * 
+ * @section     section3 Copyright:
+ *              This project has been realized respecting copyright. Software know-how and documentation have been personally developed. Available pictures are gnuplot exports and terminal-outputs screens, taken during software testing stage and documentation drafting.
+ *              Icons are open-source images, coming from free downloading websites (correctly cited as requested from contents developers).
+ * @subsection  subsection3 Pictures:
+ *              Pictures in this software documentation have been personally realized, tacking screens of software's terminal-outputs and exporting .png images, from personally-developed gnuplot scripts.
+ * @subsection  subsection4 Logo icon:
+ *              <b>Icon made by <a href="https://www.flaticon.com/authors/becris">Berics</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a>.</b><br/>
+ *              Logo image downloaded from <a href="https://www.flaticon.com/">flaticon</a> free-images website as free user, respecting indicated <a href="https://support.flaticon.com/hc/en-us/articles/207248209-Attribution-How-when-and-where-">attribution rules</a> (icon <a href="https://www.flaticon.com/free-icon/neural_2103658?related_id=2103633&origin=search#}">download</a> link).
+ *              @image html logo.png "Documentation logo-icon"
  */
 
 
@@ -57,12 +72,14 @@
  * @page        page2 2 - Testing software
  * @brief       Graph-library test software main code file info
  * 
- * @section     section2 Main code description:
+ * ---
+ * 
+ * @section     section4 Main code description:
  *              vdfdvfvfv.
- * @subsection  subsection2 Main code details:
+ * @subsection  subsection5 Main code details:
  *              vdfdvfvfv.
  * 
- * @file        graph_test.c <i>More info in <b>'Testing software'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @file        graph_test.c <i>More info in <b><a href="page2.html">'Testing software'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Graph-library test software main code file</b>
  * 
  * @file        graph_test.o <i>Object file generated from graph_test.c during compiling operations.</i>
@@ -74,15 +91,36 @@
 
 
 /*!
- * @page        page3 3 - Makefile description:
+ * @page        page3 3 - Makefile
  * @brief       Software makefile info
  * 
- * @section     section3 Makefile details:
- *              vdfdvfvfv.
- * @subsection  subsection3 Makefile details:
- *              vdfdvfvfv.
+ * ---
  * 
- * @file        makefile <i>More info in <b>'Makefile'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @section     section5 Makefile description:
+ *              Makefile has the main purpose of automating software compiling/linking operations.<br/>
+ *              <i><b>Note:</b> in order to correctly execute makefile's commands, the user must be inside 'Project/sw/' folder (same folder of the makefile).</i>
+ * @subsection  subsection6 Makefile details:
+ *              In this project, makefile purposes has been extended in order to take care of further actions to simplify testing operations and documentation management.
+ *              So the makefile can handle different tasks like: compiling/launching the software, to make/view doxygen documentation and displaying LaTeX abstract pdf.
+ *              As can be seen inside makefile (<i>accessible in <b><a href="makefile_source.html">'makefile'</a></b> section of doxygen <b>'File list'</b></i>), the file has
+ *              been divided in chapters and sub-chapters to be better explained in this page:
+ *              * <b>(1) Variables and files:</b><br/>
+ *                * <b>(1.1) Variables to compile and run software:</b> csdcd.<br/>
+ *                * <b>(1.2) Source files:</b> csdcd.<br/>
+ *                * <b>(1.3) Header files:</b> csdcd.<br/>
+ *                * <b>(1.4) Output files:</b> csdcd.<br/>
+ *                * <b>(1.5) Doxygen documentation:</b> csdcd.<br/>
+ *                * <b>(1.6) Abstract pdf file (from LaTeX):</b> csdcd.<br/><br/>
+ *              * <b>(2) Make commands:</b><br/>
+ *                * <b>(2.1) Compile and link all files:</b> csdcd.<br/>
+ *                * <b>(2.2) Run test software (main):</b> csdcd.<br/>
+ *                * <b>(2.3) Compile and link all files + run test software (main) --> [2.1 + 2.2]:</b> csdcd.<br/>
+ *                * <b>(2.4) Commands to compile and link step-by-step:</b> csdcd.<br/>
+ *                * <b>(2.5) Clear software's generated file:</b> csdcd.<br/>
+ *                * <b>(2.6) Export/view/clear doxygen documentation:</b> csdcd.<br/>
+ *                * <b>(2.7) Open abstract pdf file (made with LaTeX):</b> csdcd.<br/>
+ * 
+ * @file        makefile <i>More info in <b><a href="page3.html">'Makefile'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Makefile to compile/run software, make/view doxygen documentation and view LaTeX abstract pdf</b>
  */
 
@@ -91,36 +129,56 @@
  * @page        page4 4 - Gnuplot
  * @brief       Info about graphical representations through gnuplot
  * 
- * @section     section4 Gnuplot description:
- *              vdfdvfvfv.
- * @subsection  subsection4 Gnuplot details:
- *              vdfdvfvfv.
+ * ---
  * 
- * @file        archs.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
- * @brief       <b>File containing data to plot archs inside graph using gnuplot</b>
+ * @section     section6 Gnuplot description:
+ *              In this software, gnuplot is called to manage graphical representations.
+ * @subsection  subsection7 Gnuplot details:
+ *              Gnuplot is called via two different plotting scripts, to recreate graphical representations of graph's data and Dijkstra's algorithm function output;
+ *              highlighting the shortest path between specified source and destination nodes. These two gnuplot scripts are launched by main testing code,
+ *              through #display_test_graph() function. The first plotting script, loads static data inserted by developer in three (.dat) files; while the second one, loads dynamically
+ *              manipulated data by the software, from the inside of four other (.dat) files. In particular, data manipulating operations picks information of interest
+ *              from the three static gnuplot data files, and inserts them insede the four dynamic gnuplot data files. Dynamic files are modified through #build_shortest_path_graphics_data()
+ *              routine call, in main testing code.
+ *              * <b>Gnuplot scripts:</b><br/>
+ *                * <b>Graph-structure plotting command:</b> graph_plot.cmd file, system command defined using #GPLOT_TEST_GRAPH_LAYOUT_CMD macro.<br/>
+ *                * <b>Graph-structure and detected shortest path plotting command:</b> shortest_plot.cmd file, system command defined using #GPLOT_SHORTEST_PATH_CMD macro.<br/><br/>
+ *              * <b>Gnuplot data-files:</b><br/>
+ *                * <b>Static data-files:</b><br/>
+ *                  * <b>Archs data file:</b> archs.dat, defined using #ARCHS_DAT_FILE macro. This file contains the arches to be drawn in purple during graph-structure plotting and gray during shortest path plotting.<br/>
+ *                  * <b>Arch-costs data file:</b> costs.dat, defined using #COSTS_DAT_FILE macro. This file contains the arch-costs to be drawn in blue during graph-structure plotting and gray during shortest path plotting.<br/>
+ *                  * <b>Nodes data file:</b> nodes.dat, defined using #NODES_DAT_FILE macro. This file contains the nodes to be drawn in black/white during graph-structure plotting and gray/white during shortest path plotting.<br/>
+ *                * <b>Dynamic data-files:</b><br/>
+ *                  * <b>Shortest path archs data file:</b> shortest_archs.dat, defined using #SHORTEST_ARCHS_DAT_FILE macro. This file contains the arches to be drawn in green during shortest path plotting.<br/>
+ *                  * <b>Shortest path arch-costs data file:</b> shortest_costs.dat, defined using #SHORTEST_COSTS_DAT_FILE macro. This file contains the arch-costs to be drawn in blue during shortest path plotting.<br/>
+ *                  * <b>Shortest path nodes data file (source-destination nodes excluded):</b> shortest_nodes.dat, defined using #SHORTEST_NODES_DAT_FILE macro. This file contains the nodes to be drawn in green during shortest path plotting.<br/>
+ *                  * <b>Shortest path source and destination nodes data file:</b> src_dest_nodes.dat, defined using #SRC_DEST_NODES_DAT_FILE macro. This file contains the nodes to be drawn in violet during shortest path plotting.<br/>
  * 
- * @file        costs.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
- * @brief       <b>File containing data to plot arch-costs inside graph using gnuplot</b>
+ * @file        archs.dat <i>More info in <b><a href="page4.html">'Gnuplot'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Static file containing data to plot archs inside graph using gnuplot</b>
  * 
- * @file        nodes.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
- * @brief       <b>File containing data to plot nodes inside graph using gnuplot</b>
+ * @file        costs.dat <i>More info in <b><a href="page4.html">'Gnuplot'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Static file containing data to plot arch-costs inside graph using gnuplot</b>
  * 
- * @file        shortest_archs.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
- * @brief       <b>Editable file containing data to plot shortest-path archs inside graph using gnuplot (green)</b>
+ * @file        nodes.dat <i>More info in <b><a href="page4.html">'Gnuplot'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Static file containing data to plot nodes inside graph using gnuplot</b>
  * 
- * @file        shortest_costs.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
- * @brief       <b>Editable file containing data to plot shortest-path arch-costs inside graph using gnuplot (blue)</b>
+ * @file        shortest_archs.dat <i>More info in <b><a href="page4.html">'Gnuplot'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Dynamic file containing data to plot shortest-path archs inside graph using gnuplot (green)</b>
  * 
- * @file        shortest_nodes.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
- * @brief       <b>Editable file containing data to plot shortest-path nodes inside graph using gnuplot (green)</b>
+ * @file        shortest_costs.dat <i>More info in <b><a href="page4.html">'Gnuplot'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Dynamic file containing data to plot shortest-path arch-costs inside graph using gnuplot (blue)</b>
  * 
- * @file        src_dest_nodes.dat <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
- * @brief       <b>Editable file containing data to plot shortest-path source and destination nodes inside graph using gnuplot (purple)</b>
+ * @file        shortest_nodes.dat <i>More info in <b><a href="page4.html">'Gnuplot'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Dynamic file containing data to plot shortest-path nodes inside graph using gnuplot (green)</b>
  * 
- * @file        graph_plot.cmd <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @file        src_dest_nodes.dat <i>More info in <b><a href="page4.html">'Gnuplot'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @brief       <b>Dynamic file containing data to plot shortest-path source and destination nodes inside graph using gnuplot (purple)</b>
+ * 
+ * @file        graph_plot.cmd <i>More info in <b><a href="page4.html">'Gnuplot'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Gnuplot sctipt to plot graph structure</b>
  * 
- * @file        shortest_plot.cmd <i>More info in <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @file        shortest_plot.cmd <i>More info in <b><a href="page4.html">'Gnuplot'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Gnuplot sctipt to plot graph structure with shortest-path</b>
  */
 
@@ -333,7 +391,7 @@ static void test_option_choice(Test_choice *const choice){                      
  *            * <b>Nodes data file</b>: nodes.dat data file which contains the coordinates to draw nodes in graph, with target name as comment in the previous line (defined in #NODES_DAT_FILE).
  *          * <b>Test-graph shortest path gnuplot data files (gnuplot data destination of selected elements to graphically recreate the min-cost path)</b>:
  *            * <b>Shortest-path archs data file</b>: shortest_archs.dat data file which contains the coordinates to draw arches in shortest-path graph, with target name as comment in the previous line (defined in #SHORTEST_ARCHS_DAT_FILE).
- *            * <b>Shortest-path costs data file</b>: shortest_costs.dat data file which contains the coordinates to draw arch-costs in shortest-path graph, with target name as comment in the previous line (defined in #SHORTEST_ARCHS_DAT_FILE).
+ *            * <b>Shortest-path costs data file</b>: shortest_costs.dat data file which contains the coordinates to draw arch-costs in shortest-path graph, with target name as comment in the previous line (defined in #SHORTEST_COSTS_DAT_FILE).
  *            * <b>Shortest-path nodes data file (source-destination nodes excluded)</b>: shortest_nodes.dat data file which contains the coordinates to draw nodes in shortest-path graph (source-destination nodes excluded), with target name as comment in the previous line (defined in #SHORTEST_NODES_DAT_FILE).
  *            * <b>Shortest-path source and destination nodes data file</b>: src_dest_nodes.dat data file which contains the coordinates to draw source and destination nodes in shortest-path graph, with target name as comment in the previous line (defined in #SRC_DEST_NODES_DAT_FILE).
  * 
@@ -443,8 +501,8 @@ static void build_shortest_path_graphics_data(){                                
  * @brief         <p><b>Static function description:</b></p> Static routine to send gnuplot system command string, with the aim of printing graphical data contained inside .dat files.
  *                In case command is the one to print graph and highlight the shortest-path, call a specific function (build_shortest_path_graphics_data()) to manipulate gnuplot data and graphically recreate the min cost path.
  *                Gnuplot system commands listed below:
- *                * <b>Plot graph</b>: calls gnuplot and load plotting command in .cmd file (graph_plot.cmd, defined with a macro: #GPLOT_TEST_GRAPH_LAYOUT_CMD), in order to plot: arches, arch-costs and nodes in graph. @image html test_graph.png
- *                * <b>Plot graph with shortest-path</b>: calls gnuplot and load plotting command in .cmd file (shortest_plot.cmd, defined with a macro: #GPLOT_SHORTEST_PATH_CMD), in order to plot: arches, arch-costs and nodes in graph highlighting the shortest path. @image html personalized_shortest_path.png
+ *                * <b>Plot graph</b>: calls gnuplot and loads plotting command in .cmd file (graph_plot.cmd, defined with a macro: #GPLOT_TEST_GRAPH_LAYOUT_CMD), in order to plot: arches, arch-costs and nodes in graph. @image html test_graph.png "Image displayed by gnuplot when calling graph-plotting command"<br/>
+ *                * <b>Plot graph with shortest-path</b>: calls gnuplot and loads plotting command in .cmd file (shortest_plot.cmd, defined with a macro: #GPLOT_SHORTEST_PATH_CMD), in order to plot: arches, arch-costs and nodes in graph highlighting the shortest path. @image html personalized_shortest_path.png "Image displayed by gnuplot when calling shortest path graph-plotting command (in this particular case, from predefined testing mode)"<br/>
  * 
  * @param[in] cmd Display test-graph gnuplot system command string.
  * 

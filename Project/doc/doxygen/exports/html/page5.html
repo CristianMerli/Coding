@@ -46,12 +46,42 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Graph-library info</p>
-<h1><a class="anchor" id="section5"></a>
+<hr  />
+<h1><a class="anchor" id="section7"></a>
 Library description:</h1>
-<p>vdfdvfvfv. </p>
+<p>This library has the main purpose of managing low-level graph's data and to apply Dijkstra's algorithm (files <a class="el" href="lib__graph_8h.html" title="Graph-library header file">lib_graph.h</a> and <a class="el" href="lib__graph_8c.html" title="Graph-library code file">lib_graph.c</a>). </p>
 <h2><a class="anchor" id="subsection5"></a>
-Library details:</h2>
-<p>vdfdvfvfv. </p>
+Main code details:</h2>
+<p>Library to manage graphs, giving the possibility to allocate new arches/nodes inside heap, to connect arches and nodes, to look for arch/node index in collection, to apply Dijkstra's algorithm, to reconstruct min-cost path and to free the allocated memory.<br  />
+</p><ul>
+<li><b>Main library data-types:</b><ul>
+<li><a class="el" href="structarch.html" title="Struct-typedef description: Arch struct typedef to store arch name, arch cost and connection nodes as...">arch</a> &#160;--&gt; <em>Arch structure definition (arch name, pointer to node1, arch-cost value and pointer to node2).</em></li>
+<li><a class="el" href="structnode.html" title="Struct-typedef description: Node struct typedef to store node name, a list of connection archs associ...">node</a> &#160;--&gt; <em>Node structure definition (node name, list of connected arches and pointer to Dijkstra-dataset).</em></li>
+<li><a class="el" href="structdijkstra__dataset.html" title="Struct-typedef description: Dijkstra-dataset struct typedef to store informations about a specific no...">dijkstra_dataset</a> &#160;--&gt; <em>Dijkstra-dataset structure definition (pointer to previous node, shortest-path cost value and node analyzed flag).</em></li>
+<li><a class="el" href="structconnection.html" title="Struct-typedef description: Node connection, composed by connection arch and node on the other edge o...">connection</a> &#160;--&gt; <em>Node connection structure definition (pointer to connection node and pointer to connection arch).</em></li>
+</ul>
+</li>
+<li><b>Library public variables:</b><ul>
+<li><a class="el" href="lib__graph_8h.html#a196753fb597befc8de59dbc37f185ce5" title="Public-variable description: Constant variabile to indicate max real value, simulating +∞ in dijkstra...">_REAL_MAX</a> &#160;--&gt; <em>Real max val to simulate +&infin; value in <a class="el" href="lib__graph_8h.html#a67ad50bcf5c0aee76ebf61c50446e0ff">dijkstra_alg()</a> function.</em></li>
+<li><a class="el" href="lib__graph_8h.html#a5662f3f923ecae18f40330360ccaf59e" title="Public-variable description: Archs collection vector size (size of archs_collect_vect).">ars_collect_size</a> &#160;--&gt; <em>Arches collection vector size.</em></li>
+<li><a class="el" href="lib__graph_8h.html#a706c134b1c706b41954c0b1fef3d6cf5" title="Public-variable description: Nodes collection vector size (size of nodes_collect_vect).">nds_collect_size</a> &#160;--&gt; <em>Nodes collection vector size.</em></li>
+<li><a class="el" href="lib__graph_8h.html#a1a2c17f3a450228f3bec01b3e64506fa" title="Public-variable description: Shortest-path connections vector size (size of min_path_conn_vect).">min_pth_conn_vect_size</a> &#160;--&gt; <em>Min-path connections vector size.</em></li>
+<li><a class="el" href="lib__graph_8h.html#a0337f66297283924755aab60e78202a1" title="Public-variable description: Archs collection dynamic-memory vector (pointer to first vector memory c...">archs_collect_vect</a> &#160;--&gt; <em>Pointer to graph-arches collection vector.</em></li>
+<li><a class="el" href="lib__graph_8h.html#a91ac417366979d61c7e745aeee72cf3b" title="Public-variable description: Nodes collection dynamic-memory vector (pointer to first vector memory c...">nodes_collect_vect</a> &#160;--&gt; <em>Pointer to graph-nodes collection vector.</em></li>
+<li><a class="el" href="lib__graph_8h.html#ac74e899e1069a86919f5333fd6207216" title="Public-variable description: Shortest-path connections dynamic-memory vector (pointer to first vector...">min_path_conn_vect</a> &#160;--&gt; <em>Pointer to min-cost path connections vector (from 0 to '<a class="el" href="lib__graph_8h.html#a1a2c17f3a450228f3bec01b3e64506fa" title="Public-variable description: Shortest-path connections vector size (size of min_path_conn_vect).">min_pth_conn_vect_size</a>-1' nodes and from 1 to '<a class="el" href="lib__graph_8h.html#a1a2c17f3a450228f3bec01b3e64506fa" title="Public-variable description: Shortest-path connections vector size (size of min_path_conn_vect).">min_pth_conn_vect_size</a>-1' archs).</em></li>
+</ul>
+</li>
+<li><b>Library public functions:</b><ul>
+<li><a class="el" href="lib__graph_8h.html#a0687de5af737423e25cc79bf75c7fc73">idx_by_name()</a> &#160;--&gt; <em>Function to get object (arch/node) vector index by name (-1 = No match found / -2 = Error).</em></li>
+<li><a class="el" href="lib__graph_8h.html#a70bbb2c5f05b7dbff77291e0fa16ceb4">add_new_arch()</a> &#160;--&gt; <em>Function to add new graph arch (arch allocated inside heap).</em></li>
+<li><a class="el" href="lib__graph_8h.html#a2fa12520fc6886afc0e7398f89dfacaf">add_new_node()</a> &#160;--&gt; <em>Function to add new graph node (node allocated inside heap).</em></li>
+<li><a class="el" href="lib__graph_8h.html#a61ca93af7e8a9d84781810c1f7d7bc60">connect_node_arch()</a> &#160;--&gt; <em>Function to connect arch-node in graph (new arch list element allocated inside heap, opt param --&gt; arch position in arches list, non-zero index).</em></li>
+<li><a class="el" href="lib__graph_8h.html#a67ad50bcf5c0aee76ebf61c50446e0ff">dijkstra_alg()</a> &#160;--&gt; <em>Dijkstra's algorithm function to find min-cost paths between source and each destination node (Dijkstra-dataset vector allocated/reallocated inside heap) - Y/N for verbose mode.</em></li>
+<li><a class="el" href="lib__graph_8h.html#a9344d8aded31a4e9eb0bbaaa20f403de">buid_shortest_path()</a> &#160;--&gt; <em>Function to reconstruct shortest-path towards specified destination node, from source node (pre-defined in Dijkstra's algorithm, min-cost path connections vector allocated/reallocated inside heap) - Y/N for verbose mode.</em></li>
+<li><a class="el" href="lib__graph_8h.html#a25f5aa939e4a3d9cbb380450a83c02e7">free_graph()</a> &#160;--&gt; <em>Function to free graph's allocated memory inside heap.</em> </li>
+</ul>
+</li>
+</ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

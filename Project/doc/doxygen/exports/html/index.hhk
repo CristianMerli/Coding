@@ -6,7 +6,7 @@
 <UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="page1.html"><param name="Name" value="1 - General notes about software"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="page2.html"><param name="Name" value="2 - Testing software"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="page3.html"><param name="Name" value="3 - Makefile description:"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="page3.html"><param name="Name" value="3 - Makefile"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="page4.html"><param name="Name" value="4 - Gnuplot"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="page5.html"><param name="Name" value="5 - Graph library"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="page6.html"><param name="Name" value="6 - UI library"></OBJECT>

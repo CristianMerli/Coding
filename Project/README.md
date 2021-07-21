@@ -1,10 +1,14 @@
+[comment]: <> (Link to documentation sections inside this file won't work in local-file, but only in doxygen html main page containing the readme - extra html commands under images for doxygen)
+
 <h1><b>Graphs and Dijkstra's algorithm C code with gnuplot graphics</b></h1>
 
 <h2><b>Main project contents:</b></h2>
 
 ---
 
-<h3><b>Main makefile commands</b> (<i>for more detailed info, see <b>'Makefile'</b> section inside doxygen <b>'Related pages'</b></i>)</h3>
+<h3><b>Main makefile commands</b> (<i>for more detailed info, see <b><a href="page3.html">'Makefile'</a></b> section inside doxygen <b>'Related pages'</b></i>)</h3>
+
+<i>Note: In order to correctly execute makefile's commands, the user must be inside 'Project/sw/' folder (same folder of the makefile).</i>
 
 * <b>Compile commands:</b>
   * <b>make:</b> command to compile and link the whole project to executable (shortcut command).
@@ -30,7 +34,7 @@ Introduction and brief description of the software, particularly about Dijkstra'
 
 ---
 
-<h3><b>Main</b> (<i>for more detailed info, see <b>'Testing software'</b> section inside doxygen <b>'Related pages'</b></i>)</h3>
+<h3><b>Main</b> (<i>for more detailed info, see <b><a href="page2.html">'Testing software'</a></b> section inside doxygen <b>'Related pages'</b></i>)</h3>
 
 <b>Graph test:</b> main test software to create a small graph allocated inside heap and test Dijkstra's algorithm, to find minimum cost path. More in details, test main program allows to run two different typed of test on graph-library and Dijkstra's algorithm (#dijkstra_alg() function inside lib_graph.c):
 * <b>Predefined test:</b> test from a pre-defined source node towards a pre-defined destination node (designated by #SOURCE_NODE_NAME and #DESTINATION_NODE_NAME macros).
@@ -40,14 +44,14 @@ Introduction and brief description of the software, particularly about Dijkstra'
 
 <h3><b>Libraries</b></h3>
 
-* <b>Graph:</b> library for low-level graphs data management and for finding minimum cost path with Dijkstra's algorithm (<i>for more detailed info, see <b>'Graph library'</b> section inside doxygen <b>'Related pages'</b></i> - files lib_graph.h and lib_graph.c).
-* <b>UI:</b> User-interface (terminal I/O) library to safetly manage terminal-inputs, print logo and coloured terminal-output feedbacks (<i>for more detailed info, see <b>'UI library'</b> section inside doxygen <b>'Related pages'</b></i> - files lib_ui.h and lib_ui.c).
-* <b>Files:</b> library to manage files through open/close and read/write operations. (<i>for more detailed info, see <b>'Files library'</b> section inside doxygen <b>'Related pages'</b></i> - files lib_files.h and lib_files.c).
-* <b>Timer:</b> library to manage time operations like delays (<i>for more detailed info, see <b>'Timer library'</b> section inside doxygen <b>'Related pages'</b></i> - files lib_timer.h and lib_timer.c).
+* <b>Graph:</b> library for low-level graphs data management and for finding minimum cost path with Dijkstra's algorithm (<i>for more detailed info, see <b><a href="page5.html">'Graph library'</a></b> section inside doxygen <b>'Related pages'</b></i> - files lib_graph.h and lib_graph.c).
+* <b>UI:</b> User-interface (terminal I/O) library to safetly manage terminal-inputs, print logo and coloured terminal-output feedbacks (<i>for more detailed info, see <b><a href="page6.html">'UI library'</a></b> section inside doxygen <b>'Related pages'</b></i> - files lib_ui.h and lib_ui.c).
+* <b>Files:</b> library to manage files through open/close and read/write operations. (<i>for more detailed info, see <b><a href="page7.html">'Files library'</a></b> section inside doxygen <b>'Related pages'</b></i> - files lib_files.h and lib_files.c).
+* <b>Timer:</b> library to manage time operations like delays (<i>for more detailed info, see <b><a href="page8.html">'Timer library'</a></b> section inside doxygen <b>'Related pages'</b></i> - files lib_timer.h and lib_timer.c).
 
 ---
 
-<h3><b>Gnuplot</b> (<i>for more detailed info, see <b>'Gnuplot'</b> section inside doxygen <b>'Related pages'</b></i>)</h3>
+<h3><b>Gnuplot</b> (<i>for more detailed info, see <b><a href="page4.html">'Gnuplot'</a></b> section inside doxygen <b>'Related pages'</b></i>)</h3>
 
 In this software, gnuplot has the main purpose of plotting graph and shortest-path data. In order to that, inside main program (graph_test.c), two gnuplot scripts will be called to load and plot manipulated data inside .dat files. The former is called immediately after the testing option choice, while the latter is called once shortest-path has been displayed and descried on terminal.
 

@@ -11,28 +11,55 @@
  * @page        page6 6 - UI library
  * @brief       User-interface-library info
  * 
- * @section     section6 Library description:
+ * ---
+ * 
+ * @section     section8 Library description:
  *              This library has the main purpose of managing user-interface terminal inputs/outputs (files lib_ui.h and lib_ui.c).
- * @subsection  subsection6 Library details:
- *              Library to manage files using <stdio.h> system-library, giving the possibility to write strings/chars, searching for matches and to read/extract data.<br/>
- *              * <b>Library file type:</b>
- *                * #Fl                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>File pointer data-type.</i>
- *              * <b>Library functions:</b>
- *                * #open_file()                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to open a file.</i>
- *                * #write_int_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write an integer on file.</i>
- *                * #write_str_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a string on file.</i>
- *                * #write_sep_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a separator char on file.</i>
- *                * #write_nl_on_file()           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a new-line on file.</i>
- *                * #write_tab_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a tab char on file.</i>
- *                * #read_from_file()             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to read from file, printing feedback on terminal.</i>
- *                * #get_substr_line_from_file()  &nbsp;--> <i>Function to get string (or substring) line number inside file.</i>
- *                * #get_line_str_from_file()     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to get line string content from file.</i>
- *                * #close_file()                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to close a file.</i>
+ * @subsection  subsection8 Library details:
+ *              Library to securely manage terminal I/O operations, define terminal colors, define aliases for standard data-types and include most used libraries.<br/>
+ *              * <b>Main library data-types:</b>
+ *                * #Byte                       &nbsp;--> <i><b>unsigned char</b> alias (<b>Byte</b>).</i>
+ *                * #Str                        &nbsp;--> <i><b>char*</b> alias (<b>Str</b>).</i>
+ *                * #Cstr                       &nbsp;--> <i><b>const char*</b> alias (<b>Cstr</b>).</i>
+ *                * #C_str                      &nbsp;--> <i><b>const char* const</b> alias (<b>C_str</b>).</i>
+ *                * #Ptr                        &nbsp;--> <i><b>void*</b> alias (<b>Ptr</b>).</i>
+ *                * #C_ptr                      &nbsp;--> <i><b>const void* const</b> alias (<b>C_ptr</b>).</i>
+ *              * <b>Library public variables:</b>
+ *                * #term_in_buff               &nbsp;--> <i>Terminal input buffer char array for scanf function, to read inputs from user (size defined using IN_BUFF_SIZE marco).</i>
+ *                * #unused                     &nbsp;--> <i>Unused variable to catch unused returns from functions.</i>
+ *              * <b>Main library public functions:</b>
+ *                * #logo()                     &nbsp;--> <i>Function to print responsive-logo on terminal.</i>
+ *                * #fbk_separator()            &nbsp;--> <i>Function to print responsive terminal-outputs separator.</i>
+ *                * #press_enter()              &nbsp;--> <i>Function to ask <b>enter</b> key in order to continue (on terminal).</i>
+ *                * #fbk_nl()                   &nbsp;--> <i>Function to print new line feedback on terminal.</i>
+ *                * #fbk_gn_pu()                &nbsp;--> <i>Function to print green/purple feedback on terminal (generally used for request-feedbacks).</i>
+ *                * #fbk_gn_cy()                &nbsp;--> <i>Function to print green/cyan feedback on terminal (generally used for operation-completed feedbacks).</i>
+ *                * #fbk_gn_lbu_ye_real()       &nbsp;--> <i>Function to print green/light-blue/yellow #Real feedback on terminal.</i>
+ *                * #fbk_err()                  &nbsp;--> <i>Function to print red error feedback on terminal.</i>
+ *                * #read_term_in_min_chrs()    &nbsp;--> <i>Function to safely read user terminal-input.</i>
+ *                * #read_term_in_int_inrange() &nbsp;--> <i>Function to safely read user terminal-input, making sure input value is in defined range.</i>
+ *                * #read_term_in_confirm()     &nbsp;--> <i>Function to ask confirmation in order to continue (on terminal).</i>
+ *                * #dbg_str()                  &nbsp;--> <i>Function to print debug string feedback on terminal (light-green/yellow/orange colored debug feedback).</i>
+ *                * #close_err()                &nbsp;--> <i>Function to close software with error feedback printing on terminal.</i>
+ *                * #close_fbk()                &nbsp;--> <i>Function to close software with goodbye feedback printing on terminal.</i>
+ *                * #close_keyboard_interrupt() &nbsp;--> <i>Keyboard interrupt (ctrl+c) event-handler function: close software with specific feedback.</i>
+ *              * <b>Library-defined terminal colors:</b>
+ *                * #RD                         &nbsp;--> <i>Red color.</i>
+ *                * #BU                         &nbsp;--> <i>Blue color.</i>
+ *                * #LBU                        &nbsp;--> <i>Light-blue color.</i>
+ *                * #PU                         &nbsp;--> <i>Purple color.</i>
+ *                * #CY                         &nbsp;--> <i>Cyan color.</i>
+ *                * #YE                         &nbsp;--> <i>Yellow color.</i>
+ *                * #OG                         &nbsp;--> <i>Orange color.</i>
+ *                * #GN                         &nbsp;--> <i>Green color.</i>
+ *                * #LGN                        &nbsp;--> <i>Light-green color.</i>
+ *                * #LGY                        &nbsp;--> <i>Light-gray color.</i>
+ *                * #ER                         &nbsp;--> <i>End color.</i>
  * 
  * @file        lib_ui.h <i>Library header file of lib_ui.c.</i>
  * @brief       <b>User-interface-library header file</b>
  * 
- * @file        lib_ui.c <i>More info in <b>'UI library'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @file        lib_ui.c <i>More info in <b><a href="page6.html">'UI library'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>User-interface-library code file</b>
  * 
  * @file        lib_ui.so <i>Library object file generated from lib_ui.c during compiling operations.</i>
@@ -58,7 +85,7 @@
 /// <b>Macro description:</b> String to set terminal-color to blue.
 #define BU  "\033[0;34m"                                                                                    // Blue color
 /// <b>Macro description:</b> String to set terminal-color to light-blue.
-#define LBU "\033[1;34m"                                                                                    // Light blue color
+#define LBU "\033[1;34m"                                                                                    // Light-blue color
 /// <b>Macro description:</b> String to set terminal-color to purple.
 #define PU  "\033[0;35m"                                                                                    // Purple color
 /// <b>Macro description:</b> String to set terminal-color to cyan.
@@ -70,9 +97,9 @@
 /// <b>Macro description:</b> String to set terminal-color to green.
 #define GN  "\033[0;32m"                                                                                    // Green color
 /// <b>Macro description:</b> String to set terminal-color to light-green.
-#define LGN "\033[1;32m"                                                                                    // Light green color
+#define LGN "\033[1;32m"                                                                                    // Light-green color
 /// <b>Macro description:</b> String to set terminal-color to light-gray.
-#define LGY "\033[0;37m"                                                                                    // Light gray color
+#define LGY "\033[0;37m"                                                                                    // Light-gray color
 /// <b>Macro description:</b> String to erase terminal-color.
 #define ER  "\033[0m"                                                                                       // End color
 
@@ -136,6 +163,8 @@ extern int unused;                                                              
 /* Library functions */
 void logo(Cu_shrt start_sp, C_str txt, C_str txt_col, C_char bkg_chr, C_str bkg_col);                       // Print responsive-logo function
 
+void fbk_separator(C_char chr, C_str col);                                                                  // Separator feedback function
+
 void press_enter(C_str req_str);                                                                            // Press enter function
 
 void fbk_nl(C_int num);                                                                                     // New lines feedback function
@@ -144,11 +173,9 @@ void fbk_spaces(C_int num);                                                     
 
 void fbk_tabs(C_int num);                                                                                   // Tabs feedback function
 
-void fbk_separator(C_char chr, C_str col);                                                                  // Separator feedback function
+void fbk_gn_pu(C_str fbk_str);                                                                              // Green-purple feedback function
 
 void fbk_gn_cy(C_str fbk_str);                                                                              // Green-cyan feedback function
-
-void fbk_gn_pu(C_str fbk_str);                                                                              // Green-purple feedback function
 
 void fbk_gn_lbu_ye_int(C_str prfx_str_lbu, C_int val_ye);                                                   // Green-lightblue-yellow int val feedback function
 
@@ -170,11 +197,11 @@ Str read_term_in_min_chrs(C_byte min_chrs, C_str req_str, C_str err_str);       
 
 Str read_term_in_min_chrs_exit_chr(C_byte min_chrs, C_str req_str, C_str err_str, C_char exit_chr);         // Read terminal input (min chars and exit char) function
 
-Confirm read_term_in_confirm(C_str req_str);                                                                // Read terminal input confirmation function
-
 int read_term_in_int();                                                                                     // Read terminal input INT function
 
 int read_term_in_int_inrange(C_int min_val, C_int max_val, C_str req_str, C_str err_str);                   // Read terminal input INT (in-range) function
+
+Confirm read_term_in_confirm(C_str req_str);                                                                // Read terminal input confirmation function
 
 void dbg();                                                                                                 // Fast debug function 
 

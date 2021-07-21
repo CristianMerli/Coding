@@ -21,7 +21,7 @@ COMPILE_MAIN  =   gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-eq
 LINK          =   gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o
 RUN           =   ./
 
-# (1.2) Input-files
+# (1.2) Source-files
 LIB_GRAPH_IN  =   lib/graph/lib_graph.c
 LIB_UI_IN     =   lib/ui/lib_ui.c
 LIB_FILES_IN  =   lib/files/lib_files.c
@@ -96,7 +96,7 @@ link_all: $(MAIN_NAME) $(MAIN_OUT) $(LIB_GRAPH_OUT) $(LIB_UI_OUT) $(LIB_FILES_OU
 clr:
 	rm $(LIB_GRAPH_OUT) $(LIB_UI_OUT) $(LIB_FILES_OUT) $(LIB_TIMER_OUT) $(MAIN_OUT) $(MAIN_NAME)
 
-# (2.6) Export/clear documentation with doxygen
+# (2.6) Export/view/clear doxygen documentation
 docs: $(DOX_HTML)
 	firefox $(DOX_HTML)
 docs_gen: $(DOX_STP)

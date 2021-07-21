@@ -46,28 +46,58 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>User-interface-library info</p>
-<h1><a class="anchor" id="section6"></a>
+<hr  />
+<h1><a class="anchor" id="section8"></a>
 Library description:</h1>
 <p>This library has the main purpose of managing user-interface terminal inputs/outputs (files <a class="el" href="lib__ui_8h.html" title="User-interface-library header file">lib_ui.h</a> and <a class="el" href="lib__ui_8c.html" title="User-interface-library code file">lib_ui.c</a>). </p>
-<h2><a class="anchor" id="subsection6"></a>
+<h2><a class="anchor" id="subsection8"></a>
 Library details:</h2>
-<p>Library to manage files using &lt;stdio.h&gt; system-library, giving the possibility to write strings/chars, searching for matches and to read/extract data.<br  />
+<p>Library to securely manage terminal I/O operations, define terminal colors, define aliases for standard data-types and include most used libraries.<br  />
 </p><ul>
-<li><b>Library file type:</b><ul>
-<li><a class="el" href="lib__files_8h.html#abf80ad6966766d3b8d84a3f6fae92f95" title="Typedef description: FILE* alias (Fl).">Fl</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>File pointer data-type.</em></li>
+<li><b>Main library data-types:</b><ul>
+<li><a class="el" href="lib__ui_8h.html#ae3a497195d617519e5353ea7b417940f" title="Typedef description: unsigned char alias (Byte).">Byte</a> &#160;--&gt; <em><b>unsigned char</b> alias (<b>Byte</b>).</em></li>
+<li><a class="el" href="lib__ui_8h.html#ac7539ac92592b93c069bfbc1ce37ae4a" title="Typedef description: char* alias (Str).">Str</a> &#160;--&gt; <em><b>char*</b> alias (<b>Str</b>).</em></li>
+<li><a class="el" href="lib__ui_8h.html#af3b9a28d7eb8c9227219d6cef2bf87fd" title="Typedef description: const char* alias (Cstr).">Cstr</a> &#160;--&gt; <em><b>const char*</b> alias (<b>Cstr</b>).</em></li>
+<li><a class="el" href="lib__ui_8h.html#ad84c86543015fe710a5525a5049df308" title="Typedef description: const char* const alias (C_str).">C_str</a> &#160;--&gt; <em><b>const char* const</b> alias (<b>C_str</b>).</em></li>
+<li><a class="el" href="lib__ui_8h.html#a6ce3b7d762fb68676a01d4a36ebf42c1" title="Typedef description: void* alias (Ptr).">Ptr</a> &#160;--&gt; <em><b>void*</b> alias (<b>Ptr</b>).</em></li>
+<li><a class="el" href="lib__ui_8h.html#af0f23cd86045846c2b0eeb054fc1fa5c" title="Typedef description: const void* const alias (C_ptr).">C_ptr</a> &#160;--&gt; <em><b>const void* const</b> alias (<b>C_ptr</b>).</em></li>
 </ul>
 </li>
-<li><b>Library functions:</b><ul>
-<li><a class="el" href="lib__files_8c.html#a83d11115a7c153b17292f094aba9d6df">open_file()</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Function to open a file.</em></li>
-<li><a class="el" href="lib__files_8c.html#ad5a570b3ea92ac6976aa28dcf250570b">write_int_on_file()</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Function to write an integer on file.</em></li>
-<li><a class="el" href="lib__files_8c.html#a0340bf53db4b48af2d85488cbbab1ec1">write_str_on_file()</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Function to write a string on file.</em></li>
-<li><a class="el" href="lib__files_8c.html#a75887fa3cff279db090fab710684b8f2">write_sep_on_file()</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Function to write a separator char on file.</em></li>
-<li><a class="el" href="lib__files_8c.html#a7846b45285e8182395c724dbc12d8d87">write_nl_on_file()</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Function to write a new-line on file.</em></li>
-<li><a class="el" href="lib__files_8c.html#ad79871f2d54dba34c2b393aec9f2a068">write_tab_on_file()</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Function to write a tab char on file.</em></li>
-<li><a class="el" href="lib__files_8c.html#a1f4ca77075c2abdebac8ad3249b684d5">read_from_file()</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Function to read from file, printing feedback on terminal.</em></li>
-<li><a class="el" href="lib__files_8c.html#a3e6a31237e26953d9d8d98854d875dea">get_substr_line_from_file()</a> &#160;--&gt; <em>Function to get string (or substring) line number inside file.</em></li>
-<li><a class="el" href="lib__files_8c.html#a9a900be232e1f88f5a863baa02255c33">get_line_str_from_file()</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Function to get line string content from file.</em></li>
-<li><a class="el" href="lib__files_8c.html#a6d39326c3fbef1d07f957183962a2974">close_file()</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Function to close a file.</em> </li>
+<li><b>Library public variables:</b><ul>
+<li><a class="el" href="lib__ui_8h.html#ae75290575196bf07e37203539f4aeb57" title="Public-variable description: Terminal-input buffer string variabile (size defined with IN_BUFF_SIZE m...">term_in_buff</a> &#160;--&gt; <em>Terminal input buffer char array for scanf function, to read inputs from user (size defined using IN_BUFF_SIZE marco).</em></li>
+<li><a class="el" href="lib__ui_8h.html#a2ff411b23972f6578df341c33895d3e2" title="Public-variable description: Unused variabile to avoid compile-errors when a function has an unused r...">unused</a> &#160;--&gt; <em>Unused variable to catch unused returns from functions.</em></li>
+</ul>
+</li>
+<li><b>Main library public functions:</b><ul>
+<li><a class="el" href="lib__ui_8h.html#a71df8abd0abc6ad33a2a0e48196d4ba3">logo()</a> &#160;--&gt; <em>Function to print responsive-logo on terminal.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a0c0f7c670412013ce79cc9a642b229b0">fbk_separator()</a> &#160;--&gt; <em>Function to print responsive terminal-outputs separator.</em></li>
+<li><a class="el" href="lib__ui_8h.html#ac4a36a9f74a70c4bac5ac13ba5ab3fcc">press_enter()</a> &#160;--&gt; <em>Function to ask <b>enter</b> key in order to continue (on terminal).</em></li>
+<li><a class="el" href="lib__ui_8h.html#ad6191e205e78cd233b7aed28420d5bcf">fbk_nl()</a> &#160;--&gt; <em>Function to print new line feedback on terminal.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a7ad73f9698ccf8019cf8eb69d5776116">fbk_gn_pu()</a> &#160;--&gt; <em>Function to print green/purple feedback on terminal (generally used for request-feedbacks).</em></li>
+<li><a class="el" href="lib__ui_8h.html#a74eb94071236787ba5f879e4bb0cd396">fbk_gn_cy()</a> &#160;--&gt; <em>Function to print green/cyan feedback on terminal (generally used for operation-completed feedbacks).</em></li>
+<li><a class="el" href="lib__ui_8h.html#a0553f5cf0877a6345ddf8ac3e4cc77be">fbk_gn_lbu_ye_real()</a> &#160;--&gt; <em>Function to print green/light-blue/yellow <a class="el" href="lib__ui_8h.html#a445a5f0e2a34c9d97d69a3c2d1957907" title="Typedef description: double alias (Real).">Real</a> feedback on terminal.</em></li>
+<li><a class="el" href="lib__ui_8h.html#abcf2b1bd334cfa5b10438ef5f9e387ed">fbk_err()</a> &#160;--&gt; <em>Function to print red error feedback on terminal.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a2d18dff32e01d0a139e33c52318c3861">read_term_in_min_chrs()</a> &#160;--&gt; <em>Function to safely read user terminal-input.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a956b1884479499438761c8bc63f599ad">read_term_in_int_inrange()</a> &#160;--&gt; <em>Function to safely read user terminal-input, making sure input value is in defined range.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a9f80f14c4db277099bd6785e5fa65f64">read_term_in_confirm()</a> &#160;--&gt; <em>Function to ask confirmation in order to continue (on terminal).</em></li>
+<li><a class="el" href="lib__ui_8h.html#ac66c9e92612d1df7c658a86fe0707d1d">dbg_str()</a> &#160;--&gt; <em>Function to print debug string feedback on terminal (light-green/yellow/orange colored debug feedback).</em></li>
+<li><a class="el" href="lib__ui_8h.html#a5eccbbd00e789dc895772018c67781e7">close_err()</a> &#160;--&gt; <em>Function to close software with error feedback printing on terminal.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a848fa25476eae58424e5ae82d838124d">close_fbk()</a> &#160;--&gt; <em>Function to close software with goodbye feedback printing on terminal.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a3a0b97b6d12502d0cbc2efff149bd7c0">close_keyboard_interrupt()</a> &#160;--&gt; <em>Keyboard interrupt (ctrl+c) event-handler function: close software with specific feedback.</em></li>
+</ul>
+</li>
+<li><b>Library-defined terminal colors:</b><ul>
+<li><a class="el" href="lib__ui_8h.html#aefaf886fe6a8977a1a887fb491a6e82c" title="Macro description: String to set terminal-color to red.">RD</a> &#160;--&gt; <em>Red color.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a46b7d4a88e4ac3dae1c8f8a8d8399b58" title="Macro description: String to set terminal-color to blue.">BU</a> &#160;--&gt; <em>Blue color.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a2e26c4ad393da231a1102e8f95bc27dd" title="Macro description: String to set terminal-color to light-blue.">LBU</a> &#160;--&gt; <em>Light-blue color.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a1b28968e7678d6e9809ee468e5354cdb" title="Macro description: String to set terminal-color to purple.">PU</a> &#160;--&gt; <em>Purple color.</em></li>
+<li><a class="el" href="lib__ui_8h.html#ac5bc792e372b15e7a1d3efe6daac9aec" title="Macro description: String to set terminal-color to cyan.">CY</a> &#160;--&gt; <em>Cyan color.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a9918952aea03577be45dcd8f272cd806" title="Macro description: String to set terminal-color to yellow.">YE</a> &#160;--&gt; <em>Yellow color.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a27e656954ad90f1415b3238e2d1a9972" title="Macro description: String to set terminal-color to orange.">OG</a> &#160;--&gt; <em>Orange color.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a4fe57a13fdc265939879a40a8808005c" title="Macro description: String to set terminal-color to green.">GN</a> &#160;--&gt; <em>Green color.</em></li>
+<li><a class="el" href="lib__ui_8h.html#ada634186b41f0b4d3d7b4f8495573adb" title="Macro description: String to set terminal-color to light-green.">LGN</a> &#160;--&gt; <em>Light-green color.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a491bf72c90e03f5c3cfed8a25941d2f2" title="Macro description: String to set terminal-color to light-gray.">LGY</a> &#160;--&gt; <em>Light-gray color.</em></li>
+<li><a class="el" href="lib__ui_8h.html#a21151d72f7cc58ba09ce95ec2fdbfd14" title="Macro description: String to erase terminal-color.">ER</a> &#160;--&gt; <em>End color.</em> </li>
 </ul>
 </li>
 </ul>

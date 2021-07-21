@@ -11,28 +11,32 @@
  * @page        page7 7 - Files library
  * @brief       Files-library info
  * 
- * @section     section7 Library description:
+ * ---
+ * 
+ * @section     section9 Library description:
  *              This library has the main purpose of managing files open/close and read/write operations (files lib_files.h and lib_files.c).
- * @subsection  subsection7 Library details:
+ * @subsection  subsection9 Library details:
  *              Library to manage files using <stdio.h> system-library, giving the possibility to write strings/chars, searching for matches and to read/extract data.<br/>
- *              * <b>Library file type:</b>
- *                * #Fl                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>File pointer data-type.</i>
- *              * <b>Library functions:</b>
- *                * #open_file()                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to open a file.</i>
- *                * #write_int_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write an integer on file.</i>
- *                * #write_str_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a string on file.</i>
- *                * #write_sep_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a separator char on file.</i>
- *                * #write_nl_on_file()           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a new-line on file.</i>
- *                * #write_tab_on_file()          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to write a tab char on file.</i>
- *                * #read_from_file()             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to read from file, printing feedback on terminal.</i>
+ *              * <b>Library data-types:</b>
+ *                * #Fl                           &nbsp;--> <i>File pointer data-type.</i>
+ *              * <b>Library public variables:</b>
+ *                * #file_in_buff                 &nbsp;--> <i>File input buffer char array for fgets function, to read each  line of the file (size defined using #FILE_IN_BUFF_SIZE marco).</i>
+ *              * <b>Library public functions:</b>
+ *                * #open_file()                  &nbsp;--> <i>Function to open a file.</i>
+ *                * #write_int_on_file()          &nbsp;--> <i>Function to write an integer on file.</i>
+ *                * #write_str_on_file()          &nbsp;--> <i>Function to write a string on file.</i>
+ *                * #write_sep_on_file()          &nbsp;--> <i>Function to write a separator char on file.</i>
+ *                * #write_nl_on_file()           &nbsp;--> <i>Function to write a new-line on file.</i>
+ *                * #write_tab_on_file()          &nbsp;--> <i>Function to write a tab char on file.</i>
+ *                * #read_from_file()             &nbsp;--> <i>Function to read from file, printing feedback on terminal.</i>
  *                * #get_substr_line_from_file()  &nbsp;--> <i>Function to get string (or substring) line number inside file.</i>
- *                * #get_line_str_from_file()     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to get line string content from file.</i>
- *                * #close_file()                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Function to close a file.</i>
+ *                * #get_line_str_from_file()     &nbsp;--> <i>Function to get line string content from file.</i>
+ *                * #close_file()                 &nbsp;--> <i>Function to close a file.</i>
  * 
  * @file        lib_files.h <i>Library header file of lib_files.c.</i>
  * @brief       <b>Files-library header file</b>
  * 
- * @file        lib_files.c <i>More info in <b>'Files library'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @file        lib_files.c <i>More info in <b><a href="page7.html">'Files library'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Files-library code file</b>
  * 
  * @file        lib_files.so <i>Library object file generated from lib_files.c during compiling operations.</i>

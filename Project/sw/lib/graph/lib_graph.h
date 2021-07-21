@@ -11,15 +11,38 @@
  * @page        page5 5 - Graph library
  * @brief       Graph-library info
  * 
- * @section     section5 Library description:
- *              vdfdvfvfv.
+ * ---
+ * 
+ * @section     section7 Library description:
+ *              This library has the main purpose of managing low-level graph's data and to apply Dijkstra's algorithm (files lib_graph.h and lib_graph.c).
  * @subsection  subsection5 Library details:
- *              vdfdvfvfv.
+ *              Library to manage graphs, giving the possibility to allocate new arches/nodes inside heap, to connect arches and nodes, to look for arch/node index in collection, to apply Dijkstra's algorithm, to reconstruct min-cost path and to free the allocated memory.<br/>
+ *              * <b>Main library data-types:</b>
+ *                * #arch                   &nbsp;--> <i>Arch structure definition (arch name, pointer to node1, arch-cost value and pointer to node2).</i>
+ *                * #node                   &nbsp;--> <i>Node structure definition (node name, list of connected arches and pointer to Dijkstra-dataset).</i>
+ *                * #dijkstra_dataset       &nbsp;--> <i>Dijkstra-dataset structure definition (pointer to previous node, shortest-path cost value and node analyzed flag).</i>
+ *                * #connection             &nbsp;--> <i>Node connection structure definition (pointer to connection node and pointer to connection arch).</i>
+ *              * <b>Library public variables:</b>
+ *                * #_REAL_MAX              &nbsp;--> <i>Real max val to simulate +&infin; value in dijkstra_alg() function.</i>
+ *                * #ars_collect_size       &nbsp;--> <i>Arches collection vector size.</i>
+ *                * #nds_collect_size       &nbsp;--> <i>Nodes collection vector size.</i>
+ *                * #min_pth_conn_vect_size &nbsp;--> <i>Min-path connections vector size.</i>
+ *                * #archs_collect_vect     &nbsp;--> <i>Pointer to graph-arches collection vector.</i>
+ *                * #nodes_collect_vect     &nbsp;--> <i>Pointer to graph-nodes collection vector.</i>
+ *                * #min_path_conn_vect     &nbsp;--> <i>Pointer to min-cost path connections vector (from 0 to '#min_pth_conn_vect_size-1' nodes and from 1 to '#min_pth_conn_vect_size-1' archs).</i>
+ *              * <b>Library public functions:</b>
+ *                * #idx_by_name()          &nbsp;--> <i>Function to get object (arch/node) vector index by name (-1 = No match found / -2 = Error).</i>
+ *                * #add_new_arch()         &nbsp;--> <i>Function to add new graph arch (arch allocated inside heap).</i>
+ *                * #add_new_node()         &nbsp;--> <i>Function to add new graph node (node allocated inside heap).</i>
+ *                * #connect_node_arch()    &nbsp;--> <i>Function to connect arch-node in graph (new arch list element allocated inside heap, opt param --> arch position in arches list, non-zero index).</i>
+ *                * #dijkstra_alg()         &nbsp;--> <i>Dijkstra's algorithm function to find min-cost paths between source and each destination node (Dijkstra-dataset vector allocated/reallocated inside heap) - Y/N for verbose mode.</i>
+ *                * #buid_shortest_path()   &nbsp;--> <i>Function to reconstruct shortest-path towards specified destination node, from source node (pre-defined in Dijkstra's algorithm, min-cost path connections vector allocated/reallocated inside heap) - Y/N for verbose mode.</i>
+ *                * #free_graph()           &nbsp;--> <i>Function to free graph's allocated memory inside heap.</i>
  * 
  * @file        lib_graph.h <i>Library header file of lib_graph.c.</i>
  * @brief       <b>Graph-library header file</b>
  * 
- * @file        lib_graph.c <i>More info in <b>'Graph library'</b> section inside doxygen <b>'Related pages'</b>.</i>
+ * @file        lib_graph.c <i>More info in <b><a href="page5.html">'Graph library'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Graph-library code file</b>
  * 
  * @file        lib_graph.so <i>Library object file generated from lib_graph.c during compiling operations.</i>
@@ -58,7 +81,7 @@ typedef struct list_elem {                                                      
 typedef List_elem* List;                                                                                    // List of elements (list head element ptr) typedef
 
 /// <b>Struct-typedef description:</b> Node struct typedef to store node name, a list of connection archs associated to that node and a Dijkstra-dataset which contains the informations about that specific node to find min-cost path with Dijkstra's algorithm and reconstruct shortest path.
-typedef struct node {                                                                                       // Node struct typedef (node name, list of arches and Dijkstra-dataset ptr)
+typedef struct node {                                                                                       // Node struct typedef (node name, list of arches, Dijkstra-dataset ptr)
   /// Node-name string, length defined through #ND_STR_LEN macro.
   char                      name[ND_STR_LEN];                                                               // Node name
   /// Node-connection archs list head pointer.
@@ -96,7 +119,7 @@ typedef struct dijkstra_dataset {                                               
 } Dijkstra_dataset;
 
 /// <b>Struct-typedef description:</b> Node connection, composed by connection arch and node on the other edge of the arch.
-typedef struct connection {                                                                                 // Node connection struct typedef (node ptr, connection arch ptr, arch num in node)
+typedef struct connection {                                                                                 // Node connection struct typedef (node ptr, connection arch ptr)
   /// Connection node pointer to graph-node element allocated in nodes collection vector (inside heap: #nodes_collect_vect).
   Graph_node  nd;                                                                                           // Node pointer
   /// Connection arch pointer to graph-arch element allocated in archs collection vector (inside heap: #archs_collect_vect).
@@ -167,7 +190,7 @@ extern int nds_collect_size;                                                    
 extern int min_pth_conn_vect_size;                                                                          // Min path connections vector size
 extern Arch* archs_collect_vect;                                                                            // Graph arches collection vector ptr
 extern Node* nodes_collect_vect;                                                                            // Graph nodes collection vector ptr
-extern Connection* min_path_conn_vect;                                                                      // Min path connections vect ptr (from 0 to 'min_pth_conn_vect_size-1' nodes and from 1 to 'min_pth_conn_vect_size-1' archs)
+extern Connection* min_path_conn_vect;                                                                      // Min path connections vector ptr (from 0 to 'min_pth_conn_vect_size-1' nodes and from 1 to 'min_pth_conn_vect_size-1' archs)
 
 
 /* Library functions */
@@ -179,11 +202,11 @@ void add_new_node(C_str name);                                                  
 
 void connect_node_arch(C_str ar_name, C_str nd_name, Node_pos_in_arch nd_pos, Arch_pos_typ ar_pos, ...);    // Function to connect arch-node in graph (new arch list element allocated inside heap, opt param --> arch pos in arches list, non-zero index)
 
-void dijkstra_alg(C_str src_nd_name, Verbose_mode v_mode);                                                  // Dijkstra's alg to find min graph-path btwn source and each destination node (Dijkstra-dataset vect allocated/reallocated inside heap) - Y/N for verbose mode
+void dijkstra_alg(C_str src_nd_name, Verbose_mode v_mode);                                                  // Dijkstra's algrithm function to find min-cost paths between source and each destination node (Dijkstra-dataset vect allocated/reallocated inside heap) - Y/N for verbose mode
 
-void buid_shortest_path(C_str dest_nd_name, Verbose_mode v_mode);                                           // Find shortest path to specified destination node from source node (pre-defined in Dijkstra's algorithm, min path connections vect allocated/reallocated inside heap) - Y/N for verbose mode
+void buid_shortest_path(C_str dest_nd_name, Verbose_mode v_mode);                                           // Function to reconstruct shortest path towards specified destination node, from source node (pre-defined in Dijkstra's algorithm, min path connections vect allocated/reallocated inside heap) - Y/N for verbose mode
 
-void free_graph();                                                                                          // Function to free graph allocated memory
+void free_graph();                                                                                          // Function to free graph's allocated memory inside heap
 
 
 

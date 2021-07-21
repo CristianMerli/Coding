@@ -50,22 +50,18 @@ $(function() {
 <h1><a class="anchor" id="section6"></a>
 Gnuplot description:</h1>
 <p>In this software, gnuplot is called to manage graphical representations. </p>
-<h2><a class="anchor" id="subsection7"></a>
+<h2><a class="anchor" id="subsection8"></a>
 Gnuplot details:</h2>
 <p>Gnuplot is called via two different plotting scripts, to recreate graphical representations of graph's data and Dijkstra's algorithm function output; highlighting the shortest path between specified source and destination nodes. These two gnuplot scripts are launched by main testing code, through <a class="el" href="graph__test_8c.html#a72672eb3a3b3aefc3dd84b1998db7b38">display_test_graph()</a> function. The first plotting script, loads static data inserted by developer in three (.dat) files; while the second one, loads dynamically manipulated data by the software, from the inside of four other (.dat) files. In particular, data manipulating operations picks information of interest from the three static gnuplot data files, and inserts them insede the four dynamic gnuplot data files. Dynamic files are modified through <a class="el" href="graph__test_8c.html#a8ce50baf9e16d38da95c61def1b9423b">build_shortest_path_graphics_data()</a> routine call, in main testing code.</p><ul>
-<li><b>Gnuplot scripts:</b><br  />
-<ul>
-<li><b>Graph-structure plotting command:</b> <a class="el" href="graph__plot_8cmd.html" title="Gnuplot sctipt to plot graph structure">graph_plot.cmd</a> file, system command defined using <a class="el" href="graph__test_8c.html#ae5633818219aaada9ace24af446090fc" title="Macro description: Gnuplot graph plotting system command, for display_test_graph() function.">GPLOT_TEST_GRAPH_LAYOUT_CMD</a> macro.<br  />
-</li>
+<li><b>Gnuplot scripts:</b><ul>
+<li><b>Graph-structure plotting command:</b> <a class="el" href="graph__plot_8cmd.html" title="Gnuplot sctipt to plot graph structure">graph_plot.cmd</a> file, system command defined using <a class="el" href="graph__test_8c.html#ae5633818219aaada9ace24af446090fc" title="Macro description: Gnuplot graph plotting system command, for display_test_graph() function.">GPLOT_TEST_GRAPH_LAYOUT_CMD</a> macro.</li>
 <li><b>Graph-structure and detected shortest path plotting command:</b> <a class="el" href="shortest__plot_8cmd.html" title="Gnuplot sctipt to plot graph structure with shortest-path">shortest_plot.cmd</a> file, system command defined using <a class="el" href="graph__test_8c.html#ae51861e1f83dadd8a77c1020e79c8712" title="Macro description: Gnuplot graph and shortest path plotting system command, for display_test_graph() ...">GPLOT_SHORTEST_PATH_CMD</a> macro.<br  />
 <br  />
 </li>
 </ul>
 </li>
-<li><b>Gnuplot data-files:</b><br  />
-<ul>
-<li><b>Static data-files:</b><br  />
-<ul>
+<li><b>Gnuplot data-files:</b><ul>
+<li><b>Static data-files:</b><ul>
 <li><b>Archs data file:</b> <a class="el" href="archs_8dat.html" title="Static file containing data to plot archs inside graph using gnuplot">archs.dat</a>, defined using <a class="el" href="graph__test_8c.html#ad85d846120d4ceffff0532ab0baee521" title="Macro description: Gnuplot archs data file, for build_shortest_path_graphics_data() function.">ARCHS_DAT_FILE</a> macro. This file contains the arches to be drawn in purple during graph-structure plotting and gray during shortest path plotting.<br  />
 </li>
 <li><b>Arch-costs data file:</b> <a class="el" href="costs_8dat.html" title="Static file containing data to plot arch-costs inside graph using gnuplot">costs.dat</a>, defined using <a class="el" href="graph__test_8c.html#a58526b331498d67c4e8c3f41ae7a73a5" title="Macro description: Gnuplot arch-costs data file, for build_shortest_path_graphics_data() function.">COSTS_DAT_FILE</a> macro. This file contains the arch-costs to be drawn in blue during graph-structure plotting and gray during shortest path plotting.<br  />
@@ -74,8 +70,7 @@ Gnuplot details:</h2>
 </li>
 </ul>
 </li>
-<li><b>Dynamic data-files:</b><br  />
-<ul>
+<li><b>Dynamic data-files:</b><ul>
 <li><b>Shortest path archs data file:</b> <a class="el" href="shortest__archs_8dat.html" title="Dynamic file containing data to plot shortest-path archs inside graph using gnuplot (green)">shortest_archs.dat</a>, defined using <a class="el" href="graph__test_8c.html#ae14aa1afe916e4ae777e02a601bf5bcd" title="Macro description: Gnuplot shortest-path archs data file, for build_shortest_path_graphics_data() fun...">SHORTEST_ARCHS_DAT_FILE</a> macro. This file contains the arches to be drawn in green during shortest path plotting.<br  />
 </li>
 <li><b>Shortest path arch-costs data file:</b> <a class="el" href="shortest__costs_8dat.html" title="Dynamic file containing data to plot shortest-path arch-costs inside graph using gnuplot (blue)">shortest_costs.dat</a>, defined using <a class="el" href="graph__test_8c.html#a040506cbeaa54e32e79dfcf378e079a7" title="Macro description: Gnuplot shortest-path arch-costs data file, for build_shortest_path_graphics_data(...">SHORTEST_COSTS_DAT_FILE</a> macro. This file contains the arch-costs to be drawn in blue during shortest path plotting.<br  />

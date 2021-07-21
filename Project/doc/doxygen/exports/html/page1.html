@@ -78,34 +78,22 @@ Code details:</h2>
 <h2><a class="anchor" id="subsection2"></a>
 Manual compiling operations:</h2>
 <p>Manual compiling and linking operations, alternative to the automated commands in <a href="page3.html">'makefile'</a>:</p><ul>
-<li><b>Aliases:</b><br  />
-<ul>
-<li>alias gccW99_o="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o"<br  />
-</li>
-<li>alias gccW99_c="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o"<br  />
-</li>
-<li>alias gccW99_lib="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o"<br  />
-<br  />
-</li>
+<li><b>Aliases:</b><ul>
+<li>alias gccW99_o="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o"</li>
+<li>alias gccW99_c="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o"</li>
+<li>alias gccW99_lib="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o"</li>
 </ul>
 </li>
-<li><b>Compile-commands:</b><br  />
-<ul>
-<li>gccW99_lib <a class="el" href="lib__graph_8so.html" title="Graph-library object file">lib/graph/lib_graph.so</a> <a class="el" href="lib__graph_8c.html" title="Graph-library code file">lib/graph/lib_graph.c</a> &#160;&#160;--&gt; <em>Create GRAPH dynamic library object file.</em><br  />
-</li>
+<li><b>Compile-commands:</b><ul>
+<li>gccW99_lib <a class="el" href="lib__graph_8so.html" title="Graph-library object file">lib/graph/lib_graph.so</a> <a class="el" href="lib__graph_8c.html" title="Graph-library code file">lib/graph/lib_graph.c</a> &#160;&#160;--&gt; <em>Create GRAPH dynamic library object file.</em></li>
 <li>gccW99_lib <a class="el" href="lib__ui_8so.html" title="User-interface-library object file">lib/ui/lib_ui.so</a> <a class="el" href="lib__ui_8c.html" title="User-interface-library code file">lib/ui/lib_ui.c</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Create UI (TERMINAL I/O) dynamic library object file.</em><br  />
 </li>
-<li>gccW99_lib <a class="el" href="lib__files_8so.html" title="Files-library object file">lib/files/lib_files.so</a> <a class="el" href="lib__files_8c.html" title="Files-library code file">lib/files/lib_files.c</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Create FILES dynamic library object file.</em><br  />
-</li>
-<li>gccW99_lib <a class="el" href="lib__timer_8so.html" title="Timer-library object file">lib/timer/lib_timer.so</a> <a class="el" href="lib__timer_8c.html" title="Timer-library code file">lib/timer/lib_timer.c</a> &#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Create TIMER dynamic library object file.</em><br  />
-</li>
-<li>gccW99_c <a class="el" href="graph__test_8o.html" title="Graph-library test software main object file">main/graph_test.o</a> <a class="el" href="graph__test_8c.html" title="Graph-library test software main code file">main/graph_test.c</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Create MAIN object file.</em><br  />
-<br  />
-</li>
+<li>gccW99_lib <a class="el" href="lib__files_8so.html" title="Files-library object file">lib/files/lib_files.so</a> <a class="el" href="lib__files_8c.html" title="Files-library code file">lib/files/lib_files.c</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Create FILES dynamic library object file.</em></li>
+<li>gccW99_lib <a class="el" href="lib__timer_8so.html" title="Timer-library object file">lib/timer/lib_timer.so</a> <a class="el" href="lib__timer_8c.html" title="Timer-library code file">lib/timer/lib_timer.c</a> &#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Create TIMER dynamic library object file.</em></li>
+<li>gccW99_c <a class="el" href="graph__test_8o.html" title="Graph-library test software main object file">main/graph_test.o</a> <a class="el" href="graph__test_8c.html" title="Graph-library test software main code file">main/graph_test.c</a> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;--&gt; <em>Create MAIN object file.</em></li>
 </ul>
 </li>
-<li><b>Link-command:</b><br  />
-<ul>
+<li><b>Link-command:</b><ul>
 <li>gccW99_o graph_test <a class="el" href="graph__test_8o.html" title="Graph-library test software main object file">main/graph_test.o</a> <a class="el" href="lib__graph_8so.html" title="Graph-library object file">lib/graph/lib_graph.so</a> <a class="el" href="lib__ui_8so.html" title="User-interface-library object file">lib/ui/lib_ui.so</a> <a class="el" href="lib__files_8so.html" title="Files-library object file">lib/files/lib_files.so</a> <a class="el" href="lib__timer_8so.html" title="Timer-library object file">lib/timer/lib_timer.so</a> &#160;&#160;--&gt; <em>LINK main and dynamic libraries object files to test executable.</em></li>
 </ul>
 </li>

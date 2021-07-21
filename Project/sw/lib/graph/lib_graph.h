@@ -15,7 +15,7 @@
  * 
  * @section     section7 Library description:
  *              This library has the main purpose of managing low-level graph's data and to apply Dijkstra's algorithm (files lib_graph.h and lib_graph.c).
- * @subsection  subsection5 Library details:
+ * @subsection  subsection9 Library details:
  *              Library to manage graphs, giving the possibility to allocate new arches/nodes inside heap, to connect arches and nodes, to look for arch/node index in collection, to apply Dijkstra's algorithm, to reconstruct min-cost path and to free the allocated memory.<br/>
  *              * <b>Main library data-types:</b>
  *                * #arch                   &nbsp;--> <i>Arch structure definition (arch name, pointer to node1, arch-cost value and pointer to node2).</i>

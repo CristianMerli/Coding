@@ -15,7 +15,7 @@
  * 
  * @section     section9 Library description:
  *              This library has the main purpose of managing files open/close and read/write operations (files lib_files.h and lib_files.c).
- * @subsection  subsection9 Library details:
+ * @subsection  subsection11 Library details:
  *              Library to manage files using <stdio.h> system-library, giving the possibility to write strings/chars, searching for matches and to read/extract data.<br/>
  *              * <b>Library data-types:</b>
  *                * #Fl                           &nbsp;--> <i>File pointer data-type.</i>

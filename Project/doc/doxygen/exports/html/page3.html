@@ -50,43 +50,65 @@ $(function() {
 <h1><a class="anchor" id="section5"></a>
 Makefile description:</h1>
 <p>Makefile has the main purpose of automating software compiling/linking operations.<br  />
- <em><b>Note:</b> in order to correctly execute makefile's commands, the user must be inside 'Project/sw/' folder (same folder of the makefile).</em> </p>
+ </p>
 <h2><a class="anchor" id="subsection6"></a>
 Makefile details:</h2>
 <p>In this project, makefile purposes has been extended in order to take care of further actions to simplify testing operations and documentation management. So the makefile can handle different tasks like: compiling/launching the software, to make/view doxygen documentation and displaying LaTeX abstract pdf. As can be seen inside makefile (<em>accessible in <b><a href="makefile_source.html">'makefile'</a></b> section of doxygen <b>'File list'</b></em>), the file has been divided in chapters and sub-chapters to be better explained in this page:</p><ul>
-<li><b>(1) Variables and files:</b><br  />
-<ul>
-<li><b>(1.1) Variables to compile and run software:</b> csdcd.<br  />
-</li>
-<li><b>(1.2) Source files:</b> csdcd.<br  />
-</li>
-<li><b>(1.3) Header files:</b> csdcd.<br  />
-</li>
-<li><b>(1.4) Output files:</b> csdcd.<br  />
-</li>
-<li><b>(1.5) Doxygen documentation:</b> csdcd.<br  />
-</li>
-<li><b>(1.6) Abstract pdf file (from LaTeX):</b> csdcd.<br  />
+<li><b>(1) Variables and files:</b><ul>
+<li><b>(1.1) Variables to compile and run software:</b> compiling flags for libraries and main program, for linking and command to run the software.</li>
+<li><b>(1.2) Source files:</b> graph-library, user-interface-library, files-library, timer-library and main program code files.</li>
+<li><b>(1.3) Header files:</b> graph-library, user-interface-library, files-library and timer-library header files.</li>
+<li><b>(1.4) Output files:</b> software executable, graph-library, user-interface-library, files-library, timer-library and main program object files.</li>
+<li><b>(1.5) Doxygen documentation:</b> doxygen-configuration file, doxygen-exports folder and doxygen main html page.</li>
+<li><b>(1.6) Abstract pdf file (from LaTeX):</b> LaTeX abstract exported (.pdf) file, containing theoretical aspects about Dijkstra's algorithm.<br  />
 <br  />
 </li>
 </ul>
 </li>
-<li><b>(2) Make commands:</b><br  />
-<ul>
-<li><b>(2.1) Compile and link all files:</b> csdcd.<br  />
+<li><b>(2) Make commands</b><ul>
+<li><b>(2.1) Compile and link all files:</b> command to compile and link all software's files.</li>
+<li><b>(2.2) Run test software (main program):</b> command to run test software.</li>
+<li><b>(2.3) Compile-link all files and run test software (main program):</b> chapter <b>(2.1)</b> and chapter <b>(2.2)</b> in one shortcut-command.</li>
+<li><b>(2.4) Commands to compile and link software step-by-step:</b> commands to compile graph-library, user-interface-library, files-library, timer-library, main program and command to link all the software's files.<br  />
 </li>
-<li><b>(2.2) Run test software (main):</b> csdcd.<br  />
+<li><b>(2.5) Clear:</b> command to clear all the software's generated files.</li>
+<li><b>(2.6) Export/view/clear doxygen html documentation:</b> command to view documentation in firefox, command to re-generate documentation, shortcut-command to re-generate and view documentation in firefox, command to clear documentation, and shortcut-command to clear and re-generate documentation.<br  />
 </li>
-<li><b>(2.3) Compile and link all files + run test software (main) --&gt; [2.1 + 2.2]:</b> csdcd.<br  />
+<li><b>(2.7) Open abstract pdf file (made with LaTeX):</b> command to open <b>'relazione-finale-CRISTIAN-MERLI.pdf'</b> file using the predefined pdf-viewer software. </li>
+</ul>
 </li>
-<li><b>(2.4) Commands to compile and link step-by-step:</b> csdcd.<br  />
+</ul>
+<h2><a class="anchor" id="subsection7"></a>
+Available makefile commands:</h2>
+<p><em><b>Note:</b> in order to correctly execute makefile's commands, the user must be inside <b>'Project/sw/'</b> folder (same folder of the makefile).</em><br  />
+ <em><b>Note:</b> makefile commands-syntax</em> <b>make [command]</b><em>, available commands listed below.</em></p><ul>
+<li><b> Software compiling commands:</b><ul>
+<li><b>make:</b> command to compile and link the whole project to executable (shortcut command of the following one).</li>
+<li><b>make all:</b> same command as above, full-name command.</li>
+<li><b>make run:</b> command to launch test-software executable.</li>
+<li><b>make all_run:</b> shortcut-command to compile/link the whole project to test-software executable and to run it.</li>
+<li><b>make clr:</b> command to clear all the software's generated files.</li>
+</ul>
 </li>
-<li><b>(2.5) Clear software's generated file:</b> csdcd.<br  />
+<li><b> Software step-by-step compiling commands:</b><ul>
+<li><b>make compile_lib_graph:</b> command to compile only the graph-library.</li>
+<li><b>make compile_lib_ui:</b> command to compile only the user-interface-library.</li>
+<li><b>make compile_lib_files:</b> command to compile only the files-library.</li>
+<li><b>make compile_lib_timer:</b> command to compile only the timer-library.</li>
+<li><b>make compile_main:</b> command to compile only the main program (test software).</li>
+<li><b>make link_all:</b> command to link all libraries and main program to test-software executable.</li>
+</ul>
 </li>
-<li><b>(2.6) Export/view/clear doxygen documentation:</b> csdcd.<br  />
+<li><b> Doxygen documentation commands:</b><ul>
+<li><b>make docs:</b> command to open firefox in order to display doxygen html documentation.</li>
+<li><b>make docs_gen:</b> command to re-generate doxygen html (and rtf) documentation.</li>
+<li><b>make docs_gen_view:</b> shortcut-command to re-generate doxygen html (and rtf) documentation and to open firefox displaying doxygen html documentation.</li>
+<li><b>make docs_clr:</b> command to clear generated doxygen html (and rtf) documentation.</li>
+<li><b>make docs_clr_gen:</b> shortcut-command to clear and re-generate doxygen html (and rtf) documentation.</li>
+</ul>
 </li>
-<li><b>(2.7) Open abstract pdf file (made with LaTeX):</b> csdcd.<br  />
- </li>
+<li><b> LaTeX abstract (pdf) command:</b><ul>
+<li><b>make abstract:</b> command to open and view LaTeX exported pdf file through the predefined pdf-viewer software. </li>
 </ul>
 </li>
 </ul>

@@ -41,17 +41,17 @@
  *              * Personalized test.
  * @subsection  subsection2 Manual compiling operations:
  *              Manual compiling and linking operations, alternative to the automated commands in <a href="page3.html">'makefile'</a>:
- *              * <b>Aliases:</b><br/>
- *                * alias gccW99_o="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o"<br/>
- *                * alias gccW99_c="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o"<br/>
- *                * alias gccW99_lib="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o"<br/><br/>
- *              * <b>Compile-commands:</b><br/>
- *                * gccW99_lib lib/graph/lib_graph.so lib/graph/lib_graph.c   &nbsp;&nbsp;--> <i>Create GRAPH dynamic library object file.</i><br/>
+ *              * <b>Aliases:</b>
+ *                * alias gccW99_o="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o"
+ *                * alias gccW99_c="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o"
+ *                * alias gccW99_lib="gcc -std=c99 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o"
+ *              * <b>Compile-commands:</b>
+ *                * gccW99_lib lib/graph/lib_graph.so lib/graph/lib_graph.c   &nbsp;&nbsp;--> <i>Create GRAPH dynamic library object file.</i>
  *                * gccW99_lib lib/ui/lib_ui.so lib/ui/lib_ui.c               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create UI (TERMINAL I/O) dynamic library object file.</i><br/>
- *                * gccW99_lib lib/files/lib_files.so lib/files/lib_files.c   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create FILES dynamic library object file.</i><br/>
- *                * gccW99_lib lib/timer/lib_timer.so lib/timer/lib_timer.c   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create TIMER dynamic library object file.</i><br/>
- *                * gccW99_c main/graph_test.o main/graph_test.c              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create MAIN object file.</i><br/><br/>
- *              * <b>Link-command:</b><br/>
+ *                * gccW99_lib lib/files/lib_files.so lib/files/lib_files.c   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create FILES dynamic library object file.</i>
+ *                * gccW99_lib lib/timer/lib_timer.so lib/timer/lib_timer.c   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create TIMER dynamic library object file.</i>
+ *                * gccW99_c main/graph_test.o main/graph_test.c              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--> <i>Create MAIN object file.</i>
+ *              * <b>Link-command:</b>
  *                * gccW99_o graph_test main/graph_test.o lib/graph/lib_graph.so lib/ui/lib_ui.so lib/files/lib_files.so lib/timer/lib_timer.so  &nbsp;&nbsp;--> <i>LINK main and dynamic libraries object files to test executable.</i>
  * 
  * ---
@@ -75,9 +75,33 @@
  * ---
  * 
  * @section     section4 Main code description:
- *              vdfdvfvfv.
+ *              Main code has the aim of testing graph-library, in particular Dijkstra's algorithm implementation (file graph_test.c).
  * @subsection  subsection5 Main code details:
- *              vdfdvfvfv.
+ *              The main code consists in a set of functions which are called to test graph-library, in particular Dijkstra's algorithm implementation: #dijkstra_alg() and #buid_shortest_path() functions.
+ *              Once test software has been compiled and launched through <b><a href="page3.html">'makefile'</a></b> commands, it will display a logo by means of #logo() function call, and will wait for <b>enter</b>
+ *              key to be pressed (with function #press_enter()), in order to start flowing through the main code inside #main() function.
+ *              At this point, test-software program flow will be explained below using numbers identifying chapters and sub-chapters, which compose the main function (reported in comments and also printed on terminal):
+ *              * <b>(1) Arches and nodes allocation inside heap:</b>
+ *                * <b>(1.1) Arches allocation inside heap:</b> #create_archs() routine call to allocate arches defined in #strts_vect[] test vector of #street.
+ *                * <b>(1.2) Nodes allocation inside heap:</b> #create_nodes() routine call to allocate nodes defined in #crss_names_vect[] test vector of #C_str.
+ *              * <b>(2) Test-graph creation (connecting arches and nodes together) and testing option choice:</b>
+ *                * <b>(2.1) Connect arches and nodes (excluding node 'Cross10'):</b> #create_connections() routine call to connect arches and nodes in a certain way.
+ *                * <b>(2.2) Testing mode choice:</b> #test_option_choice() routine call to choose which testing mode to adopt.
+ *                  * <b>(2.2.1) In case selected #test_choice is not #EXIT, display test-graph:</b> #display_test_graph(#GPLOT_TEST_GRAPH_LAYOUT_CMD) routine call to graphically displaying test-graph allocated structure.
+ *              * <b>(3) Dijkstra's algorithm implementation to find shortest path:</b>
+ *                * <b>(3.x.1) Prepared test:</b> in case selected #test_choice is #PREPARED, use source and destination nodes defined in #SOURCE_NODE_NAME and #DESTINATION_NODE_NAME macros. Then show two special cases with a debug print.
+ *                  * <b>(3.1.1) Apply Dijkstra's algorithm:</b> #apply_dijkstra(#SOURCE_NODE_NAME) routine call to find min-cost paths from #SOURCE_NODE_NAME towards each other node inside #nodes_collect_vect.
+ *                  * <b>(3.2.1) Reconstruct test min-path:</b> #reconstruct_min_path(#DESTINATION_NODE_NAME) routine call to reconstruct shortest path towards #DESTINATION_NODE_NAME (from #SOURCE_NODE_NAME); path saved inside #min_path_conn_vect.
+ *                  * <b>(3.3.1) Display test-graph layout and shortest path with gnuplot:</b> #display_test_graph(#GPLOT_SHORTEST_PATH_CMD) routine call in case shortest-path is not trivial.
+ *                  * <b>(3.4.1) Reconstruct some special-cases paths:</b> #reconstruct_min_path(#DEST_NODE_NAME_SPECIAL_CASE1) and #reconstruct_min_path(#DEST_NODE_NAME_SPECIAL_CASE2) routines call.
+ *                * <b>(3.x.2) Personalized test:</b> in case selected #test_choice is #PERSONALIZED, ask the user to choose personalized source and destination nodes by-name.
+ *                  * <b>(3.1.2) Apply Dijkstra's algorithm:</b> #define_src_node_name() and #apply_dijkstra() routines call to find min-cost paths from user-defined source node towards each other node inside #nodes_collect_vect.
+ *                  * <b>(3.2.2) Reconstruct personalized min-path:</b> #define_dest_node_name() and #reconstruct_min_path() routines call to reconstruct shortest path towards user-defined destination node (from user-defined source node); path saved inside #min_path_conn_vect.
+ *                  * <b>(3.3.2) Display test-graph layout and shortest path with gnuplot:</b> #display_test_graph(#GPLOT_SHORTEST_PATH_CMD) routine call in case shortest-path is not trivial.
+ *              * <b>(4) Allocated graph-structure deallocation:</b>
+ *                  * <b>(4.1) Deallocate the whole graph structure:</b> #free_graph() routine call to clear allocated memory inside heap.
+ *              
+ *              Once this point has been reached, the software will be closed with goodbye feedback on terminal, calling #close_fbk() function.
  * 
  * @file        graph_test.c <i>More info in <b><a href="page2.html">'Testing software'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Graph-library test software main code file</b>
@@ -98,27 +122,50 @@
  * 
  * @section     section5 Makefile description:
  *              Makefile has the main purpose of automating software compiling/linking operations.<br/>
- *              <i><b>Note:</b> in order to correctly execute makefile's commands, the user must be inside 'Project/sw/' folder (same folder of the makefile).</i>
  * @subsection  subsection6 Makefile details:
  *              In this project, makefile purposes has been extended in order to take care of further actions to simplify testing operations and documentation management.
  *              So the makefile can handle different tasks like: compiling/launching the software, to make/view doxygen documentation and displaying LaTeX abstract pdf.
  *              As can be seen inside makefile (<i>accessible in <b><a href="makefile_source.html">'makefile'</a></b> section of doxygen <b>'File list'</b></i>), the file has
  *              been divided in chapters and sub-chapters to be better explained in this page:
- *              * <b>(1) Variables and files:</b><br/>
- *                * <b>(1.1) Variables to compile and run software:</b> csdcd.<br/>
- *                * <b>(1.2) Source files:</b> csdcd.<br/>
- *                * <b>(1.3) Header files:</b> csdcd.<br/>
- *                * <b>(1.4) Output files:</b> csdcd.<br/>
- *                * <b>(1.5) Doxygen documentation:</b> csdcd.<br/>
- *                * <b>(1.6) Abstract pdf file (from LaTeX):</b> csdcd.<br/><br/>
- *              * <b>(2) Make commands:</b><br/>
- *                * <b>(2.1) Compile and link all files:</b> csdcd.<br/>
- *                * <b>(2.2) Run test software (main):</b> csdcd.<br/>
- *                * <b>(2.3) Compile and link all files + run test software (main) --> [2.1 + 2.2]:</b> csdcd.<br/>
- *                * <b>(2.4) Commands to compile and link step-by-step:</b> csdcd.<br/>
- *                * <b>(2.5) Clear software's generated file:</b> csdcd.<br/>
- *                * <b>(2.6) Export/view/clear doxygen documentation:</b> csdcd.<br/>
- *                * <b>(2.7) Open abstract pdf file (made with LaTeX):</b> csdcd.<br/>
+ *              * <b>(1) Variables and files:</b>
+ *                * <b>(1.1) Variables to compile and run software:</b> compiling flags for libraries and main program, for linking and command to run the software.
+ *                * <b>(1.2) Source files:</b> graph-library, user-interface-library, files-library, timer-library and main program code files.
+ *                * <b>(1.3) Header files:</b> graph-library, user-interface-library, files-library and timer-library header files.
+ *                * <b>(1.4) Output files:</b> software executable, graph-library, user-interface-library, files-library, timer-library and main program object files.
+ *                * <b>(1.5) Doxygen documentation:</b> doxygen-configuration file, doxygen-exports folder and doxygen main html page.
+ *                * <b>(1.6) Abstract pdf file (from LaTeX):</b> LaTeX abstract exported (.pdf) file, containing theoretical aspects about Dijkstra's algorithm.<br/><br/>
+ *              * <b>(2) Make commands</b>
+ *                * <b>(2.1) Compile and link all files:</b> command to compile and link all software's files.
+ *                * <b>(2.2) Run test software (main program):</b> command to run test software.
+ *                * <b>(2.3) Compile-link all files and run test software (main program):</b> chapter <b>(2.1)</b> and chapter <b>(2.2)</b> in one shortcut-command.
+ *                * <b>(2.4) Commands to compile and link software step-by-step:</b> commands to compile graph-library, user-interface-library, files-library, timer-library, main program and command to link all the software's files.<br/>
+ *                * <b>(2.5) Clear:</b> command to clear all the software's generated files.
+ *                * <b>(2.6) Export/view/clear doxygen html documentation:</b> command to view documentation in firefox, command to re-generate documentation, shortcut-command to re-generate and view documentation in firefox, command to clear documentation, and shortcut-command to clear and re-generate documentation.<br/>
+ *                * <b>(2.7) Open abstract pdf file (made with LaTeX):</b> command to open <b>'relazione-finale-CRISTIAN-MERLI.pdf'</b> file using the predefined pdf-viewer software.
+ * @subsection  subsection7 Available makefile commands:
+ *              <i><b>Note:</b> in order to correctly execute makefile's commands, the user must be inside <b>'Project/sw/'</b> folder (same folder of the makefile).</i><br/>
+ *              <i><b>Note:</b> makefile commands-syntax</i> <b>make [command]</b><i>, available commands listed below.</i>
+ *              * <b> Software compiling commands:</b>
+ *                * <b>make:</b> command to compile and link the whole project to executable (shortcut command of the following one).
+ *                * <b>make all:</b> same command as above, full-name command.
+ *                * <b>make run:</b> command to launch test-software executable.
+ *                * <b>make all_run:</b> shortcut-command to compile/link the whole project to test-software executable and to run it.
+ *                * <b>make clr:</b> command to clear all the software's generated files.
+ *              * <b> Software step-by-step compiling commands:</b>
+ *                * <b>make compile_lib_graph:</b> command to compile only the graph-library.
+ *                * <b>make compile_lib_ui:</b> command to compile only the user-interface-library.
+ *                * <b>make compile_lib_files:</b> command to compile only the files-library.
+ *                * <b>make compile_lib_timer:</b> command to compile only the timer-library.
+ *                * <b>make compile_main:</b> command to compile only the main program (test software).
+ *                * <b>make link_all:</b> command to link all libraries and main program to test-software executable.
+ *              * <b> Doxygen documentation commands:</b>
+ *                * <b>make docs:</b> command to open firefox in order to display doxygen html documentation.
+ *                * <b>make docs_gen:</b> command to re-generate doxygen html (and rtf) documentation.
+ *                * <b>make docs_gen_view:</b> shortcut-command to re-generate doxygen html (and rtf) documentation and to open firefox displaying doxygen html documentation.
+ *                * <b>make docs_clr:</b> command to clear generated doxygen html (and rtf) documentation.
+ *                * <b>make docs_clr_gen:</b> shortcut-command to clear and re-generate doxygen html (and rtf) documentation.
+ *              * <b> LaTeX abstract (pdf) command:</b>
+ *                * <b>make abstract:</b> command to open and view LaTeX exported pdf file through the predefined pdf-viewer software.
  * 
  * @file        makefile <i>More info in <b><a href="page3.html">'Makefile'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Makefile to compile/run software, make/view doxygen documentation and view LaTeX abstract pdf</b>
@@ -133,22 +180,22 @@
  * 
  * @section     section6 Gnuplot description:
  *              In this software, gnuplot is called to manage graphical representations.
- * @subsection  subsection7 Gnuplot details:
+ * @subsection  subsection8 Gnuplot details:
  *              Gnuplot is called via two different plotting scripts, to recreate graphical representations of graph's data and Dijkstra's algorithm function output;
  *              highlighting the shortest path between specified source and destination nodes. These two gnuplot scripts are launched by main testing code,
  *              through #display_test_graph() function. The first plotting script, loads static data inserted by developer in three (.dat) files; while the second one, loads dynamically
  *              manipulated data by the software, from the inside of four other (.dat) files. In particular, data manipulating operations picks information of interest
  *              from the three static gnuplot data files, and inserts them insede the four dynamic gnuplot data files. Dynamic files are modified through #build_shortest_path_graphics_data()
  *              routine call, in main testing code.
- *              * <b>Gnuplot scripts:</b><br/>
- *                * <b>Graph-structure plotting command:</b> graph_plot.cmd file, system command defined using #GPLOT_TEST_GRAPH_LAYOUT_CMD macro.<br/>
+ *              * <b>Gnuplot scripts:</b>
+ *                * <b>Graph-structure plotting command:</b> graph_plot.cmd file, system command defined using #GPLOT_TEST_GRAPH_LAYOUT_CMD macro.
  *                * <b>Graph-structure and detected shortest path plotting command:</b> shortest_plot.cmd file, system command defined using #GPLOT_SHORTEST_PATH_CMD macro.<br/><br/>
- *              * <b>Gnuplot data-files:</b><br/>
- *                * <b>Static data-files:</b><br/>
+ *              * <b>Gnuplot data-files:</b>
+ *                * <b>Static data-files:</b>
  *                  * <b>Archs data file:</b> archs.dat, defined using #ARCHS_DAT_FILE macro. This file contains the arches to be drawn in purple during graph-structure plotting and gray during shortest path plotting.<br/>
  *                  * <b>Arch-costs data file:</b> costs.dat, defined using #COSTS_DAT_FILE macro. This file contains the arch-costs to be drawn in blue during graph-structure plotting and gray during shortest path plotting.<br/>
  *                  * <b>Nodes data file:</b> nodes.dat, defined using #NODES_DAT_FILE macro. This file contains the nodes to be drawn in black/white during graph-structure plotting and gray/white during shortest path plotting.<br/>
- *                * <b>Dynamic data-files:</b><br/>
+ *                * <b>Dynamic data-files:</b>
  *                  * <b>Shortest path archs data file:</b> shortest_archs.dat, defined using #SHORTEST_ARCHS_DAT_FILE macro. This file contains the arches to be drawn in green during shortest path plotting.<br/>
  *                  * <b>Shortest path arch-costs data file:</b> shortest_costs.dat, defined using #SHORTEST_COSTS_DAT_FILE macro. This file contains the arch-costs to be drawn in blue during shortest path plotting.<br/>
  *                  * <b>Shortest path nodes data file (source-destination nodes excluded):</b> shortest_nodes.dat, defined using #SHORTEST_NODES_DAT_FILE macro. This file contains the nodes to be drawn in green during shortest path plotting.<br/>
@@ -501,8 +548,8 @@ static void build_shortest_path_graphics_data(){                                
  * @brief         <p><b>Static function description:</b></p> Static routine to send gnuplot system command string, with the aim of printing graphical data contained inside .dat files.
  *                In case command is the one to print graph and highlight the shortest-path, call a specific function (build_shortest_path_graphics_data()) to manipulate gnuplot data and graphically recreate the min cost path.
  *                Gnuplot system commands listed below:
- *                * <b>Plot graph</b>: calls gnuplot and loads plotting command in .cmd file (graph_plot.cmd, defined with a macro: #GPLOT_TEST_GRAPH_LAYOUT_CMD), in order to plot: arches, arch-costs and nodes in graph. @image html test_graph.png "Image displayed by gnuplot when calling graph-plotting command"<br/>
- *                * <b>Plot graph with shortest-path</b>: calls gnuplot and loads plotting command in .cmd file (shortest_plot.cmd, defined with a macro: #GPLOT_SHORTEST_PATH_CMD), in order to plot: arches, arch-costs and nodes in graph highlighting the shortest path. @image html personalized_shortest_path.png "Image displayed by gnuplot when calling shortest path graph-plotting command (in this particular case, from predefined testing mode)"<br/>
+ *                * <b>Plot graph</b>: calls gnuplot and loads plotting command in .cmd file (graph_plot.cmd, defined with a macro: #GPLOT_TEST_GRAPH_LAYOUT_CMD), in order to plot: arches, arch-costs and nodes in graph. @image html test_graph.png "Image displayed by gnuplot when calling graph-plotting command"<br/><br/>
+ *                * <b>Plot graph with shortest-path</b>: calls gnuplot and loads plotting command in .cmd file (shortest_plot.cmd, defined with a macro: #GPLOT_SHORTEST_PATH_CMD), in order to plot: arches, arch-costs and nodes in graph highlighting the shortest path. @image html personalized_shortest_path.png "Image displayed by gnuplot when calling shortest path graph-plotting command (in this particular case, from predefined testing mode)"<br/><br/>
  * 
  * @param[in] cmd Display test-graph gnuplot system command string.
  * 
@@ -628,9 +675,9 @@ int main(){                                                                     
   fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                        // Print separator fbk
   test_option_choice(&choice);                                                                              // Routine call to choose testing option
   if (choice == PREPARED || choice == PERSONALIZED){                                                        // If exit mode ain't been selected
-    // (2.3) Display test-graph layout with gnuplot                                                         // --------------------------------------------------------- (2.3)
+    // (2.2.1) Display test-graph layout with gnuplot                                                       // --------------------------------------------------------- (2.2.1)
     fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                                 // Print separator fbk
-    fbk_nl(1);  fbk_gn_pu("(2.3) Displayin' test-graph layout with gnuplot...");                            // Print displayin' test-graph layout with gnuplot fbk
+    fbk_nl(1);  fbk_gn_pu("(2.2.1) Displayin' test-graph layout with gnuplot...");                          // Print displayin' test-graph layout with gnuplot fbk
     fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                      // Print separator fbk
     display_test_graph(GPLOT_TEST_GRAPH_LAYOUT_CMD);                                                        // Routine call to display test-graph through gnuplot
   }                                                                                                         //
@@ -642,7 +689,7 @@ int main(){                                                                     
       fbk_gn_pu("(3.1.1) Applyin' Dijkstra's algorithm to find min paths from \"Cross4\" source node...");  // Print applyin' Dijkstra's algorithm to find min paths fbk
       fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                    // Print separator fbk
       apply_dijkstra(SOURCE_NODE_NAME);                                                                     // Routine call to apply Dijkstra's algorithm
-      // (3.2.1) Reconstruct test min path (from Cross4 to Cross9)                                          // --------------------------------------------------------- (3.2.1)
+      // (3.2.1) Reconstruct test min-path (from Cross4 to Cross9)                                          // --------------------------------------------------------- (3.2.1)
       fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                               // Print separator fbk
       fbk_nl(1);  fbk_gn_pu("(3.2.1) Reconstructin' test min path (Cross4-Cross9) with delays...");         // Print reconstructin' test min path fbk
       fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                    // Print separator fbk
@@ -670,7 +717,7 @@ int main(){                                                                     
       char* src_nd_nm = NULL;                                                                               // Personalized source-node name str init
       define_src_node_name(&src_nd_nm);                                                                     // Routine call to define presonalized source-node name
       apply_dijkstra(src_nd_nm);                                                                            // Routine call to apply Dijkstra's algorithm
-      // (3.2.2) Reconstruct test min path                                                                  // --------------------------------------------------------- (3.2.2)
+      // (3.2.2) Reconstruct personalized min-path                                                          // --------------------------------------------------------- (3.2.2)
       fbk_nl(2);  fbk_separator(SEP_CHR, OG);                                                               // Print separator fbk
       fbk_nl(1);  fbk_gn_pu("(3.2.2) Reconstructin' requested min path with delays...");                    // Print reconstructin' requested min path fbk
       fbk_nl(1);  fbk_separator(SEP_CHR, OG); fbk_nl(2);                                                    // Print separator fbk
@@ -699,7 +746,6 @@ int main(){                                                                     
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   close_fbk();                                                                                              // Close SW with fbk
-  return EXIT_SUCCESS;                                                                                      // Check errors --> if=0 (NO ERRORS) / if=1 (ERRORS)
 }
 
 

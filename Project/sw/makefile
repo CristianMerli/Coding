@@ -35,12 +35,12 @@ LIB_FILES_H   =   lib/files/lib_files.h
 LIB_TIMER_H   =   lib/timer/lib_timer.h
 
 # (1.4) Output-files
+MAIN_NAME     =   graph_test
 LIB_GRAPH_OUT =   lib/graph/lib_graph.so
 LIB_UI_OUT    =   lib/ui/lib_ui.so
 LIB_FILES_OUT =   lib/files/lib_files.so
 LIB_TIMER_OUT =   lib/timer/lib_timer.so
 MAIN_OUT      =   main/graph_test.o
-MAIN_NAME     =   graph_test
 
 # (1.5) Doxygen documentation
 DOX_STP       =   ../doc/doxygen/doxygen_config

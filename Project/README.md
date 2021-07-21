@@ -11,14 +11,14 @@
 <i>Note: In order to correctly execute makefile's commands, the user must be inside 'Project/sw/' folder (same folder of the makefile).</i>
 
 * <b>Compile commands:</b>
-  * <b>make:</b> command to compile and link the whole project to executable (shortcut command).
-  * <b>make all:</b> same command as above, extended command.
-  * <b>make run:</b> command to launch executable.
-  * <b>make all_run:</b> command to compile/link the whole project to executable and run it.
+  * <b>make:</b> command to compile and link the whole project to executable (shortcut command of the following one).
+  * <b>make all:</b> same command as above, full-name command.
+  * <b>make run:</b> command to launch test-software executable.
+  * <b>make all_run:</b> command to compile/link the whole project to test-software executable and to run it.
 * <b>Doxygen commands:</b>
   * <b>make docs:</b> command to open firefox in order to display doxygen html documentation.
 * <b>Abstract commands:</b>
-  * <b>make abstract:</b> command to open and view LaTeX exported pdf file.
+  * <b>make abstract:</b> command to open and view LaTeX exported pdf file through the predefined pdf-viewer software.
 
 ---
 

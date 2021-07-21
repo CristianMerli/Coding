@@ -15,7 +15,7 @@
  * 
  * @section     section8 Library description:
  *              This library has the main purpose of managing user-interface terminal inputs/outputs (files lib_ui.h and lib_ui.c).
- * @subsection  subsection8 Library details:
+ * @subsection  subsection10 Library details:
  *              Library to securely manage terminal I/O operations, define terminal colors, define aliases for standard data-types and include most used libraries.<br/>
  *              * <b>Main library data-types:</b>
  *                * #Byte                       &nbsp;--> <i><b>unsigned char</b> alias (<b>Byte</b>).</i>

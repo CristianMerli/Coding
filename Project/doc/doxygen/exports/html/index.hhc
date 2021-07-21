@@ -30,38 +30,42 @@
   <LI><OBJECT type="text/sitemap"><param name="Name" value="Makefile description:"><param name="Local" value="page3.html#section5"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
     <LI><OBJECT type="text/sitemap"><param name="Name" value="Makefile details:"><param name="Local" value="page3.html#subsection6"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Available makefile commands:"><param name="Local" value="page3.html#subsection7"><param name="ImageNumber" value="11"></OBJECT>
     </UL>
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="4 - Gnuplot"><param name="Local" value="page4.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="Gnuplot description:"><param name="Local" value="page4.html#section6"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="Gnuplot details:"><param name="Local" value="page4.html#subsection7"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Gnuplot details:"><param name="Local" value="page4.html#subsection8"><param name="ImageNumber" value="11"></OBJECT>
     </UL>
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="5 - Graph library"><param name="Local" value="page5.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
-  <LI><OBJECT type="text/sitemap"><param name="Name" value="Library description:"><param name="Local" value="page5.html#section7"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Library description:"><param name="Local" value="page5.html#section7"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Library details:"><param name="Local" value="page5.html#subsection9"><param name="ImageNumber" value="11"></OBJECT>
+    </UL>
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="6 - UI library"><param name="Local" value="page6.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="Library description:"><param name="Local" value="page6.html#section8"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="Library details:"><param name="Local" value="page6.html#subsection8"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Library details:"><param name="Local" value="page6.html#subsection10"><param name="ImageNumber" value="11"></OBJECT>
     </UL>
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="7 - Files library"><param name="Local" value="page7.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="Library description:"><param name="Local" value="page7.html#section9"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="Library details:"><param name="Local" value="page7.html#subsection9"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Library details:"><param name="Local" value="page7.html#subsection11"><param name="ImageNumber" value="11"></OBJECT>
     </UL>
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="8 - Timer library"><param name="Local" value="page8.html"><param name="ImageNumber" value="1"></OBJECT>
   <UL>
   <LI><OBJECT type="text/sitemap"><param name="Name" value="Library description:"><param name="Local" value="page8.html#section10"><param name="ImageNumber" value="1"></OBJECT>
     <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Name" value="Library details:"><param name="Local" value="page8.html#subsection10"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Library details:"><param name="Local" value="page8.html#subsection12"><param name="ImageNumber" value="11"></OBJECT>
     </UL>
   </UL>
 <LI><OBJECT type="text/sitemap"><param name="Name" value="Bug List"><param name="Local" value="bug.html"><param name="ImageNumber" value="11"></OBJECT>

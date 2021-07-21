@@ -15,7 +15,7 @@
  * 
  * @section     section10 Library description:
  *              This library has the main purpose of managing time's concerning operations (files lib_timer.h and lib_timer.c).
- * @subsection  subsection10 Library details:
+ * @subsection  subsection12 Library details:
  *              Library to manage date/time data structures from <time.h> system-library and to give the possibility to wait a delay time during runtime.<br/>
  *              * <b>Library data-types:</b>
  *                * #date_time                  &nbsp;--> <i>Date/time personalized data-structure.</i>

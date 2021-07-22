@@ -65,6 +65,8 @@
  *              <b>Icon made by <a href="https://www.flaticon.com/authors/becris">Berics</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a>.</b><br/>
  *              Logo image downloaded from <a href="https://www.flaticon.com/">flaticon</a> free-images website as free user, respecting indicated <a href="https://support.flaticon.com/hc/en-us/articles/207248209-Attribution-How-when-and-where-">attribution rules</a> (icon <a href="https://www.flaticon.com/free-icon/neural_2103658?related_id=2103633&origin=search#}">download</a> link).
  *              @image html logo.png "Documentation logo-icon"
+ *              @image html dijkstra_animation.gif "Documentation logo-icon"
+ *              @image html dijkstra_demo.gif "Documentation logo-icon"
  */
 
 
@@ -80,7 +82,7 @@
  *              The main code consists in a set of functions which are called to test graph-library, in particular Dijkstra's algorithm implementation: #dijkstra_alg() and #buid_shortest_path() functions.
  *              Once test software has been compiled and launched through <b><a href="page3.html">'makefile'</a></b> commands, it will display a logo by means of #logo() function call, and will wait for <b>enter</b>
  *              key to be pressed (with function #press_enter()), in order to start flowing through the main code inside #main() function.
- *              At this point, test-software program flow will be explained below using numbers identifying chapters and sub-chapters, which compose the main function (reported in comments and also printed on terminal):
+ *              At this point test-software program flow, will be explained below using numbers identifying chapters and sub-chapters, which compose the main function (reported in comments and also printed on terminal):
  *              * <b>(1) Arches and nodes allocation inside heap:</b>
  *                * <b>(1.1) Arches allocation inside heap:</b> #create_archs() routine call to allocate arches defined in #strts_vect[] test vector of #street.
  *                * <b>(1.2) Nodes allocation inside heap:</b> #create_nodes() routine call to allocate nodes defined in #crss_names_vect[] test vector of #C_str.
@@ -93,7 +95,7 @@
  *                  * <b>(3.1.1) Apply Dijkstra's algorithm:</b> #apply_dijkstra(#SOURCE_NODE_NAME) routine call to find min-cost paths from #SOURCE_NODE_NAME towards each other node inside #nodes_collect_vect.
  *                  * <b>(3.2.1) Reconstruct test min-path:</b> #reconstruct_min_path(#DESTINATION_NODE_NAME) routine call to reconstruct shortest path towards #DESTINATION_NODE_NAME (from #SOURCE_NODE_NAME); path saved inside #min_path_conn_vect.
  *                  * <b>(3.3.1) Display test-graph layout and shortest path with gnuplot:</b> #display_test_graph(#GPLOT_SHORTEST_PATH_CMD) routine call in case shortest-path is not trivial.
- *                  * <b>(3.4.1) Reconstruct some special-cases paths:</b> #reconstruct_min_path(#DEST_NODE_NAME_SPECIAL_CASE1) and #reconstruct_min_path(#DEST_NODE_NAME_SPECIAL_CASE2) routines call.
+ *                  * <b>(3.4.1) Reconstruct some special-cases paths:</b> #reconstruct_min_path(#DEST_NODE_NAME_SPECIAL_CASE1) and #reconstruct_min_path(#DEST_NODE_NAME_SPECIAL_CASE2) routines call to show how special cases are handled <i>(<b>special-case1:</b> source node = destination node / <b>special-case2:</b> destination node unreachble).
  *                * <b>(3.x.2) Personalized test:</b> in case selected #test_choice is #PERSONALIZED, ask the user to choose personalized source and destination nodes by-name.
  *                  * <b>(3.1.2) Apply Dijkstra's algorithm:</b> #define_src_node_name() and #apply_dijkstra() routines call to find min-cost paths from user-defined source node towards each other node inside #nodes_collect_vect.
  *                  * <b>(3.2.2) Reconstruct personalized min-path:</b> #define_dest_node_name() and #reconstruct_min_path() routines call to reconstruct shortest path towards user-defined destination node (from user-defined source node); path saved inside #min_path_conn_vect.
@@ -101,7 +103,7 @@
  *              * <b>(4) Allocated graph-structure deallocation:</b>
  *                  * <b>(4.1) Deallocate the whole graph structure:</b> #free_graph() routine call to clear allocated memory inside heap.
  *              
- *              Once this point has been reached, the software will be closed with goodbye feedback on terminal, calling #close_fbk() function.
+ *              Once this point has been reached, the software will be closed with goodbye feedback on terminal by calling #close_fbk() function.
  * 
  * @file        graph_test.c <i>More info in <b><a href="page2.html">'Testing software'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Graph-library test software main code file</b>
@@ -140,7 +142,7 @@
  *                * <b>(2.3) Compile-link all files and run test software (main program):</b> chapter <b>(2.1)</b> and chapter <b>(2.2)</b> in one shortcut-command.
  *                * <b>(2.4) Commands to compile and link software step-by-step:</b> commands to compile graph-library, user-interface-library, files-library, timer-library, main program and command to link all the software's files.<br/>
  *                * <b>(2.5) Clear:</b> command to clear all the software's generated files.
- *                * <b>(2.6) Export/view/clear doxygen html documentation:</b> command to view documentation in firefox, command to re-generate documentation, shortcut-command to re-generate and view documentation in firefox, command to clear documentation, and shortcut-command to clear and re-generate documentation.<br/>
+ *                * <b>(2.6) Export/view/clear doxygen html documentation:</b> command to view documentation in browser, command to re-generate documentation, shortcut-command to re-generate and view documentation in browser, command to clear documentation, and shortcut-command to clear and re-generate documentation.<br/>
  *                * <b>(2.7) Open abstract pdf file (made with LaTeX):</b> command to open <b>'relazione-finale-CRISTIAN-MERLI.pdf'</b> file using the predefined pdf-viewer software.
  * @subsection  subsection7 Available makefile commands:
  *              <i><b>Note:</b> in order to correctly execute makefile's commands, the user must be inside <b>'Project/sw/'</b> folder (same folder of the makefile).</i><br/>
@@ -159,9 +161,9 @@
  *                * <b>make compile_main:</b> command to compile only the main program (test software).
  *                * <b>make link_all:</b> command to link all libraries and main program to test-software executable.
  *              * <b> Doxygen documentation commands:</b>
- *                * <b>make docs:</b> command to open firefox in order to display doxygen html documentation.
+ *                * <b>make docs:</b> command to open browser in order to display doxygen html documentation.
  *                * <b>make docs_gen:</b> command to re-generate doxygen html (and rtf) documentation.
- *                * <b>make docs_gen_view:</b> shortcut-command to re-generate doxygen html (and rtf) documentation and to open firefox displaying doxygen html documentation.
+ *                * <b>make docs_gen_view:</b> shortcut-command to re-generate doxygen html (and rtf) documentation and to open browser displaying doxygen html documentation.
  *                * <b>make docs_clr:</b> command to clear generated doxygen html (and rtf) documentation.
  *                * <b>make docs_clr_gen:</b> shortcut-command to clear and re-generate doxygen html (and rtf) documentation.
  *              * <b> LaTeX abstract (pdf) command:</b>

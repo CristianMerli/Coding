@@ -16,13 +16,13 @@
   * <b>make run:</b> command to launch test-software executable.
   * <b>make all_run:</b> command to compile/link the whole project to test-software executable and to run it.
 * <b>Doxygen commands:</b>
-  * <b>make docs:</b> command to open firefox in order to display doxygen html documentation.
+  * <b>make docs:</b> command to open browser in order to display doxygen html documentation.
 * <b>Abstract commands:</b>
   * <b>make abstract:</b> command to open and view LaTeX exported pdf file through the predefined pdf-viewer software.
 
 ---
 
-<h3><b>Doxygen html documentation</b> - <i>to open doxygen html documentation, see <b>'make docs'</b> makefile command (firefox required)</i></h3>
+<h3><b>Doxygen html documentation</b> - <i>to open doxygen html documentation, see <b>'make docs'</b> makefile command (browser required)</i></h3>
 
 Html documentation of the software containing: files, functions, enums, data-types descriptions and so on.
 

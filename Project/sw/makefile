@@ -98,12 +98,12 @@ clr:
 
 # (2.6) Export/view/clear doxygen documentation
 docs: $(DOX_HTML)
-	firefox $(DOX_HTML)
+	xdg-open $(DOX_HTML)
 docs_gen: $(DOX_STP)
 	doxygen $(DOX_STP)
 docs_gen_view: $(DOX_STP)
 	doxygen $(DOX_STP)
-	firefox $(DOX_HTML)
+	xdg-open $(DOX_HTML)
 docs_clr: $(DOX_FLD)
 	rm -r $(DOX_FLD)*
 docs_clr_gen: $(DOX_FLD)

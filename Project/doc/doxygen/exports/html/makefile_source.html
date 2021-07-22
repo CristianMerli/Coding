@@ -145,12 +145,12 @@ $(function() {
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;# (2.6) Export/view/clear doxygen documentation</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;docs: $(DOX_HTML)</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    firefox $(DOX_HTML)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    xdg-open $(DOX_HTML)</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;docs_gen: $(DOX_STP)</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    doxygen $(DOX_STP)</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;docs_gen_view: $(DOX_STP)</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    doxygen $(DOX_STP)</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    firefox $(DOX_HTML)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    xdg-open $(DOX_HTML)</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;docs_clr: $(DOX_FLD)</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    rm -r $(DOX_FLD)*</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;docs_clr_gen: $(DOX_FLD)</div>

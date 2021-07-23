@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Project request}{2}{section.1}%
+\contentsline {section}{\numberline {2}Introduction}{2}{section.2}%
+\contentsline {section}{\numberline {3}Dijkstra's algorithm}{2}{section.3}%
+\contentsline {section}{\numberline {4}Graph data-structure}{2}{section.4}%
+\contentsline {section}{\numberline {5}Gnuplot}{2}{section.5}%
+\contentsline {section}{\numberline {6}Library testing}{2}{section.6}%
+\contentsline {section}{\numberline {7}Conclusions}{3}{section.7}%
+\contentsline {section}{\numberline {8}Images}{3}{section.8}%

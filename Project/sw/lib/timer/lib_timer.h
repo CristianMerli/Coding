@@ -15,7 +15,7 @@
  * 
  * @section     section10 Library description:
  *              This library has the main purpose of managing time's concerning operations (files lib_timer.h and lib_timer.c).
- * @subsection  subsection12 Library details:
+ * @subsection  subsection14 Library details:
  *              Library to manage date/time data structures from <time.h> system-library and to give the possibility to wait a delay time during runtime.<br/>
  *              * <b>Library data-types:</b>
  *                * #date_time                  &nbsp;--> <i>Date/time personalized data-structure.</i>
@@ -24,7 +24,9 @@
  *                * #get_date_time()            &nbsp;--> <i>Function to get current date/time.</i>
  *                * #assign_date_time()         &nbsp;--> <i>Function to manually assign date/time values.</i>
  *                * #cmp_date_time()            &nbsp;--> <i>Function to compare two dates/times.</i>
- *                * #fbk_gn_lbu_ye_date_time()  &nbsp;--> <i>Function to print date/time feedback.</i>
+ *                * #fbk_gn_lbu_ye_date_time()  &nbsp;--> <i>Function to print date/time feedback.</i><br/><br/><br/>
+ *              @image html time.png
+ *              <br/><center>Icon made by <a href="https://www.flaticon.com/authors/freepik">Freepik</a> from <a href="https://www.flaticon.com/premium-icon/stopwatch_2553210?term=time&page=1&position=9&page=1&position=9&related_id=2553210&origin=search#">www.flaticon.com</a></center>
  * 
  * @file        lib_timer.h <i>Library header file of lib_timer.c.</i>
  * @brief       <b>Timer-library header file</b>
@@ -34,6 +36,39 @@
  * 
  * @file        lib_timer.so <i>Library object file generated from lib_timer.c during compiling operations.</i>
  * @brief       <b>Timer-library object file</b>
+ * 
+ */
+
+
+/*!
+ * @page        page9 9 - Screens
+ * @brief       Terminal screenshots
+ * 
+ * ---
+ * 
+ * @section     section11 Terminal screenshots:
+ *              @image html 1_logo.png "Terminal-logo"<br/><br/>
+ *              @image html 2_enter_to_start.png "Enter request to start"<br/><br/>
+ *              @image html 3_archs.png "Arches allocation"<br/><br/>
+ *              @image html 4_nodes.png "Nodes allocation"<br/><br/>
+ *              @image html 5_connections.png "Connections creation"<br/><br/>
+ *              @image html 6_test_choice.png "Testing option choice"<br/><br/>
+ *              @image html 6_1_exit_confirm.png "Exit confirmation"<br/><br/>
+ *              @image html 7_display1.png "Display graph-structure through gnuplot"<br/><br/>
+ *              @image html 8_source.png "Source node definition"<br/><br/>
+ *              @image html 9_destination.png "Destination node definition"<br/><br/>
+ *              @image html 10_dijkstra.png "Dijkstra's algorithm output"<br/><br/>
+ *              @image html 11_shortest_path.png "Shortest-path output"<br/><br/>
+ *              @image html 11_1_special_cases.png "Shortest-path special cases"<br/><br/>
+ *              @image html 12_display2.png "Display graph-structure and shortest-path through gnuplot"<br/><br/>
+ *              @image html 13_deallocation.png "Graph-structure deallocation"<br/><br/>
+ *              @image html 14_closing.png "Closing feedback"<br/><br/>
+ *              @image html 15_controls1.png "Choice controls"<br/><br/>
+ *              @image html 15_controls2.png "Node-name controls"<br/><br/>
+ *              @image html 15_controls3.png "Exit confirmation-request controls"<br/><br/>
+ *              <br/><br/><br/>
+ *              @image html screenshot.png
+ *              <br/><center>Icon made by <a href="https://www.flaticon.com/authors/smashicons">Smashicons</a> from <a href="https://www.flaticon.com/premium-icon/screenshot_4427750?term=screenshot&page=1&position=8&page=1&position=8&related_id=4427750&origin=search">www.flaticon.com</a></center>
  * 
  */
 

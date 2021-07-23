@@ -15,7 +15,7 @@
  * 
  * @section     section9 Library description:
  *              This library has the main purpose of managing files open/close and read/write operations (files lib_files.h and lib_files.c).
- * @subsection  subsection11 Library details:
+ * @subsection  subsection13 Library details:
  *              Library to manage files using <stdio.h> system-library, giving the possibility to write strings/chars, searching for matches and to read/extract data.<br/>
  *              * <b>Library data-types:</b>
  *                * #Fl                           &nbsp;--> <i>File pointer data-type.</i>
@@ -31,7 +31,9 @@
  *                * #read_from_file()             &nbsp;--> <i>Function to read from file, printing feedback on terminal.</i>
  *                * #get_substr_line_from_file()  &nbsp;--> <i>Function to get string (or substring) line number inside file.</i>
  *                * #get_line_str_from_file()     &nbsp;--> <i>Function to get line string content from file.</i>
- *                * #close_file()                 &nbsp;--> <i>Function to close a file.</i>
+ *                * #close_file()                 &nbsp;--> <i>Function to close a file.</i><br/><br/><br/>
+ *              @image html files.png
+ *              <br/><center>Icon made by <a href="https://www.flaticon.com/authors/freepik">Freepik</a> from <a href="https://www.flaticon.com/free-icon/folder_3767084?term=files&related_id=3767084#">www.flaticon.com</a></center>
  * 
  * @file        lib_files.h <i>Library header file of lib_files.c.</i>
  * @brief       <b>Files-library header file</b>

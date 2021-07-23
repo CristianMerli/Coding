@@ -21,7 +21,7 @@
  * 
  * @note        Important notes:
  *                * Graphical effects are managed by gnuplot (based on data manipulated by test software main program), so it is highly recommended to have it installed.
- *                * It is possibile to compile, run and execute further actions tacking advantege of makefile, <i>for more informations see doxygen <b><a href="page3.html">'Makefile'</a></b> section inside <b>'Related pages'</b> (or main makefile commands in <b><a href="index.html">'Main page'</a></b>).</i>
+ *                * It is possibile to compile, run and execute further actions taking advantege of makefile, <i>for more informations see doxygen <b><a href="page3.html">'Makefile'</a></b> section inside <b>'Related pages'</b> (or main makefile commands in <b><a href="index.html">'Main page'</a></b>).</i>
  * @warning     Important warnings:
  *                * Pay attention, arch/node names must only be max 30 chars long. To modify max names lenght, change relative macros inside 'lib_graph.h' header file: #AR_STR_LEN and #ND_STR_LEN.
  *                * User-interface library is now set to have an input buffer able to take max 63 chars strings + '\0'; to modify terminal-input buffer size see #IN_BUFF_SIZE macro.
@@ -56,17 +56,17 @@
  * 
  * ---
  * 
- * @section     section3 Copyright:
+ * @section     section3 Copyright &copy;
  *              This project has been realized respecting copyright. Software know-how and documentation have been personally developed. Available pictures are gnuplot exports and terminal-outputs screens, taken during software testing stage and documentation drafting.
- *              Icons are open-source images, coming from free downloading websites (correctly cited as requested from contents developers).
+ *              Icons are open-source images, coming from free downloading websites (correctly cited as requested from contents developers). Gif animations, have been taken from wikipedia.
  * @subsection  subsection3 Pictures:
- *              Pictures in this software documentation have been personally realized, tacking screens of software's terminal-outputs and exporting .png images, from personally-developed gnuplot scripts.
- * @subsection  subsection4 Logo icon:
- *              <b>Icon made by <a href="https://www.flaticon.com/authors/becris">Berics</a> from <a href="https://www.flaticon.com/">www.flaticon.com</a>.</b><br/>
- *              Logo image downloaded from <a href="https://www.flaticon.com/">flaticon</a> free-images website as free user, respecting indicated <a href="https://support.flaticon.com/hc/en-us/articles/207248209-Attribution-How-when-and-where-">attribution rules</a> (icon <a href="https://www.flaticon.com/free-icon/neural_2103658?related_id=2103633&origin=search#}">download</a> link).
+ *              Pictures in this software documentation have been personally realized, taking screens of software's terminal-outputs and exporting .png images, from personally-developed gnuplot scripts.
+ * @subsection  subsection4 Animations:
+ *              Gif animations are from <a href="https://en.wikipedia.org/wiki/Dijkstra's_algorithm">www.wikipedia.org</a>
+ * @subsection  subsection5 Logo and other icons:
+ *              Logo and other icons, have been downloaded from <a href="https://www.flaticon.com/">flaticon</a> free-images website as free user, respecting indicated <a href="https://support.flaticon.com/hc/en-us/articles/207248209-Attribution-How-when-and-where-">attribution rules</a>.<br/>
  *              @image html logo.png "Documentation logo-icon"
- *              @image html dijkstra_animation.gif "Documentation logo-icon"
- *              @image html dijkstra_demo.gif "Documentation logo-icon"
+ *              <center>Logo icon made by <a href="https://www.flaticon.com/authors/becris">Berics</a> from <a href="https://www.flaticon.com/free-icon/neural_2103658?related_id=2103633&origin=search#">www.flaticon.com</a></center>
  */
 
 
@@ -78,7 +78,7 @@
  * 
  * @section     section4 Main code description:
  *              Main code has the aim of testing graph-library, in particular Dijkstra's algorithm implementation (file graph_test.c).
- * @subsection  subsection5 Main code details:
+ * @subsection  subsection6 Main code details:
  *              The main code consists in a set of functions which are called to test graph-library, in particular Dijkstra's algorithm implementation: #dijkstra_alg() and #buid_shortest_path() functions.
  *              Once test software has been compiled and launched through <b><a href="page3.html">'makefile'</a></b> commands, it will display a logo by means of #logo() function call, and will wait for <b>enter</b>
  *              key to be pressed (with function #press_enter()), in order to start flowing through the main code inside #main() function.
@@ -103,7 +103,9 @@
  *              * <b>(4) Allocated graph-structure deallocation:</b>
  *                  * <b>(4.1) Deallocate the whole graph structure:</b> #free_graph() routine call to clear allocated memory inside heap.
  *              
- *              Once this point has been reached, the software will be closed with goodbye feedback on terminal by calling #close_fbk() function.
+ *              Once this point has been reached, the software will be closed with goodbye feedback on terminal by calling #close_fbk() function.<br/><br/><br/>
+ *              @image html test.png
+ *              <br/><center>Icon made by <a href="https://www.flaticon.com/authors/freepik">Freepik</a> from <a href="https://www.flaticon.com/premium-icon/test_2995522?term=testing&page=1&position=5&page=1&position=5&related_id=2995522&origin=search#">www.flaticon.com</a></center>
  * 
  * @file        graph_test.c <i>More info in <b><a href="page2.html">'Testing software'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Graph-library test software main code file</b>
@@ -124,7 +126,7 @@
  * 
  * @section     section5 Makefile description:
  *              Makefile has the main purpose of automating software compiling/linking operations.<br/>
- * @subsection  subsection6 Makefile details:
+ * @subsection  subsection7 Makefile details:
  *              In this project, makefile purposes has been extended in order to take care of further actions to simplify testing operations and documentation management.
  *              So the makefile can handle different tasks like: compiling/launching the software, to make/view doxygen documentation and displaying LaTeX abstract pdf.
  *              As can be seen inside makefile (<i>accessible in <b><a href="makefile_source.html">'makefile'</a></b> section of doxygen <b>'File list'</b></i>), the file has
@@ -144,7 +146,7 @@
  *                * <b>(2.5) Clear:</b> command to clear all the software's generated files.
  *                * <b>(2.6) Export/view/clear doxygen html documentation:</b> command to view documentation in browser, command to re-generate documentation, shortcut-command to re-generate and view documentation in browser, command to clear documentation, and shortcut-command to clear and re-generate documentation.<br/>
  *                * <b>(2.7) Open abstract pdf file (made with LaTeX):</b> command to open <b>'relazione-finale-CRISTIAN-MERLI.pdf'</b> file using the predefined pdf-viewer software.
- * @subsection  subsection7 Available makefile commands:
+ * @subsection  subsection8 Available makefile commands:
  *              <i><b>Note:</b> in order to correctly execute makefile's commands, the user must be inside <b>'Project/sw/'</b> folder (same folder of the makefile).</i><br/>
  *              <i><b>Note:</b> makefile commands-syntax</i> <b>make [command]</b><i>, available commands listed below.</i>
  *              * <b> Software compiling commands:</b>
@@ -167,7 +169,9 @@
  *                * <b>make docs_clr:</b> command to clear generated doxygen html (and rtf) documentation.
  *                * <b>make docs_clr_gen:</b> shortcut-command to clear and re-generate doxygen html (and rtf) documentation.
  *              * <b> LaTeX abstract (pdf) command:</b>
- *                * <b>make abstract:</b> command to open and view LaTeX exported pdf file through the predefined pdf-viewer software.
+ *                * <b>make abstract:</b> command to open and view LaTeX exported pdf file through the predefined pdf-viewer software.<br/><br/><br/>
+ *              @image html m.png
+ *              <br/><center>Icon made by <a href="https://www.flaticon.com/authors/freepik">Freepik</a> from <a href="https://www.flaticon.com/free-icon/m_3600932?term=m&page=1&position=1&page=1&position=1&related_id=3600932&origin=search#">www.flaticon.com</a></center>
  * 
  * @file        makefile <i>More info in <b><a href="page3.html">'Makefile'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Makefile to compile/run software, make/view doxygen documentation and view LaTeX abstract pdf</b>
@@ -182,7 +186,7 @@
  * 
  * @section     section6 Gnuplot description:
  *              In this software, gnuplot is called to manage graphical representations.
- * @subsection  subsection8 Gnuplot details:
+ * @subsection  subsection9 Gnuplot details:
  *              Gnuplot is called via two different plotting scripts, to recreate graphical representations of graph's data and Dijkstra's algorithm function output;
  *              highlighting the shortest path between specified source and destination nodes. These two gnuplot scripts are launched by main testing code,
  *              through #display_test_graph() function. The first plotting script, loads static data inserted by developer in three (.dat) files; while the second one, loads dynamically
@@ -194,14 +198,16 @@
  *                * <b>Graph-structure and detected shortest path plotting command:</b> shortest_plot.cmd file, system command defined using #GPLOT_SHORTEST_PATH_CMD macro.<br/><br/>
  *              * <b>Gnuplot data-files:</b>
  *                * <b>Static data-files:</b>
- *                  * <b>Archs data file:</b> archs.dat, defined using #ARCHS_DAT_FILE macro. This file contains the arches to be drawn in purple during graph-structure plotting and gray during shortest path plotting.<br/>
- *                  * <b>Arch-costs data file:</b> costs.dat, defined using #COSTS_DAT_FILE macro. This file contains the arch-costs to be drawn in blue during graph-structure plotting and gray during shortest path plotting.<br/>
- *                  * <b>Nodes data file:</b> nodes.dat, defined using #NODES_DAT_FILE macro. This file contains the nodes to be drawn in black/white during graph-structure plotting and gray/white during shortest path plotting.<br/>
+ *                  * <b>Archs data file:</b> archs.dat, defined using #ARCHS_DAT_FILE macro. This file contains the arches to be drawn in purple during graph-structure plotting and gray during shortest path plotting.
+ *                  * <b>Arch-costs data file:</b> costs.dat, defined using #COSTS_DAT_FILE macro. This file contains the arch-costs to be drawn in blue during graph-structure plotting and gray during shortest path plotting.
+ *                  * <b>Nodes data file:</b> nodes.dat, defined using #NODES_DAT_FILE macro. This file contains the nodes to be drawn in black/white during graph-structure plotting and gray/white during shortest path plotting.
  *                * <b>Dynamic data-files:</b>
- *                  * <b>Shortest path archs data file:</b> shortest_archs.dat, defined using #SHORTEST_ARCHS_DAT_FILE macro. This file contains the arches to be drawn in green during shortest path plotting.<br/>
- *                  * <b>Shortest path arch-costs data file:</b> shortest_costs.dat, defined using #SHORTEST_COSTS_DAT_FILE macro. This file contains the arch-costs to be drawn in blue during shortest path plotting.<br/>
- *                  * <b>Shortest path nodes data file (source-destination nodes excluded):</b> shortest_nodes.dat, defined using #SHORTEST_NODES_DAT_FILE macro. This file contains the nodes to be drawn in green during shortest path plotting.<br/>
- *                  * <b>Shortest path source and destination nodes data file:</b> src_dest_nodes.dat, defined using #SRC_DEST_NODES_DAT_FILE macro. This file contains the nodes to be drawn in violet during shortest path plotting.<br/>
+ *                  * <b>Shortest path archs data file:</b> shortest_archs.dat, defined using #SHORTEST_ARCHS_DAT_FILE macro. This file contains the arches to be drawn in green during shortest path plotting.
+ *                  * <b>Shortest path arch-costs data file:</b> shortest_costs.dat, defined using #SHORTEST_COSTS_DAT_FILE macro. This file contains the arch-costs to be drawn in blue during shortest path plotting.
+ *                  * <b>Shortest path nodes data file (source-destination nodes excluded):</b> shortest_nodes.dat, defined using #SHORTEST_NODES_DAT_FILE macro. This file contains the nodes to be drawn in green during shortest path plotting.
+ *                  * <b>Shortest path source and destination nodes data file:</b> src_dest_nodes.dat, defined using #SRC_DEST_NODES_DAT_FILE macro. This file contains the nodes to be drawn in violet during shortest path plotting.<br/><br/><br/>
+ *              @image html plot.png
+ *              <br/><center>Icon made by <a href="https://www.flaticon.com/authors/freepik">Freepic</a> from <a href="https://www.flaticon.com/free-icon/pencil_603519?term=drawing&page=1&position=13&page=1&position=13&related_id=603519&origin=search#">www.flaticon.com</a></center>
  * 
  * @file        archs.dat <i>More info in <b><a href="page4.html">'Gnuplot'</a></b> section inside doxygen <b>'Related pages'</b>.</i>
  * @brief       <b>Static file containing data to plot archs inside graph using gnuplot</b>
@@ -386,6 +392,7 @@ static void create_connections(){                                               
  * @param[in,out] choice  Option chosen by the user (enum).
  * 
  * @return                None.
+ * 
  */
 static void test_option_choice(Test_choice *const choice){                                                  // Routine to choose testing option
   /* Body */

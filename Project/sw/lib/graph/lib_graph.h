@@ -15,7 +15,7 @@
  * 
  * @section     section7 Library description:
  *              This library has the main purpose of managing low-level graph's data and to apply Dijkstra's algorithm (files lib_graph.h and lib_graph.c).
- * @subsection  subsection9 Library details:
+ * @subsection  subsection10 Library details:
  *              Library to manage graphs, giving the possibility to allocate new arches/nodes inside heap, to connect arches and nodes, to look for arch/node index in collection, to apply Dijkstra's algorithm, to reconstruct min-cost path and to free the allocated memory.<br/>
  *              * <b>Main library data-types:</b>
  *                * #arch                   &nbsp;--> <i>Arch structure definition (arch name, pointer to node1, arch-cost value and pointer to node2).</i>
@@ -38,6 +38,12 @@
  *                * #dijkstra_alg()         &nbsp;--> <i>Dijkstra's algorithm function to find min-cost paths between source and each destination node (Dijkstra-dataset vector allocated/reallocated inside heap) - Y/N for verbose mode.</i>
  *                * #buid_shortest_path()   &nbsp;--> <i>Function to reconstruct shortest-path towards specified destination node, from source node (pre-defined in Dijkstra's algorithm, min-cost path connections vector allocated/reallocated inside heap) - Y/N for verbose mode.</i>
  *                * #free_graph()           &nbsp;--> <i>Function to free graph's allocated memory inside heap.</i>
+ * @subsection  subsection11 How does Dijkstra's algorithm works?
+ *              To better understand the algorithm logic, and how it proceeds in graph-scanning looking for shortest paths, here two animations have been reported:<br/><br/>
+ *              @image html dijkstra_animation.gif "Dijkstra's algorithm logic animation"
+ *              <center>animation from <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#/media/File:Dijkstra_Animation.gif">www.wikipedia.org</a></center><br/>
+ *              @image html dijkstra_demo.gif "Dijkstra's algorithm progress animation"
+ *              <center>animation from <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm#/media/File:DijkstraDemo.gif">www.wikipedia.org</a></center>
  * 
  * @file        lib_graph.h <i>Library header file of lib_graph.c.</i>
  * @brief       <b>Graph-library header file</b>

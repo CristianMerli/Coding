@@ -15,7 +15,7 @@
  * 
  * @section     section8 Library description:
  *              This library has the main purpose of managing user-interface terminal inputs/outputs (files lib_ui.h and lib_ui.c).
- * @subsection  subsection10 Library details:
+ * @subsection  subsection12 Library details:
  *              Library to securely manage terminal I/O operations, define terminal colors, define aliases for standard data-types and include most used libraries.<br/>
  *              * <b>Main library data-types:</b>
  *                * #Byte                       &nbsp;--> <i><b>unsigned char</b> alias (<b>Byte</b>).</i>
@@ -54,7 +54,9 @@
  *                * #GN                         &nbsp;--> <i>Green color.</i>
  *                * #LGN                        &nbsp;--> <i>Light-green color.</i>
  *                * #LGY                        &nbsp;--> <i>Light-gray color.</i>
- *                * #ER                         &nbsp;--> <i>End color.</i>
+ *                * #ER                         &nbsp;--> <i>End color.</i><br/><br/><br/>
+ *              @image html terminal.png
+ *              <br/><center>Icon made by <a href="https://flat-icons.com/">Flat Icons</a> from <a href="https://www.flaticon.com/free-icon/terminal_2621135?term=terminal&page=1&position=11&page=1&position=11&related_id=2621135&origin=search#">www.flaticon.com</a></center>
  * 
  * @file        lib_ui.h <i>Library header file of lib_ui.c.</i>
  * @brief       <b>User-interface-library header file</b>

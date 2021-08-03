@@ -10,7 +10,7 @@
 /* Libraries */
 #include "lib_ui.h"                                                                                         // Import UI (terminal I/O) library header file
 #include <limits.h>                                                                                         // Include limits library (to check int/long terminal input values in limits)
-#include <errno.h>                                                                                          // -
+#include <errno.h>                                                                                          // Include errors management library (to check val in LONG/INT vals range)
 
 
 /* Public vars */

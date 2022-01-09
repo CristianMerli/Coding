@@ -5,5 +5,5 @@
 ### Git ssh path: `git@github.com:CristianMerli/Coding.git`
 ---
 ## Coding lessons
-* C coding lessons at UniTn
+* C/C++ coding lessons at UniTn
 ---

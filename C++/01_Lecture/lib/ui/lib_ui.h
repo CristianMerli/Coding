@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 03/02/2022
- * Last mod. date: 03/02/2022 
+ * Last mod. date: 09/02/2022 
  */
 
 
@@ -11,7 +11,6 @@
 #include <iostream>                                                                                         // Include I/O lib
 #include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
-#include <string.h>                                                                                         // String library inclusion (for strlen ecc.)
 
 
 /* Constants */
@@ -29,19 +28,18 @@
 
 
 /* Data-types */
-typedef const int         C_int;                                                                            // Const int alias (C_int)
-typedef unsigned short    U_shrt;                                                                           // Unsigned short alias (U_shrt)
-typedef const U_shrt      Cu_shrt;                                                                          // Const unsigned short alias (CU_shrt)
-typedef const char        C_char;                                                                           // Const char alias (C_char)
-typedef char*             Str;                                                                              // Char* alias (Str)
-typedef const Str         Cstr;                                                                             // Const char* alias (Cstr)
-typedef Cstr const        C_str;                                                                            // Const char* const alias (C_str)
-typedef const std::string CStr;                                                                             // Const std::string alias (CStr)
+typedef const int       C_int;                                                                            // Const int alias (C_int)
+typedef unsigned short  U_shrt;                                                                           // Unsigned short alias (U_shrt)
+typedef const U_shrt    Cu_shrt;                                                                          // Const unsigned short alias (CU_shrt)
+typedef const char      C_char;                                                                           // Const char alias (C_char)
+typedef std::string     Str;                                                                              // Std::string alis (Str)
+typedef const Str       C_Str;                                                                            // Const std::string alias (C_Str)
 
 
 /* Library functions */
 void fbk_nl(C_int num);                                                                                     // Funct to print new-lines fbk
-void logo(Cu_shrt start_sp, C_str txt, C_str txt_col, C_char bkg_chr, C_str bkg_col);                       // Funct to print responsive-logo
-void fbk_gn_cy(CStr fbk_str);                                                                               // Funct to print green-cyan feedback
+void logo(Cu_shrt start_sp, C_Str txt, C_Str txt_col, C_char bkg_chr, C_Str bkg_col);                       // Funct to print responsive-logo
+void fbk_gn_cy(C_Str fbk_str);                                                                              // Funct to print green-cyan feedback
+int user_input(C_Str req_str, C_Str ok_str, C_Str err_str);                                                 // Funct to get user input
 void close_err();                                                                                           // Funct to close software with error fbk
 void close_bye();                                                                                           // Funct to close software with bye fbk

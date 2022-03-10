@@ -54,10 +54,15 @@ MAIN_EXE			=		$(MAIN_NM)$(EXE_EXT)
 #   (2) COMMANDS AND FLAGS:    #
 ################################
 
-# (2.1) Compile & run commands vars
-COMPILE_LIB   =   g++ -std=c++11 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o
-COMPILE_MAIN  =   g++ -std=c++11 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
-LINK          =   g++ -std=c++11 -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o
+# (2.1) Compiler info
+COMP_NAME			=		g++
+COMP_LANG			=		c++
+COMP_VERS			= 	11
+
+# (2.2) Compile & run commands vars
+COMPILE_LIB   =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o
+COMPILE_MAIN  =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
+LINK          =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o
 RUN           =   ./
 
 

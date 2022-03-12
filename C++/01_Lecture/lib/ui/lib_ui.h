@@ -80,21 +80,21 @@ template <typename T> void print_val(C_string str, const T val){                
 }
 
 
-template <typename T> T get_val(C_string req_str, const Data typ){                                          // Funct to get user input value from terminal
-  std::any usr_in=0;
-  while (true){                                                                                             // Cycle 'till acq-value is ok
-    term_print(req_str, REQ);                                                                               // Print req
-    if(std::cin >> usr_in){                                                                                 // Chk in val
-      print_val("Value correctly acquired, inserted value", usr_in);                                        // Print inserted val
-      break;                                                                                                // Xit acq-cycle
-    } else {                                                                                                // If in-val ain't ok
-      term_print("Invalid value! Please, retry...", ERR);                                                   // Print err
-      std::cin.clear();                                                                                     // Clr in-buff
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');                                   // Ignore other chars and repeat req
-    }
-  }
-  return usr_in;                                                                                            // Ret usr-in val
-}
+// template <typename T> T get_val(C_string req_str, const Data typ){            ---                              // Funct to get user input value from terminal
+//   std::any usr_in=0;
+//   while (true){                                                                                             // Cycle 'till acq-value is ok
+//     term_print(req_str, REQ);                                                                               // Print req
+//     if(std::cin >> usr_in){                                                                                 // Chk in val
+//       print_val("Value correctly acquired, inserted value", usr_in);                                        // Print inserted val
+//       break;                                                                                                // Xit acq-cycle
+//     } else {                                                                                                // If in-val ain't ok
+//       term_print("Invalid value! Please, retry...", ERR);                                                   // Print err
+//       std::cin.clear();                                                                                     // Clr in-buff
+//       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');                                   // Ignore other chars and repeat req
+//     }
+//   }
+//   return usr_in;                                                                                            // Ret usr-in val
+// }
 
 
 #endif                                                                                                      // Avoid multiple inclusions (old-alternative end)

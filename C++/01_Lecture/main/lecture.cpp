@@ -19,8 +19,8 @@ using namespace std;                                                            
 int main(){
   title(10, "Lecture-01", YE, '#', GN);                                                                     // Print responsive-title
   /* Code-start */
-  int age=get_val("Insert your age", REAL);                                                                 // Test req
-  print_val("Your age is", age);                                                                            // Test answ chk
+  // int age=get_val("Insert your age", REAL); ---                                                                // Test req
+  print_val("Your age is", 50);                                                                             // Test answ chk
   /* Code-end */
   close_bye();                                                                                              // Close SW with bye fbk
 }

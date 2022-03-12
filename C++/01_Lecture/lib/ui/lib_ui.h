@@ -7,8 +7,15 @@
  */
 
 
+/* Include guards */
+#pragma once                                                                                                // Avoid multiple inclusions
+#ifndef _UI_H_                                                                                              // Avoid multiple inclusions (old-alternative start)
+#define _UI_H_                                                                                              // Avoid multiple inclusions (old-alternative)
+
+
 /* Libraries */
-#include <iostream>                                                                                         // Include I/O lib (for cin, cout ecc.)
+#include <iostream>                                                                                         // Include I/O library inclusion (for cin, cout ecc.)
+#include <type_traits>                                                                                      // Type-traits library inclusion (for template ecc.)
 #include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
 #include <limits>                                                                                           // Limits library inclusion (for numeric_limits ecc.)
@@ -26,6 +33,7 @@
 #define LGN "\033[1;32m"                                                                                    // Light-green color
 #define LGY "\033[0;37m"                                                                                    // Light-gray color
 #define ER  "\033[0m"                                                                                       // End color
+#define SP  ' '                                                                                             // Space
 
 
 /* Data-types */
@@ -51,6 +59,7 @@ typedef const std::string   C_string;                                           
 
 /* Enums */
 enum Fbk {FBK,REQ,ERR};                                                                                     // Fbk-typ enum
+enum Data {REAL,INTEGER,STRING};                                                                            // Fbk-typ enum
 
 
 /* Public vars */
@@ -59,9 +68,33 @@ extern int unused;                                                              
 
 /* Library functions */
 void fbk_nl(C_integer num);                                                                                 // Funct to print new-lines fbk
-void term_print(C_string fbk_str, Fbk typ=FBK);                                                             // Funct to print on terminal (default=FBK)
+void term_print(C_string fbk_str, const Fbk typ=FBK);                                                       // Funct to print on terminal (default=FBK)
 void title(CU_short start_sp, C_string txt, C_string txt_col, C_byte bkg_chr, C_string bkg_col);            // Funct to print responsive-title
-void int_term_print(C_string str, C_integer val);                                                           // Funct to print integer value
-Integer int_usr_in(C_string req_str);                                                                       // Funct to get integer user input value
 void close_err();                                                                                           // Funct to close software with error fbk
 void close_bye();                                                                                           // Funct to close software with bye fbk
+
+
+/* Templates */
+template <typename T> void print_val(C_string str, const T val){                                            // Funct to print user output value on terminal
+  std::cout << GN << ">>> " << PU << str << ": " << LBU << val << std::endl << ER;                          // Print on terminal
+}
+
+
+template <typename T> T get_val(C_string req_str, const Data typ){                                          // Funct to get user input value from terminal
+  std::any usr_in=0;
+  while (true){                                                                                             // Cycle 'till acq-value is ok
+    term_print(req_str, REQ);                                                                               // Print req
+    if(std::cin >> usr_in){                                                                                 // Chk in val
+      print_val("Value correctly acquired, inserted value", usr_in);                                        // Print inserted val
+      break;                                                                                                // Xit acq-cycle
+    } else {                                                                                                // If in-val ain't ok
+      term_print("Invalid value! Please, retry...", ERR);                                                   // Print err
+      std::cin.clear();                                                                                     // Clr in-buff
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');                                   // Ignore other chars and repeat req
+    }
+  }
+  return usr_in;                                                                                            // Ret usr-in val
+}
+
+
+#endif                                                                                                      // Avoid multiple inclusions (old-alternative end)

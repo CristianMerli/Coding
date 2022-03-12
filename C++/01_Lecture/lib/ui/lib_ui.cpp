@@ -17,12 +17,11 @@ int unused __attribute__((unused));                                             
 
 /* Public functions */
 void fbk_nl(C_integer num){                                                                                 // Funct to print new-lines fbk
-  for (int i=0; i<num; ++i)                                                                                 // Printin' cycle
-    std::cout << std::endl;                                                                                 // Print new lines fbk
+  for (int i=0; i<num; ++i) std::cout << std::endl;                                                         // New-lines printin' cycle
 }
 
 
-void term_print(C_string fbk_str, Fbk typ){                                                                 // Funct to print on terminal (default=FBK)
+void term_print(C_string fbk_str, const Fbk typ){                                                           // Funct to print on terminal (default=FBK)
   std::cout << (typ==ERR ? YE : (typ==REQ ? OG : GN)) << ">>> " << (typ==ERR ? RD : (typ==REQ ? CY : PU));  // Print on terminal
   std::cout  << fbk_str << (typ==REQ ? " and then press \033[0;34m'ENTER'\033[0;36m: " : "\n") << ER;       // Print on terminal
 }
@@ -39,57 +38,24 @@ void title(CU_short start_sp, C_string txt, C_string txt_col, C_byte bkg_chr, C_
   // Title printin'
   std::cout << std::endl << bkg_col;                                                                        // New line fbk
   for (U_short i=0; i<(4*vthck+1); ++i){                                                                    // Title lines printin' cycle
-    for (U_short j=0; j<start_sp; ++j)                                                                      // Initial spaces printin' cycle
-      std::cout << ' ';                                                                                     // Print initial spaces
+    for (U_short j=0; j<start_sp; ++j) std::cout << SP;                                                     // Initial spaces printin' cycle
     if ((i<vthck || i>(3*vthck)) && i!=(4*vthck)/2){                                                        // Full bkg title lines print cond
-      for (U_short h=0; h<len; ++h)                                                                         // Full bkg title lines printin' cycle
-        std::cout << bkg_chr;                                                                               // Bkg title char print
-      fbk_nl(1);                                                                                            // New line
+      for (U_short h=0; h<len; ++h) std::cout << bkg_chr;                                                   // Full bkg title lines printin' cycle and bkg title char print
     } else if ((i>=vthck && i<=(3*vthck)) && i!=(4*vthck)/2){                                               // Partial-empty bkg title lines print cond
-      for (U_short l=0; l < lthck; ++l)                                                                     // Partial-empty bkg title lines, initial full part printin' cycle
-        std::cout << bkg_chr;                                                                               // Partial-empty bkg title lines, initial full part print
-      for (U_short m=0; m<(len-2*lthck); ++m)                                                               // Partial-empty bkg title lines, central empty part printin' cycle
-        std::cout << ' ';                                                                                   // Partial-empty bkg title lines, central empty part print
-      for (U_short n=0; n<lthck; ++n)                                                                       // Partial-empty bkg title lines, final full part printin' cycle
-        std::cout << bkg_chr;                                                                               // Partial-empty bkg title lines, final full part print
-      fbk_nl(1);                                                                                            // NeNew line
+      for (U_short l=0; l < lthck; ++l) std::cout << bkg_chr;                                               // Partial-empty bkg title lines, initial full part printin' cycle
+      for (U_short m=0; m<(len-2*lthck); ++m) std::cout << SP;                                              // Partial-empty bkg title lines, central empty part printin' cycle
+      for (U_short n=0; n<lthck; ++n) std::cout << bkg_chr;                                                 // Partial-empty bkg title lines, final full part printin' cycle
     } else if (i==(4*vthck)/2){                                                                             // Text title line initial full part print cond
-      for (U_short o=0; o<lthck; ++o)                                                                       // Text title line initial full part printin' cycle
-        std::cout << bkg_chr;                                                                               // Text title line initial full part print
-      for (U_short p=0; p<lsp; ++p)                                                                         // Text title line central empty part printin' cycle
-        std::cout << ' ';                                                                                   // Text title line central empty part print
+      for (U_short o=0; o<lthck; ++o) std::cout << bkg_chr;                                                 // Text title line initial full part printin' cycle
+      for (U_short p=0; p<lsp; ++p) std::cout << SP;                                                        // Text title line central empty part printin' cycle
       std::cout << txt_col << txt << bkg_col;                                                               // Text title line central text part print
-      for (U_short q=0; q<lsp; ++q)                                                                         // Text title line central empty part printin' cycle
-        std::cout << ' ';                                                                                   // Text title line central empty part print
-      for (U_short r=0; r<lthck; ++r)                                                                       // Text title line final full part printin' cycle
-        std::cout << bkg_chr;                                                                               // Text title line final full part print
-      fbk_nl(1);                                                                                            // New line
+      for (U_short q=0; q<lsp; ++q) std::cout << SP;                                                        // Text title line central empty part printin' cycle
+      for (U_short r=0; r<lthck; ++r) std::cout << bkg_chr;                                                 // Text title line final full part printin' cycle
     }
+    fbk_nl(1);                                                                                              // New line
   }
   std::cout << ER << std::endl;                                                                             // New line fbk and erase title bkg color
   term_print("\033[0;35mWelcome to the \033[1;33m'"+txt+"'\033[0;35m software! \033[1;33m;)\033[0;35m\n");  // Print welcome fbk
-}
-
-
-void int_term_print(C_string str, C_integer val){                                                           // Funct to print integer value
-  std::cout << GN << ">>> " << PU << str << ": " << LBU << val << std::endl << ER;                          // Print on terminal
-}
-
-
-Integer int_usr_in(C_string req_str){                                                                       // Funct to get integer user input value
-  Integer usr_in=0;                                                                                         // Usr-in integer val
-  while (true){                                                                                             // Cycle 'till acq-value is ok
-    term_print(req_str, REQ);                                                                               // Print req
-    if(std::cin >> usr_in){                                                                                 // Chk in val
-      int_term_print("Value correctly acquired, inserted value", usr_in);                                   // Print inserted val
-      break;                                                                                                // Xit acq-cycle
-    } else {                                                                                                // If in-val ain't ok
-      term_print("Invalid value! Please, retry...", ERR);                                                   // Print err
-      std::cin.clear();                                                                                     // Clr in-buff
-      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');                                   // Ignore other chars and repeat req
-    }
-  }
-  return usr_in;                                                                                            // Ret usr-in integer val
 }
 
 

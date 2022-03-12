@@ -9,3 +9,7 @@
 
 /* Libraries */
 #include "lib_lecture.h"                                                                                    // Import lecture library header file
+
+
+/* Public functions */
+//

@@ -7,5 +7,18 @@
  */
 
 
+/* Include guards */
+#pragma once                                                                                                // Avoid multiple inclusions
+#ifndef _LECTURE_H_                                                                                         // Avoid multiple inclusions (old-alternative start)
+#define _LECTURE_H_                                                                                         // Avoid multiple inclusions (old-alternative)
+
+
 /* Libraries */
 #include "../ui/lib_ui.h"                                                                                   // Import UI (terminal I/O) library header file
+
+
+/* Public functions */
+//
+
+
+#endif                                                                                                      // Avoid multiple inclusions (old-alternative end)

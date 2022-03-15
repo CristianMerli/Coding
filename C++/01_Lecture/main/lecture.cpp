@@ -7,7 +7,7 @@
  */
 
 
-/* Libraries */
+/* Dependencies */
 #include "../lib/lecture/lib_lecture.h"                                                                     // Import lecture library header file
 
 
@@ -19,8 +19,9 @@ using namespace std;                                                            
 int main(){
   title(10, "Lecture-01", YE, '#', GN);                                                                     // Print responsive-title
   /* Code-start */
-  // int age=get_val("Insert your age", REAL); ---                                                                // Test req
-  print_val("Your age is", 50);                                                                             // Test answ chk
+  // Integer age=0;                                                                                            // Test val
+  // get_val("Insert your age", INTEGER, &age);                                                                // Test req
+  // print_val("Your age is", age, "years old");                                                               // Test answ chk
   /* Code-end */
   close_bye();                                                                                              // Close SW with bye fbk
 }

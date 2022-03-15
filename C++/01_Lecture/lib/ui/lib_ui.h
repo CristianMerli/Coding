@@ -70,31 +70,32 @@ extern int unused;                                                              
 void fbk_nl(C_integer num);                                                                                 // Funct to print new-lines fbk
 void term_print(C_string fbk_str, const Fbk typ=FBK);                                                       // Funct to print on terminal (default=FBK)
 void title(CU_short start_sp, C_string txt, C_string txt_col, C_byte bkg_chr, C_string bkg_col);            // Funct to print responsive-title
+void get_val(C_string req_str, const Data typ, void *const val);                                            // Funct impl to get user input value from terminal
 void close_err();                                                                                           // Funct to close software with error fbk
 void close_bye();                                                                                           // Funct to close software with bye fbk
 
 
-/* Templates */
-template <typename T> void print_val(C_string str, const T val){                                            // Funct to print user output value on terminal
-  std::cout << GN << ">>> " << PU << str << ": " << LBU << val << std::endl << ER;                          // Print on terminal
+/* Public templates */
+template <typename T>                                                                                       // Template T
+void print_val(C_string str, const T val, C_string str2=""){                                                // Funct to print user output value on terminal
+  std::cout << GN << ">>> " << PU << str << ": " << LBU << val << SP << str2 << std::endl << ER;            // Print on terminal
 }
 
-
-// template <typename T> T get_val(C_string req_str, const Data typ){            ---                              // Funct to get user input value from terminal
-//   std::any usr_in=0;
-//   while (true){                                                                                             // Cycle 'till acq-value is ok
-//     term_print(req_str, REQ);                                                                               // Print req
-//     if(std::cin >> usr_in){                                                                                 // Chk in val
-//       print_val("Value correctly acquired, inserted value", usr_in);                                        // Print inserted val
-//       break;                                                                                                // Xit acq-cycle
-//     } else {                                                                                                // If in-val ain't ok
-//       term_print("Invalid value! Please, retry...", ERR);                                                   // Print err
-//       std::cin.clear();                                                                                     // Clr in-buff
-//       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');                                   // Ignore other chars and repeat req
-//     }
-//   }
-//   return usr_in;                                                                                            // Ret usr-in val
-// }
+template <typename T>                                                                                       // Template T
+void get_val_impl(C_string req_str, void *const val){                                                       // Funct impl to get user input value from terminal
+  T *usr_in=(T *)val;                                                                                       // Define user input ptr (template data-type)
+  while (true){                                                                                             // Cycle 'till acq-value is ok
+    term_print(req_str, REQ);                                                                               // Print req
+    if(std::cin >> *usr_in){                                                                                // Chk in val
+      print_val("Value correctly acquired, inserted value", *usr_in);                                       // Print inserted val
+      break;                                                                                                // Xit acq-cycle
+    } else {                                                                                                // If in-val ain't ok
+      term_print("Invalid value! Please, retry...", ERR);                                                   // Print err
+      std::cin.clear();                                                                                     // Clr in-buff
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');                                   // Ignore other chars and repeat req
+    }
+  }
+}
 
 
 #endif                                                                                                      // Avoid multiple inclusions (old-alternative end)

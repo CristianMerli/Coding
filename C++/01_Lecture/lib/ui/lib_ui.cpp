@@ -7,7 +7,7 @@
  */
 
 
-/* Libraries */
+/* Dependencies */
 #include "lib_ui.h"                                                                                         // Import UI (terminal I/O) library header file
 
 
@@ -56,6 +56,16 @@ void title(CU_short start_sp, C_string txt, C_string txt_col, C_byte bkg_chr, C_
   }
   std::cout << ER << std::endl;                                                                             // New line fbk and erase title bkg color
   term_print("\033[0;35mWelcome to the \033[1;33m'"+txt+"'\033[0;35m software! \033[1;33m;)\033[0;35m\n");  // Print welcome fbk
+}
+
+
+void get_val(C_string req_str, const Data typ, void *const val){                                            // Funct impl to get user input value from terminal
+  switch (typ){                                                                                             // Data-type switch-case
+  case REAL: get_val_impl<Real>(req_str, val); break;                                                       // Real data-type template call
+  case INTEGER: get_val_impl<Integer>(req_str, val); break;                                                 // Integer data-type template call
+  case STRING: get_val_impl<String>(req_str, val); break;                                                   // String data-type template call
+  default: term_print("Error, unknown data-type enum value specified in get_val() funct call", ERR); break; // Unknown data-type err print
+  }
 }
 
 

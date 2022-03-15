@@ -7,12 +7,29 @@
  */
 
 
-/* Libraries */
+/* Dependencies */
 #include "lib_lecture.h"                                                                                    // Import lecture library header file
 
 
 /* Public functions */
-//
+Real solve_second_deg_eqn(){                                                                                // Funct to interactively solve 2nd degree equations
+  //
+}
+
+
+std::complex<Real> solve_second_deg_eqn_complex(){                                                          // Funct to interactively solve 2nd degree equations with complex solutions
+  // https://www.geeksforgeeks.org/complex-numbers-c-set-1/
+}
+
+
+void multilang_gm(){                                                                                        // Funct to interactively say 'good morning' in specified language
+  //
+}
+
+
+Integer num_guesser(){                                                                                      // Funct to interactively guess number (from 0 to 7)
+  //
+}
 
 
 /* REQUESTS:

@@ -22,6 +22,10 @@
 
 
 /* Public functions */
+Real conv_c_k();                                                                                            // Funct to interactively convert temperature from [°C] to [K]
+Real conv_c_f_f_c();                                                                                        // Funct to interactively convert from [°C] to [F] or from [F] to [°C]
+void chk_if_div();                                                                                          // Funct to interactively check if a number can be divided
+Real solve_first_deg_eqn();                                                                                 // Funct to interactively solve 1st degree equations
 Real solve_second_deg_eqn();                                                                                // Funct to interactively solve 2nd degree equations
 std::complex<Real> solve_second_deg_eqn_complex();                                                          // Funct to interactively solve 2nd degree equations with complex solutions
 void multilang_gm();                                                                                        // Funct to interactively say 'good morning' in specified language

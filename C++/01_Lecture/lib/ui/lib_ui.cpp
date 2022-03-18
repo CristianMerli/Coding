@@ -17,7 +17,7 @@ int unused __attribute__((unused));                                             
 
 /* Public functions */
 void fbk_nl(C_integer num){                                                                                 // Funct to print new-lines fbk
-  for (int i=0; i<num; ++i) std::cout << std::endl;                                                         // New-lines printin' cycle
+  for (Byte i=0; i<num; ++i) std::cout << std::endl;                                                        // New-lines printin' cycle
 }
 
 

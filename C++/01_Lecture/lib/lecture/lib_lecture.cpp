@@ -28,30 +28,31 @@ Real conv_c_k(){                                                                
 Real conv_c_f_f_c(){                                                                                        // Funct to interactively convert from [°C] to [F] or from [F] to [°C]
   Integer conv_mode=0;                                                                                      // Conv mode declaration
   Real in_temp=0.0, out_temp=0.0;                                                                           // In-temp and out-temp vals declaration
-  while (true){                                                                                             // Options acq cycle
+  while (conv_mode==0 || conv_mode==1){                                                                     // Options acq cycle
     get_val("Insert conversion mode ( 0=[°C]->[F] / 1=[F]->[°C] )", INTEGER, &conv_mode);                   // Conv mode def
     switch (conv_mode){                                                                                     // Options switch-case
     case 0:                                                                                                 // [°C]->[F] temp conv
       get_val("Inserisci la temperatura in [°C]", REAL, &in_temp);                                          // In-temp val def
       out_temp=in_temp*(9.0/5.0)+32.0;                                                                      // Out-temp val def
       print_val("The converted temperature is", out_temp, "F");                                             // Print temp in [F]
-      return out_temp;                                                                                      // Return temp in [F]
+      break;                                                                                                // End-case
     case 1:                                                                                                 // [F]->[°C] temp conv
       get_val("Inserisci la temperatura in [F]", REAL, &in_temp);                                           // In-temp val def
       out_temp=(in_temp-32.0)*(5.0/9.0);                                                                    // Out-temp val def
       print_val("The converted temperature is", out_temp, "°C");                                            // Print temp in [°C]
-      return out_temp;                                                                                      // Return temp in [°C]
+      break;                                                                                                // End-case
     default:                                                                                                // Unknown opt selected
-      term_print("Error, unknown conversion option selected in, please retry", ERR);                        // Print err fbk
+      term_print("Error, unknown conversion option selected, please retry", ERR);                           // Print err fbk
     }
   }
+  return -1;                                                                                                // Return err val
 }
 
 
 void chk_if_div(){                                                                                          // Funct to interactively check if a number can be divided
   Integer num=0, den=0;                                                                                     // Numerator and denominator vals declaration
   get_val("Insert numerator", INTEGER, &num);                                                               // Numerator val def
-  while (!den!=0){                                                                                          // Check denominator different from zero
+  while (den==0){                                                                                           // Check denominator different from zero
     get_val("Insert denominator", INTEGER, &den);                                                           // Denominator val def
     if (den==0) term_print("The denominator can't be zero", ERR);                                           // Check denominator val different from zero
   }
@@ -62,12 +63,13 @@ void chk_if_div(){                                                              
 
 Real solve_first_deg_eqn(){                                                                                 // Funct to interactively solve 1st degree equations
   // mx+q=0 --> x=-q/m, controllo m!=0. se m=0 e q=0 --> inf, se m=0 e q!=0 -> zero
-  Real m=0.0, q=0.0;                                                                                        // Eqn params declaration
+  Real m=0.0, q=0.0, res=0.0;                                                                               // Eqn params and result declaration
   get_val("Define angular coefficient", REAL, &m);                                                          // Param val def (m)
   get_val("Define y=0 value", REAL, &q);                                                                    // Param val def (q)
-  if (m!=0) return -q/m;                                                                                    // -
-  else if (m==0.0 && q==0.0) return INFINITY;                                                               // -
-  else if (m==0.0 && q!=0.0) return 0;                                                                      // -
+  if (fabs(m)>__DBL_EPSILON__) res=-q/m;                                                                    // -
+  else if (fabs(m)<__DBL_EPSILON__ && fabs(q)<__DBL_EPSILON__) res=INFINITY;                                // -
+  else res=NAN;                                                                                             // -
+  return res;                                                                                               // -
 }
 
 

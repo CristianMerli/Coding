@@ -15,6 +15,24 @@
 int unused __attribute__((unused));                                                                         // Unused var
 
 
+/* Private templates */
+template <typename T>                                                                                       // Template T
+void get_val_impl(C_string req_str, void *const val){                                                       // Funct impl to get user input value from terminal
+  T *usr_in=(T *)val;                                                                                       // Define user input ptr (template data-type)
+  while (true){                                                                                             // Cycle 'till acq-value is ok
+    term_print(req_str, REQ);                                                                               // Print req
+    if(std::cin >> *usr_in){                                                                                // Chk in val
+      print_val("Value correctly acquired, inserted value", *usr_in);                                       // Print inserted val
+      break;                                                                                                // Xit acq-cycle
+    } else {                                                                                                // If in-val ain't ok
+      term_print("Invalid value! Please, retry...", ERR);                                                   // Print err
+      std::cin.clear();                                                                                     // Clr in-buff
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');                                   // Ignore other chars and repeat req
+    }
+  }
+}
+
+
 /* Public functions */
 void fbk_nl(C_integer num){                                                                                 // Funct to print new-lines fbk
   for (Byte i=0; i<num; ++i) std::cout << std::endl;                                                        // New-lines printin' cycle
@@ -64,7 +82,7 @@ void get_val(C_string req_str, const Data typ, void *const val){                
   case REAL: get_val_impl<Real>(req_str, val); break;                                                       // Real data-type template call
   case INTEGER: get_val_impl<Integer>(req_str, val); break;                                                 // Integer data-type template call
   case STRING: get_val_impl<String>(req_str, val); break;                                                   // String data-type template call
-  default: term_print("Error, unknown data-type enum value specified in get_val() funct call", ERR); break; // Unknown data-type err print
+  default: term_print("Error, unknown data-type enum value specified in get_val() funct call", ERR);        // Unknown data-type err print
   }
 }
 

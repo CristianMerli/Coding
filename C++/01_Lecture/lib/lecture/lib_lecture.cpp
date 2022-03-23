@@ -15,36 +15,35 @@
 Real conv_c_k(){                                                                                            // Funct to interactively convert temperature from [°C] to [K]
   Real temp_c=0.0;                                                                                          // Temp [°C] val declaration
   C_real conv_const=273.15;                                                                                 // [°C] to [K] conv const
-  get_val("Insert temperature [°C]", REAL, &temp_c);                                                        // Temp [°C] def
+  get_val("Insert temperature value [°C]", REAL, &temp_c);                                                  // Temp [°C] def
   if (temp_c<-conv_const){                                                                                  // Chk temp val
-    term_print("Errore, valore della temperatura in [K] sotto lo zero assoluto!",ERR);                      // Err fbk
+    term_print("Error, temperature value in [K] cannot be lower than absolute zero!",ERR);                  // Err fbk
     return -1;                                                                                              // Return err val
   }
   return temp_c+conv_const;                                                                                 // Return converted temp [K]
 }
 
 
-// Add enum
-Real conv_c_f_f_c(){                                                                                        // Funct to interactively convert from [°C] to [F] or from [F] to [°C]
-  Integer conv_mode=0;                                                                                      // Conv mode declaration
+Integer conv_c_f_f_c(){                                                                                     // Funct to interactively convert from [°C] to [F] or from [F] to [°C]
+  char conv_mode;                                                                                           // Conv mode declaration
   Real in_temp=0.0, out_temp=0.0;                                                                           // In-temp and out-temp vals declaration
-  while (conv_mode==0 || conv_mode==1){                                                                     // Options acq cycle
-    get_val("Insert conversion mode ( 0=[°C]->[F] / 1=[F]->[°C] )", INTEGER, &conv_mode);                   // Conv mode def
+  do {                                                                                                      // Acq cycle
+    get_val("Insert conversion mode ( c=[°C]->[F] / f=[F]->[°C] )", CHAR, &conv_mode);                      // Conv mode def
     switch (conv_mode){                                                                                     // Options switch-case
-    case 0:                                                                                                 // [°C]->[F] temp conv
-      get_val("Inserisci la temperatura in [°C]", REAL, &in_temp);                                          // In-temp val def
+    case 'c':                                                                                               // [°C]->[F] temp conv
+      get_val("Insert temperature value in [°C]", REAL, &in_temp);                                          // In-temp val def
       out_temp=in_temp*(9.0/5.0)+32.0;                                                                      // Out-temp val def
-      print_val("The converted temperature is", out_temp, "F");                                             // Print temp in [F]
+      PRINT_VAL("The converted temperature is", out_temp, "F");                                             // Print temp in [F]
       break;                                                                                                // End-case
-    case 1:                                                                                                 // [F]->[°C] temp conv
-      get_val("Inserisci la temperatura in [F]", REAL, &in_temp);                                           // In-temp val def
+    case 'f':                                                                                               // [F]->[°C] temp conv
+      get_val("Insert temperature value in [F]", REAL, &in_temp);                                           // In-temp val def
       out_temp=(in_temp-32.0)*(5.0/9.0);                                                                    // Out-temp val def
-      print_val("The converted temperature is", out_temp, "°C");                                            // Print temp in [°C]
+      PRINT_VAL("The converted temperature is", out_temp, "°C");                                            // Print temp in [°C]
       break;                                                                                                // End-case
     default:                                                                                                // Unknown opt selected
       term_print("Error, unknown conversion option selected, please retry", ERR);                           // Print err fbk
     }
-  }
+  } while (conv_mode=='c' || conv_mode=='f');                                                               // Acq cycle xit cond
   return -1;                                                                                                // Return err val
 }
 
@@ -52,15 +51,38 @@ Real conv_c_f_f_c(){                                                            
 void chk_if_div(){                                                                                          // Funct to interactively check if a number can be divided
   Integer num=0, den=0;                                                                                     // Numerator and denominator vals declaration
   get_val("Insert numerator", INTEGER, &num);                                                               // Numerator val def
-  while (den==0){                                                                                           // Check denominator different from zero
-    get_val("Insert denominator", INTEGER, &den);                                                           // Denominator val def
-    if (den==0) term_print("The denominator can't be zero", ERR);                                           // Check denominator val different from zero
-  }
-  if (num%den==0) print_val("It can be divided, and the division result is", num/den);                      // Dividable
-  else term_print("Can't be divided", ERR);                                                                 // Not-dividable
+  ACQ_CYCLE("Insert denominator", INTEGER, den, den==0, "The denominator can't be zero");                   // Denominator val def
+  if (num%den==0) PRINT_VAL("It can be divided, and the division result is", num/den, "");                  // Dividable fbk
+  else term_print("Can't be divided", ERR);                                                                 // Not-dividable fbk
 }
 
 
+void print_vals(){                                                                                          // Funct to interactively print values function
+  Integer n=0, m=0;                                                                                         // Limiting vals declaration  
+  ACQ_CYCLE("Insert positive starting value", INTEGER, n, n<0, "Inserted value must be positive, retry");   // Starting val def
+  ACQ_CYCLE("Insert positive ending value", INTEGER, m, m<0, "Inserted value must be positive, retry");     // Ending val def
+  if (n<=m) while (n<=m) PRINT_VAL("Numero", n++, "");                                                      // Print and increment
+  else while (n>=m) PRINT_VAL("Numero", n--, "");                                                           // Print and decrement
+}
+
+
+// Check overflow with N=500
+void fibonacci(){                                                                                           // Funct to interactively print Fibonacci numbers
+  Integer n=0, fn=0;                                                                                        // N and Fn vals declaration
+  ACQ_CYCLE("Define N value", INTEGER, n, n<1, "N value must be greater than one, please retry");           // N val def
+  switch (n){                                                                                               // N vals cases
+  case (1 || 2): PRINT_VAL("Fn", n-1, ""); break;                                                           // N=0 or N=1 cases management
+  default:                                                                                                  // Std cases management
+    for(int i; i<n; ++i) if (i>=(n-2)) fn+=i;                                                               // -
+    PRINT_VAL("Fn", fn, "");                                                                                // -
+  }
+}
+
+
+// ES. verifico se un numero è primo, ed in caso non lo sia, stampo almeno uno dei suoi divisori
+
+
+// NO __DBL_EPSILON__
 Real solve_first_deg_eqn(){                                                                                 // Funct to interactively solve 1st degree equations
   // mx+q=0 --> x=-q/m, controllo m!=0. se m=0 e q=0 --> inf, se m=0 e q!=0 -> zero
   Real m=0.0, q=0.0, res=0.0;                                                                               // Eqn params and result declaration
@@ -81,7 +103,7 @@ Real solve_second_deg_eqn(){                                                    
 }
 
 
-std::complex<Real> solve_second_deg_eqn_complex(){                                                          // Funct to interactively solve 2nd degree equations with complex solutions
+Complex solve_second_deg_eqn_complex(){                                                                     // Funct to interactively solve 2nd degree equations with complex solutions
   // https://www.geeksforgeeks.org/complex-numbers-c-set-1/
   return 0;
 }

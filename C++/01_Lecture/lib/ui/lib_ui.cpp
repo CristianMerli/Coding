@@ -19,32 +19,21 @@ int unused __attribute__((unused));                                             
 template <typename T>                                                                                       // Template T
 void get_val_impl(C_string req_str, void *const val){                                                       // Funct impl to get user input value from terminal
   T *usr_in=(T *)val;                                                                                       // Define user input ptr (template data-type)
-  while (true){                                                                                             // Cycle 'till acq-value is ok
+  do {                                                                                                      // Acq cycle
     term_print(req_str, REQ);                                                                               // Print req
-    if(std::cin >> *usr_in){                                                                                // Chk in val
-      print_val("Value correctly acquired, inserted value", *usr_in);                                       // Print inserted val
-      break;                                                                                                // Xit acq-cycle
+    if (std::cin >> *usr_in){                                                                               // Chk in val
+      PRINT_VAL("Value correctly acquired, inserted value", *usr_in, "");                                   // Print inserted val
+      break;                                                                                                // Xit acq cycle
     } else {                                                                                                // If in-val ain't ok
       term_print("Invalid value! Please, retry...", ERR);                                                   // Print err
       std::cin.clear();                                                                                     // Clr in-buff
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');                                   // Ignore other chars and repeat req
     }
-  }
+  } while (true);                                                                                           // Acq cycle xit cond managed usin' break
 }
 
 
 /* Public functions */
-void fbk_nl(C_integer num){                                                                                 // Funct to print new-lines fbk
-  for (Byte i=0; i<num; ++i) std::cout << std::endl;                                                        // New-lines printin' cycle
-}
-
-
-void term_print(C_string fbk_str, const Fbk typ){                                                           // Funct to print on terminal (default=FBK)
-  std::cout << (typ==ERR ? YE : (typ==REQ ? OG : GN)) << ">>> " << (typ==ERR ? RD : (typ==REQ ? CY : PU));  // Print on terminal
-  std::cout  << fbk_str << (typ==REQ ? " and then press \033[0;34m'ENTER'\033[0;36m: " : "\n") << ER;       // Print on terminal
-}
-
-
 void title(CU_short start_sp, C_string txt, C_string txt_col, C_byte bkg_chr, C_string bkg_col){            // Funct to print responsive-title
   // Terminal defs
   struct winsize w;                                                                                         // Window-size struct declaration
@@ -70,10 +59,16 @@ void title(CU_short start_sp, C_string txt, C_string txt_col, C_byte bkg_chr, C_
       for (U_short q=0; q<lsp; ++q) std::cout << SP;                                                        // Text title line central empty part printin' cycle
       for (U_short r=0; r<lthck; ++r) std::cout << bkg_chr;                                                 // Text title line final full part printin' cycle
     }
-    fbk_nl(1);                                                                                              // New line
+    FBK_NL(1);                                                                                              // New line
   }
   std::cout << ER << std::endl;                                                                             // New line fbk and erase title bkg color
   term_print("\033[0;35mWelcome to the \033[1;33m'"+txt+"'\033[0;35m software! \033[1;33m;)\033[0;35m\n");  // Print welcome fbk
+}
+
+
+void term_print(C_string fbk_str, const Fbk typ){                                                           // Funct to print on terminal (default=FBK)
+  std::cout << (typ==ERR ? YE : (typ==REQ ? OG : GN)) << ">>> " << (typ==ERR ? RD : (typ==REQ ? CY : PU));  // Print on terminal
+  std::cout  << fbk_str << (typ==REQ ? " and then press \033[0;34m'ENTER'\033[0;36m: " : "\n") << ER;       // Print on terminal
 }
 
 
@@ -82,6 +77,7 @@ void get_val(C_string req_str, const Data typ, void *const val){                
   case REAL: get_val_impl<Real>(req_str, val); break;                                                       // Real data-type template call
   case INTEGER: get_val_impl<Integer>(req_str, val); break;                                                 // Integer data-type template call
   case STRING: get_val_impl<String>(req_str, val); break;                                                   // String data-type template call
+  case CHAR: get_val_impl<char>(req_str, val); break;                                                       // Char data-type template call
   default: term_print("Error, unknown data-type enum value specified in get_val() funct call", ERR);        // Unknown data-type err print
   }
 }

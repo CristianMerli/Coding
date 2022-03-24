@@ -2,8 +2,8 @@
  * Author: Cristian Merli
  * Code title: Lecture library
  * Code version: 3.0
- * Creation date: 03/02/2022
- * Last mod. date: 09/02/2022
+ * Creation date: 03/03/2022
+ * Last mod. date: 24/03/2022
  */
 
 
@@ -41,7 +41,7 @@ Integer conv_c_f_f_c(){                                                         
       PRINT_VAL("The converted temperature is", out_temp, "°C");                                            // Print temp in [°C]
       break;                                                                                                // End-case
     default:                                                                                                // Unknown opt selected
-      term_print("Error, unknown conversion option selected, please retry", ERR);                           // Print err fbk
+      term_print("Error, unknown conversion option selected!", ERR);                                        // Print err fbk
     }
   } while (conv_mode=='c' || conv_mode=='f');                                                               // Acq cycle xit cond
   return -1;                                                                                                // Return err val
@@ -52,92 +52,31 @@ void chk_if_div(){                                                              
   Integer num=0, den=0;                                                                                     // Numerator and denominator vals declaration
   get_val("Insert numerator", INTEGER, &num);                                                               // Numerator val def
   ACQ_CYCLE("Insert denominator", INTEGER, den, den==0, "The denominator can't be zero");                   // Denominator val def
-  if (num%den==0) PRINT_VAL("It can be divided, and the division result is", num/den, "");                  // Dividable fbk
-  else term_print("Can't be divided", ERR);                                                                 // Not-dividable fbk
+  if (num%den==0) PRINT_VAL("It can be divided, and the division result is", num/den);                      // Dividable fbk
+  else term_print("Can't be divided!", ERR);                                                                // Not-dividable fbk
 }
 
 
-void print_vals(){                                                                                          // Funct to interactively print values function
+void consecutive_num(){                                                                                     // Funct to interactively plot consecutive numbers
   Integer n=0, m=0;                                                                                         // Limiting vals declaration  
   ACQ_CYCLE("Insert positive starting value", INTEGER, n, n<0, "Inserted value must be positive, retry");   // Starting val def
   ACQ_CYCLE("Insert positive ending value", INTEGER, m, m<0, "Inserted value must be positive, retry");     // Ending val def
-  if (n<=m) while (n<=m) PRINT_VAL("Numero", n++, "");                                                      // Print and increment
-  else while (n>=m) PRINT_VAL("Numero", n--, "");                                                           // Print and decrement
+  if (n<=m) while (n<=m) PRINT_VAL("Numero", n++);                                                          // Print and increment
+  else while (n>=m) PRINT_VAL("Numero", n--);                                                               // Print and decrement
 }
 
 
-// Check overflow !!!!
 void fibonacci(){                                                                                           // Funct to interactively print Fibonacci numbers
   Integer n=0, fn2=0, fn1=1, fn=0;                                                                          // N, Fn-2, Fn-1 and Fn vals declaration
   ACQ_CYCLE("Define N value", INTEGER, n, n<0, "N value must be greater than zero, please retry");          // N val def
   switch (n){                                                                                               // N vals cases
-  case 0: PRINT_VAL("Fn", n, ""); break;                                                                    // N=0 case management
-  case 1: PRINT_VAL("Fn", n, ""); break;                                                                    // N=1 case management
+  case 0: PRINT_VAL("Fn", n); break;                                                                        // N=0 case management
+  case 1: PRINT_VAL("Fn", n); break;                                                                        // N=1 case management
   default:                                                                                                  // Std cases management (from N=1 on)
     for (Integer i=2; i<=n; ++i){                                                                           // Iteration cycle from 2 to N
-      fn=fn1+fn2;                                                                                           // Fn val upd
-      fn2=fn1;                                                                                              // Fn-2 val upd
-      fn1=fn;                                                                                               // Fn-1 val upd
-      if (fn>__INT16_MAX__) close_err("Number overflow detected in Fibonacci sequence evaluation");                    // Overflow detection
+      if (fn1>INTEGER_MAX-fn2) close_err("Error, overflow detected in Fibonacci sequence evaluation!");     // Overflow detection
+      fn=fn1+fn2; fn2=fn1; fn1=fn;                                                                          // Fn, Fn-1 and Fn-2 vals upd
     }
-    PRINT_VAL("Fn", fn, "");                                                                                // Print Fn value if overflow ain't been detected
+    PRINT_VAL("Fn", fn);                                                                                    // Print Fn value if overflow ain't been detected
   }
 }
-
-
-// ES. verifico se un numero è primo, ed in caso non lo sia, stampo almeno uno dei suoi divisori
-
-
-// NO __DBL_EPSILON__
-Real solve_first_deg_eqn(){                                                                                 // Funct to interactively solve 1st degree equations
-  // mx+q=0 --> x=-q/m, controllo m!=0. se m=0 e q=0 --> inf, se m=0 e q!=0 -> zero
-  Real m=0.0, q=0.0, res=0.0;                                                                               // Eqn params and result declaration
-  get_val("Define angular coefficient", REAL, &m);                                                          // Param val def (m)
-  get_val("Define y=0 value", REAL, &q);                                                                    // Param val def (q)
-  if (fabs(m)>__DBL_EPSILON__) res=-q/m;                                                                    // -
-  else if (fabs(m)<__DBL_EPSILON__ && fabs(q)<__DBL_EPSILON__) res=INFINITY;                                // -
-  else res=NAN;                                                                                             // -
-  return res;                                                                                               // -
-}
-
-
-Real solve_second_deg_eqn(){                                                                                // Funct to interactively solve 2nd degree equations
-  // Real coeff[3]={0,0,0};                                                                                    // Coeff declaration
-  // for (Byte i=0; i<3; ++i) get_val("Inserisci il coefficiente "+i, REAL, &coeff[i]);                        // Define coeff
-  // for (Byte i=0; i<3; ++i) print_val("Inserisci il coefficiente "+i, &coeff[i]);                            // Check coeff
-  return 0;
-}
-
-
-Complex solve_second_deg_eqn_complex(){                                                                     // Funct to interactively solve 2nd degree equations with complex solutions
-  // https://www.geeksforgeeks.org/complex-numbers-c-set-1/
-  return 0;
-}
-
-
-void multilang_gm(){                                                                                        // Funct to interactively say 'good morning' in specified language
-  //
-}
-
-
-Integer num_guesser(){                                                                                      // Funct to interactively guess number (from 0 to 7)
-  return 0;
-}
-
-
-/* REQUESTS:
-
-1) Scrivere un programma che risolva un'equazione di 2 grado
-nei reali
-
-2) Scrivere un programma che risolva un'equazione di 2 grado,
-dando anche le soluzioni complesse
-
-3) Scriver un programmino che chieda una carattere descrivente una lingua 
-(es: 'i'= italiano, 'e'=inglese, ecc.) e scriva "buon giorno" 
-nella lingua prescelta. Usare l'istruzione switch. 
-
-4) Scrivere un programma che "indovini" un numero tra 0 e 7
-facendo una serie di domande del tipo "s/n" all'utente. 
-
-*/

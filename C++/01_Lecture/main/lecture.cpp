@@ -16,7 +16,7 @@ using namespace std;                                                            
 
 
 /* Main cycle */
-int main(){
+Integer main(){
   title(10, "Lecture-01", YE, '#', GN);                                                                     // Print responsive-title
   /* Code-start */
   

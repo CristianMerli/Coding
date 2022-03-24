@@ -17,7 +17,7 @@ Real conv_c_k(){                                                                
   C_real conv_const=273.15;                                                                                 // [°C] to [K] conv const
   get_val("Insert temperature value [°C]", REAL, &temp_c);                                                  // Temp [°C] def
   if (temp_c<-conv_const){                                                                                  // Chk temp val
-    term_print("Error, temperature value in [K] cannot be lower than absolute zero!",ERR);                  // Err fbk
+    term_print("Error, temperature value in [K] cannot be lower than absolute zero!", ERR);                 // Err fbk
     return -1;                                                                                              // Return err val
   }
   return temp_c+conv_const;                                                                                 // Return converted temp [K]
@@ -25,10 +25,10 @@ Real conv_c_k(){                                                                
 
 
 Integer conv_c_f_f_c(){                                                                                     // Funct to interactively convert from [°C] to [F] or from [F] to [°C]
-  char conv_mode;                                                                                           // Conv mode declaration
+  Character conv_mode;                                                                                      // Conv mode declaration
   Real in_temp=0.0, out_temp=0.0;                                                                           // In-temp and out-temp vals declaration
   do {                                                                                                      // Acq cycle
-    get_val("Insert conversion mode ( c=[°C]->[F] / f=[F]->[°C] )", CHAR, &conv_mode);                      // Conv mode def
+    get_val("Insert conversion mode ( c=[°C]->[F] / f=[F]->[°C] )", CHARACTER, &conv_mode);                 // Conv mode def
     switch (conv_mode){                                                                                     // Options switch-case
     case 'c':                                                                                               // [°C]->[F] temp conv
       get_val("Insert temperature value in [°C]", REAL, &in_temp);                                          // In-temp val def
@@ -66,15 +66,21 @@ void print_vals(){                                                              
 }
 
 
-// Check overflow with N=500
+// Check overflow !!!!
 void fibonacci(){                                                                                           // Funct to interactively print Fibonacci numbers
-  Integer n=0, fn=0;                                                                                        // N and Fn vals declaration
-  ACQ_CYCLE("Define N value", INTEGER, n, n<1, "N value must be greater than one, please retry");           // N val def
+  Integer n=0, fn2=0, fn1=1, fn=0;                                                                          // N, Fn-2, Fn-1 and Fn vals declaration
+  ACQ_CYCLE("Define N value", INTEGER, n, n<0, "N value must be greater than zero, please retry");          // N val def
   switch (n){                                                                                               // N vals cases
-  case (1 || 2): PRINT_VAL("Fn", n-1, ""); break;                                                           // N=0 or N=1 cases management
-  default:                                                                                                  // Std cases management
-    for(int i; i<n; ++i) if (i>=(n-2)) fn+=i;                                                               // -
-    PRINT_VAL("Fn", fn, "");                                                                                // -
+  case 0: PRINT_VAL("Fn", n, ""); break;                                                                    // N=0 case management
+  case 1: PRINT_VAL("Fn", n, ""); break;                                                                    // N=1 case management
+  default:                                                                                                  // Std cases management (from N=1 on)
+    for (Integer i=2; i<=n; ++i){                                                                           // Iteration cycle from 2 to N
+      fn=fn1+fn2;                                                                                           // Fn val upd
+      fn2=fn1;                                                                                              // Fn-2 val upd
+      fn1=fn;                                                                                               // Fn-1 val upd
+      if (fn>__INT16_MAX__) close_err("Number overflow detected in Fibonacci sequence evaluation");                    // Overflow detection
+    }
+    PRINT_VAL("Fn", fn, "");                                                                                // Print Fn value if overflow ain't been detected
   }
 }
 

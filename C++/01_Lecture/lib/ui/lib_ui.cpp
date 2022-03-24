@@ -77,21 +77,23 @@ void get_val(C_string req_str, const Data typ, void *const val){                
   case REAL: get_val_impl<Real>(req_str, val); break;                                                       // Real data-type template call
   case INTEGER: get_val_impl<Integer>(req_str, val); break;                                                 // Integer data-type template call
   case STRING: get_val_impl<String>(req_str, val); break;                                                   // String data-type template call
-  case CHAR: get_val_impl<char>(req_str, val); break;                                                       // Char data-type template call
+  case CHARACTER: get_val_impl<Character>(req_str, val); break;                                             // Character data-type template call
   default: term_print("Error, unknown data-type enum value specified in get_val() funct call", ERR);        // Unknown data-type err print
   }
 }
 
 
-void close_err(){                                                                                           // Funct to close software with error fbk
-  std::cout << std::endl << OG << ">>> " << RD << "Closin' due to error...";                                // Closin' due to error fbk
-  std::cout << CY << " Sorry! " << OG << ":(" << ER << std::endl;                                           // Closin' due to error fbk
+void close_err(C_string err_str){                                                                           // Funct to close software with error fbk
+  if (err_str!="") {FBK_NL(1); term_print(err_str, ERR);}                                                   // Print err str
+  std::cout << std::endl << YE << ">>> " << RD << "Closin' due to error...";                                // Closin' due to error fbk
+  std::cout << CY << " Sorry! " << OG << ":(" << ER << std::endl << std::endl;                              // Closin' due to error fbk
   exit(EXIT_FAILURE);                                                                                       // Close software
 }
 
 
-void close_bye(){                                                                                           // Funct to close software with bye fbk
+void close_bye(C_string bye_str){                                                                           // Funct to close software with bye fbk
+  if (bye_str!="") {FBK_NL(1); term_print(bye_str);}                                                        // Print bye str
   std::cout << std::endl << GN << ">>> " << PU << "Closin'...";                                             // Closin' fbk
-  std::cout << CY << " Bye! " << RD << ";)" << ER << std::endl;                                             // Closin' fbk
+  std::cout << CY << " Bye! " << OG << ";)" << ER << std::endl;                                             // Closin' fbk
   exit(EXIT_SUCCESS);                                                                                       // Close software
 }

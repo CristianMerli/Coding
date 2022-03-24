@@ -69,13 +69,15 @@ typedef bool                      Boolean;                                      
 typedef const bool                C_boolean;                                                                // const Boolean alias
 typedef std::complex<Real>        Complex;                                                                  // Complex alias
 typedef const std::complex<Real>  C_complex;                                                                // const Complex alias
+typedef char                      Character;                                                                // Character alias
+typedef const char                C_character;                                                              // const Character alias
 typedef std::string               String;                                                                   // String alis
 typedef const std::string         C_string;                                                                 // const String alias
 
 
 /* Enums */
 enum Fbk {FBK,REQ,ERR};                                                                                     // Fbk-typ enum
-enum Data {REAL,INTEGER,STRING,CHAR};                                                                       // Fbk-typ enum
+enum Data {REAL,INTEGER,STRING,CHARACTER};                                                                  // Fbk-typ enum
 
 
 /* Public vars */
@@ -86,8 +88,8 @@ extern int unused;                                                              
 void title(CU_short start_sp, C_string txt, C_string txt_col, C_byte bkg_chr, C_string bkg_col);            // Funct to print responsive-title
 void term_print(C_string fbk_str, const Fbk typ=FBK);                                                       // Funct to print on terminal (default=FBK)
 void get_val(C_string req_str, const Data typ, void *const val);                                            // Funct impl to get user input value from terminal
-void close_err();                                                                                           // Funct to close software with error fbk
-void close_bye();                                                                                           // Funct to close software with bye fbk
+void close_err(C_string err_str="");                                                                        // Funct to close software with error fbk
+void close_bye(C_string bye_str="");                                                                        // Funct to close software with bye fbk
 
 
 #endif                                                                                                      // Avoid multiple inclusions (old-alternative end)

@@ -39,9 +39,9 @@
 
 /* Macros */
 #define PRINT_VAL_1_1(STR, VAL) \
-  std::cout << GN << ">>> " << PU << STR << ": " << LBU << VAL << std::endl << ER                           // Value printing macro (1 val, 1 str)
+std::cout << GN << ">>> " << PU << STR << ": " << LBU << VAL << std::endl << ER                             // Value printing macro (1 val, 1 str)
 #define PRINT_VAL_1_2(STR1, VAL, STR2) \
-  std::cout << GN << ">>> " << PU << STR1 << ": " << LBU << VAL << SP << STR2 << std::endl << ER            // Value printing macro (1 val, 2 str)
+std::cout << GN << ">>> " << PU << STR1 << ": " << LBU << VAL << SP << STR2 << std::endl << ER              // Value printing macro (1 val, 2 str)
 #define PRINT_VAL_COUNT_ARGS(arg1, arg2, arg3, arg4, ...) arg4                                              // Macro to count PRINT_VAL() arguments (number of args + 1)
 #define PRINT_VAL_MACRO_CALL(...) PRINT_VAL_COUNT_ARGS(__VA_ARGS__, PRINT_VAL_1_2, PRINT_VAL_1_1, )         // Macro to choose PRINT_VAL() by param num
 #define PRINT_VAL(...) PRINT_VAL_MACRO_CALL(__VA_ARGS__)(__VA_ARGS__)                                       // Macro to call PRINT_VAL()
@@ -51,6 +51,12 @@ do { \
   get_val(TXT, TYP, &VAR); \
   if (ERR_COND) term_print(ERR_TXT, ERR); else break; \
 } while (true)                                                                                              // Acquisition cycle macro
+
+#define REAL_EQ_Z(VAL) \
+fabs(VAL) < REAL_EPSILON										    // Chk if real val is equal to zero
+
+#define REAL_DF_Z(VAL) \
+fabs(VAL) > REAL_EPSILON										    // Chk if real val is different from zero
 
 #define FBK_NL(N) for (Byte i=0; i<N; ++i) std::cout << std::endl                                           // New lines printing macro
 

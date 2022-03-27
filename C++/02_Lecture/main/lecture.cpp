@@ -26,7 +26,8 @@ int main(int argc, char *const argv[]){
   // Integer n=0, div=0;                                                                                       // Number and divisor declaration
   // ACQ_CYCLE("Insert a value to check if it's prime", INTEGER, n, n<1, "Error, value must be positive!");    // Number def
   // div=is_prime(n);                                                                                          // Chk if num is prime
-  // if(div!=1) PRINT_VAL("The given number ain't prime and one of its divisors is", div);                     // If not prime, print div
+  // if (div!=1) PRINT_VAL("The given number ain't prime and one of its divisors is", div);           	       // If not prime, print div
+  // else PRINT_VAL("The given number is prime and the only divisor is", div);  			       // If prime, print div (=1)
 
   Real a=0.0, b=0.0, x=0.0;                                                                                 // Eqn vars declaration
   ACQ_CYCLE("Insert 'a' parameter in ax+b=0 equation", REAL, a, false, "");                                 // Eqn 'a' param def
@@ -41,7 +42,7 @@ int main(int argc, char *const argv[]){
   // PRINT_VAL("The equation solution is", sol);                                                               // Print equation solution
 
   // void multilang_gm();                                                                                      // Funct to say 'good morning' in specified language
-  
+
   // Integer num=num_guesser();                                                                                // Funct to guess number (from 0 to 7)
   // PRINT_VAL("The number is", num);                                                                          // Print equation solution
 

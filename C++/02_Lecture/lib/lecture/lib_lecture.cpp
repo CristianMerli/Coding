@@ -13,19 +13,18 @@
 
 /* Public functions */
 Integer is_prime(C_integer &num){                                                                           // Function to check whether a number is prime and if not returns one of its divisors
-  for (Integer i=num-1; i>1; --i) if(num%i==0) return i;                                                    // Chk for div and return it if found
-  term_print("The given number is prime");                                                                  // Else if the num is prime
-  return 1;                                                                                                 // Return the only div: 1
+  Integer div=1;											    // Div var declaration and init
+  for (Integer i=num-1; i>1; --i) if(num%i==0) div=i;                                                       // Chk for div and upd var if found
+  return div;                                                                                               // Return div
 }
 
 
 Real solve_first_deg_eqn(C_real &a, C_real &b){                                                             // Funct to solve 1st degree equations (ax+b=0)
-  // mx+q=0 --> x=-q/m, controllo m!=0. se m=0 e q=0 --> inf, se m=0 e q!=0 -> zero
-  Real x=0.0;                                                                                               // -
-  if (fabs(a)>REAL_EPSILON) x=-b/a;                                                                         // -
-  else if (fabs(a)<REAL_EPSILON && fabs(b)<REAL_EPSILON) x=INFINITY;                                        // -
-  else x=NAN;                                                                                               // -
-  return x;                                                                                                 // -
+  Real x=0.0;                                                                                               // Sol var declaration
+  if(REAL_DF_Z(a)) x=-b/a;                                                                                  // Case a!=0
+  else if (REAL_EQ_Z(a) && REAL_EQ_Z(b)) x=INFINITY;                                                        // Case a=0 and b=0
+  else x=NAN;                                                                                               // Case a=0 and b!=0
+  return x;                                                                                                 // Return sol
 }
 
 

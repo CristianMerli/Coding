@@ -3,7 +3,7 @@
  * Code title: Lecture library
  * Code version: 3.0
  * Creation date: 24/03/2022
- * Last mod. date: 24/03/2022
+ * Last mod. date: 27/03/2022
  */
 
 
@@ -12,24 +12,24 @@
 
 
 /* Public functions */
-
-
-// ES. verifico se un numero è primo, ed in caso non lo sia, stampo almeno uno dei suoi divisori
-
-
-Real solve_first_deg_eqn(){                                                                                 // Funct to interactively solve 1st degree equations
-  // mx+q=0 --> x=-q/m, controllo m!=0. se m=0 e q=0 --> inf, se m=0 e q!=0 -> zero
-  Real m=0.0, q=0.0, res=0.0;                                                                               // Eqn params and result declaration
-  get_val("Define angular coefficient", REAL, &m);                                                          // Param val def (m)
-  get_val("Define y=0 value", REAL, &q);                                                                    // Param val def (q)
-  if (fabs(m)>REAL_EPSILON) res=-q/m;                                                                       // -
-  else if (fabs(m)<REAL_EPSILON && fabs(q)<REAL_EPSILON) res=INFINITY;                                      // -
-  else res=NAN;                                                                                             // -
-  return res;                                                                                               // -
+Integer is_prime(C_integer &num){                                                                           // Function to check whether a number is prime and if not returns one of its divisors
+  for (Integer i=num-1; i>1; --i) if(num%i==0) return i;                                                    // Chk for div and return it if found
+  term_print("The given number is prime");                                                                  // Else if the num is prime
+  return 1;                                                                                                 // Return the only div: 1
 }
 
 
-Real solve_second_deg_eqn(){                                                                                // Funct to interactively solve 2nd degree equations
+Real solve_first_deg_eqn(C_real &a, C_real &b){                                                             // Funct to solve 1st degree equations (ax+b=0)
+  // mx+q=0 --> x=-q/m, controllo m!=0. se m=0 e q=0 --> inf, se m=0 e q!=0 -> zero
+  Real x=0.0;                                                                                               // -
+  if (fabs(a)>REAL_EPSILON) x=-b/a;                                                                         // -
+  else if (fabs(a)<REAL_EPSILON && fabs(b)<REAL_EPSILON) x=INFINITY;                                        // -
+  else x=NAN;                                                                                               // -
+  return x;                                                                                                 // -
+}
+
+
+Real solve_second_deg_eqn(){                                                                                // Funct to solve 2nd degree equations
   // Real coeff[3]={0,0,0};                                                                                    // Coeff declaration
   // for (Byte i=0; i<3; ++i) get_val("Inserisci il coefficiente "+i, REAL, &coeff[i]);                        // Define coeff
   // for (Byte i=0; i<3; ++i) print_val("Inserisci il coefficiente "+i, &coeff[i]);                            // Check coeff
@@ -37,18 +37,18 @@ Real solve_second_deg_eqn(){                                                    
 }
 
 
-Complex solve_second_deg_eqn_complex(){                                                                     // Funct to interactively solve 2nd degree equations with complex solutions
+Complex solve_second_deg_eqn_complex(){                                                                     // Funct to solve 2nd degree equations with complex solutions
   // https://www.geeksforgeeks.org/complex-numbers-c-set-1/
   return 0;
 }
 
 
-void multilang_gm(){                                                                                        // Funct to interactively say 'good morning' in specified language
+void multilang_gm(){                                                                                        // Funct to say 'good morning' in specified language
   //
 }
 
 
-Integer num_guesser(){                                                                                      // Funct to interactively guess number (from 0 to 7)
+Integer num_guesser(){                                                                                      // Funct to guess number (from 0 to 7)
   return 0;
 }
 

@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 24/03/2022
- * Last mod. date: 24/03/2022 
+ * Last mod. date: 31/03/2022 
  */
 
 
@@ -14,10 +14,11 @@
 
 
 /* Libraries */
-#include <iostream>                                                                                         // Include I/O library inclusion (for cin, cout ecc.)
+#include <iostream>                                                                                         // I/O library inclusion (for cin, cout ecc.)
 #include <type_traits>                                                                                      // Type-traits library inclusion (for template ecc.)
 #include <complex>                                                                                          // Complex-numbers library inclusion (for real, imag ecc.)
 #include <limits>                                                                                           // Limits library inclusion (for numeric_limits ecc.)
+#include <cctype>                                                                                           // C-ctype library inclusion (for tolower ecc.)
 #include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
 
@@ -52,13 +53,14 @@ do { \
   if (ERR_COND) term_print(ERR_TXT, ERR); else break; \
 } while (true)                                                                                              // Acquisition cycle macro
 
+#define FBK_NL(N) \
+for (Byte i=0; i<N; ++i) std::cout << std::endl                                                             // New lines printing macro
+
 #define REAL_EQ_Z(VAL) \
-fabs(VAL) < REAL_EPSILON										    // Chk if real val is equal to zero
+fabs(VAL) < REAL_EPSILON										                                                                // Chk if real val is equal to zero
 
 #define REAL_DF_Z(VAL) \
-fabs(VAL) > REAL_EPSILON										    // Chk if real val is different from zero
-
-#define FBK_NL(N) for (Byte i=0; i<N; ++i) std::cout << std::endl                                           // New lines printing macro
+fabs(VAL) > REAL_EPSILON										                                                                // Chk if real val is different from zero
 
 
 /* Data-type limits */

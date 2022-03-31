@@ -39,9 +39,9 @@ int main(int argc, char *const argv[]){
   // }
 
   // Real coeff[]={0.0, 0.0, 0.0}, x[]={0.0, 0.0};                                                             // Eqn vect declaration
-  // get_val("Insert 'a' parameter in ax^2+bx+c=0 equation", REAL, &coeff[0]);                                 // Eqn 'a' param def
-  // get_val("Insert 'b' parameter in ax^2+bx+c=0 equation", REAL, &coeff[1]);                                 // Eqn 'b' param def
-  // get_val("Insert 'c' parameter in ax^2+bx+c=0 equation", REAL, &coeff[2]);                                 // Eqn 'c' param def
+  // C_string coeff_names[]={"a","b","c"};                                                                     // Eqn coeff names vect declaration
+  // for (Short i=0; i<3; ++i)                                                                                 // Eqn param def cycle
+  //   get_val("Insert '"+coeff_names[i]+"' parameter in ax^2+bx+c=0 equation", REAL, &coeff[i]);              // Eqn param def
   // switch (solve_second_deg_eqn(coeff, x)){                                                                  // Solve 2nd degree equations (ax^2+bx+c=0)
   // case -1: PRINT_VAL("The equation has endless solutions, (x1-2) is", x[0]); break;                         // Case -1 code: endless solutions - print equation solution with fbk
   // case -2: PRINT_VAL("The equation has no real solutions, (x1-2) is", x[0]); break;                         // Case -2 code: no real solutions - print equation solution with fbk
@@ -53,9 +53,9 @@ int main(int argc, char *const argv[]){
 
   // Real coeff[]={0.0, 0.0, 0.0};                                                                             // Eqn coeff vect declaration
   // Complex x[]={{0.0, 0.0},{0.0, 0.0}};                                                                      // Eqn sol vect declaration
-  // get_val("Insert 'a' parameter in ax^2+bx+c=0 equation", REAL, &coeff[0]);                                 // Eqn 'a' param def
-  // get_val("Insert 'b' parameter in ax^2+bx+c=0 equation", REAL, &coeff[1]);                                 // Eqn 'b' param def
-  // get_val("Insert 'c' parameter in ax^2+bx+c=0 equation", REAL, &coeff[2]);                                 // Eqn 'c' param def
+  // C_string coeff_names[]={"a","b","c"};                                                                     // Eqn coeff names vect declaration
+  // for (Short i=0; i<3; ++i)                                                                                 // Eqn param def cycle
+  //   get_val("Insert '"+coeff_names[i]+"' parameter in ax^2+bx+c=0 equation", REAL, &coeff[i]);              // Eqn param def
   // switch (solve_second_deg_eqn_complex(coeff, x)){                                                          // Solve 2nd degree equations with complex solutions (ax^2+bx+c=0)
   // case -1: PRINT_VAL("The equation has endless solutions, (x1-2) is", x[0]); break;                         // Case -1 code: endless solutions - print equation solution with fbk
   // case -3: PRINT_VAL("The equation is undefined, (x1-2) is", x[0]); break;                                  // Case -3 code: undefined equation - print equation solution with fbk

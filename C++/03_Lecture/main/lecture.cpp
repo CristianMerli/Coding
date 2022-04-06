@@ -23,35 +23,31 @@ int main(int argc, char *const argv[]){
 
   if(false && argv!=0) unused=argc;                                                                         // Avoid unused parameters error
 
-  // C_integer sz_max=10;                                                                                      // Define vect max size
   // Integer sz1=0, sz2=0;                                                                                     // Declare vect sizes
-  // Real vect1[sz_max], vect2[sz_max], scalar=0;                                                              // Declare vect with max size and def scalar oper res var
-  // def_vect(vect1, sz1, sz_max, "Vect1");                                                                    // Def vect1
-  // def_vect(vect2, sz2, sz_max, "Vect2");                                                                    // Def vect2
+  // Real vect1[MAX_SZ], vect2[MAX_SZ], scalar=0;                                                              // Declare vect with max size and def scalar oper res var
+  // def_vect(vect1, sz1, "Vect1");                                                                            // Def vect1
+  // def_vect(vect2, sz2, "Vect2");                                                                            // Def vect2
   // C_integer oper_res=vect_scalar(vect1, sz1, vect2, sz2, scalar);                                           // Apply vect scalar oper
   // if (oper_res==EXIT_SUCCESS) PRINT_VAL("The scalar product is", scalar);                                   // Chk oper res, if OK print obtained value
   // else term_print("Error occurred in vect_scalar calculation!", ERR);                                       // In case of ERR, print fbk
 
-  // C_integer sz_max=10;                                                                                      // Define vect max size
   // Integer sz=0, elem_idx=0;                                                                                 // Declare vect size and new elem idx var
-  // Real vect[sz_max], elem=0.0;                                                                              // Declare vect with max size and new elem val var
-  // def_vect(vect, sz, sz_max, "Vect");                                                                       // Def vect
+  // Real vect[MAX_SZ], elem=0.0;                                                                              // Declare vect with max size and new elem val var
+  // def_vect(vect, sz, "Vect");                                                                               // Def vect
   // ACQ_CYCLE("Insert new vector element index (zero-idx)", INTEGER, elem_idx,
-  //           (elem_idx<0 || elem_idx>sz_max-1),
-  //           "Error, new vector element index must be between 0 and 9!");                                    // Def new elem idx in vect
+            // (elem_idx<0 || elem_idx>MAX_SZ-1),
+            // "Error, new vector element index must be between 0 and 9!");                                    // Def new elem idx in vect
   // get_val("Insert new vector element value", REAL, &elem);                                                  // Def new elem val
-  // C_integer oper_res=add_vect_elem(elem, elem_idx, vect, sz, sz_max, "Vect");                               // Add new elem in vect
+  // C_integer oper_res=add_vect_elem(elem, elem_idx, vect, sz, "Vect");                                       // Add new elem in vect
   // if (oper_res==EXIT_SUCCESS) term_print("New element correctly added inside vector!");                     // Chk oper res, if OK print fbk
   // else term_print("Error occurred while adding new element inside vector, no space!", ERR);                 // In case of ERR, print fbk
 
-  // ---
-
-  /*
-    Per casa es su matrici:
-    In c a[][]=a[0][0] e si muove in row-measure in C/C++, in realtà è un array 1D
-    Matrici anche non quadre
-    Chiedo matrice def dall'utente con elem e stampo matrice e matrice trasposta (a[i][j]=a[j][i])
-  */
+  Integer sz[]={0,0};                                                                                       // Declare mat (arr) sizes vect (rows, columns)
+  Real mat[MAX_SZ][MAX_SZ], mat_t[MAX_SZ][MAX_SZ];                                                          // Declare mat (arr) and transp mat (arr) with max size
+  def_mat(mat, sz, "Mat");                                                                                  // Def mat (arr)
+  C_integer oper_res=mat_trasp(mat, sz, mat_t);                                                             // Apply mat (arr) transp oper
+  if (oper_res==EXIT_SUCCESS) term_print("Matrix transposition correctly executed!");                       // Chk oper res, if OK print fbk
+  else term_print("Error occurred while applying matrix transposition!", ERR);                              // In case of ERR, print fbk
 
 
   /* Code-end */

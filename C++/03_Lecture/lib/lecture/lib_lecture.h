@@ -18,15 +18,21 @@
 
 
 /* Libraries */
-//
+#include <iomanip>                                                                                          // I/O mainp library inclusion (for setw ecc.)
+
+
+/* Constants */
+#define MAX_SZ  10                                                                                          // Vect or mat (arr) max size
 
 
 /* Public functions */
-void def_vect(Real v[], Integer &sz, C_integer &sz_max, C_string &v_nm);                                    // Funct to define vector
-void print_vect(C_real v[], C_integer &sz, C_string &v_nm);                                                 // Funct to print vector
+void def_vect(Real v[], Integer &sz, C_string &vect_nm);                                                    // Funct to define vector
+void print_vect(C_real v[], C_integer &sz, C_string &vect_nm);                                              // Funct to print vector
 Integer vect_scalar(C_real v1[], C_integer &sz1, C_real v2[], C_integer &sz2, Real &res);                   // Funct to apply vector scalar operation
-Integer add_vect_elem(C_real &el, C_integer &i, Real v[], Integer &sz, C_integer &sz_max, C_string &v_nm);  // Funct to add element in vector at spec pos
-// ---
+Integer add_vect_elem(C_real &elem, C_integer &idx, Real v[], Integer &sz, C_string &vect_nm);              // Funct to add element in vector at spec pos
+void def_mat(Real m[MAX_SZ][MAX_SZ], Integer sz[], C_string &mat_nm);                                       // Funct to define matrix (array)
+void print_mat(C_real m[MAX_SZ][MAX_SZ], C_integer sz[], C_string &mat_nm, C_integer &lt, C_integer t);     // Funct to print matrix (array)
+Integer mat_trasp(C_real m[MAX_SZ][MAX_SZ], C_integer sz[], Real m_t[MAX_SZ][MAX_SZ]);                      // Funct to apply matrix (array) transposition operation
 
 
 #endif                                                                                                      // Avoid multiple inclusions (old-alternative end)

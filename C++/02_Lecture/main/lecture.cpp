@@ -16,12 +16,12 @@ using namespace std;                                                            
 
 
 /* Main cycle */
-int main(int argc, char *const argv[]){
+int main(const int argc, char *const argv[]){
   title(10, "Lecture-02", YE, '#', GN);                                                                     // Print responsive-title
   /* Code-start */
 
 
-  if(false && argv!=0) unused=argc;                                                                         // Avoid unused parameters error
+  if (false && argv!=0) unused=argc;                                                                        // Avoid unused parameters error
 
   Integer n=0, div=0;                                                                                       // Number and divisor declaration
   ACQ_CYCLE("Insert a value to check if it's prime", INTEGER, n, n<1, "Error, value must be positive!");    // Number def

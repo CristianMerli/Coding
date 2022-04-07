@@ -3,7 +3,7 @@
  * Code title: Lecture
  * Code version: 3.0
  * Creation date: 31/03/2022
- * Last mod. date: 06/04/2022
+ * Last mod. date: 07/04/2022
  */
 
 
@@ -16,12 +16,12 @@ using namespace std;                                                            
 
 
 /* Main cycle */
-int main(int argc, char *const argv[]){
+int main(const int argc, char *const argv[]){
   title(10, "Lecture-03", YE, '#', GN);                                                                     // Print responsive-title
   /* Code-start */
 
 
-  if(false && argv!=0) unused=argc;                                                                         // Avoid unused parameters error
+  if (false && argv!=0) unused=argc;                                                                        // Avoid unused parameters error
 
   // Integer sz1=0, sz2=0;                                                                                     // Declare vect sizes
   // Real vect1[MAX_SZ], vect2[MAX_SZ], scalar=0;                                                              // Declare vect with max size and def scalar oper res var
@@ -43,9 +43,9 @@ int main(int argc, char *const argv[]){
   // else term_print("Error occurred while adding new element inside vector, no space!", ERR);                 // In case of ERR, print fbk
 
   Integer sz[]={0,0};                                                                                       // Declare mat (arr) sizes vect (rows, columns)
-  Real mat[MAX_SZ][MAX_SZ], mat_t[MAX_SZ][MAX_SZ];                                                          // Declare mat (arr) and transp mat (arr) with max size
+  Real mat[MAX_SZ][MAX_SZ];                                                                                 // Declare mat (arr) with max size
   def_mat(mat, sz, "Mat");                                                                                  // Def mat (arr)
-  C_integer oper_res=mat_trasp(mat, sz, mat_t);                                                             // Apply mat (arr) transp oper
+  C_integer oper_res=mat_trasp(mat, sz, "Mat");                                                             // Apply mat (arr) transp oper
   if (oper_res==EXIT_SUCCESS) term_print("Matrix transposition correctly executed!");                       // Chk oper res, if OK print fbk
   else term_print("Error occurred while applying matrix transposition!", ERR);                              // In case of ERR, print fbk
 

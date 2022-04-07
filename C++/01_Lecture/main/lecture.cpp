@@ -16,12 +16,12 @@ using namespace std;                                                            
 
 
 /* Main cycle */
-int main(int argc, char *const argv[]){
+int main(const int argc, char *const argv[]){
   title(10, "Lecture-01", YE, '#', GN);                                                                     // Print responsive-title
   /* Code-start */
 
 
-  if(false && argv!=0) unused=argc;                                                                         // Avoid unused parameters error
+  if (false && argv!=0) unused=argc;                                                                        // Avoid unused parameters error
 
   // Real temp=conv_c_k();                                                                                     // Funct to interactively convert temperature from [°C] to [K]
   // PRINT_VAL("The temperature is", temp, "K");                                                               // Print temperature [K]

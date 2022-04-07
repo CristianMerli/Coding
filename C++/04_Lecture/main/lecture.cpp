@@ -43,7 +43,7 @@ int main(const int argc, char *const argv[]){
   Real param[]={0};                                                                                         // Real param vect
   if (read_cl_param(argc,argv,param)==EXIT_FAILURE) close_err("Insert 1 real value as main parameter!");    // Command-line parameters management
   PRINT_VAL("param[0]", param[0]);                                                                          // Print param real val
-  // Funct to chk if there's a chr in number (see routine and create funct in UI lib)
+  // Funct to chk if there's a chr in number (see routine and create funct in UI lib) dyn memo delete??
 
   /* Code-end */
   close_bye();                                                                                              // Close SW with bye fbk

@@ -49,7 +49,23 @@ Integer mat_trasp(Real m[MAX_SZ][MAX_SZ], Integer sz[], C_string &mat_nm){      
 Integer mat_multipl(C_real m1[MAX_SZ][MAX_SZ], C_integer sz1[], C_string &mat1_nm,
                     C_real m2[MAX_SZ][MAX_SZ], C_integer sz2[], C_string &mat2_nm,
                     Real m3[MAX_SZ][MAX_SZ], Integer sz3[], C_string &mat3_nm){                             // Funct to apply matrix (array) multiplication oper
-  //
-  print_mat(m3, sz3, mat3_nm, 16, 4);                                                                       // Print res mat
-  return EXIT_SUCCESS;                                                                                      // Return OK code
-}
+  if (sz1[1]!=sz2[0]){
+    Real elem=0;
+    sz3[0]=sz1[0]; sz3[1]=sz2[1];
+    for (Integer p=0; p<sz3[0]; ++p)
+      for (Integer q=0; q<sz3[1]; ++q)
+        for (Integer i=0; i<sz1[0]; ++i){
+          elem=0;
+          for (Integer j=0; j<sz1[1]; ++j)
+            elem+=mat1[i][j]*mat2[j][i];
+        }
+       mat3[p][q]=elem;
+      }
+    }
+    term_print("Incompatible matrix!", ERR);
+    return EXIT_FAILURE;
+  } else {
+    sz3[0]=
+    print_mat(m3, sz3, mat3_nm, 16, 4);                                                                       // Print res mat
+    return EXIT_SUCCESS;                                                                                      // Return OK code
+  }}

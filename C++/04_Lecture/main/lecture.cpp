@@ -45,7 +45,6 @@ int main(const int argc, char *const argv[]){
   PRINT_VAL("param[0]", param[0]);                                                                          // Print param real val
 
   // Funct to chk if there's a chr in number (see routine and create funct in UI lib) dyn memo delete??
-  // User defines mat size, and populate it elem by elem (row-measure) and plot mat
   // Define in that way two matrix A and B and calculate C: AxB for squared mat and non squared mat
 
   // Integer sz[]={0,0};                                                                                       // Declare mat (arr) sizes vect (rows, columns)

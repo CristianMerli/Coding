@@ -3,7 +3,7 @@
  * Code title: Lecture
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 07/04/2022
+ * Last mod. date: 14/04/2022
  */
 
 
@@ -43,7 +43,26 @@ int main(const int argc, char *const argv[]){
   Real param[]={0};                                                                                         // Real param vect
   if (read_cl_param(argc,argv,param)==EXIT_FAILURE) close_err("Insert 1 real value as main parameter!");    // Command-line parameters management
   PRINT_VAL("param[0]", param[0]);                                                                          // Print param real val
+
   // Funct to chk if there's a chr in number (see routine and create funct in UI lib) dyn memo delete??
+  // User defines mat size, and populate it elem by elem (row-measure) and plot mat
+  // Define in that way two matrix A and B and calculate C: AxB for squared mat and non squared mat
+
+  // Integer sz[]={0,0};                                                                                       // Declare mat (arr) sizes vect (rows, columns)
+  // Real mat[MAX_SZ][MAX_SZ];                                                                                 // Declare mat (arr) with max size
+  // def_mat(mat, sz, "Mat");                                                                                  // Def mat (arr)
+  // C_integer oper_res=mat_trasp(mat, sz, "Mat");                                                             // Apply mat (arr) transp oper
+  // if (oper_res==EXIT_SUCCESS) term_print("Matrix transposition correctly executed!");                       // Chk oper res, if OK print fbk
+  // else term_print("Error occurred while applying matrix transposition!", ERR);                              // In case of ERR, print fbk
+
+  Integer sz1[]={0,0}, sz2[]={0,0}, sz3[]={0,0};                                                            // Declare mat (arr) sizes vect (rows, columns)
+  Real mat1[MAX_SZ][MAX_SZ], mat2[MAX_SZ][MAX_SZ], mat3[MAX_SZ][MAX_SZ];                                    // Declare mat (arr) with max size
+  def_mat(mat1, sz1, "Mat1");                                                                               // Def mat1 (arr)
+  def_mat(mat2, sz2, "Mat2");                                                                               // Def mat2 (arr)
+  C_integer oper_res=mat_multipl(mat1, sz1, "Mat1", mat2, sz2, "Mat2", mat3, sz3, "Mat3");                  // Apply mat (arr) multipl oper
+  if (oper_res==EXIT_SUCCESS) term_print("Matrix multiplication correctly executed!");                      // Chk oper res, if OK print fbk
+  else term_print("Error occurred while applying matrix multiplication!", ERR);                             // In case of ERR, print fbk
+
 
   /* Code-end */
   close_bye();                                                                                              // Close SW with bye fbk

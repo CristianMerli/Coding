@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 07/04/2022
+ * Last mod. date: 15/04/2022
  */
 
 
@@ -86,16 +86,16 @@ void get_val(C_string req_str, const Data typ, void *const val){                
 
 
 void close_err(C_string err_str){                                                                           // Funct to close software with error fbk
-  if (err_str!="") {FBK_NL(1); term_print(err_str, ERR);}                                                   // Print err str
-  std::cout << std::endl << YE << ">>> " << RD << "Closin' due to error...";                                // Closin' due to error fbk
+  if (err_str!="") {FBK_NL(1); term_print(err_str, ERR);} else std::cout << std::endl;                      // Print err str
+  std::cout << YE << ">>> " << RD << "Closin' due to error...";                                             // Closin' due to error fbk
   std::cout << CY << " Sorry! " << OG << ":(" << ER << std::endl << std::endl;                              // Closin' due to error fbk
   exit(EXIT_FAILURE);                                                                                       // Close software with OK code
 }
 
 
 void close_bye(C_string bye_str){                                                                           // Funct to close software with bye fbk
-  if (bye_str!="") {FBK_NL(1); term_print(bye_str);}                                                        // Print bye str
-  std::cout << std::endl << GN << ">>> " << PU << "Closin'...";                                             // Closin' fbk
+  if (bye_str!="") {FBK_NL(1); term_print(bye_str);} else std::cout << std::endl;                           // Print bye str
+  std::cout << GN << ">>> " << PU << "Closin'...";                                                          // Closin' fbk
   std::cout << CY << " Bye! " << OG << ";)" << ER << std::endl;                                             // Closin' fbk
   exit(EXIT_SUCCESS);                                                                                       // Close software with ERR code
 }

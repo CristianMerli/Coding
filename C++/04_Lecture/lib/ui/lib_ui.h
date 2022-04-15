@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 07/04/2022 
+ * Last mod. date: 15/04/2022 
  */
 
 
@@ -74,7 +74,8 @@ TYP tmp=EL1; \
 EL1=EL2; \
 EL2=tmp                                                                                                     // Elements swappin' macro
 
-#define IS_VAL() \
+#define S(VAL) \
+to_string(VAL)                                                                                              // Value to string conv macro
 
 
 /* Data-type limits */

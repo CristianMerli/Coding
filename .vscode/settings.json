@@ -48,7 +48,8 @@
     "streambuf": "cpp",
     "thread": "cpp",
     "typeinfo": "cpp",
-    "complex": "cpp"
+    "complex": "cpp",
+    "iomanip": "cpp"
   },
   "cSpell.words": [
     "Closin",

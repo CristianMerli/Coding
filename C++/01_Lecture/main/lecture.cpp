@@ -3,7 +3,7 @@
  * Code title: Lecture
  * Code version: 3.0
  * Creation date: 03/03/2022
- * Last mod. date: 24/03/2022
+ * Last mod. date: 15/04/2022
  */
 
 
@@ -23,18 +23,23 @@ int main(const int argc, char *const argv[]){
 
   if (false && argv!=0) unused=argc;                                                                        // Avoid unused parameters error
 
-  // Real temp=conv_c_k();                                                                                     // Funct to interactively convert temperature from [°C] to [K]
-  // PRINT_VAL("The temperature is", temp, "K");                                                               // Print temperature [K]
-  
-  // Real temp=conv_c_f_f_c();                                                                                 // Funct to interactively convert temperature from [°C] to [F] or from [F] to [°C]
-  // unused=(int)temp;                                                                                         // Avoid unused err
-  
-  // chk_if_div();                                                                                             // Funct to interactively check division
-
-  // consecutive_num();                                                                                        // Funct to interactively plot consecutive numbers
-
-  // fibonacci();                                                                                              // Funct to interactively print Fibonacci numbers
-
+/* 
+  Real temp=conv_c_k();                                                                                     // Funct to interactively convert temperature from [°C] to [K]
+  PRINT_VAL("The temperature is", temp, "K");                                                               // Print temperature [K]
+ */
+/* 
+  Real temp=conv_c_f_f_c();                                                                                 // Funct to interactively convert temperature from [°C] to [F] or from [F] to [°C]
+  unused=(int)temp;                                                                                         // Avoid unused err
+ */
+/* 
+  chk_if_div();                                                                                             // Funct to interactively check division
+ */
+/* 
+  consecutive_num();                                                                                        // Funct to interactively plot consecutive numbers
+ */
+/*  
+  fibonacci();                                                                                              // Funct to interactively print Fibonacci numbers
+ */
 
   /* Code-end */
   close_bye();                                                                                              // Close SW with bye fbk

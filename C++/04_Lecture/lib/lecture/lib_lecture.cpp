@@ -3,7 +3,7 @@
  * Code title: Lecture library
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 15/04/2022
+ * Last mod. date: 21/04/2022
  */
 
 
@@ -25,7 +25,7 @@ void def_mat(Real m[MAX_SZ][MAX_SZ], Integer sz[], C_string &mat_nm){           
 }
 
 
-void print_mat(C_real m[MAX_SZ][MAX_SZ], C_integer sz[], C_string &mat_nm, C_integer &lt, C_integer t){     // Funct to print matrix (array)
+void print_mat(C_real m[MAX_SZ][MAX_SZ], C_integer sz[], C_string &mat_nm, C_integer &lt, C_integer &t){    // Funct to print matrix (array)
   std::cout << GN << ">>> " << PU << mat_nm+"["<< sz[0] << "][" << sz[1] << "]: " << std::endl << ER;       // Print mat name and size
   for (Integer i=0; i<sz[0]; ++i){                                                                          // Mat rows printin'
     std::cout << LBU << std::setw(lt) << "|" << ER;                                                         // Print left vert-line

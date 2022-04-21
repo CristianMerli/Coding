@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 15/04/2022
+ * Last mod. date: 21/04/2022
  */
 
 
@@ -17,7 +17,7 @@ Integer unused __attribute__((unused));                                         
 
 /* Private templates */
 template <typename T>                                                                                       // Template T
-void get_val_impl(C_string req_str, void *const val){                                                       // Funct impl to get user input value from terminal
+void get_val_impl(C_string &req_str, void *const val){                                                      // Funct impl to get user input value from terminal
   T *usr_in=(T *)val;                                                                                       // Define user input ptr (template data-type)
   do {                                                                                                      // Acq cycle
     term_print(req_str, REQ);                                                                               // Print req
@@ -34,7 +34,7 @@ void get_val_impl(C_string req_str, void *const val){                           
 
 
 /* Public functions */
-void title(CU_short start_sp, C_string txt, C_string txt_col, C_byte bkg_chr, C_string bkg_col){            // Funct to print responsive-title
+void title(CU_short &start_sp, C_string &txt, C_string &txt_col, C_byte &bkg_chr, C_string &bkg_col){       // Funct to print responsive-title
   // Terminal defs
   struct winsize w;                                                                                         // Window-size struct declaration
   ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);                                                                     // Save the number of terminal's rows/columns in window-size struct
@@ -66,13 +66,13 @@ void title(CU_short start_sp, C_string txt, C_string txt_col, C_byte bkg_chr, C_
 }
 
 
-void term_print(C_string fbk_str, const Fbk typ){                                                           // Funct to print on terminal (default=FBK)
+void term_print(C_string &fbk_str, const Fbk &typ){                                                         // Funct to print on terminal (default=FBK)
   std::cout << (typ==ERR ? YE : (typ==REQ ? OG : GN)) << ">>> " << (typ==ERR ? RD : (typ==REQ ? CY : PU));  // Print on terminal
   std::cout  << fbk_str << (typ==REQ ? " and then press \033[0;34m'ENTER'\033[0;36m: " : "\n") << ER;       // Print on terminal
 }
 
 
-void get_val(C_string req_str, const Data typ, void *const val){                                            // Funct impl to get user input value from terminal
+void get_val(C_string &req_str, const Data &typ, void *const val){                                          // Funct impl to get user input value from terminal
   switch (typ){                                                                                             // Data-type switch-case
   case REAL: get_val_impl<Real>(req_str, val); break;                                                       // Real data-type template call
   case INTEGER: get_val_impl<Integer>(req_str, val); break;                                                 // Integer data-type template call
@@ -85,7 +85,23 @@ void get_val(C_string req_str, const Data typ, void *const val){                
 }
 
 
-void close_err(C_string err_str){                                                                           // Funct to close software with error fbk
+Boolean chk_num_str(C_string &str, C_string &err_str){                                                      // Funct to check numeric string (return err flg)
+  Byte dots=0;                                                                                              // Decimal dots cnt var
+  for (size_t i=0; i<str.length(); ++i){                                                                    // Str scrollin' cycle
+    if (str[i]=='.') ++dots;                                                                                // In case of decimal dot detected upd cnt
+    if (isdigit(str[i])==0 && ((str[i]!='.' && str[i]!='+' && str[i]!='-') ||
+        dots>1 || ((str[i]=='+' || str[i]=='-') && i!=0) ||
+        (str.length()==1 && (str[0]=='.' || str[0]=='+' || str[0]=='-')) ||
+        (str.length()==2 && (str[0]=='+' || str[0]=='-') && str[1]=='.'))){                                 // Detect unexpected chars in num str: allow decimal dot and +/- signs
+      term_print(err_str, ERR);                                                                             // In case of unexpected chars detected, print err fbk
+      return EXIT_FAILURE;                                                                                  // Return ERR code
+    }
+  }
+  return EXIT_SUCCESS;                                                                                      // Else in case of str ok, return OK code
+}
+
+
+void close_err(C_string &err_str){                                                                          // Funct to close software with error fbk
   if (err_str!="") {FBK_NL(1); term_print(err_str, ERR);} else std::cout << std::endl;                      // Print err str
   std::cout << YE << ">>> " << RD << "Closin' due to error...";                                             // Closin' due to error fbk
   std::cout << CY << " Sorry! " << OG << ":(" << ER << std::endl << std::endl;                              // Closin' due to error fbk
@@ -93,7 +109,7 @@ void close_err(C_string err_str){                                               
 }
 
 
-void close_bye(C_string bye_str){                                                                           // Funct to close software with bye fbk
+void close_bye(C_string &bye_str){                                                                          // Funct to close software with bye fbk
   if (bye_str!="") {FBK_NL(1); term_print(bye_str);} else std::cout << std::endl;                           // Print bye str
   std::cout << GN << ">>> " << PU << "Closin'...";                                                          // Closin' fbk
   std::cout << CY << " Bye! " << OG << ";)" << ER << std::endl;                                             // Closin' fbk

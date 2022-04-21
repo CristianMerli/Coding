@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 15/04/2022 
+ * Last mod. date: 21/04/2022 
  */
 
 
@@ -55,7 +55,7 @@ do { \
 } while (true)                                                                                              // Acquisition cycle macro
 
 #define FBK_NL(N) \
-for (Byte i=0; i<N; ++i) std::cout << std::endl                                                             // New lines printing macro
+for (Byte z=0; z<N; ++z) std::cout << std::endl                                                             // New lines printing macro
 
 #define REAL_EQ_Z(VAL) \
 fabs(VAL) < REAL_EPSILON										                                                                // Chk if real val is equal to zero
@@ -173,11 +173,12 @@ extern Integer unused;                                                          
 
 
 /* Library functions */
-void title(CU_short start_sp, C_string txt, C_string txt_col, C_byte bkg_chr, C_string bkg_col);            // Funct to print responsive-title
-void term_print(C_string fbk_str, const Fbk typ=FBK);                                                       // Funct to print on terminal (default=FBK)
-void get_val(C_string req_str, const Data typ, void *const val);                                            // Funct impl to get user input value from terminal
-void close_err(C_string err_str="");                                                                        // Funct to close software with error fbk
-void close_bye(C_string bye_str="");                                                                        // Funct to close software with bye fbk
+void title(CU_short &start_sp, C_string &txt, C_string &txt_col, C_byte &bkg_chr, C_string &bkg_col);       // Funct to print responsive-title
+void term_print(C_string &fbk_str, const Fbk &typ=FBK);                                                     // Funct to print on terminal (default=FBK)
+void get_val(C_string &req_str, const Data &typ, void *const val);                                          // Funct impl to get user input value from terminal
+Boolean chk_num_str(C_string &str, C_string &err_str);                                                      // Funct to check numeric string (return err flg)
+void close_err(C_string &err_str="");                                                                       // Funct to close software with error fbk
+void close_bye(C_string &bye_str="");                                                                       // Funct to close software with bye fbk
 
 
 #endif                                                                                                      // Avoid multiple inclusions (old-alternative end)

@@ -6,7 +6,7 @@
 ###   Code title: L-makefile       ###
 ###   Code version: 3.0            ###
 ###   Creation date: 07/04/2022    ###
-###   Last mod. date: 15/04/2022   ###
+###   Last mod. date: 21/04/2022   ###
 ###                                ###
 ######################################
 
@@ -15,7 +15,7 @@
 #       (1) PARAMETERS:        #
 ################################
 
-# (1.1) Main-parameters
+# (1.1) Main-parameters [separate parameters with spaces]
 PARAMETERS		=		0
 
 

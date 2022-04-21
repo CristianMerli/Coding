@@ -82,10 +82,7 @@ sizeof(ARR)/sizeof(ARR[1])                                                      
 
 #define ALLOC(TYP, PTR, SZ) \
 TYP *PTR=new (nothrow) TYP[SZ]; if (PTR==NULL) close_err("Error in dynamic memory allocation!")             // Dyn-memo alloc macro
-/*
-#define REALLOC() \
-// Dyn-memo realloc macro
-*/
+
 #define DEALLOC(PTR) \
 (PTR!=NULL) ? (delete[] PTR) : (term_print("Error, can't deallocate NULL ptr from dynamic memory", ERR))    // Dyn-memo dealloc macro
 

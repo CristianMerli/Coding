@@ -36,7 +36,7 @@ void print_vect(C_real *const v, C_integer &sz, C_string &vect_nm, C_integer &lt
 Real *vect_concat(C_real *const v1, C_integer &sz1, C_string &vect1_nm,
                   C_real *const v2, C_integer &sz2, C_string &vect2_nm,
                   Integer sz3, C_string &vect3_nm){                                                         // Funct to apply vector concatenation oper (delete old vectors)
-  PRINT_VAL("Executing vect-concat operation between", vect3_nm+" = "+vect1_nm+" + "+vect2_nm);             // Oper fbk
+  PRINT_VAL("Executing vect-concat operation", vect3_nm+" = "+vect1_nm+" + "+vect2_nm);                     // Oper fbk
   sz3=sz1+sz2;                                                                                              // Concat vect size def
   ALLOC(Real, v3, sz3);                                                                                     // Concat vect dyn-alloc
   for (Integer i=0; i<sz3; ++i) *(v3+i)=(i<sz1) ? (*(v1+i)) : (*(v2+i-sz1));                                // Populate concat vect

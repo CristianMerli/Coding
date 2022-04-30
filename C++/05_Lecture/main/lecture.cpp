@@ -3,7 +3,7 @@
  * Code title: Lecture
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 27/04/2022
+ * Last mod. date: 30/04/2022
  */
 
 
@@ -54,6 +54,7 @@ int main(const int argc, char *const argv[]){
   Real *b=def_vect(sz_b, name_b);                                                                           // Def vect-b (dyn-memo)
   Real *c=vect_concat(a, sz_a, name_a, b, sz_b, name_b, sz_c, name_c);                                      // Def vec-c (dyn-memo) and delete old vectors
   DEALLOC(c);                                                                                               // Dealloc concat vector
+
 
   /* Code-end */
   close_bye();                                                                                              // Close SW with bye fbk

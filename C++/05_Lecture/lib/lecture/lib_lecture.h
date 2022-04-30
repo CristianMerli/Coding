@@ -22,7 +22,7 @@
 
 
 /* Constants */
-#define MAX_SZ  10                                                                                          // Mat (arr) max size
+//
 
 
 /* Macros */

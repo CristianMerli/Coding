@@ -6,7 +6,7 @@
 ###   Code title: L-makefile       ###
 ###   Code version: 3.0            ###
 ###   Creation date: 07/04/2022    ###
-###   Last mod. date: 27/04/2022   ###
+###   Last mod. date: 30/04/2022   ###
 ###                                ###
 ######################################
 
@@ -89,7 +89,7 @@ all: $(MAIN_IN) $(LIB_UI_IN) $(LIB_LECT_IN) $(LIB_UI_H) $(LIB_LECT_H)
 run: $(MAIN_EXE)
 	$(RUN)$< $(PARAMETERS)
 
-# (4.3) Compile and link all files + run software (main) --> [3.1 + 3.2]
+# (4.3) Compile and link all files + run software (main) --> [4.1 + 4.2]
 all_run: $(MAIN_IN) $(LIB_UI_IN) $(LIB_LECT_IN) $(LIB_UI_H) $(LIB_LECT_H)
 	$(COMPILE_LIB) $(LIB_UI_OUT) $(LIB_UI_IN)
 	$(COMPILE_LIB) $(LIB_LECT_OUT) $(LIB_LECT_IN)

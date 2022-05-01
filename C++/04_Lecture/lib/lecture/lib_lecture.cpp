@@ -18,8 +18,8 @@ void def_mat(Real m[MAX_SZ][MAX_SZ], Integer sz[], C_string &mat_nm){           
   ACQ_CYCLE("Insert "+mat_nm+" columns number", INTEGER, sz[1], (sz[1]<1 || sz[1]>MAX_SZ),
             "Error, the matrix columns number must be between 1 and 10!");                                  // Mat rows def
   for (Integer i=0; i<sz[0]; ++i)                                                                           // Mat rows def
-    for (Integer j=0; j<sz[1]; ++j)                                                                         // Mat columns def
-      get_val("Insert "+mat_nm+"["+std::S(i+1)+"]["+std::S(j+1)+"]", REAL, &m[i][j]);                       // Mat elements def
+    for (Integer j=0; j<sz[1]; ++j)                                                                         // Mat columns scrollin'
+      get_val("Insert "+mat_nm+"["+std::S(i+1)+"]["+std::S(j+1)+"]", REAL, &m[i][j]);                       // Mat elements scrollin'
   term_print("Acquisition completed, recap...");                                                            // Print acq completed fbk
   print_mat(m, sz, mat_nm, 16, 4);                                                                          // Print mat
 }

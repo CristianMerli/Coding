@@ -4,9 +4,9 @@
 ###                                ###
 ###   Author: Cristian Merli       ###
 ###   Code title: HW-makefile      ###
-###   Code version: 2.0            ###
+###   Code version: 3.0            ###
 ###   Creation date: 30/04/2022    ###
-###   Last mod. date: 30/04/2022   ###
+###   Last mod. date: 02/05/2022   ###
 ###                                ###
 ######################################
 
@@ -16,7 +16,7 @@
 ################################
 
 # (1.1) Main-parameters [separate parameters with spaces]
-PARAMETERS		=		fileinput fileoutput
+PARAMETERS		=		src/input/matrix.txt src/input/kernel.txt src/output/maxpool.txt src/output/avgpool.txt src/output/relu.txt src/output/convol.txt
 
 
 ################################
@@ -41,7 +41,7 @@ LIB_CNN_FLD				=		lib/cnn/
 CPP_EXT						=		.cpp
 HEADER_EXT				=		.h
 OBJ_EXT						=		.o
-LIB_EXT						=		.so
+LIB_EXT						=		.o
 EXE_EXT						=		.exe
 
 # (2.4) Source-files
@@ -78,7 +78,7 @@ COMP_LANG				=		c++
 COMP_VERS				=		11
 
 # (3.2) Compile & run commands vars
-COMPILE_LIB			=		$(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -fpic -shared -o
+COMPILE_LIB			=		$(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
 COMPILE_MAIN		=		$(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
 LINK						=		$(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o
 RUN							=		./

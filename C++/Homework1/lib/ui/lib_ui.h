@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: UI (terminal I/O) library header file
- * Code version: 0.0
+ * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 30/04/2022 
+ * Last mod. date: 05/05/2022 
  */
 
 
@@ -19,7 +19,7 @@
 #include <type_traits>                                                                                      // Type-traits library inclusion (for template ecc.)
 #include <complex>                                                                                          // Complex-numbers library inclusion (for real, imag ecc.)
 #include <limits>                                                                                           // Limits library inclusion (for numeric_limits ecc.)
-//#include <cctype>                                                                                           // C-ctype library inclusion (for tolower ecc.)
+#include <cctype>                                                                                           // C-ctype library inclusion (for tolower ecc.)
 #include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
 
@@ -41,21 +41,21 @@
 
 /* Macros */
 #define PRINT_VAL_1_1(STR, VAL) \
-std::cout << GN << ">>> " << PU << STR << ": " << LBU << VAL << std::endl << ER                             // Value printing macro (1 val, 1 str)
+std::cout << GN << ">>> " << PU << STR << ": " << LBU << VAL << std::endl << ER                             // Terminal value printing macro (1 val, 1 str)
 #define PRINT_VAL_1_2(STR1, VAL, STR2) \
-std::cout << GN << ">>> " << PU << STR1 << ": " << LBU << VAL << SP << STR2 << std::endl << ER              // Value printing macro (1 val, 2 str)
+std::cout << GN << ">>> " << PU << STR1 << ": " << LBU << VAL << SP << STR2 << std::endl << ER              // Terminal value printing macro (1 val, 2 str)
 #define PRINT_VAL_COUNT_ARGS(arg1, arg2, arg3, arg4, ...) arg4                                              // Macro to count PRINT_VAL() arguments (number of args + 1)
 #define PRINT_VAL_MACRO_CALL(...) PRINT_VAL_COUNT_ARGS(__VA_ARGS__, PRINT_VAL_1_2, PRINT_VAL_1_1, )         // Macro to choose PRINT_VAL() by param num
-#define PRINT_VAL(...) PRINT_VAL_MACRO_CALL(__VA_ARGS__)(__VA_ARGS__)                                       // Macro to call PRINT_VAL()
+#define TERM_PRINT_VAL(...) PRINT_VAL_MACRO_CALL(__VA_ARGS__)(__VA_ARGS__)                                  // Macro to call TERM_PRINT_VAL()
 
-#define ACQ_CYCLE(TXT, TYP, VAR, ERR_COND, ERR_TXT) \
+#define TERM_ACQ_CYCLE(TXT, TYP, VAR, ERR_COND, ERR_TXT) \
 do { \
-  get_val(TXT, TYP, &VAR); \
+  term_get_val(TXT, TYP, &VAR); \
   if (ERR_COND) term_print(ERR_TXT, ERR); else break; \
-} while (true)                                                                                              // Acquisition cycle macro
+} while (true)                                                                                              // Terminal acquisition cycle macro
 
-#define FBK_NL(N) \
-for (Byte z=0; z<N; ++z) std::cout << std::endl                                                             // New lines printing macro
+#define TERM_NL(N) \
+for (Byte z=0; z<N; ++z) std::cout << std::endl                                                             // Terminal new lines printing macro
 
 #define REAL_EQ_Z(VAL) \
 fabs(VAL) < REAL_EPSILON										                                                                // Chk if real val is equal to zero
@@ -75,7 +75,7 @@ EL1=EL2; \
 EL2=tmp                                                                                                     // Elements swappin' macro
 
 #define S(VAL) \
-to_string(VAL)                                                                                              // Value to string conv macro
+std::to_string(VAL)                                                                                         // Value to string conv macro
 
 #define ARRAY_SZ(ARR) \
 sizeof(ARR)/sizeof(ARR[1])                                                                                  // Array size macro
@@ -84,7 +84,7 @@ sizeof(ARR)/sizeof(ARR[1])                                                      
 TYP *PTR=new (std::nothrow) TYP[SZ]; if (PTR==NULL) close_err("Error in dynamic memory allocation!")        // Dyn-memo alloc macro
 
 #define DEALLOC(PTR) \
-(PTR!=NULL) ? (delete[] PTR) : (term_print("Error, can't deallocate NULL ptr from dynamic memory", ERR))    // Dyn-memo dealloc macro
+(PTR!=NULL) ? (delete[] PTR) : (term_print("Error, can't deallocate NULL ptr from dynamic memory!", ERR))   // Dyn-memo dealloc macro
 
 
 /* Data-type limits */
@@ -170,9 +170,9 @@ extern Integer unused;                                                          
 
 
 /* Library functions */
-void title(CU_short &start_sp, C_string &txt, C_string &txt_col, C_byte &bkg_chr, C_string &bkg_col);       // Funct to print responsive-title
+void term_title(CU_short &start_sp, C_string &txt, C_string &txt_col, C_byte &bkg_chr, C_string &bkg_col);  // Funct to print responsive-title
 void term_print(C_string &fbk_str, const Fbk &typ=FBK);                                                     // Funct to print on terminal (default=FBK)
-void get_val(C_string &req_str, const Data &typ, void *const val);                                          // Funct impl to get user input value from terminal
+void term_get_val(C_string &req_str, const Data &typ, void *const val);                                     // Funct impl to get user input value from terminal
 Boolean chk_num_str(C_string &str, C_string &err_str);                                                      // Funct to check numeric string (return err flg)
 void close_err(C_string &err_str="");                                                                       // Funct to close software with error fbk
 void close_bye(C_string &bye_str="");                                                                       // Funct to close software with bye fbk

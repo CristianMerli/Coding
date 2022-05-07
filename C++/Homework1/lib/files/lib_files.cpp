@@ -1,9 +1,9 @@
 /*
  * Author: Cristian Merli
  * Code title: Files I/O library
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 30/04/2022
- * Last mod. date: 05/05/2022
+ * Last mod. date: 06/05/2022
  */
 
 
@@ -114,7 +114,5 @@ void file_close(File &file){                                                    
   if (file.is_open()){                                                                                      // Check if file is opened
     file.close();                                                                                           // Close it
     if (file.fail()) close_err("Error occurred during file closing!");                                      // Catch file closing errors
-  } else {                                                                                                  // Else if file ain't opened
-    term_print("Error, can't close an already closed file!", ERR);                                          // Print err fbk
-  }
+  } else term_print("Error, can't close an already closed file!", ERR);                                     // Else if file ain't opened: print err fbk
 }

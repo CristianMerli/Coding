@@ -1,13 +1,13 @@
 /*
  * Author: Cristian Merli
  * Code title: Homework1
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 30/04/2022
  * Last mod. date: 05/05/2022
  * 
  * NOTES:
- * The matrix convolution is applied on input matrix
- * after ReLU operation (which modifies the matrix)!
+ * - The matrix convolution is applied on input matrix after ReLU operation (which modifies the matrix)!
+ * - All the other operations are directly applied on input matrix.
  */
 
 
@@ -107,5 +107,5 @@ int main(const int argc, char *const argv[]){
 
 
   /* Code-end */
-  close_bye("Done, check output-files to see the results!");
+  close_bye("Done, check output-files to see the results! Files are placed in 'src/output/' directory.");   // Print software closing fbk
 }

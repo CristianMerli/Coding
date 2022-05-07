@@ -10,7 +10,8 @@
             "compilerPath": "/usr/bin/g++",
             "cStandard": "c99",
             "cppStandard": "c++11",
-            "intelliSenseMode": "linux-gcc-x64"
+            "intelliSenseMode": "linux-gcc-x64",
+            "configurationProvider": "ms-vscode.makefile-tools"
         },
         {
             "name": "VsCode",

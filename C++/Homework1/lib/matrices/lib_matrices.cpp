@@ -1,7 +1,7 @@
 /*
  * Author: Cristian Merli
  * Code title: Matrices library
- * Code version: 2.0
+ * Code version: 3.0
  * Creation date: 30/04/2022
  * Last mod. date: 05/05/2022
  */

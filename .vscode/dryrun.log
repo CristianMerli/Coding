@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/Programmazione_CalcoloNum/Lab/Coding'
+make: Leaving directory '/home/cristian/Comune/_COMMON/Sync/_Doc/UniTn/Corsi/2_Anno/Programmazione_CalcoloNum/Lab/Coding'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

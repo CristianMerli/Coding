@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 05/05/2022 
+ * Last mod. date: 06/05/2022 
  */
 
 
@@ -58,10 +58,10 @@ do { \
 for (Byte z=0; z<N; ++z) std::cout << std::endl                                                             // Terminal new lines printing macro
 
 #define REAL_EQ_Z(VAL) \
-fabs(VAL) < REAL_EPSILON										                                                                // Chk if real val is equal to zero
+fabs(VAL) < REAL_EPSILON                                                                                    // Chk if real val is equal to zero
 
 #define REAL_DF_Z(VAL) \
-fabs(VAL) > REAL_EPSILON										                                                                // Chk if real val is different from zero
+fabs(VAL) > REAL_EPSILON                                                                                    // Chk if real val is different from zero
 
 #define MIN(VAL1, VAL2) \
 ((VAL1 < VAL2) ? VAL1 : VAL2)                                                                               // Min element macro

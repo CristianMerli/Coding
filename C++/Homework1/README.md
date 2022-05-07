@@ -11,6 +11,6 @@
 ---
 ## Notes:
 ---
-
 - The matrix convolution is applied on input matrix after ReLU operation (which modifies the matrix)!
+- All the other operations are directly applied on input matrix.
 ---

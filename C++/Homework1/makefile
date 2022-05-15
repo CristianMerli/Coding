@@ -16,7 +16,7 @@
 ################################
 
 # (1.1) Main-parameters [separate parameters with spaces]
-PARAMETERS        =   src/input/matrix.txt src/input/kernel.txt src/output/maxpool.txt src/output/avgpool.txt src/output/relu.txt src/output/convol.txt
+PARAMETERS        =   data/input/matrix.txt data/input/kernel.txt data/output/maxpool.txt data/output/avgpool.txt data/output/relu.txt data/output/convol.txt
 
 
 ################################
@@ -31,11 +31,11 @@ LIB_MATRICES_NM   =   lib_matrices
 LIB_CNN_NM        =   lib_cnn
 
 # (2.2) File-folders
-MAIN_FLD          =   main/
-LIB_UI_FLD        =   lib/ui/
-LIB_FILES_FLD     =   lib/files/
-LIB_MATRICES_FLD  =   lib/matrices/
-LIB_CNN_FLD       =   lib/cnn/
+MAIN_FLD          =   src/main/
+LIB_UI_FLD        =   src/lib/ui/
+LIB_FILES_FLD     =   src/lib/files/
+LIB_MATRICES_FLD  =   src/lib/matrices/
+LIB_CNN_FLD       =   src/lib/cnn/
 
 # (2.3) File-extensions
 CPP_EXT           =   .cpp

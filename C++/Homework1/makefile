@@ -6,17 +6,27 @@
 ###   Code title: HW-makefile      ###
 ###   Code version: 3.0            ###
 ###   Creation date: 30/04/2022    ###
-###   Last mod. date: 06/05/2022   ###
+###   Last mod. date: 19/05/2022   ###
 ###                                ###
 ######################################
 
 
 ################################
-#       (1) PARAMETERS:        #
+#   (1) PATHS AND PARAMETERS:  #
 ################################
 
-# (1.1) Main-parameters [separate parameters with spaces]
-PARAMETERS        =   data/input/matrix.txt data/input/kernel.txt data/output/maxpool.txt data/output/avgpool.txt data/output/relu.txt data/output/convol.txt
+# (1.1) Software paths
+SRCPATH           =   src
+MAINPATH          =   $(SRCPATH)/main
+LIBPATH           =   $(SRCPATH)/lib
+
+# (1.2) Data paths
+DATAPATH          =   data
+DATAINPATH        =   $(DATAPATH)/input
+DATAOUTPATH       =   $(DATAPATH)/output
+
+# (1.3) Main-parameters [separate parameters with spaces]
+PARAMETERS        =   $(DATAINPATH)/matrix.txt $(DATAINPATH)/kernel.txt $(DATAOUTPATH)/maxpool.txt $(DATAOUTPATH)/avgpool.txt $(DATAOUTPATH)/relu.txt $(DATAOUTPATH)/convol.txt
 
 
 ################################
@@ -31,11 +41,11 @@ LIB_MATRICES_NM   =   lib_matrices
 LIB_CNN_NM        =   lib_cnn
 
 # (2.2) File-folders
-MAIN_FLD          =   src/main/
-LIB_UI_FLD        =   src/lib/ui/
-LIB_FILES_FLD     =   src/lib/files/
-LIB_MATRICES_FLD  =   src/lib/matrices/
-LIB_CNN_FLD       =   src/lib/cnn/
+MAIN_FLD          =   $(MAINPATH)/
+LIB_UI_FLD        =   $(LIBPATH)/ui/
+LIB_FILES_FLD     =   $(LIBPATH)/files/
+LIB_MATRICES_FLD  =   $(LIBPATH)/matrices/
+LIB_CNN_FLD       =   $(LIBPATH)/cnn/
 
 # (2.3) File-extensions
 CPP_EXT           =   .cpp

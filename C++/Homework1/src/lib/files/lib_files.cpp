@@ -27,7 +27,7 @@ static void def_matrix_sizes(File &matfile, Integer &row, Integer &col, C_boolea
     }
     if (i!=1 && j!=prev_j)                                                                                  // Catch matrix file scannin' error (mismatch in columns number between rows)
       close_err("Error occurred during matrix file scan, columns number mismatch! Row "+ \
-                S(i-1)+" has "+S(j)+" columns, previos had "+S(prev_j)+"!");                                // Catch matrix file scannin' error
+                S(i-1)+" has "+S(j)+" columns, previous had "+S(prev_j)+"!");                               // Catch matrix file scannin' error
   }
   if (sq_flg && i!=j) close_err("Error in matrix file scan, squared-matrix request not met! -- mat["+ \
                                 S(i)+"]["+S(j)+"]");                                                        // Catch matrix file scannin' error (squared-matrix request)

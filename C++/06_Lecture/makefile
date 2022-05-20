@@ -12,10 +12,20 @@
 
 
 ################################
-#       (1) PARAMETERS:        #
+#   (1) PATHS AND PARAMETERS:  #
 ################################
 
-# (1.1) Main-parameters [separate parameters with spaces]
+# (1.1) Software paths
+SRCPATH       =   src
+MAINPATH      =   $(SRCPATH)/main
+LIBPATH       =   $(SRCPATH)/lib
+
+# (1.2) Data paths
+DATAPATH      =   data
+DATAINPATH    =   $(DATAPATH)/input
+DATAOUTPATH   =   $(DATAPATH)/output
+
+# (1.3) Main-parameters [separate parameters with spaces]
 PARAMETERS    =   12.3 8.5 2.75
 
 
@@ -29,9 +39,9 @@ LIB_UI_NM     =   lib_ui
 LIB_LECT_NM   =   lib_lecture
 
 # (2.2) File-folders
-MAIN_FLD      =   main/
-LIB_UI_FLD    =   lib/ui/
-LIB_LECT_FLD  =   lib/lecture/
+MAIN_FLD      =   $(MAINPATH)/
+LIB_UI_FLD    =   $(LIBPATH)/ui/
+LIB_LECT_FLD  =   $(LIBPATH)/lecture/
 
 # (2.3) File-extensions
 CPP_EXT       =   .cpp

@@ -44,14 +44,14 @@ Real Room::calc_volume() const {
 /* Room class add people method */
 void Room::add_people(C_integer &n) {
   if (n>0) people+=n;                                                                                       // If specified number is positive: add people in room
-  else term->print("Error, the number of people to add in room must be positive!", ERR);                    // Else if specified number is negative: print err fbk
+  else term.print("Error, the number of people to add in room must be positive!", ERR);                     // Else if specified number is negative: print err fbk
 }
 
 
 /* Room class remove people method */
 void Room::rm_people(C_integer &n) {
   if (people-n>=0) people-=n;                                                                               // If there're enough people in room: remove people
-  else term->print("Error, can't remove more people than number of people inside the room!", ERR);          // Else if there aren't enough people in room: print err fbk
+  else term.print("Error, can't remove more people than number of people inside the room!", ERR);           // Else if there aren't enough people in room: print err fbk
 }
 
 

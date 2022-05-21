@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 20/05/2022 
+ * Last mod. date: 21/05/2022 
  */
 
 
@@ -15,12 +15,11 @@
 
 /* Libraries */
 #include <iostream>                                                                                         // I/O library inclusion (for cin, cout ecc.)
-#include <iomanip>                                                                                          // I/O mainp library inclusion (for setw ecc.)
-#include <complex>                                                                                          // Complex-numbers library inclusion (for real, imag ecc.)
 #include <limits>                                                                                           // Limits library inclusion (for numeric_limits ecc.)
-#include <cctype>                                                                                           // C-ctype library inclusion (for tolower ecc.)
-#include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
+#include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
+//#include <iomanip>                                                                                        // I/O mainp library inclusion (for setw ecc.)
+//#include <cctype>                                                                                         // C-ctype library inclusion (for tolower ecc.)
 
 
 /* Constants */
@@ -39,45 +38,26 @@
 
 
 /* Macros */
-#define REAL_EQ_Z(VAL) \
-fabs(VAL) < REAL_EPSILON                                                                                    // Chk if real val is equal to zero
-
-#define REAL_DF_Z(VAL) \
-fabs(VAL) > REAL_EPSILON                                                                                    // Chk if real val is different from zero
-
-#define MIN(VAL1, VAL2) \
-((VAL1 < VAL2) ? VAL1 : VAL2)                                                                               // Min element macro
-
-#define MAX(VAL1, VAL2) \
-((VAL1 > VAL2) ? VAL1 : VAL2)                                                                               // Max element macro
-
-#define S(VAL) \
-std::to_string(VAL)                                                                                         // Value to string conv macro
-
-#define SWAP(EL1, EL2, TYP) \
-TYP tmp=EL1; \
-EL1=EL2; \
-EL2=tmp                                                                                                     // Elements swappin' macro
-
-#define ALLOC(TYP, PTR, SZ) \
-TYP *PTR=new (std::nothrow) TYP[SZ]; if (PTR==NULL) term.close_err("Error in dynamic memory allocation!")   // Dyn-memo alloc macro [MAIN-ONLY] ---
-
-#define DEALLOC(PTR) \
-(PTR!=NULL) ? (delete[] PTR) : (term.print("Error, can't deallocate NULL ptr from dynamic memory!", ERR))   // Dyn-memo dealloc macro [MAIN-ONLY] ---
-
-#define ARRAY_SZ(ARR) \
-sizeof(ARR)/sizeof(ARR[1])                                                                                  // Array size macro [MAIN-ONLY]
-
-#define TERM_ACQ_CYCLE(TYP, VAR, METH, TXT, ERR_COND, ERR_TXT) \
-do { \
-  TYP VAR=term.METH(TXT); \
-  if (ERR_COND) term.print(ERR_TXT, ERR); else break; \
-} while (true)                                                                                              // Terminal acquisition cycle macro [MAIN-ONLY] ---
+#define REAL_EQ_Z(VAL)      fabs(VAL)<REAL_EPSILON                                                          // Chk if real val is equal to zero
+#define REAL_DF_Z(VAL)      fabs(VAL)>REAL_EPSILON                                                          // Chk if real val is different from zero
+#define MIN(VAL1, VAL2)     (VAL1<VAL2 ? VAL1 : VAL2)                                                       // Min element macro
+#define MAX(VAL1, VAL2)     (VAL1>VAL2 ? VAL1 : VAL2)                                                       // Max element macro
+#define S(VAL)              std::to_string(VAL)                                                             // Value to string conv macro
+#define SWAP(EL1, EL2, TYP) TYP tmp=EL1; EL1=EL2; EL2=tmp                                                   // Elements swappin' macro
+#define ARRAY_SZ(ARR)       sizeof(ARR)/sizeof(ARR[1])                                                      // Array size macro [MAIN-ONLY]
+// Dyn-memo macros
+#define MAE                 "Error in dynamic memory allocation!"                                           // Memory allocation error txt const
+#define MDE                 "Error, can't deallocate NULL ptr from dynamic memory!"                         // Memory deallocation error txt const
+#define ALLOC(TYP, PTR, SZ) TYP *PTR=new (std::nothrow) TYP[SZ]; if (PTR==NULL) term->close_err(MAE)        // Dyn-memo alloc macro
+#define DEALLOC(PTR)        (PTR!=NULL) ? (delete[] PTR) : (term->print(MDE, ERR))                          // Dyn-memo dealloc macro
+// Acquisition macro
+#define TERM_ACQ_CYCLE(TYP_VAR, ACQ_METH, ERR_COND, ERR_TXT) \
+do {TYP_VAR=term->ACQ_METH; if (ERR_COND) term->print(ERR_TXT, ERR); else break;} while (true)              // Terminal acquisition cycle macro
 
 
 /* Data-type limits */
 #undef REAL_EPSILON                                                                                         // Avoid macro-redef
-#define REAL_EPSILON __DBL_EPSILON__                                                                        // Real epsilon
+#define REAL_EPSILON __DBL_EPSILON__                                                                        // Real epsilon (FPN-precision)
 // Real min-max vals
 #undef REAL_MIN                                                                                             // Avoid macro-redef
 #define REAL_MIN __DBL_MIN__                                                                                // Real min val
@@ -124,56 +104,51 @@ do { \
 
 
 /* Data-types */
-typedef double                    Real;                                                                     // Real alias
-typedef const double              C_real;                                                                   // const Real alias
-typedef __int32_t                 Integer;                                                                  // Integer alias
-typedef const __int32_t           C_integer;                                                                // const Integer alias
-typedef __uint32_t                U_integer;                                                                // unsigned Integer alias
-typedef const __uint32_t          CU_integer;                                                               // const unsigned Integer alias
-typedef __int16_t                 Short;                                                                    // Short alias
-typedef const __int16_t           C_short;                                                                  // const Short alias
-typedef __uint16_t                U_short;                                                                  // unsigned Short alias
-typedef const __uint16_t          CU_short;                                                                 // const unsigned Short alias
-typedef __int8_t                  Byte;                                                                     // Byte alias [AVOID ON TERMINAL]
-typedef const __int8_t            C_byte;                                                                   // const Byte alias [AVOID ON TERMINAL]
-typedef __uint8_t                 U_byte;                                                                   // unsigned Byte alias [AVOID ON TERMINAL]
-typedef const __uint8_t           CU_byte;                                                                  // const unsigned Byte alias
-typedef bool                      Boolean;                                                                  // Boolean alias
-typedef const bool                C_boolean;                                                                // const Boolean alias
-typedef std::complex<Real>        Complex;                                                                  // Complex alias
-typedef const std::complex<Real>  C_complex;                                                                // const Complex alias
-typedef __int8_t                  Character;                                                                // Character alias
-typedef const __int8_t            C_character;                                                              // const Character alias
-typedef std::string               String;                                                                   // String alis
-typedef const std::string         C_string;                                                                 // const String alias
+typedef double            Real;                                                                             // Real alias
+typedef const double      C_real;                                                                           // const Real alias
+typedef __int32_t         Integer;                                                                          // Integer alias
+typedef const __int32_t   C_integer;                                                                        // const Integer alias
+typedef __uint32_t        U_integer;                                                                        // unsigned Integer alias
+typedef const __uint32_t  CU_integer;                                                                       // const unsigned Integer alias
+typedef __int16_t         Short;                                                                            // Short alias
+typedef const __int16_t   C_short;                                                                          // const Short alias
+typedef __uint16_t        U_short;                                                                          // unsigned Short alias
+typedef const __uint16_t  CU_short;                                                                         // const unsigned Short alias
+typedef __int8_t          Byte;                                                                             // Byte alias [AVOID ON TERMINAL]
+typedef const __int8_t    C_byte;                                                                           // const Byte alias [AVOID ON TERMINAL]
+typedef __uint8_t         U_byte;                                                                           // unsigned Byte alias [AVOID ON TERMINAL]
+typedef const __uint8_t   CU_byte;                                                                          // const unsigned Byte alias [AVOID ON TERMINAL]
+typedef bool              Boolean;                                                                          // Boolean alias
+typedef const bool        C_boolean;                                                                        // const Boolean alias
+typedef __int8_t          Character;                                                                        // Character alias
+typedef const __int8_t    C_character;                                                                      // const Character alias
+typedef std::string       String;                                                                           // String alis
+typedef const std::string C_string;                                                                         // const String alias
 
 
-/* Enums */
+/* Enums-types */
 enum Print_typ {FBK, REQ, ERR};                                                                             // Terminal print typ enum
-
-
-/* Public vars */
-extern Integer unused;                                                                                      // Unused var
+typedef const Print_typ C_print_typ;                                                                        // const Terminal-print-typ enum alias
 
 
 /* Public classes */
 class Term {                                                                                                // Terminal UI class
   public:                                                                                                   // Terminal class public section
-    Term(C_string &title, C_string &title_col, C_byte &bkg_chr, C_string &bkg_col, CU_short &start_sp);     // Terminal class constructor method
+    Term(C_string &title_txt, C_string &title_col, C_character &bkg_chr, C_string &bkg_col);                // Terminal class constructor method [TITLE-TXT, TITLE-COL, BKG-CHAR, BKG-COL]
     ~Term();                                                                                                // Terminal class destructor method
-    void print(C_string &fbk_str, const Print_typ &typ=FBK) const;                                          // Terminal class method to perform terminal print (default print-typ=FBK)
-    void print(C_string &fbk_str, C_real &val, C_string &post_str="") const;                                // Terminal class method to print real user output val to terminal
-    void print(C_string &fbk_str, C_integer &val, C_string &post_str="") const;                             // Terminal class method to print integer user output val to terminal
-    void print(C_string &fbk_str, C_short &val, C_string &post_str="") const;                               // Terminal class method to print short user output val to terminal
-    void print(C_string &fbk_str, C_string &val, C_string &post_str="") const;                              // Terminal class method to print string user output to terminal
-    void print(C_string &fbk_str, C_character &val, C_string &post_str="") const;                           // Terminal class method to print character/byte user output to terminal
+    void print(C_string &fbk_str, C_print_typ &typ=FBK) const;                                              // Terminal class method to perform terminal print (default print-typ=FBK)
+    void print(C_string &fbk_str, C_real &val, C_string &fbk_str2="") const;                                // Terminal class method to print real user output val to terminal
+    void print(C_string &fbk_str, C_integer &val, C_string &fbk_str2="") const;                             // Terminal class method to print integer user output val to terminal
+    void print(C_string &fbk_str, C_short &val, C_string &fbk_str2="") const;                               // Terminal class method to print short user output val to terminal
+    void print(C_string &fbk_str, C_character &val, C_string &fbk_str2="") const;                           // Terminal class method to print character user output to terminal
+    void print(C_string &fbk_str, C_string &val, C_string &fbk_str2="") const;                              // Terminal class method to print string user output to terminal
     void print_nl(C_integer &n) const;                                                                      // Terminal class method to perform new-lines terminal print
     Real get_real(C_string &req_str) const;                                                                 // Terminal class method to get user input real val from terminal
     Integer get_integer(C_string &req_str) const;                                                           // Terminal class method to get user input integer val from terminal
     Short get_short(C_string &req_str) const;                                                               // Terminal class method to get user input short val from terminal
-    String get_str(C_string &req_str) const;                                                                // Terminal class method to get user input string from terminal
-    Character get_char(C_string &req_str) const;                                                            // Terminal class method to get user input character from terminal
-    Boolean chk_num_str(C_string &str, C_string &err_str) const;                                            // Terminal class method to check numeric string (return err flg)
+    String get_string(C_string &req_str) const;                                                             // Terminal class method to get user input string from terminal
+    Character get_character(C_string &req_str) const;                                                       // Terminal class method to get user input character from terminal
+    Boolean chk_numeric_str(C_string &str, C_string &err_str) const;                                        // Terminal class method to check numerical string (returns err flg)
     void close_err(C_string &err_str="") const;                                                             // Terminal class method to close software with error fbk
     void close_bye(C_string &bye_str="") const;                                                             // Terminal class method to close software with bye fbk
   private:                                                                                                  // Terminal class private section
@@ -181,10 +156,14 @@ class Term {                                                                    
     C_string req_col1=OG, req_col2=CY, req_col3=BU;                                                         // Terminal request print-colors
     C_string err_col1=YE, err_col2=RD;                                                                      // Terminal error print-colors
     String title_txt, title_col, bkg_col;                                                                   // Terminal title logo text, text-color and background-char-color
-    Byte bkg_chr;                                                                                           // Terminal title logo background char
-    Short start_sp;                                                                                         // Left spaces to print when creating title logo
+    Character bkg_chr;                                                                                      // Terminal title logo background char
     void print_responsive_title() const;                                                                    // Terminal class method to print responsive-title
 };
+
+
+/* Public object-ptrs */
+typedef const Term *      Terminal;                                                                         // Terminal alias
+typedef const Term *const C_terminal;                                                                       // const Terminal alias
 
 
 #endif                                                                                                      // Avoid multiple inclusions (old-alternative end)

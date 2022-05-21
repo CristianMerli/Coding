@@ -10,11 +10,12 @@
   - `files:` folder containing project requests and initial data. [`UNUSED`]
 - `src:` folder containing source code.
   - `lib:` folder containing code libraries & packages.
-  - `main:` folder containing main code lecture files.
+  - `main:` folder containing lecture main code files.
 - `lecture.exe:` lecture executable generated using makefile.
 - `makefile:` use command **make** to compile, ***make run*** to execute or ***make all_run*** to compile and execute.
 ---
 ## Notes:
 ---
 - Random class test (rooms).
+- Lines containing '---' pattern in comment must be adjusted!
 ---

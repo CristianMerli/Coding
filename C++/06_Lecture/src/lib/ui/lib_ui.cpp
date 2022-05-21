@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 20/05/2022
+ * Last mod. date: 21/05/2022
  */
 
 
@@ -11,29 +11,24 @@
 #include "lib_ui.h"                                                                                         // Import UI (terminal I/O) library header file
 
 
-/* Public vars */
-Integer unused __attribute__((unused));                                                                     // Unused var
-
-
-/* Terminal class constructor method */
-Term::Term(C_string &title, C_string &title_col, C_byte &bkg_chr, C_string &bkg_col, CU_short &start_sp) {
-  this->title_txt=title;                                                                                    // Init terminal logo title text
+/* Terminal class constructor method [TITLE-TXT, TITLE-COL, BKG-CHAR, BKG-COL] */
+Term::Term(C_string &title_txt, C_string &title_col, C_character &bkg_chr, C_string &bkg_col) {
+  this->title_txt=title_txt;                                                                                // Init terminal logo title text
   this->title_col=title_col;                                                                                // Init terminal logo title color
   this->bkg_chr=bkg_chr;                                                                                    // Init terminal logo background char
   this->bkg_col=bkg_col;                                                                                    // Init terminal logo background char color
-  this->start_sp=start_sp;                                                                                  // Init terminal logo lateral spaces (left)
   this->print_responsive_title();                                                                           // Call terminal class method to print responsive-title
 }
 
 
-/* Terminal class destructor method */
+/* Terminal class destructor method [UNUSED] */
 Term::~Term() {
   // Clr alloc dyn-memo [UNUSED]
 }
 
 
 /* Terminal class method to perform terminal print (default print-typ=FBK) */
-void Term::print(C_string &fbk_str, const Print_typ &typ) const {
+void Term::print(C_string &fbk_str, C_print_typ &typ) const {
   (typ==ERR ? std::cerr : std::cout) << (typ==ERR ? err_col1 : (typ==REQ ? req_col1 : fbk_col1)) << \
   ">>> " << (typ==ERR ? err_col2 : (typ==REQ ? req_col2 : fbk_col2)) << fbk_str << \
   (typ==REQ ? " and then press "+req_col3+"'ENTER'"+req_col2+": " : "\n") << ER;                            // Print on terminal
@@ -41,37 +36,37 @@ void Term::print(C_string &fbk_str, const Print_typ &typ) const {
 
 
 /* Terminal class method to print real user output val to terminal */
-void Term::print(C_string &fbk_str, C_real &val, C_string &post_str) const {
+void Term::print(C_string &fbk_str, C_real &val, C_string &fbk_str2) const {
   std::cout << fbk_col1 << ">>> " << fbk_col2 << fbk_str << \
-  ": " << fbk_col3 << val << SP << post_str << std::endl << ER;                                             // Print val on terminal
+  ": " << fbk_col3 << val << SP << fbk_str2 << std::endl << ER;                                             // Print val on terminal
 }
 
 
 /* Terminal class method to print integer user output val to terminal */
-void Term::print(C_string &fbk_str, C_integer &val, C_string &post_str) const {
+void Term::print(C_string &fbk_str, C_integer &val, C_string &fbk_str2) const {
   std::cout << fbk_col1 << ">>> " << fbk_col2 << fbk_str << \
-  ": " << fbk_col3 << val << SP << post_str << std::endl << ER;                                             // Print val on terminal
+  ": " << fbk_col3 << val << SP << fbk_str2 << std::endl << ER;                                             // Print val on terminal
 }
 
 
 /* Terminal class method to print short user output val to terminal */
-void Term::print(C_string &fbk_str, C_short &val, C_string &post_str) const {
+void Term::print(C_string &fbk_str, C_short &val, C_string &fbk_str2) const {
   std::cout << fbk_col1 << ">>> " << fbk_col2 << fbk_str << \
-  ": " << fbk_col3 << val << SP << post_str << std::endl << ER;                                             // Print val on terminal
+  ": " << fbk_col3 << val << SP << fbk_str2 << std::endl << ER;                                             // Print val on terminal
 }
 
 
 /* Terminal class method to print string user output to terminal */
-void Term::print(C_string &fbk_str, C_string &val, C_string &post_str) const {
+void Term::print(C_string &fbk_str, C_string &val, C_string &fbk_str2) const {
   std::cout << fbk_col1 << ">>> " << fbk_col2 << fbk_str << \
-  ": " << fbk_col3 << val << SP << post_str << std::endl << ER;                                             // Print val on terminal
+  ": " << fbk_col3 << val << SP << fbk_str2 << std::endl << ER;                                             // Print val on terminal
 }
 
 
 /* Terminal class method to print character user output to terminal */
-void Term::print(C_string &fbk_str, C_character &val, C_string &post_str) const {
+void Term::print(C_string &fbk_str, C_character &val, C_string &fbk_str2) const {
   std::cout << fbk_col1 << ">>> " << fbk_col2 << fbk_str << \
-  ": " << fbk_col3 << val << SP << post_str << std::endl << ER;                                             // Print val on terminal
+  ": " << fbk_col3 << val << SP << fbk_str2 << std::endl << ER;                                             // Print val on terminal
 }
 
 
@@ -133,7 +128,7 @@ Short Term::get_short(C_string &req_str) const {
 
 
 /* Terminal class method to get user input string from terminal */
-String Term::get_str(C_string &req_str) const {
+String Term::get_string(C_string &req_str) const {
   String val;                                                                                               // Val tmp-var
   do {                                                                                                      // Acq cycle
     print(req_str, REQ);                                                                                    // Print req
@@ -150,7 +145,7 @@ String Term::get_str(C_string &req_str) const {
 
 
 /* Terminal class method to get user input character from terminal */
-Character Term::get_char(C_string &req_str) const {
+Character Term::get_character(C_string &req_str) const {
   Character val;                                                                                            // Val tmp-var
   do {                                                                                                      // Acq cycle
     print(req_str, REQ);                                                                                    // Print req
@@ -166,8 +161,8 @@ Character Term::get_char(C_string &req_str) const {
 }
 
 
-/* Terminal class method to check numeric string (return err flg) */
-Boolean Term::chk_num_str(C_string &str, C_string &err_str) const {
+/* Terminal class method to check numerical string (returns err flg) */
+Boolean Term::chk_numeric_str(C_string &str, C_string &err_str) const {
   Byte dots=0;                                                                                              // Decimal dots cnt var
   const size_t str_sz=str.length();                                                                         // Calc str size
   for (size_t i=0; i<str_sz; ++i) {                                                                         // Str scrollin' cycle
@@ -205,14 +200,15 @@ void Term::close_bye(C_string &bye_str) const {
 /* Private terminal class method to print responsive-title */
 void Term::print_responsive_title() const {
   struct winsize w;                                                                                         // TERMINAL-DEFS: Window-size struct declaration
-  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);                                                                     // Save the number of terminal's rows/columns in window-size struct
-  CU_short vthck = (w.ws_row/5);                                                                            // Title bkg vertical thickness calc
-  CU_short lthck = (w.ws_col/6);                                                                            // Title bkg lateral thickness calc
-  CU_short lsp = (U_short)(w.ws_col-2*lthck-2*start_sp-title_txt.length())/2;                               // Title internal lateral spaces calc
-  CU_short len = (U_short)(2*lthck+2*lsp+title_txt.length());                                               // Title length calc
+  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);                                                                     // Save number of terminal's rows/columns in window-size struct
+  CU_short vthck=w.ws_row/5;                                                                                // Title bkg vertical thickness calc
+  CU_short lthck=w.ws_col/6;                                                                                // Title bkg lateral thickness calc
+  CU_short l_sp=lthck/2;                                                                                    // Title lateral spaces calc
+  CU_short lsp=(U_short)(w.ws_col-2*lthck-2*l_sp-title_txt.length())/2;                                     // Title internal lateral spaces calc
+  CU_short len=(U_short)(2*lthck+2*lsp+title_txt.length());                                                 // Title length calc
   std::cout << std::endl << bkg_col;                                                                        // TITLE-PRINTIN': New line fbk
   for (U_short i=0; i<(4*vthck+1); ++i) {                                                                   // Title lines printin' cycle
-    for (U_short j=0; j<start_sp; ++j) std::cout << SP;                                                     // Initial spaces printin' cycle
+    for (U_short j=0; j<l_sp; ++j) std::cout << SP;                                                         // Initial spaces printin' cycle
     if ((i<vthck || i>(3*vthck)) && i!=(4*vthck)/2) {                                                       // Full bkg title lines print cond
       for (U_short h=0; h<len; ++h) std::cout << bkg_chr;                                                   // Full bkg title lines printin' cycle and bkg title char print
     } else if ((i>=vthck && i<=(3*vthck)) && i!=(4*vthck)/2) {                                              // Partial-empty bkg title lines print cond
@@ -229,6 +225,5 @@ void Term::print_responsive_title() const {
     print_nl(1);                                                                                            // New line
   }
   print_nl(1);                                                                                              // New line
-  print(fbk_col2+"Welcome to the "+title_col+"'"+ \
-        title_txt+"'"+fbk_col2+" software! "+title_col+";)"+"\n"+ER);                                       // Print welcome fbk
+  print(fbk_col2+"Welcome to the "+title_col+title_txt+fbk_col2+" software! "+title_col+";)"+"\n"+ER);      // Print welcome fbk
 }

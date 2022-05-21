@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 11/05/2022 
+ * Last mod. date: 20/05/2022 
  */
 
 
@@ -16,7 +16,6 @@
 /* Libraries */
 #include <iostream>                                                                                         // I/O library inclusion (for cin, cout ecc.)
 #include <iomanip>                                                                                          // I/O mainp library inclusion (for setw ecc.)
-#include <type_traits>                                                                                      // Type-traits library inclusion (for template ecc.)
 #include <complex>                                                                                          // Complex-numbers library inclusion (for real, imag ecc.)
 #include <limits>                                                                                           // Limits library inclusion (for numeric_limits ecc.)
 #include <cctype>                                                                                           // C-ctype library inclusion (for tolower ecc.)
@@ -40,23 +39,6 @@
 
 
 /* Macros */
-#define PRINT_VAL_1_1(STR, VAL) \
-std::cout << GN << ">>> " << PU << STR << ": " << LBU << VAL << std::endl << ER                             // Terminal value printing macro (1 val, 1 str)
-#define PRINT_VAL_1_2(STR1, VAL, STR2) \
-std::cout << GN << ">>> " << PU << STR1 << ": " << LBU << VAL << SP << STR2 << std::endl << ER              // Terminal value printing macro (1 val, 2 str)
-#define PRINT_VAL_COUNT_ARGS(arg1, arg2, arg3, arg4, ...) arg4                                              // Macro to count PRINT_VAL() arguments (number of args + 1)
-#define PRINT_VAL_MACRO_CALL(...) PRINT_VAL_COUNT_ARGS(__VA_ARGS__, PRINT_VAL_1_2, PRINT_VAL_1_1, )         // Macro to choose PRINT_VAL() by param num
-#define TERM_PRINT_VAL(...) PRINT_VAL_MACRO_CALL(__VA_ARGS__)(__VA_ARGS__)                                  // Macro to call TERM_PRINT_VAL()
-
-#define TERM_ACQ_CYCLE(TXT, TYP, VAR, ERR_COND, ERR_TXT) \
-do { \
-  term_get_val(TXT, TYP, &VAR); \
-  if (ERR_COND) term_print(ERR_TXT, ERR); else break; \
-} while (true)                                                                                              // Terminal acquisition cycle macro
-
-#define TERM_NL(N) \
-for (Byte z=0; z<N; ++z) std::cout << std::endl                                                             // Terminal new lines printing macro
-
 #define REAL_EQ_Z(VAL) \
 fabs(VAL) < REAL_EPSILON                                                                                    // Chk if real val is equal to zero
 
@@ -69,22 +51,28 @@ fabs(VAL) > REAL_EPSILON                                                        
 #define MAX(VAL1, VAL2) \
 ((VAL1 > VAL2) ? VAL1 : VAL2)                                                                               // Max element macro
 
+#define S(VAL) \
+std::to_string(VAL)                                                                                         // Value to string conv macro
+
 #define SWAP(EL1, EL2, TYP) \
 TYP tmp=EL1; \
 EL1=EL2; \
 EL2=tmp                                                                                                     // Elements swappin' macro
 
-#define S(VAL) \
-std::to_string(VAL)                                                                                         // Value to string conv macro
-
-#define ARRAY_SZ(ARR) \
-sizeof(ARR)/sizeof(ARR[1])                                                                                  // Array size macro
-
 #define ALLOC(TYP, PTR, SZ) \
-TYP *PTR=new (std::nothrow) TYP[SZ]; if (PTR==NULL) close_err("Error in dynamic memory allocation!")        // Dyn-memo alloc macro
+TYP *PTR=new (std::nothrow) TYP[SZ]; if (PTR==NULL) term.close_err("Error in dynamic memory allocation!")   // Dyn-memo alloc macro [MAIN-ONLY] ---
 
 #define DEALLOC(PTR) \
-(PTR!=NULL) ? (delete[] PTR) : (term_print("Error, can't deallocate NULL ptr from dynamic memory!", ERR))   // Dyn-memo dealloc macro
+(PTR!=NULL) ? (delete[] PTR) : (term.print("Error, can't deallocate NULL ptr from dynamic memory!", ERR))   // Dyn-memo dealloc macro [MAIN-ONLY] ---
+
+#define ARRAY_SZ(ARR) \
+sizeof(ARR)/sizeof(ARR[1])                                                                                  // Array size macro [MAIN-ONLY]
+
+#define TERM_ACQ_CYCLE(TYP, VAR, METH, TXT, ERR_COND, ERR_TXT) \
+do { \
+  TYP VAR=term.METH(TXT); \
+  if (ERR_COND) term.print(ERR_TXT, ERR); else break; \
+} while (true)                                                                                              // Terminal acquisition cycle macro [MAIN-ONLY] ---
 
 
 /* Data-type limits */
@@ -146,9 +134,9 @@ typedef __int16_t                 Short;                                        
 typedef const __int16_t           C_short;                                                                  // const Short alias
 typedef __uint16_t                U_short;                                                                  // unsigned Short alias
 typedef const __uint16_t          CU_short;                                                                 // const unsigned Short alias
-typedef __int8_t                  Byte;                                                                     // Byte alias
-typedef const __int8_t            C_byte;                                                                   // const Byte alias
-typedef __uint8_t                 U_byte;                                                                   // unsigned Byte alias
+typedef __int8_t                  Byte;                                                                     // Byte alias [AVOID ON TERMINAL]
+typedef const __int8_t            C_byte;                                                                   // const Byte alias [AVOID ON TERMINAL]
+typedef __uint8_t                 U_byte;                                                                   // unsigned Byte alias [AVOID ON TERMINAL]
 typedef const __uint8_t           CU_byte;                                                                  // const unsigned Byte alias
 typedef bool                      Boolean;                                                                  // Boolean alias
 typedef const bool                C_boolean;                                                                // const Boolean alias
@@ -161,21 +149,42 @@ typedef const std::string         C_string;                                     
 
 
 /* Enums */
-enum Fbk {FBK,REQ,ERR};                                                                                     // Fbk-typ enum
-enum Data {REAL,INTEGER,SHORT,BYTE,STRING,CHARACTER};                                                       // Data-typ enum
+enum Print_typ {FBK, REQ, ERR};                                                                             // Terminal print typ enum
 
 
 /* Public vars */
 extern Integer unused;                                                                                      // Unused var
 
 
-/* Library functions */
-void term_title(CU_short &start_sp, C_string &txt, C_string &txt_col, C_byte &bkg_chr, C_string &bkg_col);  // Funct to print responsive-title
-void term_print(C_string &fbk_str, const Fbk &typ=FBK);                                                     // Funct to print on terminal (default=FBK)
-void term_get_val(C_string &req_str, const Data &typ, void *const val);                                     // Funct impl to get user input value from terminal
-Boolean chk_num_str(C_string &str, C_string &err_str);                                                      // Funct to check numeric string (return err flg)
-void close_err(C_string &err_str="");                                                                       // Funct to close software with error fbk
-void close_bye(C_string &bye_str="");                                                                       // Funct to close software with bye fbk
+/* Public classes */
+class Term {                                                                                                // Terminal UI class
+  public:                                                                                                   // Terminal class public section
+    Term(C_string &title, C_string &title_col, C_byte &bkg_chr, C_string &bkg_col, CU_short &start_sp);     // Terminal class constructor method
+    ~Term();                                                                                                // Terminal class destructor method
+    void print(C_string &fbk_str, const Print_typ &typ=FBK) const;                                          // Terminal class method to perform terminal print (default print-typ=FBK)
+    void print(C_string &fbk_str, C_real &val, C_string &post_str="") const;                                // Terminal class method to print real user output val to terminal
+    void print(C_string &fbk_str, C_integer &val, C_string &post_str="") const;                             // Terminal class method to print integer user output val to terminal
+    void print(C_string &fbk_str, C_short &val, C_string &post_str="") const;                               // Terminal class method to print short user output val to terminal
+    void print(C_string &fbk_str, C_string &val, C_string &post_str="") const;                              // Terminal class method to print string user output to terminal
+    void print(C_string &fbk_str, C_character &val, C_string &post_str="") const;                           // Terminal class method to print character/byte user output to terminal
+    void print_nl(C_integer &n) const;                                                                      // Terminal class method to perform new-lines terminal print
+    Real get_real(C_string &req_str) const;                                                                 // Terminal class method to get user input real val from terminal
+    Integer get_integer(C_string &req_str) const;                                                           // Terminal class method to get user input integer val from terminal
+    Short get_short(C_string &req_str) const;                                                               // Terminal class method to get user input short val from terminal
+    String get_str(C_string &req_str) const;                                                                // Terminal class method to get user input string from terminal
+    Character get_char(C_string &req_str) const;                                                            // Terminal class method to get user input character from terminal
+    Boolean chk_num_str(C_string &str, C_string &err_str) const;                                            // Terminal class method to check numeric string (return err flg)
+    void close_err(C_string &err_str="") const;                                                             // Terminal class method to close software with error fbk
+    void close_bye(C_string &bye_str="") const;                                                             // Terminal class method to close software with bye fbk
+  private:                                                                                                  // Terminal class private section
+    C_string fbk_col1=GN, fbk_col2=PU, fbk_col3=LBU;                                                        // Terminal fbk print-colors
+    C_string req_col1=OG, req_col2=CY, req_col3=BU;                                                         // Terminal request print-colors
+    C_string err_col1=YE, err_col2=RD;                                                                      // Terminal error print-colors
+    String title_txt, title_col, bkg_col;                                                                   // Terminal title logo text, text-color and background-char-color
+    Byte bkg_chr;                                                                                           // Terminal title logo background char
+    Short start_sp;                                                                                         // Left spaces to print when creating title logo
+    void print_responsive_title() const;                                                                    // Terminal class method to print responsive-title
+};
 
 
 #endif                                                                                                      // Avoid multiple inclusions (old-alternative end)

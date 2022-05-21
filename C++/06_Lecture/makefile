@@ -6,7 +6,7 @@
 ###   Code title: L-makefile       ###
 ###   Code version: 3.0            ###
 ###   Creation date: 11/05/2022    ###
-###   Last mod. date: 11/05/2022   ###
+###   Last mod. date: 20/05/2022   ###
 ###                                ###
 ######################################
 
@@ -25,7 +25,7 @@ DATAPATH      =   data
 DATAINPATH    =   $(DATAPATH)/input
 DATAOUTPATH   =   $(DATAPATH)/output
 
-# (1.3) Main-parameters [separate parameters with spaces]
+# (1.3) Main-parameters [SEPARATE PARAMETERS WITH SPACES]
 PARAMETERS    =   12.3 8.5 2.75
 
 

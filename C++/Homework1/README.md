@@ -7,7 +7,7 @@
   - `output:` folder containing test output matrices.
 - `doc:` folder containing homework initial documentation.
   - `code:` folder containing code tools & tips.
-  - `files:` folder containing project requests and data.
+  - `files:` folder containing project requests and initial data.
 - `src:` folder containing source code.
   - `lib:` folder containing code libraries & packages.
   - `main:` folder containing main code homework files.

@@ -16,6 +16,6 @@
 ---
 ## Notes:
 ---
-- Random class test (rooms).
-- Lines containing '---' pattern in comment must be adjusted!
+- This is a random class testing code (Room class).
+- Lines marked with '---' pattern are incomplete!
 ---

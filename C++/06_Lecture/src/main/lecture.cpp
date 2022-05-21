@@ -6,8 +6,8 @@
  * Last mod. date: 21/05/2022
  * 
  * NOTES:
- * - Random class test (rooms).
- * - Lines containing '---' pattern in comment must be adjusted!
+ * - This is a random class testing code (Room class).
+ * - Lines marked with '---' pattern are incomplete!
  */
 
 
@@ -72,7 +72,6 @@ int main(const int argc, char *const argv[]) {
   term->print("People in room", A202.get_people());                                                         // Print number of people in room callin' dedicated room class method
   term->print("Room is full", (A202.is_full() ? "YES" : "NO"));                                             // Print full room fbk callin' dedicated room class method
 
-  TERM_ACQ_CYCLE(Integer a, get_integer("Insert a"), a<0, "The value of a must be positive!");              // ---
 
   /* Main code-cycle end */
   term->close_bye();                                                                                        // Close terminal UI with bye fbk

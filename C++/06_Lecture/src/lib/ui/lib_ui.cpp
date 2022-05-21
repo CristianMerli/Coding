@@ -184,7 +184,7 @@ void Term::close_err(C_string &err_str) const {
   print_nl(1); if (err_str!="") {print(err_str, ERR);}                                                      // Print err str
   std::cout << err_col1 << ">>> " << err_col2 << "Closin' due to error..." << \
   req_col2 << " Sorry! " << req_col1 << ":(" << ER << std::endl << std::endl;                               // Closin' due to error fbk
-  exit(EXIT_FAILURE);                                                                                       // Close software with OK code
+  exit(EXIT_FAILURE);                                                                                       // Close software with ERR code
 }
 
 
@@ -193,7 +193,7 @@ void Term::close_bye(C_string &bye_str) const {
   print_nl(1); if (bye_str!="") {print(bye_str);}                                                           // Print bye str
   std::cout << fbk_col1 << ">>> " << fbk_col2 << "Closin'..." << \
   req_col2 << " Bye! " << req_col1 << ";)" << ER << std::endl;                                              // Closin' fbk
-  exit(EXIT_SUCCESS);                                                                                       // Close software with ERR code
+  exit(EXIT_SUCCESS);                                                                                       // Close software with OK code
 }
 
 
@@ -225,5 +225,5 @@ void Term::print_responsive_title() const {
     print_nl(1);                                                                                            // New line
   }
   print_nl(1);                                                                                              // New line
-  print(fbk_col2+"Welcome to the "+title_col+title_txt+fbk_col2+" software! "+title_col+";)"+"\n"+ER);      // Print welcome fbk
+  print(fbk_col2+"Welcome to "+title_col+"'"+title_txt+"'"+fbk_col2+" software! "+title_col+";)"+"\n"+ER);  // Print welcome fbk
 }

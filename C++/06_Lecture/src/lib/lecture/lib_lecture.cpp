@@ -13,12 +13,16 @@
 
 /* Room class constructor method */
 Room::Room(C_real &l, C_real &w, C_real &h, C_terminal term) {
-  if (l>0 && w>0 && h>0) {                                                                                  // If room dimensions are ok: def room class private attributes
+  if (l>0 && w>0 && h>0 && term!=NULL) {                                                                    // If room dimensions are ok: def room class private attributes
     this->l=l;                                                                                              // Init room length
     this->w=w;                                                                                              // Init room width
     this->h=h;                                                                                              // Init room height
     this->people=0;                                                                                         // Init people inside the room
     this->term=term;                                                                                        // Init terminal UI object (to print info & fbk)
+  } else if (term==NULL) {                                                                                  // Check terminal UI object
+    std::cout << YE << "\n>>> " << RD << \
+    "Error, invalid terminal UI object ptr passed during Room class object creation!\n\n" << ER;            // If it ain't OK print err fbk
+    exit(EXIT_FAILURE);                                                                                     // And close software with ERR code
   } else term->close_err("Error, can't create a room with negative/null dimensions!");                      // Else if room dimensions ain't ok: close terminal UI with err fbk
 }
 

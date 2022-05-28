@@ -6,7 +6,7 @@
 ###   Code title: HW-makefile      ###
 ###   Code version: 3.0            ###
 ###   Creation date: 30/04/2022    ###
-###   Last mod. date: 19/05/2022   ###
+###   Last mod. date: 25/05/2022   ###
 ###                                ###
 ######################################
 
@@ -136,5 +136,5 @@ link_all: $(MAIN_OUT) $(LIB_UI_OUT) $(LIB_FILES_OUT) $(LIB_MATRICES_OUT) $(LIB_C
 	$(LINK) $(MAIN_EXE) $^
 
 # (4.5) Clear
-clr:
-	rm $(MAIN_EXE) $(MAIN_OUT) $(LIB_UI_OUT) $(LIB_FILES_OUT) $(LIB_MATRICES_OUT) $(LIB_CNN_OUT)
+clr: $(MAIN_EXE) $(MAIN_OUT) $(LIB_UI_OUT) $(LIB_FILES_OUT) $(LIB_MATRICES_OUT) $(LIB_CNN_OUT)
+	rm $^

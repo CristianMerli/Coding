@@ -67,12 +67,12 @@ Integer Room::get_people() const {
 
 
 /* Room class is empty method */
-bool Room::is_empty() const {
+Boolean Room::is_empty() const {
   return ((people==0) ? true : false);                                                                      // If room is empty return ok, else if it ain't empty return not-ok
 }
 
 
 /* Room class is full method */
-bool Room::is_full() const {
+Boolean Room::is_full() const {
   return (is_empty() ? false : ((calc_volume()/people > MIN_VOL_PER_PERSON) ? false : true));               // If room ain't empty and if min-vol-per-person ain't verified return ok (room is full), else if it's verified or room is empty return not-ok (room ain't full)
 }

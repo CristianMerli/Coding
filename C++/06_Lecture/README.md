@@ -17,5 +17,5 @@
 ## Notes:
 ---
 - This is a random class testing code (Room class).
-- Lines marked with '---' pattern are incomplete!
+- Comments marked with '---' pattern are incomplete!
 ---

@@ -20,7 +20,7 @@ SRCPATH       =   src
 MAINPATH      =   $(SRCPATH)/main
 LIBPATH       =   $(SRCPATH)/lib
 
-# (1.2) Data paths
+# (1.2) Data paths [UNUSED]
 DATAPATH      =   data
 DATAINPATH    =   $(DATAPATH)/input
 DATAOUTPATH   =   $(DATAPATH)/output

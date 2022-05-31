@@ -3,7 +3,7 @@
  * Code title: Lecture
  * Code version: 3.0
  * Creation date: 11/05/2022
- * Last mod. date: 30/05/2022
+ * Last mod. date: 31/05/2022
  * 
  * NOTES:
  * - This is a random class testing code (Room class).
@@ -21,10 +21,10 @@ using namespace std;                                                            
 
 
 /* Main routine to load command-line parameters [ADJUST TO DEFINE EXPECTED PARAM TYP] */
-void load_param(C_integer argc, char *const argv[], Real param[], C_integer &param_sz, C_string param_str[]) {
-  if (read_cl_param(argc, argv, param, param_sz))                                                           // Command-line parameters management
-    term_close_err("Try to insert "+S(param_sz)+" real value(s) as main command-line parameter(s)!");       // In case of ERR: close terminal UI with err fbk [ADJUST FOR DETAILED INFO]
-  else for (Integer i=0; i<param_sz; ++i) term_print("Room "+param_str[i], param[i], "m");                  // In case of NO-ERR: print command-line parameters [ADJUST FOR DETAILED INFO]
+void load_param(C_integer argc, char *const argv[], Real p[], C_integer &p_sz, C_string p_str[]) {
+  if (read_cl_param(argc, argv, p, p_sz))                                                                   // Command-line parameters management callin' dedicated function
+    term_close_err("Try to insert "+S(p_sz)+" real value(s) as main command-line parameter(s)!");           // In case of ERR: close terminal UI with err fbk [ADJUST FOR DETAILED INFO]
+  else for (Integer i=0; i<p_sz; ++i) term_print("Room "+p_str[i], p[i], "m");                              // In case of NO-ERR: print command-line parameters [ADJUST FOR DETAILED INFO]
   term_print_nl(1);                                                                                         // Print new-line
 }
 

@@ -6,8 +6,8 @@
   - `input:` folder containing data input files. [`UNUSED`]
   - `output:` folder containing data output files. [`UNUSED`]
 - `doc:` folder containing project documentation. [`UNUSED`]
-  - `code:` folder containing code tools & tips. [`UNUSED`]
-  - `files:` folder containing project requests and initial data. [`UNUSED`]
+  - `code:` folder containing code documentation. [`UNUSED`]
+  - `files:` folder containing project requests and initial files/data. [`UNUSED`]
 - `src:` folder containing source code.
   - `lib:` folder containing code libraries & packages.
   - `main:` folder containing lecture main code files.

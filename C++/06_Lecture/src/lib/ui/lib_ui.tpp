@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library templates file
  * Code version: 3.0
  * Creation date: 30/05/2022
- * Last mod. date: 30/05/2022
+ * Last mod. date: 31/05/2022
  */
 
 
@@ -61,7 +61,7 @@ T *alloc(C_integer &sz) {
 
 /* Template to deallocate dynamic-memo */
 template<typename T>
-void dealloc(T *ptr) {
+void dealloc(const T *const ptr) {
   (ptr!=NULL) ? (delete[] ptr) : (term_print("Error, can't deallocate NULL ptr from dynamic-memo!", ERR));  // Deallocate dynamic-memo
 }
 

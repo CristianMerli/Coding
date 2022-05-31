@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 30/05/2022
+ * Last mod. date: 31/05/2022
  */
 
 
@@ -12,9 +12,9 @@
 
 
 /* Color const-vars */
-C_string fbk_col[]={GN, PU, LBU};                                                                           // Terminal fbk print-colors
-C_string req_col[]={OG, CY, BU};                                                                            // Terminal request print-colors
-C_string err_col[]={YE, RD};                                                                                // Terminal error print-colors
+String fbk_col[]={GN, PU, LBU};                                                                             // Terminal fbk print-colors (for printing functions/templates - 3 colors)
+String req_col[]={OG, CY, BU};                                                                              // Terminal request print-colors (for printing functions/templates - 3 colors)
+String err_col[]={YE, RD};                                                                                  // Terminal error print-colors (for printing functions/templates - 2 colors)
 
 
 /* Funct to read Real command-line parameters (returns err flg) */

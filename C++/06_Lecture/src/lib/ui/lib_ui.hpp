@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 30/05/2022 
+ * Last mod. date: 31/05/2022 
  */
 
 
@@ -118,9 +118,9 @@ enum Print_typ {FBK, REQ, ERR}; typedef const Print_typ C_print_typ;            
 
 
 /* Color const-vars */
-extern C_string fbk_col[];                                                                                  // Terminal fbk print-colors
-extern C_string req_col[];                                                                                  // Terminal request print-colors
-extern C_string err_col[];                                                                                  // Terminal error print-colors
+extern String fbk_col[];                                                                                    // Terminal fbk print-colors (for printing functions/templates - 3 colors)
+extern String req_col[];                                                                                    // Terminal request print-colors (for printing functions/templates - 3 colors)
+extern String err_col[];                                                                                    // Terminal error print-colors (for printing functions/templates - 2 colors)
 
 
 /* Public functions */
@@ -141,7 +141,7 @@ template<typename T> extern void term_print(C_string &fbk_str, const T &val);   
 template<typename T> extern void term_print(C_string &fbk_str, const T &val, C_string &fbk_str2);           // Template to print val on terminal with details
 template<typename T> extern T term_get_val(C_string &req_str);                                              // Template to get user input val from terminal
 template<typename T> extern T *alloc(C_integer &sz);                                                        // Template to allocate dynamic-memo
-template<typename T> extern void dealloc(T *ptr);                                                           // Template to deallocate dynamic-memo
+template<typename T> extern void dealloc(const T *const ptr);                                               // Template to deallocate dynamic-memo
 template<typename T> extern const T &max_val(const T &val1, const T &val2);                                 // Template to calculate max-val
 template<typename T> extern const T &min_val(const T &val1, const T &val2);                                 // Template to calculate min-val
 template<typename T> extern void swap_val(T &val1, T &val2);                                                // Template to swap values

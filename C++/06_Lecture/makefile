@@ -73,15 +73,15 @@ MAIN_EXE      =   $(MAIN_NM)$(EXE_EXT)
 ################################
 
 # (3.1) Compiler info
-COMP_NAME       =   g++
-COMP_LANG       =   c++
-COMP_VERS       =   11
+COMP_NAME     =   g++
+COMP_LANG     =   c++
+COMP_VERS     =   11
 
 # (3.2) Compile & run commands vars
-COMPILE_LIB     =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
-COMPILE_MAIN    =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
-LINK            =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o
-RUN             =	  ./
+COMPILE_LIB   =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
+COMPILE_MAIN  =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
+LINK          =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o
+RUN           =   ./
 
 
 ################################

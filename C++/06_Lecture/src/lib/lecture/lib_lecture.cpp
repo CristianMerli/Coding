@@ -3,27 +3,22 @@
  * Code title: Lecture library
  * Code version: 3.0
  * Creation date: 11/05/2022
- * Last mod. date: 21/05/2022
+ * Last mod. date: 30/05/2022
  */
 
 
 /* Dependencies */
-#include "lib_lecture.h"                                                                                    // Import lecture library header file
+#include "lib_lecture.hpp"                                                                                  // Import lecture library header file
 
 
 /* Room class constructor method */
-Room::Room(C_real &l, C_real &w, C_real &h, C_terminal term) {
-  if (l>0 && w>0 && h>0 && term!=NULL) {                                                                    // If room dimensions are ok: def room class private attributes
+Room::Room(C_real &l, C_real &w, C_real &h) {
+  if (l>0 && w>0 && h>0) {                                                                                  // If room dimensions are ok: def room class private attributes
     this->l=l;                                                                                              // Init room length
     this->w=w;                                                                                              // Init room width
     this->h=h;                                                                                              // Init room height
     this->people=0;                                                                                         // Init people inside the room
-    this->term=term;                                                                                        // Init terminal UI object (to print info & fbk)
-  } else if (term==NULL) {                                                                                  // Check terminal UI object
-    std::cout << YE << "\n>>> " << RD << \
-    "Error, invalid terminal UI object ptr passed during Room class object creation!\n\n" << ER;            // If it ain't OK print err fbk
-    exit(EXIT_FAILURE);                                                                                     // And close software with ERR code
-  } else term->close_err("Error, can't create a room with negative/null dimensions!");                      // Else if room dimensions ain't ok: close terminal UI with err fbk
+  } else term_close_err("Error, can't create a room with negative/null dimensions!");                       // Else if room dimensions ain't ok: close terminal UI with err fbk
 }
 
 
@@ -48,14 +43,14 @@ Real Room::calc_volume() const {
 /* Room class add people method */
 void Room::add_people(C_integer &n) {
   if (n>0) people+=n;                                                                                       // If specified number is positive: add people in room
-  else term->print("Error, the number of people to add in room must be positive!", ERR);                    // Else if specified number is negative: print err fbk
+  else term_print("Error, the number of people to add in room must be positive!", ERR);                     // Else if specified number is negative: print err fbk
 }
 
 
 /* Room class remove people method */
 void Room::rm_people(C_integer &n) {
   if (people-n>=0) people-=n;                                                                               // If there're enough people in room: remove people
-  else term->print("Error, can't remove more people than number of people inside the room!", ERR);          // Else if there aren't enough people in room: print err fbk
+  else term_print("Error, can't remove more people than number of people inside the room!", ERR);           // Else if there aren't enough people in room: print err fbk
 }
 
 

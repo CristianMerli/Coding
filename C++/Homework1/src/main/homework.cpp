@@ -12,10 +12,10 @@
 
 
 /* Dependencies */
-#include "../lib/ui/lib_ui.h"                                                                               // Import UI (terminal I/O) library header file
-#include "../lib/files/lib_files.h"                                                                         // Import files I/O library header file
-#include "../lib/matrices/lib_matrices.h"                                                                   // Import matrices library header file
-#include "../lib/cnn/lib_cnn.h"                                                                             // Import ConvNet library header file
+#include "../lib/ui/lib_ui.hpp"                                                                             // Import UI (terminal I/O) library header file
+#include "../lib/files/lib_files.hpp"                                                                       // Import files I/O library header file
+#include "../lib/matrices/lib_matrices.hpp"                                                                 // Import matrices library header file
+#include "../lib/cnn/lib_cnn.hpp"                                                                           // Import ConvNet library header file
 
 
 /* Namespaces */

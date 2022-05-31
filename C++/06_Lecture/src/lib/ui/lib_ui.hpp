@@ -3,19 +3,20 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 21/05/2022 
+ * Last mod. date: 30/05/2022 
  */
 
 
 /* Include guards */
 #pragma once                                                                                                // Avoid multiple inclusions
-#ifndef _UI_H_                                                                                              // Avoid multiple inclusions (old-alternative start)
-#define _UI_H_                                                                                              // Avoid multiple inclusions (old-alternative)
+#ifndef _UI_HPP_                                                                                            // Avoid multiple inclusions (old-alternative start)
+#define _UI_HPP_                                                                                            // Avoid multiple inclusions (old-alternative)
 
 
 /* Libraries */
 #include <iostream>                                                                                         // I/O library inclusion (for cin, cout ecc.)
-#include <limits>                                                                                           // Limits library inclusion (for numeric_limits ecc.)
+#include <cmath>                                                                                            // Math library inclusion (for numeric_limits ecc.)
+#include <limits>                                                                                           // Limits library inclusion (for fabs ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
 #include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
 //#include <iomanip>                                                                                        // I/O mainp library inclusion (for setw ecc.)
@@ -38,21 +39,7 @@
 
 
 /* Macros */
-#define REAL_EQ_Z(VAL)      fabs(VAL)<REAL_EPSILON                                                          // Chk if real val is equal to zero
-#define REAL_DF_Z(VAL)      fabs(VAL)>REAL_EPSILON                                                          // Chk if real val is different from zero
-#define MIN(VAL1, VAL2)     (VAL1<VAL2 ? VAL1 : VAL2)                                                       // Min element macro
-#define MAX(VAL1, VAL2)     (VAL1>VAL2 ? VAL1 : VAL2)                                                       // Max element macro
-#define S(VAL)              std::to_string(VAL)                                                             // Value to string conv macro
-#define SWAP(EL1, EL2, TYP) TYP tmp=EL1; EL1=EL2; EL2=tmp                                                   // Elements swappin' macro
-#define ARRAY_SZ(ARR)       sizeof(ARR)/sizeof(ARR[1])                                                      // Array size macro [MAIN-ONLY]
-// Dyn-memo macros
-#define MAE                 "Error in dynamic memory allocation!"                                           // Memory allocation error txt const
-#define MDE                 "Error, can't deallocate NULL ptr from dynamic memory!"                         // Memory deallocation error txt const
-#define ALLOC(TYP, PTR, SZ) TYP *PTR=new (std::nothrow) TYP[SZ]; if (PTR==NULL) term->close_err(MAE)        // Dyn-memo alloc macro
-#define DEALLOC(PTR)        (PTR!=NULL) ? (delete[] PTR) : (term->print(MDE, ERR))                          // Dyn-memo dealloc macro
-// Acquisition macro
-#define TERM_ACQ_CYCLE(TYP_VAR, ACQ_METH, ERR_COND, ERR_TXT) \
-do {TYP_VAR=term->ACQ_METH; if (ERR_COND) term->print(ERR_TXT, ERR); else break;} while (true)              // Terminal acquisition cycle macro
+#define S(VAL)  std::to_string(VAL)                                                                         // Val-to-str conv macro
 
 
 /* Data-type limits */
@@ -127,43 +114,41 @@ typedef const std::string C_string;                                             
 
 
 /* Enums-types */
-enum Print_typ {FBK, REQ, ERR};                                                                             // Terminal print typ enum
-typedef const Print_typ C_print_typ;                                                                        // const Terminal-print-typ enum alias
+enum Print_typ {FBK, REQ, ERR}; typedef const Print_typ C_print_typ;                                        // Terminal print typ enum and const Terminal-print-typ enum alias
 
 
-/* Public classes */
-class Term {                                                                                                // Terminal UI class
-  public:                                                                                                   // Terminal class public section
-    Term(C_string &title_txt, C_string &title_col, C_character &bkg_chr, C_string &bkg_col);                // Terminal class constructor method [TITLE-TXT, TITLE-COL, BKG-CHAR, BKG-COL]
-    ~Term();                                                                                                // Terminal class destructor method
-    void print(C_string &fbk_str, C_print_typ &typ=FBK) const;                                              // Terminal class method to perform terminal print (default print-typ=FBK)
-    void print(C_string &fbk_str, C_real &val, C_string &fbk_str2="") const;                                // Terminal class method to print real user output val to terminal
-    void print(C_string &fbk_str, C_integer &val, C_string &fbk_str2="") const;                             // Terminal class method to print integer user output val to terminal
-    void print(C_string &fbk_str, C_short &val, C_string &fbk_str2="") const;                               // Terminal class method to print short user output val to terminal
-    void print(C_string &fbk_str, C_character &val, C_string &fbk_str2="") const;                           // Terminal class method to print character user output to terminal
-    void print(C_string &fbk_str, C_string &val, C_string &fbk_str2="") const;                              // Terminal class method to print string user output to terminal
-    void print_nl(C_integer &n) const;                                                                      // Terminal class method to perform new-lines terminal print
-    Real get_real(C_string &req_str) const;                                                                 // Terminal class method to get user input real val from terminal
-    Integer get_integer(C_string &req_str) const;                                                           // Terminal class method to get user input integer val from terminal
-    Short get_short(C_string &req_str) const;                                                               // Terminal class method to get user input short val from terminal
-    String get_string(C_string &req_str) const;                                                             // Terminal class method to get user input string from terminal
-    Character get_character(C_string &req_str) const;                                                       // Terminal class method to get user input character from terminal
-    Boolean chk_numeric_str(C_string &str, C_string &err_str) const;                                        // Terminal class method to check numerical string (returns err flg)
-    void close_err(C_string &err_str="") const;                                                             // Terminal class method to close software with error fbk
-    void close_bye(C_string &bye_str="") const;                                                             // Terminal class method to close software with bye fbk
-  private:                                                                                                  // Terminal class private section
-    C_string fbk_col1=GN, fbk_col2=PU, fbk_col3=LBU;                                                        // Terminal fbk print-colors
-    C_string req_col1=OG, req_col2=CY, req_col3=BU;                                                         // Terminal request print-colors
-    C_string err_col1=YE, err_col2=RD;                                                                      // Terminal error print-colors
-    String title_txt, title_col, bkg_col;                                                                   // Terminal title logo text, text-color and background-char-color
-    Character bkg_chr;                                                                                      // Terminal title logo background char
-    void print_responsive_title() const;                                                                    // Terminal class method to print responsive-title
-};
+/* Color const-vars */
+extern C_string fbk_col[];                                                                                  // Terminal fbk print-colors
+extern C_string req_col[];                                                                                  // Terminal request print-colors
+extern C_string err_col[];                                                                                  // Terminal error print-colors
 
 
-/* Public object-ptrs */
-typedef const Term *      Terminal;                                                                         // Terminal alias
-typedef const Term *const C_terminal;                                                                       // const Terminal alias
+/* Public functions */
+Boolean read_cl_param(C_integer &argc, char *const argv[], Real param[], C_integer &param_sz);              // Funct to read Real command-line parameters (returns err flg)
+Boolean read_cl_param(C_integer &argc, char *const argv[], String param[], C_integer &param_sz);            // Funct to read String command-line parameters (returns err flg)
+void term_print_title(C_string &title_txt, C_string &title_col, C_character &bkg_chr, C_string &bkg_col);   // Funct to print responsive-title on terminal (title-txt, title-col, bkg-char, bkg-col)
+void term_print(C_string &fbk_str, C_print_typ &typ=FBK);                                                   // Funct to perform terminal print (default print-typ=FBK)
+void term_print_nl(C_integer &n);                                                                           // Funct to perform new-lines terminal print
+void term_close_err(C_string &err_str="");                                                                  // Funct to close software terminal with error fbk
+void term_close_bye(C_string &bye_str="");                                                                  // Funct to close software terminal with bye fbk
+Boolean chk_numeric_str(C_string &str, C_string &err_str);                                                  // Funct to check numerical string (returns err flg)
+Boolean real_eq_z(C_real &val);                                                                             // Funct to check if real val is equal to zero
+Boolean real_df_z(C_real &val);                                                                             // Funct to check if real val is different from zero
+
+
+/* Public templates */
+template<typename T> extern void term_print(C_string &fbk_str, const T &val);                               // Template to print val on terminal
+template<typename T> extern void term_print(C_string &fbk_str, const T &val, C_string &fbk_str2);           // Template to print val on terminal with details
+template<typename T> extern T term_get_val(C_string &req_str);                                              // Template to get user input val from terminal
+template<typename T> extern T *alloc(C_integer &sz);                                                        // Template to allocate dynamic-memo
+template<typename T> extern void dealloc(T *ptr);                                                           // Template to deallocate dynamic-memo
+template<typename T> extern const T &max_val(const T &val1, const T &val2);                                 // Template to calculate max-val
+template<typename T> extern const T &min_val(const T &val1, const T &val2);                                 // Template to calculate min-val
+template<typename T> extern void swap_val(T &val1, T &val2);                                                // Template to swap values
+template<typename T> extern Integer array_sz(const T &arr);                                                 // Template to calculate array size (not for pointers/references)
+
+
+#include "lib_ui.tpp"                                                                                       // Import UI (terminal I/O) library templates file
 
 
 #endif                                                                                                      // Avoid multiple inclusions (old-alternative end)

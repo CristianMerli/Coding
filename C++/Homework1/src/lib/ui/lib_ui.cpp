@@ -8,7 +8,7 @@
 
 
 /* Dependencies */
-#include "lib_ui.h"                                                                                         // Import UI (terminal I/O) library header file
+#include "lib_ui.hpp"                                                                                       // Import UI (terminal I/O) library header file
 
 
 /* Public vars */

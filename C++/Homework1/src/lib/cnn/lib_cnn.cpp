@@ -8,7 +8,7 @@
 
 
 /* Dependencies */
-#include "lib_cnn.h"                                                                                        // Import ConvNet library header file
+#include "lib_cnn.hpp"                                                                                      // Import ConvNet library header file
 
 
 /* Private functions */

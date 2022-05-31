@@ -3,8 +3,8 @@
 ## Files and folders for the course TPA: Lecture-06.
 ---
 - `data:` folder containing I/O files. [`UNUSED`]
-  - `input:` folder containing input files. [`UNUSED`]
-  - `output:` folder containing output files. [`UNUSED`]
+  - `input:` folder containing data input files. [`UNUSED`]
+  - `output:` folder containing data output files. [`UNUSED`]
 - `doc:` folder containing project documentation. [`UNUSED`]
   - `code:` folder containing code tools & tips. [`UNUSED`]
   - `files:` folder containing project requests and initial data. [`UNUSED`]

@@ -9,8 +9,8 @@
 
 /* Include guards */
 #pragma once                                                                                                // Avoid multiple inclusions
-#ifndef _UI_H_                                                                                              // Avoid multiple inclusions (old-alternative start)
-#define _UI_H_                                                                                              // Avoid multiple inclusions (old-alternative)
+#ifndef _UI_HPP_                                                                                            // Avoid multiple inclusions (old-alternative start)
+#define _UI_HPP_                                                                                            // Avoid multiple inclusions (old-alternative)
 
 
 /* Libraries */

@@ -9,13 +9,13 @@
 
 /* Include guards */
 #pragma once                                                                                                // Avoid multiple inclusions
-#ifndef _CONVNET_H_                                                                                         // Avoid multiple inclusions (old-alternative start)
-#define _CONVNET_H_                                                                                         // Avoid multiple inclusions (old-alternative)
+#ifndef _CONVNET_HPP_                                                                                       // Avoid multiple inclusions (old-alternative start)
+#define _CONVNET_HPP_                                                                                       // Avoid multiple inclusions (old-alternative)
 
 
 /* Dependencies */
-#include "../ui/lib_ui.h"                                                                                   // Import UI (terminal I/O) library header file
-#include "../matrices/lib_matrices.h"                                                                       // Import matrices library header file
+#include "../ui/lib_ui.hpp"                                                                                 // Import UI (terminal I/O) library header file
+#include "../matrices/lib_matrices.hpp"                                                                     // Import matrices library header file
 
 
 /* Public functions */

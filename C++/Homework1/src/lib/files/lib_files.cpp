@@ -8,7 +8,7 @@
 
 
 /* Dependencies */
-#include "lib_files.h"                                                                                      // Import files I/O library header file
+#include "lib_files.hpp"                                                                                    // Import files I/O library header file
 
 
 /* Private functions */

@@ -6,7 +6,7 @@
 ###   Code title: HW-makefile      ###
 ###   Code version: 3.0            ###
 ###   Creation date: 30/04/2022    ###
-###   Last mod. date: 28/05/2022   ###
+###   Last mod. date: 31/05/2022   ###
 ###                                ###
 ######################################
 
@@ -49,7 +49,7 @@ LIB_CNN_FLD       =   $(LIBPATH)/cnn/
 
 # (2.3) File-extensions
 CPP_EXT           =   .cpp
-HEADER_EXT        =   .h
+HEADER_EXT        =   .hpp
 OBJ_EXT           =   .o
 LIB_EXT           =   .o
 EXE_EXT           =   .exe

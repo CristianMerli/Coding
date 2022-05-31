@@ -8,7 +8,7 @@
 
 
 /* Dependencies */
-#include "lib_matrices.h"                                                                                   // Import matrices library header file
+#include "lib_matrices.hpp"                                                                                 // Import matrices library header file
 
 
 /* Public functions */

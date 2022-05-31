@@ -6,7 +6,7 @@
 ###   Code title: L-makefile       ###
 ###   Code version: 3.0            ###
 ###   Creation date: 11/05/2022    ###
-###   Last mod. date: 20/05/2022   ###
+###   Last mod. date: 30/05/2022   ###
 ###                                ###
 ######################################
 
@@ -45,7 +45,7 @@ LIB_LECT_FLD  =   $(LIBPATH)/lecture/
 
 # (2.3) File-extensions
 CPP_EXT       =   .cpp
-HEADER_EXT    =   .h
+HEADER_EXT    =   .hpp
 OBJ_EXT       =   .o
 LIB_EXT       =   .o
 EXE_EXT       =   .exe
@@ -118,5 +118,5 @@ link_all: $(MAIN_OUT) $(LIB_UI_OUT) $(LIB_LECT_OUT)
 	$(LINK) $(MAIN_EXE) $^
 
 # (4.5) Clear
-clr:
-	rm $(MAIN_EXE) $(MAIN_OUT) $(LIB_UI_OUT) $(LIB_LECT_OUT)
+clr: $(MAIN_EXE) $(MAIN_OUT) $(LIB_UI_OUT) $(LIB_LECT_OUT)
+	rm $^

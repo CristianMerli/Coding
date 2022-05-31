@@ -1,6 +1,6 @@
 # Homework-1 structure
 ---
-## Files and folders for the course TPA: homework-1.
+## Files and folders for the course TPA: Homework-1.
 ---
 - `data:` folder containing I/O files.
   - `input:` folder containing input matrix and convolution kernel.

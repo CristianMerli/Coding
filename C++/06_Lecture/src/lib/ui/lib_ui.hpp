@@ -15,6 +15,7 @@
 
 /* Libraries */
 #include <iostream>                                                                                         // I/O library inclusion (for cin, cout ecc.)
+#include <vector>                                                                                           // Vector library inclusion (for std::vector ecc.)
 #include <cmath>                                                                                            // Math library inclusion (for numeric_limits ecc.)
 #include <limits>                                                                                           // Limits library inclusion (for fabs ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
@@ -40,6 +41,8 @@
 
 /* Macros */
 #define S(VAL)  std::to_string(VAL)                                                                         // Val-to-str conv macro
+#define TERM_ACQ_CYCLE(TXT, TYP, VAR, ERR_COND, ERR_TXT) \
+do {VAR=term_get_val<TYP>(TXT); if (ERR_COND) term_print(ERR_TXT, ERR); else break;} while (true)           // Terminal acquisition cycle macro
 
 
 /* Data-type limits */
@@ -137,15 +140,15 @@ Boolean real_df_z(C_real &val);                                                 
 
 
 /* Public templates */
-template<typename T> extern void term_print(C_string &_fbk_str, const T &_val);                             // Template to print val on terminal
-template<typename T> extern void term_print(C_string &_fbk_str, const T &_val, C_string &_fbk_str2);        // Template to print val on terminal with details
-template<typename T> extern T term_get_val(C_string &_req_str);                                             // Template to get user input val from terminal
-template<typename T> extern T *alloc(C_integer &_sz);                                                       // Template to allocate dynamic-memo (vector)
-template<typename T> extern void dealloc(const T *const _ptr);                                              // Template to deallocate dynamic-memo (vector)
-template<typename T> extern const T &max_val(const T &_val1, const T &_val2);                               // Template to calculate max-val
-template<typename T> extern const T &min_val(const T &_val1, const T &_val2);                               // Template to calculate min-val
-template<typename T> extern void swap_val(T &_val1, T &_val2);                                              // Template to swap values
-template<typename T> extern Integer array_sz(const T &_arr);                                                // Template to calculate array size (not for pointers/references)
+template<typename T> extern void term_print(C_string &fbk_str, const T &val);                               // Template to print val on terminal
+template<typename T> extern void term_print(C_string &fbk_str, const T &val, C_string &fbk_str2);           // Template to print val on terminal with details
+template<typename T> extern T term_get_val(C_string &req_str);                                              // Template to get user input val from terminal
+template<typename T> extern T *alloc(C_integer &sz);                                                        // Template to allocate dynamic-memo (vector)
+template<typename T> extern void dealloc(const T *const ptr);                                               // Template to deallocate dynamic-memo (vector)
+template<typename T> extern const T &max_val(const T &val1, const T &val2);                                 // Template to calculate max-val
+template<typename T> extern const T &min_val(const T &val1, const T &val2);                                 // Template to calculate min-val
+template<typename T> extern void swap_val(T &val1, T &val2);                                                // Template to swap values
+template<typename T> extern Integer array_sz(const T &arr);                                                 // Template to calculate array size (not for pointers/references)
 
 
 #include "lib_ui.tpp"                                                                                       // Import UI (terminal I/O) library templates file

@@ -19,80 +19,80 @@
 
 /* Template to print val on terminal */
 template<typename T>
-void term_print(C_string &_fbk_str, const T &_val) {
-  std::cout << fbk_col[0] << ">>> " << fbk_col[1] << _fbk_str << \
-  ": " << fbk_col[2] << _val << std::endl << ER;                                                            // Print val on terminal
+void term_print(C_string &fbk_str, const T &val) {
+  std::cout << fbk_col[0] << ">>> " << fbk_col[1] << fbk_str << \
+  ": " << fbk_col[2] << val << std::endl << ER;                                                             // Print val on terminal
 }
 
 
 /* Template to print val on terminal with details */
 template<typename T>
-void term_print(C_string &_fbk_str, const T &_val, C_string &_fbk_str2) {
-  std::cout << fbk_col[0] << ">>> " << fbk_col[1] << _fbk_str << \
-  ": " << fbk_col[2] << _val << SP << _fbk_str2 << std::endl << ER;                                         // Print val on terminal with details
+void term_print(C_string &fbk_str, const T &val, C_string &fbk_str2) {
+  std::cout << fbk_col[0] << ">>> " << fbk_col[1] << fbk_str << \
+  ": " << fbk_col[2] << val << SP << fbk_str2 << std::endl << ER;                                           // Print val on terminal with details
 }
 
 
 /* Template to get user input val from terminal */
 template<typename T>
-T term_get_val(C_string &_req_str) {
-  T _val;                                                                                                   // Val tmp-var
+T term_get_val(C_string &req_str) {
+  T val;                                                                                                    // Val tmp-var
   do {                                                                                                      // Acq cycle
-    term_print(_req_str, REQ);                                                                              // Print req
-    if (std::cin >> _val) {                                                                                 // Chk in val
-      term_print("Value correctly acquired, inserted value", _val);                                         // Print inserted val
+    term_print(req_str, REQ);                                                                               // Print req
+    if (std::cin >> val) {                                                                                  // Chk in val
+      term_print("Value correctly acquired, inserted value", val);                                          // Print inserted val
       break;                                                                                                // Xit acq cycle
     } else {                                                                                                // If in-val ain't ok
       term_print("Invalid value! Please retry...", ERR);                                                    // Print err
       std::cin.clear(); std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');                 // Clr in-buff and ignore other chars and repeat req
     }
   } while (true);                                                                                           // Acq cycle xit cond managed usin' break
-  return _val;                                                                                              // Return val tmp-var
+  return val;                                                                                               // Return val tmp-var
 }
 
 
 /* Template to allocate dynamic-memo (vector) */
 template<typename T>
-T *alloc(C_integer &_sz) {
-  T *_ptr=new (std::nothrow) T[_sz]; if (_ptr==NULL) term_close_err("Error in dynamic-memo alloc!");        // Allocate dynamic-memo
-  return _ptr;                                                                                              // Return ptr to the first allocated memory cell
+T *alloc(C_integer &sz) {
+  T *ptr=new (std::nothrow) T[sz]; if (ptr==NULL) term_close_err("Error in dynamic-memo alloc!");           // Allocate dynamic-memo
+  return ptr;                                                                                               // Return ptr to the first allocated memory cell
 }
 
 
 /* Template to deallocate dynamic-memo (vector) */
 template<typename T>
-void dealloc(const T *const _ptr) {
-  (_ptr!=NULL) ? (delete[] _ptr) : (term_print("Error, can't dealloc NULL ptr from dynamic-memo!", ERR));   // Deallocate dynamic-memo
+void dealloc(const T *const ptr) {
+  (ptr!=NULL) ? (delete[] ptr) : (term_print("Error, can't dealloc NULL ptr from dynamic-memo!", ERR));     // Deallocate dynamic-memo
 }
 
 
 /* Template to calculate max-val */
 template<typename T>
-const T &max_val(const T &_val1, const T &_val2) {
-  return (_val1>_val2 ? _val1 : _val2);                                                                     // Return max-val
+const T &max_val(const T &val1, const T &val2) {
+  return (val1>val2 ? val1 : val2);                                                                         // Return max-val
 }
 
 
 /* Template to calculate min-val */
 template<typename T>
-const T &min_val(const T &_val1, const T &_val2) {
-  return (_val1<_val2 ? _val1 : _val2);                                                                     // Return min-val
+const T &min_val(const T &val1, const T &val2) {
+  return (val1<val2 ? val1 : val2);                                                                         // Return min-val
 }
 
 
 /* Template to swap values */
 template<typename T>
-void swap_val(T &_val1, T &_val2) {
-  const T _tmp=_val1;                                                                                       // Def tmp val
-  _val1=_val2;                                                                                              // Redef val1
-  _val2=_tmp;                                                                                               // Redef val2
+void swap_val(T &val1, T &val2) {
+  const T tmp=val1;                                                                                         // Def tmp val
+  val1=val2;                                                                                                // Redef val1
+  val2=tmp;                                                                                                 // Redef val2
 }
 
 
-/* Template to calculate array size (not for pointers/references) */
+/* Template to calculate array size (NOT for pointers/references) */
 template<typename T>
-Integer array_sz(const T &_arr) {
-  return sizeof(_arr)/sizeof(_arr[1]);                                                                      // Return array size
+Integer array_sz(const T &arr) {
+  return sizeof(arr)/sizeof(arr[1]);                                                                        // Return array size
 }
 
 

@@ -1,0 +1,73 @@
+[OPTIONS]
+Compatibility=1.1
+Full-text search=Yes
+Contents file=index.hhc
+Default Window=main
+Default topic=index.html
+Index file=index.hhk
+Language=0x409 English (United States)
+Title=TPA homework-2: building management
+
+[WINDOWS]
+main="TPA homework-2: building management","index.hhc","index.hhk","index.html","index.html",,,,,0x23520,,0x10387e,,,,,,,,0
+
+[FILES]
+makefile_source.html
+lib__building_8cpp_source.html
+lib__building_8hpp_source.html
+lib__building_8o_source.html
+lib__ui_8cpp_source.html
+lib__ui_8hpp_source.html
+lib__ui_8o_source.html
+lib__ui_8tpp_source.html
+homework_8cpp_source.html
+homework_8o_source.html
+makefile.html
+README_8md.html
+lib__building_8cpp.html
+lib__building_8hpp.html
+lib__building_8o.html
+lib__ui_8cpp.html
+lib__ui_8hpp.html
+lib__ui_8o.html
+lib__ui_8tpp.html
+homework_8cpp.html
+homework_8o.html
+classBuilding.html
+classFloor.html
+classRoom.html
+dir_019035373c12897c78f3a800af272514.html
+dir_c85d3e3c5052e9ad9ce18c6863244a25.html
+dir_5eb159725f84c66aafd839904a4acdd0.html
+dir_68267d1309a1af8e8297ef4c3efbcdba.html
+dir_e57892d16c19de33957de466495a098a.html
+index.html
+annotated.html
+classes.html
+hierarchy.html
+functions.html
+functions_func.html
+functions_vars.html
+files.html
+globals.html
+globals_func.html
+globals_vars.html
+globals_type.html
+globals_enum.html
+globals_eval.html
+globals_defs.html
+tab_a.png
+tab_b.png
+tab_h.png
+tab_s.png
+nav_h.png
+nav_f.png
+bc_s.png
+doxygen.png
+closed.png
+open.png
+bdwn.png
+sync_on.png
+sync_off.png
+classFloor.png
+classRoom.png

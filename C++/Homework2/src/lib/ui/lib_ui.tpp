@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library templates file
  * Code version: 3.0
  * Creation date: 30/05/2022
- * Last mod. date: 31/05/2022
+ * Last mod. date: 03/06/2022
  */
 
 
@@ -51,18 +51,18 @@ T term_get_val(C_string &req_str) {
 }
 
 
-/* Template to allocate dynamic-memo */
+/* Template to allocate dynamic-memo (vector) */
 template<typename T>
-T *alloc(C_integer &sz) {
-  T *ptr=new (std::nothrow) T[sz]; if (ptr==NULL) term_close_err("Error in dynamic-memo allocation!");      // Allocate dynamic-memo
+T* alloc(C_integer &sz) {
+  T *ptr=new (std::nothrow) T[sz]; if (ptr==NULL) term_close_err("Error in dynamic-memo alloc!");           // Allocate dynamic-memo
   return ptr;                                                                                               // Return ptr to the first allocated memory cell
 }
 
 
-/* Template to deallocate dynamic-memo */
+/* Template to deallocate dynamic-memo (vector) */
 template<typename T>
 void dealloc(const T *const ptr) {
-  (ptr!=NULL) ? (delete[] ptr) : (term_print("Error, can't deallocate NULL ptr from dynamic-memo!", ERR));  // Deallocate dynamic-memo
+  (ptr!=NULL) ? (delete[] ptr) : (term_print("Error, can't dealloc NULL ptr from dynamic-memo!", ERR));     // Deallocate dynamic-memo
 }
 
 
@@ -89,7 +89,14 @@ void swap_val(T &val1, T &val2) {
 }
 
 
-/* Template to calculate array size (not for pointers/references) */
+/* Template to get random values (funct random_init() should be called b4 this template) */
+template<typename T>
+const T random_val(const T &min_val, const T &max_val) {
+  return min_val+static_cast<T>(rand())/(static_cast<T>(RAND_MAX/(max_val-min_val)));                       // Return random value btwn min and max values
+}
+
+
+/* Template to calculate array size (NOT for pointers/references) */
 template<typename T>
 Integer array_sz(const T &arr) {
   return sizeof(arr)/sizeof(arr[1]);                                                                        // Return array size

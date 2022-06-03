@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 31/05/2022
+ * Last mod. date: 03/06/2022
  */
 
 
@@ -23,7 +23,7 @@ Boolean read_cl_param(C_integer &argc, char *const argv[], Real param[], C_integ
   term_print("Loading main command-line parameter(s)...");                                                  // Print oper fbk
   if (argc-1==param_sz) {                                                                                   // Chk for expected num of main param, if ok
     String *p=alloc<String>(argc-1);                                                                        // Allocate commands str dyn vect inside heap
-    for (Integer i=1; i<argc; ++i) {                                                                        // Param scrollin' cycle (skip prg name)
+    for (Byte i=1; i<argc; ++i) {                                                                           // Param scrollin' cycle (skip prg name)
       p[i-1]=argv[i];                                                                                       // Def commands str vect
       err_flg=chk_numeric_str(p[i-1], "Expecting real value, not char! [Param"+S(i)+": "+p[i-1]+"]");       // Chk each param str character to make sure it's numeric
       if (!err_flg) param[i-1]=atof(argv[i]); else break;                                                   // If everything is ok conv param into out var, while in case of err flg set xit param scrollin' cycle
@@ -40,7 +40,7 @@ Boolean read_cl_param(C_integer &argc, char *const argv[], Real param[], C_integ
 Boolean read_cl_param(C_integer &argc, char *const argv[], String param[], C_integer &param_sz) {
   term_print("Loading main command-line parameter(s)...");                                                  // Print oper fbk
   if (argc-1==param_sz){                                                                                    // Chk for expected num of main param, if ok
-    for (Integer i=1; i<argc; ++i) param[i-1]=argv[i];                                                      // Scroll param (skip prg name) and def commands str vect
+    for (Byte i=1; i<argc; ++i) param[i-1]=argv[i];                                                         // Scroll param (skip prg name) and def commands str vect
     return EXIT_SUCCESS;                                                                                    // Return OK code
   } else {                                                                                                  // Else in case wrong num of param
     term_print("Wrong param num in main funct-call: expecting "+S(param_sz)+", got "+S(argc-1)+"!", ERR);   // Print err fbk
@@ -56,8 +56,8 @@ void term_print_title(C_string &title_txt, C_string &title_col, C_character &bkg
   CU_short vthck=w.ws_row/5;                                                                                // Title bkg vertical thickness calc
   CU_short lthck=w.ws_col/6;                                                                                // Title bkg lateral thickness calc
   CU_short l_sp=lthck/2;                                                                                    // Title lateral spaces calc
-  CU_short lsp=(U_short)(w.ws_col-2*lthck-2*l_sp-title_txt.length())/2;                                     // Title internal lateral spaces calc
-  CU_short len=(U_short)(2*lthck+2*lsp+title_txt.length());                                                 // Title length calc
+  CU_short lsp=static_cast<U_short>((w.ws_col-2*lthck-2*l_sp-title_txt.length())/2);                        // Title internal lateral spaces calc
+  CU_short len=static_cast<U_short>(2*lthck+2*lsp+title_txt.length());                                      // Title length calc
   std::cout << std::endl << bkg_col;                                                                        // TITLE-PRINTIN': New line fbk
   for (U_short i=0; i<(4*vthck+1); ++i) {                                                                   // Title lines printin' cycle
     for (U_short j=0; j<l_sp; ++j) std::cout << SP;                                                         // Initial spaces printin' cycle
@@ -109,7 +109,7 @@ void term_close_err(C_string &err_str) {
 void term_close_bye(C_string &bye_str) {
   term_print_nl(1); if (bye_str!="") {term_print(bye_str);}                                                 // Print bye str
   std::cout << fbk_col[0] << ">>> " << fbk_col[1] << "Closin'..." << \
-  req_col[1] << " Bye! " << req_col[0] << ";)" << ER << std::endl;                                          // Closin' fbk
+  req_col[1] << " Bye! " << req_col[0] << ";)" << ER << std::endl << std::endl;                             // Closin' fbk
   exit(EXIT_SUCCESS);                                                                                       // Close software with OK code
 }
 
@@ -117,8 +117,8 @@ void term_close_bye(C_string &bye_str) {
 /* Funct to check numerical string (returns err flg) */
 Boolean chk_numeric_str(C_string &str, C_string &err_str) {
   Byte dots=0;                                                                                              // Decimal dots cnt var
-  const size_t str_sz=str.length();                                                                         // Calc str size
-  for (size_t i=0; i<str_sz; ++i) {                                                                         // Str scrollin' cycle
+  const U_short str_sz=static_cast<U_short>(str.length());                                                  // Calc str size
+  for (U_short i=0; i<str_sz; ++i) {                                                                        // Str scrollin' cycle
     if (str[i]=='.') ++dots;                                                                                // In case of decimal dot detected upd cnt
     if (isdigit(str[i])==0 && ((str[i]!='.' && str[i]!='+' && str[i]!='-') || \
         dots>1 || ((str[i]=='+' || str[i]=='-') && i!=0) || \
@@ -132,6 +132,18 @@ Boolean chk_numeric_str(C_string &str, C_string &err_str) {
 }
 
 
+/* Funct to check if real vals are equal */
+Boolean real_eq(C_real &val1, C_real &val2) {
+  return (fabs(val1-val2)<REAL_EPSILON ? true : false);                                                     // Return if real values are equal
+}
+
+
+/* Funct to check if real vals are different */
+Boolean real_df(C_real &val1, C_real &val2) {
+  return (fabs(val1-val2)>REAL_EPSILON ? true : false);                                                     // Return if real values are different
+}
+
+
 /* Funct to check if real val is equal to zero */
 Boolean real_eq_z(C_real &val) {
   return (fabs(val)<REAL_EPSILON ? true : false);                                                           // Chk and return if Real val is equal to zero
@@ -141,4 +153,10 @@ Boolean real_eq_z(C_real &val) {
 /* Funct to check if real val is different from zero */
 Boolean real_df_z(C_real &val) {
   return (fabs(val)>REAL_EPSILON ? true : false);                                                           // Chk and return if real val is different from zero
+}
+
+
+/* Funct to initialize time-based random sequence (call b4 random_val() template - not in a loop) */
+void random_init() {
+  srand(static_cast<U_integer>(time(NULL)));                                                                // Create random values using time-based seed
 }

@@ -3,7 +3,7 @@
  * Code title: UI (terminal I/O) library header file
  * Code version: 3.0
  * Creation date: 07/04/2022
- * Last mod. date: 31/05/2022 
+ * Last mod. date: 03/06/2022 
  */
 
 
@@ -15,12 +15,13 @@
 
 /* Libraries */
 #include <iostream>                                                                                         // I/O library inclusion (for cin, cout ecc.)
+#include <vector>                                                                                           // Vector library inclusion (for std::vector ecc.)
 #include <cmath>                                                                                            // Math library inclusion (for numeric_limits ecc.)
 #include <limits>                                                                                           // Limits library inclusion (for fabs ecc.)
 #include <unistd.h>                                                                                         // UniStd library inclusion (for stdout ecc.)
 #include <sys/ioctl.h>                                                                                      // System I/O control library inclusion (for ioctl ecc.)
-//#include <iomanip>                                                                                        // I/O mainp library inclusion (for setw ecc.)
-//#include <cctype>                                                                                         // C-ctype library inclusion (for tolower ecc.)
+//#include <iomanip>                                                                                        // I/O mainp library inclusion (for setw ecc.) [UNUSED]
+//#include <cctype>                                                                                         // C-ctype library inclusion (for tolower ecc.) [UNUSED]
 
 
 /* Constants */
@@ -40,6 +41,8 @@
 
 /* Macros */
 #define S(VAL)  std::to_string(VAL)                                                                         // Val-to-str conv macro
+#define TERM_ACQ_CYCLE(TXT, TYP, VAR, ERR_COND, ERR_TXT) \
+do {VAR=term_get_val<TYP>(TXT); if (ERR_COND) term_print(ERR_TXT, ERR); else break;} while (true)           // Terminal acquisition cycle macro
 
 
 /* Data-type limits */
@@ -128,23 +131,27 @@ Boolean read_cl_param(C_integer &argc, char *const argv[], Real param[], C_integ
 Boolean read_cl_param(C_integer &argc, char *const argv[], String param[], C_integer &param_sz);            // Funct to read String command-line parameters (returns err flg)
 void term_print_title(C_string &title_txt, C_string &title_col, C_character &bkg_chr, C_string &bkg_col);   // Funct to print responsive-title on terminal (title-txt, title-col, bkg-char, bkg-col)
 void term_print(C_string &fbk_str, C_print_typ &typ=FBK);                                                   // Funct to perform terminal print (default print-typ=FBK)
-void term_print_nl(C_integer &n);                                                                           // Funct to perform new-lines terminal print
+void term_print_nl(C_integer &n=1);                                                                         // Funct to perform new-lines terminal print
 void term_close_err(C_string &err_str="");                                                                  // Funct to close software terminal with error fbk
 void term_close_bye(C_string &bye_str="");                                                                  // Funct to close software terminal with bye fbk
 Boolean chk_numeric_str(C_string &str, C_string &err_str);                                                  // Funct to check numerical string (returns err flg)
+Boolean real_eq(C_real &val1, C_real &val2);                                                                // Funct to check if real vals are equal
+Boolean real_df(C_real &val1, C_real &val2);                                                                // Funct to check if real vals are different
 Boolean real_eq_z(C_real &val);                                                                             // Funct to check if real val is equal to zero
 Boolean real_df_z(C_real &val);                                                                             // Funct to check if real val is different from zero
+void random_init();                                                                                         // Funct to initialize time-based random sequence (call b4 random_val() template - not in a loop)
 
 
 /* Public templates */
 template<typename T> extern void term_print(C_string &fbk_str, const T &val);                               // Template to print val on terminal
 template<typename T> extern void term_print(C_string &fbk_str, const T &val, C_string &fbk_str2);           // Template to print val on terminal with details
 template<typename T> extern T term_get_val(C_string &req_str);                                              // Template to get user input val from terminal
-template<typename T> extern T *alloc(C_integer &sz);                                                        // Template to allocate dynamic-memo
-template<typename T> extern void dealloc(const T *const ptr);                                               // Template to deallocate dynamic-memo
+template<typename T> extern T* alloc(C_integer &sz);                                                        // Template to allocate dynamic-memo (vector)
+template<typename T> extern void dealloc(const T *const ptr);                                               // Template to deallocate dynamic-memo (vector)
 template<typename T> extern const T &max_val(const T &val1, const T &val2);                                 // Template to calculate max-val
 template<typename T> extern const T &min_val(const T &val1, const T &val2);                                 // Template to calculate min-val
 template<typename T> extern void swap_val(T &val1, T &val2);                                                // Template to swap values
+template<typename T> extern const T random_val(const T &min_val, const T &max_val);                         // Template to get random values (funct random_init() should be called b4 this template)
 template<typename T> extern Integer array_sz(const T &arr);                                                 // Template to calculate array size (not for pointers/references)
 
 

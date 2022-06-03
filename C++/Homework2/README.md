@@ -18,7 +18,7 @@
   - `lib:` folder containing code libraries & packages.
   - `main:` folder containing project main code files.
 - `homework.exe:` project executable generated using makefile.
-- `makefile:` use command **make** to compile, ***make run*** to execute or ***make all_run*** to compile and execute. It is also possible use ***make doc_open*** command, to open code doxygen-html documentation (quick-documentation, not detailed).
+- `makefile:` use command **make** to compile, ***make run*** to execute or ***make all_run*** to compile and execute. It is also possible to use ***make doc_open*** command, to open code doxygen-html documentation (quick-documentation, not detailed).
 
 ---
 

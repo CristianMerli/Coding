@@ -1,8 +1,8 @@
-<h1><b>Homework-1 structure</h1></b>
+<h1><b>Homework-1 structure</b></h1>
 
 ---
 
-<h2><b>Files and folders for the course TPA: Homework-1.</h2></b>
+<h2><b>Main folders structure of the TPA course Homework-1:</h2></b>
 
 ---
 

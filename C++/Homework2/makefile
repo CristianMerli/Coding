@@ -151,7 +151,7 @@ clr: $(MAIN_EXE) $(MAIN_OUT) $(LIB_UI_OUT) $(LIB_BUILDING_OUT)
 
 # (7.1) Detect Linux/Mac OS to define open command
 UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Linux)
+ifeq ($(UNAME_S), Linux)
 	OPEN_CMD += xdg-open
 else
 	OPEN_CMD += open

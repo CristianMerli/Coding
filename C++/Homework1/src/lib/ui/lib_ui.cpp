@@ -112,6 +112,6 @@ void close_err(C_string &err_str){                                              
 void close_bye(C_string &bye_str){                                                                          // Funct to close software with bye fbk
   if (bye_str!="") {TERM_NL(1); term_print(bye_str);} else std::cout << std::endl;                          // Print bye str
   std::cout << GN << ">>> " << PU << "Closin'...";                                                          // Closin' fbk
-  std::cout << CY << " Bye! " << OG << ";)" << ER << std::endl;                                             // Closin' fbk
+  std::cout << CY << " Bye! " << OG << ";)" << ER << std::endl << std::endl;                                // Closin' fbk
   exit(EXIT_SUCCESS);                                                                                       // Close software with ERR code
 }

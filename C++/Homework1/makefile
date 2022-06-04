@@ -6,13 +6,13 @@
 ###   Code title: HW-makefile      ###
 ###   Code version: 3.0            ###
 ###   Creation date: 30/04/2022    ###
-###   Last mod. date: 31/05/2022   ###
+###   Last mod. date: 04/06/2022   ###
 ###                                ###
 ######################################
 
 
 ################################
-#   (1) PATHS AND PARAMETERS:  #
+#          (1) PATHS:          #
 ################################
 
 # (1.1) Software paths
@@ -25,69 +25,92 @@ DATAPATH          =   data
 DATAINPATH        =   $(DATAPATH)/input
 DATAOUTPATH       =   $(DATAPATH)/output
 
-# (1.3) Main-parameters [separate parameters with spaces]
+# (1.3) Documentation paths
+DOC_FLD           =   doc
+DOC_CODE_FLD      =   $(DOC_FLD)/code
+DOC_CODE_EXP_FLD  =   $(DOC_CODE_FLD)/exports
+#ABSTR_FLD        =   $(DOC_FLD)/abstract [UNUSED]
+
+
+################################
+#       (2) PARAMETERS:        #
+################################
+
+# (2.1) Main command-line-parameters [SEPARATE PARAMETERS WITH SPACES]
 PARAMETERS        =   $(DATAINPATH)/matrix.txt $(DATAINPATH)/kernel.txt $(DATAOUTPATH)/maxpool.txt $(DATAOUTPATH)/avgpool.txt $(DATAOUTPATH)/relu.txt $(DATAOUTPATH)/convol.txt
 
 
 ################################
-#          (2) FILES:          #
+#     (3) SOFTWARE FILES:      #
 ################################
 
-# (2.1) File-names
+# (3.1) Software file-names
 MAIN_NM           =   homework
 LIB_UI_NM         =   lib_ui
 LIB_FILES_NM      =   lib_files
 LIB_MATRICES_NM   =   lib_matrices
 LIB_CNN_NM        =   lib_cnn
 
-# (2.2) File-folders
+# (3.2) Software file-folders
 MAIN_FLD          =   $(MAINPATH)/
 LIB_UI_FLD        =   $(LIBPATH)/ui/
 LIB_FILES_FLD     =   $(LIBPATH)/files/
 LIB_MATRICES_FLD  =   $(LIBPATH)/matrices/
 LIB_CNN_FLD       =   $(LIBPATH)/cnn/
 
-# (2.3) File-extensions
+# (3.3) Software file-extensions
 CPP_EXT           =   .cpp
 HEADER_EXT        =   .hpp
 OBJ_EXT           =   .o
 LIB_EXT           =   .o
 EXE_EXT           =   .exe
 
-# (2.4) Source-files
+# (3.4) Software source-files
 MAIN_IN           =   $(MAIN_FLD)$(MAIN_NM)$(CPP_EXT)
 LIB_UI_IN         =   $(LIB_UI_FLD)$(LIB_UI_NM)$(CPP_EXT)
 LIB_FILES_IN      =   $(LIB_FILES_FLD)$(LIB_FILES_NM)$(CPP_EXT)
 LIB_MATRICES_IN   =   $(LIB_MATRICES_FLD)$(LIB_MATRICES_NM)$(CPP_EXT)
 LIB_CNN_IN        =   $(LIB_CNN_FLD)$(LIB_CNN_NM)$(CPP_EXT)
 
-# (2.5) Header-files
+# (3.5) Software header-files
 LIB_UI_H          =   $(LIB_UI_FLD)$(LIB_UI_NM)$(HEADER_EXT)
 LIB_FILES_H       =   $(LIB_FILES_FLD)$(LIB_FILES_NM)$(HEADER_EXT)
 LIB_MATRICES_H    =   $(LIB_MATRICES_FLD)$(LIB_MATRICES_NM)$(HEADER_EXT)
 LIB_CNN_H         =   $(LIB_CNN_FLD)$(LIB_CNN_NM)$(HEADER_EXT)
 
-# (2.6) Output-files
+# (3.6) Software output-files
 MAIN_OUT          =   $(MAIN_FLD)$(MAIN_NM)$(OBJ_EXT)
 LIB_UI_OUT        =   $(LIB_UI_FLD)$(LIB_UI_NM)$(LIB_EXT)
 LIB_FILES_OUT     =   $(LIB_FILES_FLD)$(LIB_FILES_NM)$(LIB_EXT)
 LIB_MATRICES_OUT  =   $(LIB_MATRICES_FLD)$(LIB_MATRICES_NM)$(LIB_EXT)
 LIB_CNN_OUT       =   $(LIB_CNN_FLD)$(LIB_CNN_NM)$(LIB_EXT)
 
-# (2.7) Extecutable-file
+# (3.7) Software extecutable-file
 MAIN_EXE          =   $(MAIN_NM)$(EXE_EXT)
 
 
 ################################
-#   (3) COMMANDS AND FLAGS:    #
+#   (4) DOCUMENTATION FILES:   #
 ################################
 
-# (3.1) Compiler info
+# (4.1) Doxygen-documentation-files
+DOC_CONFIG        =   $(DOC_CODE_FLD)/doxygen_config
+DOC_HTML          =   $(DOC_CODE_EXP_FLD)/html/index.html
+
+# (4.2) Abstract-pdf-file (from LaTeX) [UNUSED]
+#ABSTR_PDF        =    $(ABSTR_FLD)/relazione-finale-CRISTIAN-MERLI.pdf
+
+
+################################
+#        (5) COMPILER:         #
+################################
+
+# (5.1) Compiler info
 COMP_NAME       =   g++
 COMP_LANG       =   c++
 COMP_VERS       =   11
 
-# (3.2) Compile & run commands vars
+# (5.2) Compile & run commands
 COMPILE_LIB     =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
 COMPILE_MAIN    =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -c -o
 LINK            =   $(COMP_NAME) -std=$(COMP_LANG)$(COMP_VERS) -O2 -Wall -Werror -Wextra -Wconversion -Wfloat-equal -pedantic-errors -o
@@ -95,10 +118,10 @@ RUN             =	  ./
 
 
 ################################
-#        (4) MAKE CMDS:        #
+#      (6) SOFTWARE CMDS:      #
 ################################
 
-# (4.1) Compile and link all files
+# (6.1) Compile and link all files
 all: $(MAIN_IN) $(LIB_UI_IN) $(LIB_CNN_IN) $(LIB_UI_H) $(LIB_CNN_H)
 	$(COMPILE_LIB) $(LIB_UI_OUT) $(LIB_UI_IN)
 	$(COMPILE_LIB) $(LIB_FILES_OUT) $(LIB_FILES_IN)
@@ -107,11 +130,11 @@ all: $(MAIN_IN) $(LIB_UI_IN) $(LIB_CNN_IN) $(LIB_UI_H) $(LIB_CNN_H)
 	$(COMPILE_MAIN) $(MAIN_OUT) $<
 	$(LINK) $(MAIN_EXE) $(MAIN_OUT) $(LIB_UI_OUT) $(LIB_FILES_OUT) $(LIB_MATRICES_OUT) $(LIB_CNN_OUT)
 
-# (4.2) Run software (main)
+# (6.2) Run software (main)
 run: $(MAIN_EXE)
 	$(RUN)$< $(PARAMETERS)
 
-# (4.3) Compile and link all files + run software (main) --> [4.1 + 4.2]
+# (6.3) Compile and link all files + run software (main) --> [6.1 + 6.2]
 all_run: $(MAIN_IN) $(LIB_UI_IN) $(LIB_CNN_IN) $(LIB_UI_H) $(LIB_CNN_H)
 	$(COMPILE_LIB) $(LIB_UI_OUT) $(LIB_UI_IN)
 	$(COMPILE_LIB) $(LIB_FILES_OUT) $(LIB_FILES_IN)
@@ -121,7 +144,7 @@ all_run: $(MAIN_IN) $(LIB_UI_IN) $(LIB_CNN_IN) $(LIB_UI_H) $(LIB_CNN_H)
 	$(LINK) $(MAIN_EXE) $(MAIN_OUT) $(LIB_UI_OUT) $(LIB_FILES_OUT) $(LIB_MATRICES_OUT) $(LIB_CNN_OUT)
 	$(RUN)$(MAIN_EXE) $(PARAMETERS)
 
-# (4.4) Commands to compile and link step-by-step
+# (6.4) Commands to compile and link step-by-step
 compile_lib_ui: $(LIB_UI_IN) $(LIB_UI_H)
 	$(COMPILE_LIB) $(LIB_UI_OUT) $<
 compile_lib_files: $(LIB_FILES_IN) $(LIB_FILES_H)
@@ -135,6 +158,41 @@ compile_main: $(MAIN_IN)
 link_all: $(MAIN_OUT) $(LIB_UI_OUT) $(LIB_FILES_OUT) $(LIB_MATRICES_OUT) $(LIB_CNN_OUT)
 	$(LINK) $(MAIN_EXE) $^
 
-# (4.5) Clear
+# (6.5) Clear
 clr: $(MAIN_EXE) $(MAIN_OUT) $(LIB_UI_OUT) $(LIB_FILES_OUT) $(LIB_MATRICES_OUT) $(LIB_CNN_OUT)
 	rm $^
+
+
+###############################
+#   (7) DOCUMENTATION CMDS:   #
+###############################
+
+# (7.1) Detect Linux/Mac OS to define open command
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S), Linux)
+	OPEN_CMD += xdg-open
+else
+	OPEN_CMD += open
+endif
+
+# (7.2) Open doxygen-html documentation
+doc_open: $(DOC_HTML)
+	$(OPEN_CMD) $<
+
+# (7.3) Generate doxygen-html documentation
+doc_gen: $(DOC_CONFIG)
+	doxygen $<
+
+# (7.4) Clear doxygen-html documentation
+doc_clr: $(DOC_CODE_EXP_FLD)
+	rm -r $</*
+
+# (7.5) Clear + generate + open doxygen-html documentation --> [7.4 + 7.2 + 7.3]
+doc_clr_gen_open: $(DOC_CODE_EXP_FLD) $(DOC_CONFIG)
+	rm -r $</*
+	doxygen $(DOC_CONFIG)
+	$(OPEN_CMD) $(DOC_HTML)
+
+# (7.6) Open abstract pdf file (made with LaTeX) [UNUSED]
+#abstract_open: $(ABSTR_PDF)
+#	$(OPEN_CMD) $(ABSTR_PDF)

@@ -12,32 +12,32 @@
 
 
 ################################
-#       (1) PARAMETERS:        #
+#          (1) PATHS:          #
 ################################
 
-# (1.1) Main command-line-parameters [SEPARATE PARAMETERS WITH SPACES] [UNUSED]
-PARAMETERS        =   0
-
-
-################################
-#          (2) PATHS:          #
-################################
-
-# (2.1) Software paths
+# (1.1) Software paths
 SRCPATH           =   src
 MAINPATH          =   $(SRCPATH)/main
 LIBPATH           =   $(SRCPATH)/lib
 
-# (2.2) Data paths [UNUSED]
+# (1.2) Data paths [UNUSED]
 #DATAPATH         =   data
 #DATAINPATH       =   $(DATAPATH)/input
 #DATAOUTPATH      =   $(DATAPATH)/output
 
-# (2.3) Documentation paths
+# (1.3) Documentation paths
 DOC_FLD           =   doc
 DOC_CODE_FLD      =   $(DOC_FLD)/code
 DOC_CODE_EXP_FLD  =   $(DOC_CODE_FLD)/exports
 #ABSTR_FLD        =   $(DOC_FLD)/abstract [UNUSED]
+
+
+################################
+#       (2) PARAMETERS:        #
+################################
+
+# (2.1) Main command-line-parameters [SEPARATE PARAMETERS WITH SPACES] [UNUSED]
+PARAMETERS        =   0
 
 
 ################################
